@@ -382,4 +382,70 @@ th .verification-badge {
   margin-left: auto;
 }
 
+/* ============================================
+   CATEGORY BADGES - High Contrast Colors
+   ============================================ */
+
+.category-badge {
+  display: inline-block;
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--color-black);
+  margin-bottom: 0.5rem;
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+/* Category-specific colors with high contrast */
+.skill-card-wrapper[data-category="business"] .category-badge {
+  background-color: #7c3aed; /* Purple */
+  border-color: #7c3aed;
+  color: #ffffff;
+}
+
+.skill-card-wrapper[data-category="development"] .category-badge {
+  background-color: #0891b2; /* Cyan */
+  border-color: #0891b2;
+  color: #ffffff;
+}
+
+.skill-card-wrapper[data-category="frontend"] .category-badge {
+  background-color: #ea580c; /* Orange */
+  border-color: #ea580c;
+  color: #ffffff;
+}
+
+.skill-card-wrapper[data-category="documentation"] .category-badge {
+  background-color: #059669; /* Green */
+  border-color: #059669;
+  color: #ffffff;
+}
+
+.skill-card-wrapper[data-category="collaboration"] .category-badge {
+  background-color: #db2777; /* Pink */
+  border-color: #db2777;
+  color: #ffffff;
+}
+
+.skill-card-wrapper[data-category="devops"] .category-badge {
+  background-color: #4f46e5; /* Indigo */
+  border-color: #4f46e5;
+  color: #ffffff;
+}
+
+.skill-card-wrapper[data-category="tools"] .category-badge {
+  background-color: #475569; /* Slate */
+  border-color: #475569;
+  color: #ffffff;
+}
+
+/* Default/fallback for any other categories */
+.skill-card .category-badge {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
 
