@@ -1,6 +1,37 @@
 # Code Review Skill
 # AI-powered code review skill for multiple agentic coding tools
 
+# ============================================
+# VERIFICATION & TRUTH
+# ============================================
+verification:
+  status: "community"
+  last_verified: "2024-01-15"
+  verified_by: "@community"
+  next_review: "2024-04-15"
+
+compatibility:
+  codex:
+    status: "verified"
+    as_of: "2024-01-15"
+  claude_code:
+    status: "verified"
+    as_of: "2024-01-15"
+  cursor:
+    status: "uncertain"
+    as_of: null
+  opencode:
+    status: "uncertain"
+    as_of: null
+
+sources:
+  documentation: null
+  github: "https://github.com/sickn33/antigravity-awesome-skills/blob/main/skills/code-review"
+  npm: null
+
+# ============================================
+# BASIC INFO
+# ============================================
 name: "Code Review"
 slug: "code-review"
 description: "Automated code review skill that checks for bugs, performance issues, and best practices. Supports multiple programming languages."

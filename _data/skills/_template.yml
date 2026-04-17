@@ -1,0 +1,66 @@
+# Skill Definition Template
+# Place this file in _data/skills/{category}/your-skill.yml
+
+# ============================================
+# VERIFICATION & TRUTH
+# ============================================
+verification:
+  status: "community"         # verified | community | uncertain | stale
+  last_verified: null       # "YYYY-MM-DD" or null
+  verified_by: null         # @official_team or @community_user
+  next_review: null         # "YYYY-MM-DD" (quarterly cycle)
+  
+# Compatibility verification (per-tool)
+compatibility:
+  codex:
+    status: "unverified"    # verified | uncertain | unverified
+    as_of: null
+  claude_code:
+    status: "unverified"
+    as_of: null
+  cursor:
+    status: "unverified"
+    as_of: null
+  opencode:
+    status: "unverified"
+    as_of: null
+
+# Official sources
+sources:
+  documentation: null         # https://docs.example.com/skill
+  github: null              # https://github.com/owner/skill-repo
+  npm: null                 # https://www.npmjs.com/package/skill-name
+
+# ============================================
+# BASIC INFO
+# ============================================
+name: "Skill Name"
+slug: "skill-slug"
+description: "Brief description of what this skill does"
+category: "development"     # development, frontend, business, documentation, devops, collaboration, tools
+tags:
+  - tag1
+  - tag2
+
+compatible_tools:
+  - codex
+  - claude_code
+  - cursor
+  - opencode
+
+install_commands:
+  codex: "codex skills install skill-slug"
+  claude_code: "claude skills install skill-slug"
+  opencode: "opencode skills install skill-slug"
+  cursor: "cursor skills install skill-slug"
+
+usage_example: |
+  # Example usage
+  /command arg1 arg2
+
+# Metadata
+author: "Author Name"
+source_url: "https://github.com/owner/repo"
+license: "MIT"
+version: "1.0.0"
+featured: false

@@ -272,6 +272,39 @@
   background-color: #ef4444 !important;
 }
 
+/* ============================================
+   SKILL VERIFICATION BADGES
+   ============================================ */
+
+.skill-verification-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: white;
+  cursor: help;
+  white-space: nowrap;
+}
+
+/* Skill card badge placement */
+.skill-card .skill-verification-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 10;
+}
+
+/* Skill card position context */
+.skill-card {
+  position: relative;
+}
+
 /* Tool card badge placement */
 .tool-card .verification-badge {
   position: absolute;
