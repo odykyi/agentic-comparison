@@ -22,7 +22,6 @@ description: Detailed feature and command comparison across all AI coding tools
               <option value="all">All Categories</option>
               <option value="core">Core Features</option>
               <option value="mcp">MCP & Integration</option>
-              <option value="commands">Commands & CLI</option>
               <option value="skills">Skills/Agents</option>
               <option value="editor">Editor Integration</option>
               <option value="pricing">Pricing & Limits</option>
@@ -43,7 +42,7 @@ description: Detailed feature and command comparison across all AI coding tools
               type="text"
               class="form-control"
               id="feature-search"
-              placeholder="Search features, commands..."
+              placeholder="Search features..."
             />
           </div>
         </div>
@@ -247,117 +246,6 @@ description: Detailed feature and command comparison across all AI coding tools
             {% endunless %}{% endfor %}
           </tr>
 
-          <!-- COMMANDS SECTION -->
-          <tr class="section-header">
-            <td
-              colspan="{{ site.data.tools.size | plus: 2 }}"
-              class="bg-info text-white fw-bold"
-            >
-              <i class="bi bi-terminal me-2"></i>Commands & CLI
-            </td>
-          </tr>
-
-          <!-- Ask/Chat Command -->
-          <tr data-category="commands">
-            <td class="category-cell">Commands</td>
-            <td class="feature-cell">
-              <strong>Ask/Chat</strong>
-              <small class="text-muted d-block">General coding question</small>
-            </td>
-            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
-            <td class="text-center align-middle">
-              {% if tool[0] == 'opencode' %}
-              <code>/ask</code> or type {% elsif tool[0] == 'codex' %}
-              <code>codex</code>
-              {% elsif tool[0] == 'claude_code' %} Type naturally {% elsif
-              tool[0] == 'copilot_cli' %}
-              <code>gh copilot suggest</code>
-              {% endif %}
-            </td>
-            {% endunless %}{% endfor %}
-          </tr>
-
-          <!-- Code Command -->
-          <tr data-category="commands">
-            <td class="category-cell">Commands</td>
-            <td class="feature-cell">
-              <strong>Generate/Edit Code</strong>
-              <small class="text-muted d-block">Create or modify code</small>
-            </td>
-            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
-            <td class="text-center align-middle">
-              {% if tool[0] == 'opencode' %}
-              <code>/code</code> or type {% elsif tool[0] == 'codex' %}
-              <code>codex -q "..."</code>
-              {% elsif tool[0] == 'claude_code' %} Type naturally {% elsif
-              tool[0] == 'copilot_cli' %}
-              <code>gh copilot explain</code>
-              {% endif %}
-            </td>
-            {% endunless %}{% endfor %}
-          </tr>
-
-          <!-- Test Command -->
-          <tr data-category="commands">
-            <td class="category-cell">Commands</td>
-            <td class="feature-cell">
-              <strong>Run Tests</strong>
-              <small class="text-muted d-block">Execute test suites</small>
-            </td>
-            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
-            <td class="text-center align-middle">
-              {% if tool[1].capabilities and tool[1].capabilities.test_execution
-              %}
-              <span class="badge bg-success">✓ Built-in</span>
-              {% elsif tool[0] == 'opencode' %}
-              <code>/test</code>
-              {% else %}
-              <span class="text-muted">Via terminal</span>
-              {% endif %}
-            </td>
-            {% endunless %}{% endfor %}
-          </tr>
-
-          <!-- Debug Command -->
-          <tr data-category="commands">
-            <td class="category-cell">Commands</td>
-            <td class="feature-cell">
-              <strong>Debug/Fix Errors</strong>
-              <small class="text-muted d-block">Auto-debug failing code</small>
-            </td>
-            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
-            <td class="text-center align-middle">
-              {% if tool[0] == 'opencode' %}
-              <code>/debug</code> or error click {% elsif tool[0] ==
-              'claude_code' %} Paste error {% else %}
-              <span class="text-muted">Manual</span>
-              {% endif %}
-            </td>
-            {% endunless %}{% endfor %}
-          </tr>
-
-          <!-- Git Commit -->
-          <tr data-category="commands">
-            <td class="category-cell">Commands</td>
-            <td class="feature-cell">
-              <strong>Git Commit</strong>
-              <small class="text-muted d-block"
-                >Auto-generate commit message</small
-              >
-            </td>
-            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
-            <td class="text-center align-middle">
-              {% if tool[0] == 'opencode' %}
-              <code>/commit</code>
-              {% elsif tool[0] == 'claude_code' %}
-              <span class="text-muted">Manual</span>
-              {% else %}
-              <span class="text-muted">N/A</span>
-              {% endif %}
-            </td>
-            {% endunless %}{% endfor %}
-          </tr>
-
           <!-- SKILLS/AGENTS SECTION -->
           <tr class="section-header">
             <td
@@ -374,7 +262,7 @@ description: Detailed feature and command comparison across all AI coding tools
             <td class="feature-cell">
               <strong>Skill Storage Location</strong>
               <small class="text-muted d-block"
-                >Where skills/commands are defined</small
+                >Where skills are defined</small
               >
             </td>
             {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}

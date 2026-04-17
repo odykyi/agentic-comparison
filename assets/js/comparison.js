@@ -19,6 +19,21 @@ function initToolFilter() {
   // Build dropdown content
   let dropdownHTML = '<li><h6 class="dropdown-header">Show/Hide Tools</h6></li>';
   
+  // Add Select All / Hide All buttons
+  dropdownHTML += `
+    <li>
+      <div class="dropdown-item d-flex gap-2 py-2">
+        <button type="button" class="btn btn-sm btn-outline-primary flex-fill" id="tool-select-all">
+          <i class="bi bi-check-all"></i> Select All
+        </button>
+        <button type="button" class="btn btn-sm btn-outline-secondary flex-fill" id="tool-hide-all">
+          <i class="bi bi-x-lg"></i> Hide All
+        </button>
+      </div>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+  `;
+  
   toolHeaders.forEach((th, index) => {
     const toolKey = th.dataset.tool;
     const toolName = th.textContent.trim();
@@ -49,6 +64,30 @@ function initToolFilter() {
       toggleColumn(colIndex, this.checked);
     });
   });
+
+  // Add Select All / Hide All button handlers
+  const selectAllBtn = document.getElementById("tool-select-all");
+  const hideAllBtn = document.getElementById("tool-hide-all");
+
+  if (selectAllBtn) {
+    selectAllBtn.addEventListener("click", function () {
+      toolFilter.querySelectorAll('input[type="checkbox"]').forEach((cb) => {
+        cb.checked = true;
+        const colIndex = cb.dataset.colIndex;
+        toggleColumn(colIndex, true);
+      });
+    });
+  }
+
+  if (hideAllBtn) {
+    hideAllBtn.addEventListener("click", function () {
+      toolFilter.querySelectorAll('input[type="checkbox"]').forEach((cb) => {
+        cb.checked = false;
+        const colIndex = cb.dataset.colIndex;
+        toggleColumn(colIndex, false);
+      });
+    });
+  }
 }
 
 // Initialize Category Filter Dropdown

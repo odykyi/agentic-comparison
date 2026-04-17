@@ -1,12 +1,12 @@
-// Placeholder for tool-specific styles
-// This file will contain styles specific to tool pages
+/* Placeholder for tool-specific styles */
+/* This file will contain styles specific to tool pages */
 
 .tool-page {
-  // Tool-specific color overrides will be applied via inline styles
-  // based on the tool color variables defined in _bootstrap-variables.scss
+  /* Tool-specific color overrides will be applied via inline styles */
+  /* based on the tool color variables defined in _bootstrap-variables.scss */
 }
 
-// Comparison table specific styles
+/* Comparison table specific styles */
 .comparison-table {
   th {
     position: sticky;
@@ -19,7 +19,7 @@
   }
 }
 
-// Mobile card view for comparison matrix
+/* Mobile card view for comparison matrix */
 .comparison-cards {
   .comparison-card {
     border: 1px solid #e2e8f0;
@@ -50,3 +50,81 @@
     }
   }
 }
+
+/* Dropdown fixes for comparison page */
+.comparison-controls .dropdown-menu {
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #dee2e6;
+}
+
+.comparison-controls .dropdown-menu .form-check {
+  min-height: auto;
+  padding-left: 1.5em;
+}
+
+.comparison-controls .dropdown-menu .form-check-input {
+  margin-left: -1.5em;
+}
+
+.comparison-controls .dropdown-item-text {
+  padding: 0.25rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* Prevent dropdown from being cut off */
+.comparison-controls .dropdown {
+  position: relative;
+}
+
+/* Fix dropdown positioning on mobile */
+@media (max-width: 768px) {
+  .comparison-controls .dropdown-menu {
+    position: absolute !important;
+    left: 0 !important;
+    right: auto !important;
+    width: 100%;
+    min-width: 200px !important;
+  }
+  
+  .comparison-controls .dropdown-menu-end {
+    right: 0 !important;
+    left: auto !important;
+  }
+}
+
+/* Ensure dropdowns work with sticky header */
+.comparison-controls.sticky-top {
+  z-index: 1020;
+}
+
+.comparison-controls .dropdown-menu {
+  z-index: 1030;
+}
+
+/* Fix for Bootstrap dropdowns inside flex containers */
+.comparison-controls .d-flex .dropdown {
+  position: relative;
+}
+
+/* Select All / Hide All buttons in dropdown */
+.comparison-controls .dropdown-menu .btn-sm {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.comparison-controls .dropdown-menu .dropdown-item.d-flex {
+  padding: 0.5rem 1rem;
+}
+
+/* Sticky controls z-index management */
+.comparison-page .sticky-top {
+  z-index: 1020;
+}
+
+/* Make sure dropdowns appear above table headers */
+.comparison-page .dropdown-menu {
+  z-index: 1030;
+}
+
