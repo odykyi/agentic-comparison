@@ -1,0 +1,36 @@
+# TDD Assistant
+# Test-Driven Development skill
+
+name: "TDD Assistant"
+slug: "tdd-assistant"
+description: "Guides you through Test-Driven Development workflows. Generates failing tests first, then minimal implementation, then refactoring - the red-green-refactor cycle."
+category: "testing"
+tags:
+  - tdd
+  - testing
+  - development
+  - workflow
+  - red-green-refactor
+
+compatible_tools:
+  - codex
+  - claude_code
+  - opencode
+  - aider
+
+install_commands:
+  codex: "codex skills install tdd-assistant"
+  claude_code: "claude skills install tdd-assistant"
+  opencode: "opencode skills install tdd-assistant"
+  aider: "aider --skill tdd-assistant"
+
+usage_example: |
+  # Start TDD workflow
+  /tdd Start implementing a user registration endpoint
+
+author: "Antigravity Awesome Skills"
+source_url: "https://github.com/sickn33/antigravity-awesome-skills"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

@@ -1,0 +1,36 @@
+# Security Auditor
+# Security review and audit skill
+
+name: "Security Auditor"
+slug: "security-auditor"
+description: "Comprehensive security audit skill covering OWASP Top 10, authentication, authorization, input validation, secrets management, and vulnerability detection."
+category: "security"
+tags:
+  - security
+  - audit
+  - owasp
+  - vulnerability
+  - authentication
+
+compatible_tools:
+  - codex
+  - claude_code
+  - opencode
+  - aider
+
+install_commands:
+  codex: "codex skills install security-auditor"
+  claude_code: "claude skills install security-auditor"
+  opencode: "opencode skills install security-auditor"
+  aider: "aider --skill security-auditor"
+
+usage_example: |
+  # Audit for security issues
+  /security-auditor Review this API endpoint for auth and validation risks
+
+author: "Antigravity Awesome Skills"
+source_url: "https://github.com/sickn33/antigravity-awesome-skills"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

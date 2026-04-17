@@ -1,0 +1,36 @@
+# Debugging Strategies
+# Advanced debugging skill
+
+name: "Debugging Strategies"
+slug: "debugging-strategies"
+description: "Systematic debugging approaches for complex issues. Uses breakpoint analysis, log tracing, root cause identification, and fix verification strategies."
+category: "debugging"
+tags:
+  - debugging
+  - troubleshooting
+  - breakpoints
+  - logs
+  - root-cause
+
+compatible_tools:
+  - codex
+  - claude_code
+  - opencode
+  - aider
+
+install_commands:
+  codex: "codex skills install debugging-strategies"
+  claude_code: "claude skills install debugging-strategies"
+  opencode: "opencode skills install debugging-strategies"
+  aider: "aider --skill debugging-strategies"
+
+usage_example: |
+  # Debug an issue
+  /debugging-strategies Help me find why this API call is failing
+
+author: "Antigravity Awesome Skills"
+source_url: "https://github.com/sickn33/antigravity-awesome-skills"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

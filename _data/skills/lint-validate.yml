@@ -1,0 +1,36 @@
+# Lint & Validate
+# Code quality and linting skill
+
+name: "Lint & Validate"
+slug: "lint-validate"
+description: "Comprehensive code quality checks including linting, type checking, format validation, and style guide enforcement. Keeps code clean and consistent."
+category: "code-quality"
+tags:
+  - linting
+  - quality
+  - validation
+  - formatting
+  - style
+
+compatible_tools:
+  - codex
+  - claude_code
+  - opencode
+  - aider
+
+install_commands:
+  codex: "codex skills install lint-validate"
+  claude_code: "claude skills install lint-validate"
+  opencode: "opencode skills install lint-validate"
+  aider: "aider --skill lint-validate"
+
+usage_example: |
+  # Run linting and validation
+  /lint-validate Check this file for style and quality issues
+
+author: "Antigravity Awesome Skills"
+source_url: "https://github.com/sickn33/antigravity-awesome-skills"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

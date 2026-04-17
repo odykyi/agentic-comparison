@@ -1,0 +1,37 @@
+# API Design Principles
+# API design and architecture skill
+
+name: "API Design Principles"
+slug: "api-design"
+description: "Expert API design guidance covering REST, GraphQL, and gRPC patterns. Ensures consistency, version strategy, authentication, and documentation standards."
+category: "architecture"
+tags:
+  - api
+  - rest
+  - graphql
+  - design
+  - architecture
+  - backend
+
+compatible_tools:
+  - codex
+  - claude_code
+  - opencode
+  - aider
+
+install_commands:
+  codex: "codex skills install api-design"
+  claude_code: "claude skills install api-design"
+  opencode: "opencode skills install api-design"
+  aider: "aider --skill api-design"
+
+usage_example: |
+  # Design a new API endpoint
+  /api-design Design a RESTful API for user management
+
+author: "Antigravity Awesome Skills"
+source_url: "https://github.com/sickn33/antigravity-awesome-skills"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

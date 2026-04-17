@@ -1,0 +1,37 @@
+# Frontend Design
+# UI/UX and frontend design skill
+
+name: "Frontend Design"
+slug: "frontend-design"
+description: "UI/UX design skill for creating beautiful, accessible interfaces. Covers component architecture, design systems, responsive design, and accessibility best practices."
+category: "frontend"
+tags:
+  - frontend
+  - ui
+  - ux
+  - design
+  - accessibility
+  - responsive
+
+compatible_tools:
+  - codex
+  - claude_code
+  - opencode
+  - continue
+
+install_commands:
+  codex: "codex skills install frontend-design"
+  claude_code: "claude skills install frontend-design"
+  opencode: "opencode skills install frontend-design"
+  continue: "continue install frontend-design"
+
+usage_example: |
+  # Design a component
+  /frontend-design Create a responsive navigation bar with mobile hamburger menu
+
+author: "Antigravity Awesome Skills"
+source_url: "https://github.com/sickn33/antigravity-awesome-skills"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true
