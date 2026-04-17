@@ -1,0 +1,52 @@
+// Placeholder for tool-specific styles
+// This file will contain styles specific to tool pages
+
+.tool-page {
+  // Tool-specific color overrides will be applied via inline styles
+  // based on the tool color variables defined in _bootstrap-variables.scss
+}
+
+// Comparison table specific styles
+.comparison-table {
+  th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .tool-column {
+    min-width: 120px;
+  }
+}
+
+// Mobile card view for comparison matrix
+.comparison-cards {
+  .comparison-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .card-body {
+      .feature-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #f1f5f9;
+        
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}

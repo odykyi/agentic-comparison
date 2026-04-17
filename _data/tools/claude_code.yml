@@ -1,0 +1,148 @@
+# Claude Code Tool Definition
+# Reference: https://github.com/anthropics/claude-code
+
+name: "Claude Code"
+slug: "claude_code"
+repo: "anthropics/claude-code"
+website: "https://claude.ai"
+docs: "https://code.claude.com/docs"
+command_prefix: "claude"
+description: "An agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster through natural language commands. Features a commands system in .claude/commands/."
+
+version:
+  current: "0.2.0"
+  last_verified: "2024-01-15"
+  verified_by: "@community"
+
+license: "Proprietary"
+language: "TypeScript"
+
+concepts:
+  skill: "command"
+  command: "slash command"
+  agent: "agent"
+  prompt: "prompt"
+  context: "context"
+
+install:
+  curl: "curl -fsSL https://claude.ai/install.sh | bash"
+  homebrew: "brew install --cask claude-code"
+  npm: "npm install -g @anthropic-ai/claude-code (deprecated)"
+
+features:
+  mcp_support: true
+  offline_mode: false
+  ide_integration: []
+  context_window: 200000
+  supported_models:
+    - "claude-3-opus"
+    - "claude-3-sonnet"
+    - "claude-3-haiku"
+
+pricing:
+  free_tier:
+    available: true
+    limits: "Limited daily usage"
+  paid_tiers:
+    - name: "Claude Pro"
+      price: "$20/month"
+      description: "Higher usage limits, priority access"
+    - name: "Claude for Work"
+      price: "Custom"
+      description: "Team features and admin controls"
+
+commands:
+  - name: "help"
+    invoke: "/help"
+    description: "Show available commands"
+    category: "general"
+    verified: true
+
+  - name: "init"
+    invoke: "/init"
+    description: "Initialize project with Claude"
+    category: "general"
+    verified: true
+
+  - name: "clear"
+    invoke: "/clear"
+    description: "Clear conversation context"
+    category: "general"
+    verified: true
+
+  - name: "compact"
+    invoke: "/compact"
+    description: "Compact conversation to save context"
+    category: "general"
+    verified: true
+
+  - name: "cost"
+    invoke: "/cost"
+    description: "Show current session cost"
+    category: "general"
+    verified: true
+
+  - name: "exit"
+    invoke: "/exit"
+    description: "Exit Claude Code"
+    category: "general"
+    verified: true
+
+  - name: "bug"
+    invoke: "/bug"
+    description: "Report a bug to Anthropic"
+    category: "general"
+    verified: true
+
+  - name: "commit"
+    invoke: "Type natural language: 'commit these changes'"
+    description: "Generate and create commit"
+    category: "git"
+    verified: true
+
+  - name: "review"
+    invoke: "Type natural language: 'review my changes'"
+    description: "Review code changes"
+    category: "git"
+    verified: true
+
+  - name: "test"
+    invoke: "Type natural language: 'run the tests'"
+    description: "Run tests"
+    category: "test"
+    verified: true
+
+  - name: "fix"
+    invoke: "Type natural language: 'fix this error'"
+    description: "Fix errors in code"
+    category: "debug"
+    verified: true
+
+  - name: "explain"
+    invoke: "Type natural language: 'explain this file'"
+    description: "Explain code"
+    category: "file"
+    verified: true
+
+  - name: "edit"
+    invoke: "Type natural language: 'edit this function'"
+    description: "Edit code"
+    category: "edit"
+    verified: true
+
+mcp_servers:
+  - name: "filesystem"
+    supported: true
+    setup_required: false
+  - name: "github"
+    supported: true
+    setup_required: true
+  - name: "figma"
+    supported: true
+    setup_required: true
+
+command_system:
+  enabled: true
+  directory: ".claude/commands"
+  format: "markdown with frontmatter"
+  documentation: "https://code.claude.com/docs/en/building-custom-commands"

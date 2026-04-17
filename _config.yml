@@ -1,0 +1,115 @@
+# Jekyll Configuration
+# For technical settings, see https://jekyllrb.com/docs/configuration/
+
+# Site Settings
+title: "Agentic Comparison"
+description: "Compare AI agentic coding tools side-by-side"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://agentic-comparison.dev" # the base hostname & protocol
+
+twitter_username: your_handle
+github_username: your_username
+
+# Build Settings
+markdown: kramdown
+highlighter: rouge
+theme: minima # We'll override with custom layouts
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# Collections
+collections:
+  tools:
+    output: true
+    permalink: /tools/:name/
+  commands:
+    output: true
+    permalink: /commands/:name/
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Agentic Comparison Team"
+  - scope:
+      path: ""
+      type: "tools"
+    values:
+      layout: "tool"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Sass/SCSS Configuration
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Exclude from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - scripts/
+  - schemas/
+  - README.md
+  - CONTRIBUTING.md
+  - LICENSE
+  - package.json
+  - package-lock.json
+  - yarn.lock
+
+# Include (override exclude)
+include:
+  - _data
+
+# Data directory
+data_dir: _data
+
+# Timezone
+timezone: UTC
+
+# Pagination
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+# SEO
+lang: en
+logo: /assets/images/logo.png
+
+# Social links
+social:
+  name: Agentic Comparison
+  links:
+    - https://github.com/your_username/agentic-comparison
+    - https://twitter.com/your_handle
+
+# Analytics (uncomment when ready)
+# google_analytics: G-XXXXXXXXXX
+
+# Search
+search_enabled: true
+
+# Tool colors (referenced in CSS and templates)
+tool_colors:
+  opencode: "#3b82f6"
+  codex: "#22c55e"
+  claude_code: "#f97316"
+  continue: "#8b5cf6"
+  aider: "#ec4899"
+  copilot: "#06b6d4"

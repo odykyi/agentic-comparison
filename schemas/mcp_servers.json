@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MCP Servers Schema",
+  "type": "object",
+  "properties": {
+    "servers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "repository"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "repository": {
+            "type": "string"
+          },
+          "official": {
+            "type": "boolean"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "capabilities": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["resources", "prompts", "tools", "sampling"]
+            }
+          },
+          "compatibility": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "supported": {
+                  "type": "boolean"
+                },
+                "version": {
+                  "type": "string"
+                },
+                "setup_guide": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

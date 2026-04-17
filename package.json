@@ -1,0 +1,36 @@
+{
+  "name": "agentic-comparison",
+  "version": "1.0.0",
+  "description": "A comprehensive comparison resource for AI agentic coding tools",
+  "scripts": {
+    "validate": "python scripts/validate.py",
+    "build": "bundle exec jekyll build",
+    "serve": "bundle exec jekyll serve --livereload",
+    "clean": "bundle exec jekyll clean",
+    "test": "bundle exec htmlproofer ./_site --disable-external",
+    "format": "prettier --write '_data/**/*.yml'",
+    "lint": "prettier --check '_data/**/*.yml'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/agentic-comparison.git"
+  },
+  "keywords": [
+    "ai-agents",
+    "coding-tools",
+    "comparison",
+    "jekyll",
+    "claude-code",
+    "codex",
+    "opencode"
+  ],
+  "author": "Agentic Comparison Contributors",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/agentic-comparison/issues"
+  },
+  "homepage": "https://agentic-comparison.dev",
+  "devDependencies": {
+    "prettier": "^3.1.0"
+  }
+}

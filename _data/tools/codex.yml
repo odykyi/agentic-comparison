@@ -1,0 +1,119 @@
+# OpenAI Codex Tool Definition
+# Reference: https://github.com/openai/codex
+
+name: "OpenAI Codex"
+slug: "codex"
+repo: "openai/codex"
+website: "https://openai.com/codex"
+docs: "https://help.openai.com/en/articles/11096431-codex-cli"
+command_prefix: "codex"
+description: "A lightweight coding agent from OpenAI that runs locally in your terminal, featuring a skills system stored in .codex/skills/."
+
+version:
+  current: "0.121.0"
+  last_verified: "2024-01-15"
+  verified_by: "@community"
+
+license: "Apache-2.0"
+language: "Rust"
+
+concepts:
+  skill: "skill"
+  command: "command"
+  agent: "agent"
+  prompt: "prompt"
+  context: "context"
+
+install:
+  npm: "npm install -g @openai/codex"
+  homebrew: "brew install --cask codex"
+  other: "Download binary from GitHub releases"
+
+features:
+  mcp_support: true
+  offline_mode: false
+  ide_integration: ["vscode"]
+  context_window: 200000
+  supported_models:
+    - "gpt-4o"
+    - "gpt-4o-mini"
+    - "o1"
+    - "o1-mini"
+
+pricing:
+  free_tier:
+    available: true
+    limits: "Included with ChatGPT Plus, Pro, Business, Edu, or Enterprise plan"
+  paid_tiers:
+    - name: "API Key"
+      price: "Pay-per-use"
+      description: "Usage-based pricing via OpenAI API"
+    - name: "ChatGPT Plus"
+      price: "$20/month"
+      description: "Includes Codex CLI access"
+
+commands:
+  - name: "help"
+    invoke: "codex --help"
+    description: "Show help information"
+    category: "general"
+    verified: true
+
+  - name: "init"
+    invoke: "codex init"
+    description: "Initialize a new project with Codex"
+    category: "general"
+    verified: true
+
+  - name: "chat"
+    invoke: "codex"
+    description: "Start an interactive chat session"
+    category: "general"
+    verified: true
+
+  - name: "app"
+    invoke: "codex app"
+    description: "Launch the Codex desktop app"
+    category: "general"
+    verified: true
+
+  - name: "review"
+    invoke: "codex review"
+    description: "Review code changes"
+    category: "git"
+    verified: true
+
+  - name: "test"
+    invoke: "codex test"
+    description: "Run tests with AI assistance"
+    category: "test"
+    verified: true
+
+  - name: "commit"
+    invoke: "codex commit"
+    description: "Generate commit message"
+    category: "git"
+    verified: true
+
+  - name: "explain"
+    invoke: "codex explain"
+    description: "Explain code"
+    category: "file"
+    verified: true
+
+mcp_servers:
+  - name: "filesystem"
+    supported: true
+    setup_required: false
+  - name: "github"
+    supported: true
+    setup_required: true
+  - name: "web_search"
+    supported: true
+    setup_required: true
+
+skill_system:
+  enabled: true
+  directory: ".codex/skills"
+  format: "markdown with frontmatter"
+  documentation: "https://help.openai.com/en/articles/11096431-codex-cli"

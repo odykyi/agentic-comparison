@@ -1,0 +1,207 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Tool Definition Schema",
+  "type": "object",
+  "required": ["name", "repo", "command_prefix"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Display name of the tool"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-friendly identifier (kebab-case)"
+    },
+    "repo": {
+      "type": "string",
+      "description": "GitHub repository in format 'owner/repo'"
+    },
+    "website": {
+      "type": "string",
+      "format": "uri",
+      "description": "Official website URL"
+    },
+    "docs": {
+      "type": "string",
+      "format": "uri",
+      "description": "Documentation URL"
+    },
+    "command_prefix": {
+      "type": "string",
+      "description": "Base command to invoke the tool (e.g., 'codex', 'claude')"
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description of the tool"
+    },
+    "version": {
+      "type": "object",
+      "required": ["current", "last_verified"],
+      "properties": {
+        "current": {
+          "type": "string",
+          "description": "Current documented version"
+        },
+        "last_verified": {
+          "type": "string",
+          "format": "date",
+          "description": "Date when data was last verified"
+        },
+        "verified_by": {
+          "type": "string",
+          "description": "GitHub username of verifier"
+        }
+      }
+    },
+    "license": {
+      "type": "string",
+      "description": "Software license (e.g., 'MIT', 'Apache-2.0')"
+    },
+    "language": {
+      "type": "string",
+      "description": "Primary implementation language"
+    },
+    "concepts": {
+      "type": "object",
+      "description": "Terminology used by this tool",
+      "properties": {
+        "skill": {
+          "type": "string",
+          "description": "What this tool calls 'skills'"
+        },
+        "command": {
+          "type": "string",
+          "description": "What this tool calls 'commands'"
+        },
+        "agent": {
+          "type": "string",
+          "description": "What this tool calls 'agents'"
+        },
+        "prompt": {
+          "type": "string",
+          "description": "What this tool calls 'prompts'"
+        },
+        "context": {
+          "type": "string",
+          "description": "What this tool calls 'context'"
+        }
+      }
+    },
+    "install": {
+      "type": "object",
+      "description": "Installation methods",
+      "properties": {
+        "npm": {
+          "type": "string",
+          "description": "npm install command"
+        },
+        "pip": {
+          "type": "string",
+          "description": "pip install command"
+        },
+        "homebrew": {
+          "type": "string",
+          "description": "Homebrew install command"
+        },
+        "cargo": {
+          "type": "string",
+          "description": "Cargo install command"
+        },
+        "curl": {
+          "type": "string",
+          "description": "curl install script"
+        },
+        "other": {
+          "type": "string",
+          "description": "Other install method"
+        }
+      }
+    },
+    "features": {
+      "type": "object",
+      "properties": {
+        "mcp_support": {
+          "type": "boolean"
+        },
+        "offline_mode": {
+          "type": "boolean"
+        },
+        "ide_integration": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["vscode", "jetbrains", "neovim", "sublime", "atom"]
+          }
+        },
+        "context_window": {
+          "type": "integer",
+          "description": "Maximum context window in tokens"
+        },
+        "supported_models": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "pricing": {
+      "type": "object",
+      "properties": {
+        "free_tier": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "limits": {
+              "type": "string"
+            }
+          }
+        },
+        "paid_tiers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "price": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "commands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "invoke"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "invoke": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string",
+            "enum": ["general", "file", "git", "search", "edit", "debug", "test", "deploy"]
+          },
+          "verified": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

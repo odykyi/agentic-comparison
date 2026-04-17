@@ -10,14 +10,14 @@
 
 ## 2. Jekyll Site Structure & Layouts
 
-- [ ] 2.1 Create `_layouts/default.html` with Bootstrap 5 base template
-- [ ] 2.2 Create `_layouts/tool.html` for individual tool profile pages
-- [ ] 2.3 Create `_layouts/comparison.html` for matrix-style pages
-- [ ] 2.4 Create `_includes/navigation.html` with responsive navbar
-- [ ] 2.5 Create `_includes/footer.html` with version info and links
-- [ ] 2.6 Create `_includes/head.html` with DataTables.js CDN links
-- [ ] 2.7 Set up `_sass/` directory with Bootstrap 5 overrides and custom SCSS
-- [ ] 2.8 Create `assets/css/style.scss` main stylesheet with CSS variables for tool colors
+- [x] 2.1 Create `_layouts/default.html` with Bootstrap 5 base template
+- [x] 2.2 Create `_layouts/tool.html` for individual tool profile pages
+- [x] 2.3 Create `_layouts/comparison.html` for matrix-style pages
+- [x] 2.4 Create `_includes/navigation.html` with responsive navbar
+- [x] 2.5 Create `_includes/footer.html` with version info and links
+- [x] 2.6 Create `_includes/head.html` with DataTables.js CDN links
+- [x] 2.7 Set up `_sass/` directory with Bootstrap 5 overrides and custom SCSS
+- [x] 2.8 Create `assets/css/style.scss` main stylesheet with CSS variables for tool colors
 
 ## 3. YAML Data Schema & Validation
 

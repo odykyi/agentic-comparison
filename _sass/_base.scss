@@ -1,0 +1,258 @@
+// Base styles
+body {
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+code, pre {
+  font-family: var(--font-mono);
+}
+
+// Links
+a {
+  transition: color 0.15s ease-in-out;
+}
+
+// Page content
+.page-content {
+  min-height: calc(100vh - var(--navbar-height) - 300px);
+}
+
+// Hero sections
+.hero {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  color: white;
+  padding: 4rem 0;
+  
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+}
+
+// Tool hero section
+.tool-hero {
+  .tool-logo {
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  }
+}
+
+// Feature matrix
+.feature-matrix {
+  .table {
+    font-size: 0.9rem;
+    
+    th {
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      background-color: var(--color-light);
+      border-bottom: 2px solid var(--color-primary);
+    }
+    
+    td {
+      vertical-align: middle;
+    }
+  }
+  
+  .status-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    
+    &.status-yes {
+      background-color: var(--status-yes);
+      color: white;
+    }
+    
+    &.status-no {
+      background-color: var(--status-no);
+      color: white;
+    }
+    
+    &.status-partial {
+      background-color: var(--status-partial);
+      color: white;
+    }
+    
+    &.status-unknown {
+      background-color: var(--status-unknown);
+      color: white;
+    }
+  }
+}
+
+// Tool badges
+tool-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  
+  &.tool-opencode {
+    background-color: var(--tool-opencode);
+    color: white;
+  }
+  
+  &.tool-codex {
+    background-color: var(--tool-codex);
+    color: white;
+  }
+  
+  &.tool-claude {
+    background-color: var(--tool-claude);
+    color: white;
+  }
+}
+
+// Command cards
+.command-card {
+  border-left: 4px solid var(--color-primary);
+  
+  .command-syntax {
+    font-family: var(--font-mono);
+    background: var(--color-light);
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+// Comparison controls
+.comparison-controls {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+// DataTables customization
+.dataTables_wrapper {
+  .dataTables_filter {
+    display: none; // We use custom search
+  }
+  
+  .dataTables_length {
+    margin-bottom: 1rem;
+  }
+  
+  .dataTables_paginate {
+    margin-top: 1rem;
+    
+    .pagination {
+      justify-content: center;
+    }
+  }
+}
+
+// Tool navigation sidebar
+.tool-nav {
+  .list-group-item {
+    border-left: 3px solid transparent;
+    
+    &.active {
+      border-left-color: var(--color-primary);
+      background-color: rgba($primary, 0.1);
+      color: $primary;
+    }
+    
+    &:hover:not(.active) {
+      background-color: var(--color-light);
+    }
+  }
+}
+
+// Search
+#site-search {
+  .input-group {
+    width: 250px;
+    
+    @media (max-width: 992px) {
+      width: 100%;
+    }
+  }
+}
+
+// Footer
+.site-footer {
+  a {
+    transition: opacity 0.15s ease-in-out;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-light: #1e293b;
+    --color-dark: #f8fafc;
+  }
+  
+  body {
+    background-color: #0f172a;
+    color: #f8fafc;
+  }
+  
+  .card {
+    background-color: #1e293b;
+    border-color: #334155;
+  }
+  
+  .table {
+    color: #f8fafc;
+    
+    th {
+      background-color: #1e293b;
+      border-bottom-color: #334155;
+    }
+  }
+}
+
+// Utility classes
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.shadow-soft {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+// Print styles
+@media print {
+  .navbar,
+  .site-footer,
+  .comparison-controls {
+    display: none;
+  }
+  
+  .page-content {
+    margin: 0;
+    padding: 0;
+  }
+}

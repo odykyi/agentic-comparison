@@ -1,0 +1,69 @@
+# Tool Definition Template
+# Copy this file to create a new tool: cp _template.yml new_tool.yml
+
+name: "Tool Name"
+slug: "tool_slug"
+repo: "owner/repo"
+website: "https://tool-website.com"
+docs: "https://docs.tool-website.com"
+command_prefix: "tool"
+description: "Brief description of the tool"
+
+version:
+  current: "0.0.0"
+  last_verified: "YYYY-MM-DD"
+  verified_by: "@your_github_username"
+
+license: "MIT" # or Apache-2.0, GPL, Proprietary, etc.
+language: "Language" # e.g., TypeScript, Python, Rust
+
+concepts:
+  skill: "what they call skills"
+  command: "what they call commands"
+  agent: "what they call agents"
+  prompt: "what they call prompts"
+  context: "what they call context"
+
+install:
+  npm: "npm install -g tool-name" # optional
+  pip: "pip install tool-name" # optional
+  homebrew: "brew install tool" # optional
+  cargo: "cargo install tool" # optional
+  curl: "curl -fsSL https://tool.dev/install.sh | bash" # optional
+  other: "Other install method" # optional
+
+features:
+  mcp_support: true # or false
+  offline_mode: false # or true
+  ide_integration: [] # e.g., ["vscode", "jetbrains", "neovim"]
+  context_window: 0 # in tokens
+  supported_models:
+    - "model-name"
+
+pricing:
+  free_tier:
+    available: true # or false
+    limits: "Description of free tier limits"
+  paid_tiers:
+    - name: "Tier Name"
+      price: "$X/month"
+      description: "What's included"
+
+commands:
+  - name: "command_name"
+    invoke: "tool command_name"
+    description: "What this command does"
+    category: "general" # general, file, git, search, edit, debug, test, deploy
+    verified: false # set to true once verified
+
+mcp_servers:
+  - name: "server_name"
+    supported: true
+    setup_required: false
+
+# If tool has a skill/command system:
+skill_system:
+  enabled: false
+  directory: ".tool/skills"
+  format: "markdown"
+  documentation: "https://docs.tool.dev/skills"
