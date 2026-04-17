@@ -1,0 +1,42 @@
+# TeamTailor ATS Helper
+# Specialized skill for TeamTailor ATS automation and management
+
+name: "TeamTailor ATS Helper"
+slug: "teamtailor-ats-helper"
+description: "TeamTailor-specific automation. Post jobs, screen candidates, schedule interviews, and generate reports directly within TeamTailor ATS. Native API integration."
+category: "recruiting"
+tags:
+  - teamtailor
+  - ats
+  - recruiting
+  - automation
+  - job-posting
+
+compatible_tools:
+  - claude_code
+  - codex
+  - opencode
+
+install_commands:
+  claude_code: "claude skills install teamtailor-ats-helper"
+  codex: "codex skills install teamtailor-ats-helper"
+  opencode: "opencode skills install teamtailor-ats-helper"
+
+usage_example: |
+  @teamtailor-ats-helper post this job to TeamTailor
+  @teamtailor-ats-helper screen candidates for senior dev role
+
+use_cases:
+  - recruiter
+  - hiring-manager
+  - talent-acquisition
+
+integrations:
+  - teamtailor
+
+author: "TeamTailor Community"
+source_url: "https://github.com/teamtailor-ai/skills/tree/main/teamtailor-ats-helper"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

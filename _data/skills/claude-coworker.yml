@@ -1,0 +1,44 @@
+# Claude Coworker
+# Multi-agent team collaboration with specialized agent roles
+
+name: "Claude Coworker"
+slug: "claude-coworker"
+description: "Build your AI team with specialized coworkers. Product Manager Claude, Engineer Claude, Designer Claude - all working together with shared context and handoffs."
+category: "collaboration"
+tags:
+  - multi-agent
+  - collaboration
+  - team
+  - coworker
+  - workflow
+
+compatible_tools:
+  - claude_code
+  - codex
+
+install_commands:
+  claude_code: "claude skills install claude-coworker"
+  codex: "codex skills install claude-coworker"
+
+usage_example: |
+  @claude-coworker assign product spec writing to PM Claude
+  @claude-coworker handoff design to Engineer Claude for implementation
+
+use_cases:
+  - product-manager
+  - team-lead
+  - founder
+  - engineering-manager
+
+integrations:
+  - claude-code
+  - linear
+  - notion
+
+author: "Multi-Agent Community"
+source_url: "https://github.com/multi-agent-team/skills/tree/main/claude-coworker"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true
+trending: monthly

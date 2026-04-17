@@ -1,0 +1,49 @@
+# Perplexity Research
+# AI-powered research and fact-checking with Perplexity integration
+
+name: "Perplexity Research"
+slug: "perplexity-research"
+description: "Deep research assistant using Perplexity AI. Fact-check claims, research companies, analyze markets, and gather competitive intelligence with cited sources."
+category: "research"
+tags:
+  - research
+  - perplexity
+  - fact-checking
+  - competitive-intelligence
+  - analysis
+
+compatible_tools:
+  - claude_code
+  - codex
+  - opencode
+  - cursor
+
+install_commands:
+  claude_code: "claude skills install perplexity-research"
+  codex: "codex skills install perplexity-research"
+  opencode: "opencode skills install perplexity-research"
+  cursor: "cursor install perplexity-research"
+
+usage_example: |
+  @perplexity-research analyze competitor landscape for fintech startups
+  @perplexity-research fact-check these claims about AI market size
+
+use_cases:
+  - researcher
+  - analyst
+  - investor
+  - journalist
+  - strategist
+
+integrations:
+  - perplexity
+  - serpapi
+  - crunchbase
+
+author: "Research Community"
+source_url: "https://github.com/research-ai/skills/tree/main/perplexity-research"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true
+trending: daily

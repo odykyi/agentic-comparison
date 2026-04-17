@@ -8,10 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
   initClearFilters();
 });
 
-// Skills Filtering by Tool and Category
+// Skills Filtering by Tool, Category, and Use Case
 function initSkillsFiltering() {
   const toolFilter = document.getElementById("tool-filter");
   const categoryFilter = document.getElementById("category-filter");
+  const useCaseFilter = document.getElementById("use-case-filter");
   const skillCards = document.querySelectorAll(".skill-card-wrapper");
   const noResults = document.getElementById("no-results");
 
@@ -20,18 +21,22 @@ function initSkillsFiltering() {
   function filterSkills() {
     const selectedTool = toolFilter.value;
     const selectedCategory = categoryFilter.value;
+    const selectedUseCase = useCaseFilter ? useCaseFilter.value : "all";
     let visibleCount = 0;
 
     skillCards.forEach((card) => {
       const tools = card.getAttribute("data-tools") || "";
       const category = card.getAttribute("data-category") || "";
+      const useCases = card.getAttribute("data-use-cases") || "";
 
       const matchesTool =
         selectedTool === "all" || tools.includes(selectedTool);
       const matchesCategory =
         selectedCategory === "all" || category === selectedCategory;
+      const matchesUseCase =
+        selectedUseCase === "all" || useCases.includes(selectedUseCase);
 
-      if (matchesTool && matchesCategory) {
+      if (matchesTool && matchesCategory && matchesUseCase) {
         card.classList.remove("d-none");
         visibleCount++;
       } else {
@@ -49,6 +54,9 @@ function initSkillsFiltering() {
 
   toolFilter.addEventListener("change", filterSkills);
   categoryFilter.addEventListener("change", filterSkills);
+  if (useCaseFilter) {
+    useCaseFilter.addEventListener("change", filterSkills);
+  }
 }
 
 // Tool Selector - Update install command when tool changes
@@ -151,15 +159,22 @@ function initClearFilters() {
   const clearBtn = document.getElementById("clear-filters");
   const toolFilter = document.getElementById("tool-filter");
   const categoryFilter = document.getElementById("category-filter");
+  const useCaseFilter = document.getElementById("use-case-filter");
 
   if (clearBtn) {
     clearBtn.addEventListener("click", function () {
       toolFilter.value = "all";
       categoryFilter.value = "all";
+      if (useCaseFilter) {
+        useCaseFilter.value = "all";
+      }
 
       // Trigger change events to update display
       toolFilter.dispatchEvent(new Event("change"));
       categoryFilter.dispatchEvent(new Event("change"));
+      if (useCaseFilter) {
+        useCaseFilter.dispatchEvent(new Event("change"));
+      }
     });
   }
 }

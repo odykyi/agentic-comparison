@@ -1,0 +1,47 @@
+# Sales Development Rep (SDR)
+# AI-powered outbound sales and lead generation
+
+name: "Sales Development Rep"
+slug: "sales-development-rep"
+description: "Automated SDR for outbound sales. Research prospects, personalize emails, qualify leads, and book meetings. Integrates with Salesforce, HubSpot, and Apollo.io."
+category: "sales"
+tags:
+  - sales
+  - sdr
+  - outbound
+  - lead-generation
+  - prospecting
+
+compatible_tools:
+  - claude_code
+  - codex
+  - opencode
+
+install_commands:
+  claude_code: "claude skills install sales-development-rep"
+  codex: "codex skills install sales-development-rep"
+  opencode: "opencode skills install sales-development-rep"
+
+usage_example: |
+  @sales-development-rep research prospects at Stripe
+  @sales-development-rep write personalized outreach email
+
+use_cases:
+  - sales-rep
+  - sdr
+  - account-executive
+  - founder
+
+integrations:
+  - salesforce
+  - hubspot
+  - apollo
+  - salesloft
+  - outreach
+
+author: "Sales AI Community"
+source_url: "https://github.com/sales-ai/skills/tree/main/sales-development-rep"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

@@ -1,0 +1,47 @@
+# ATS Sync Master
+# Sync and manage candidates across multiple ATS platforms
+
+name: "ATS Sync Master"
+slug: "ats-sync-master"
+description: "Universal ATS connector. Sync candidates between TeamTailor, Greenhouse, Lever, Workday, and custom ATS systems. Bulk import, export, and deduplicate candidate databases."
+category: "recruiting"
+tags:
+  - ats
+  - integration
+  - sync
+  - teamtailor
+  - greenhouse
+  - api
+
+compatible_tools:
+  - claude_code
+  - codex
+  - opencode
+
+install_commands:
+  claude_code: "claude skills install ats-sync-master"
+  codex: "codex skills install ats-sync-master"
+  opencode: "opencode skills install ats-sync-master"
+
+usage_example: |
+  @ats-sync-master export all candidates from TeamTailor to CSV
+  @ats-sync-master sync candidates between Greenhouse and Lever
+
+use_cases:
+  - recruiter
+  - ats-admin
+  - hiring-manager
+
+integrations:
+  - teamtailor
+  - greenhouse
+  - lever
+  - workday
+  - smartrecruiters
+
+author: "ATS Integration Community"
+source_url: "https://github.com/ats-connectors/skills/tree/main/ats-sync-master"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

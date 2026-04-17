@@ -1,0 +1,50 @@
+# Recruiter Toolkit
+# Skills for recruiters using AI agents - ATS, candidate screening, job descriptions
+
+name: "Recruiter Toolkit"
+slug: "recruiter-toolkit"
+description: "Complete recruiting toolkit for AI agents. Screen candidates, write job descriptions, parse resumes, and manage ATS workflows with TeamTailor, Greenhouse, and Lever integration."
+category: "recruiting"
+tags:
+  - recruiting
+  - ats
+  - teamtailor
+  - greenhouse
+  - lever
+  - hiring
+  - hr
+
+compatible_tools:
+  - claude_code
+  - codex
+  - opencode
+
+install_commands:
+  claude_code: "claude skills install recruiter-toolkit"
+  codex: "codex skills install recruiter-toolkit"
+  opencode: "opencode skills install recruiter-toolkit"
+
+usage_example: |
+  @recruiter-toolkit screen this resume for senior engineer role
+  @recruiter-toolkit write job description for product manager
+  @recruiter-toolkit sync candidates to TeamTailor ATS
+
+use_cases:
+  - recruiter
+  - hiring-manager
+  - hr
+  - talent-acquisition
+
+integrations:
+  - teamtailor
+  - greenhouse
+  - lever
+  - workday
+
+author: "Recruiting Community"
+source_url: "https://github.com/recruiting-ai/skills/tree/main/recruiter-toolkit"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true
+trending: weekly

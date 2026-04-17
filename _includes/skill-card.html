@@ -1,0 +1,114 @@
+<!-- Skill Card Include Template -->
+<!-- Usage: {% include skill-card.html skill=skill_data skill_slug=skill_slug trending="daily" %} -->
+
+{% assign skill = include.skill %} {% assign skill_slug = include.skill_slug %}
+{% assign trending = include.trending %}
+
+<div
+  class="col-md-6 col-lg-4 skill-card-wrapper"
+  data-tools="{{ skill.compatible_tools | join: ' ' }}"
+  data-category="{{ skill.category }}"
+>
+  <div
+    class="card h-100 skill-card {% if trending == 'daily' %}border-danger{% elsif trending == 'weekly' %}border-primary{% elsif trending == 'monthly' %}border-success{% endif %}"
+  >
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">{{ skill.name }}</h5>
+      <div>
+        {% if trending == 'daily' %}
+        <span class="badge bg-danger">🔥 Hot</span>
+        {% elsif trending == 'weekly' %}
+        <span class="badge bg-primary">📈 Trending</span>
+        {% elsif trending == 'monthly' %}
+        <span class="badge bg-success">⭐ Top</span>
+        {% endif %}
+        <span class="badge bg-secondary ms-1"
+          >{{ skill.category | replace: '-', ' ' | capitalize }}</span
+        >
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="text-muted">{{ skill.description | truncate: 150 }}</p>
+      <div class="mb-3">
+        <small class="text-muted d-block mb-1">Compatible with:</small>
+        <div class="d-flex flex-wrap gap-1">
+          {% for tool in skill.compatible_tools %}
+          <span
+            class="badge"
+            style="background-color: {{ site.tool_colors[tool] | default: '#6c757d' }}"
+          >
+            {{ tool | replace: '_', ' ' | capitalize }}
+          </span>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="install-section bg-light rounded p-2">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <small class="text-muted">Select tool:</small>
+          <select
+            class="form-select form-select-sm tool-selector"
+            style="width: auto; max-width: 140px"
+            data-skill="{{ skill_slug }}"
+          >
+            {% for tool in skill.compatible_tools %}
+            <option value="{{ tool }}">
+              {{ tool | replace: '_', ' ' | capitalize }}
+            </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="bg-white rounded border p-2 mb-2">
+          <code
+            class="d-block text-dark install-command"
+            id="command-{{ skill_slug }}"
+            style="font-size: 0.85rem; word-break: break-all"
+          >
+            {% assign first_tool = skill.compatible_tools | first %} {{
+            skill.install_commands[first_tool] }}
+          </code>
+        </div>
+
+        {% assign marketplace_full_url = site.url | append: site.baseurl |
+        append: '/skills/' %} {% if skill.compatible_tools contains 'codex' %}
+        {% if trending == 'daily' %} {% capture codex_prompt %}🔥 TRENDING TODAY
+        - Install "{{ skill.name }}" (hot right now!). Command: {{
+        skill.install_commands['codex'] }} | From: {{ marketplace_full_url }} |
+        Source: {{ skill.source_url }}{% endcapture %} {% elsif trending ==
+        'weekly' %} {% capture codex_prompt %}📈 This Week's Pick - "{{
+        skill.name }}" is gaining popularity. Install: {{
+        skill.install_commands['codex'] }} | From: {{ marketplace_full_url }} |
+        Source: {{ skill.source_url }}{% endcapture %} {% elsif trending ==
+        'monthly' %} {% capture codex_prompt %}⭐ Monthly Top Skill - "{{
+        skill.name }}" is this month's favorite. Install now: {{
+        skill.install_commands['codex'] }} | From: {{ marketplace_full_url }} |
+        Source: {{ skill.source_url }}{% endcapture %} {% else %} {% assign
+        codex_template = site.data.prompts.codex_install %} {% assign
+        codex_prompt = codex_template | replace: '{{ skill_name }}', skill.name
+        | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url
+        }}', marketplace_full_url | replace: '{{ install_command }}',
+        skill.install_commands['codex'] | replace: '{{ source_url }}',
+        skill.source_url %} {% endif %}
+        <a
+          href="codex://new?prompt={{ codex_prompt | url_encode }}"
+          class="btn btn-sm btn-success w-100 d-flex align-items-center justify-content-center gap-1"
+        >
+          <i class="bi bi-box-arrow-up-right"></i>Open in Codex
+        </a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="card-footer bg-white border-0">
+      <div class="d-flex justify-content-between align-items-center">
+        <small class="text-muted">v{{ skill.version }}</small>
+        <a
+          href="{{ skill.source_url }}"
+          class="btn btn-sm btn-outline-secondary"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="bi bi-github"></i> Source
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

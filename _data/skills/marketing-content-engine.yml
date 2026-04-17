@@ -1,0 +1,48 @@
+# Marketing Content Engine
+# AI-powered content creation for marketing teams
+
+name: "Marketing Content Engine"
+slug: "marketing-content-engine"
+description: "Complete marketing content suite. Generate blog posts, social media content, email campaigns, and ad copy with brand voice consistency. SEO-optimized output."
+category: "marketing"
+tags:
+  - marketing
+  - content
+  - seo
+  - social-media
+  - copywriting
+
+compatible_tools:
+  - claude_code
+  - codex
+  - opencode
+  - cursor
+
+install_commands:
+  claude_code: "claude skills install marketing-content-engine"
+  codex: "codex skills install marketing-content-engine"
+  opencode: "opencode skills install marketing-content-engine"
+  cursor: "cursor install marketing-content-engine"
+
+usage_example: |
+  @marketing-content-engine write a blog post about AI trends
+  @marketing-content-engine generate Twitter thread for product launch
+
+use_cases:
+  - marketer
+  - content-creator
+  - growth-manager
+  - founder
+
+integrations:
+  - wordpress
+  - hubspot
+  - mailchimp
+  - buffer
+
+author: "Marketing AI Community"
+source_url: "https://github.com/marketing-ai/skills/tree/main/marketing-content-engine"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true
