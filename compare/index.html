@@ -68,7 +68,7 @@ description: Detailed feature and command comparison across all AI coding tools
               style="min-width: 180px"
             >
               <a
-                href="{{ '/tools/' | append: tool[0] | relative_url }}"
+                href="{{ '/tools/' | append: tool[0] | replace: '_', '-' | relative_url }}"
                 class="text-white text-decoration-none"
               >
                 {{ tool[1].name }}

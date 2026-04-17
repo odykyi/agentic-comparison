@@ -33,7 +33,7 @@ description: Compare AI agentic coding tools side-by-side. 9 AI coding agents co
         assign tool_color = site.data.tool_colors[tool[0]] | default: '#666666'
         %}
         <a
-          href="{{ '/tools/' | append: tool[0] | relative_url }}"
+          href="{{ '/tools/' | append: tool[0] | replace: '_', '-' | relative_url }}"
           class="badge"
           style="border-color: {{ tool_color }}; color: {{ tool_color }}"
         >
@@ -253,7 +253,7 @@ description: Compare AI agentic coding tools side-by-side. 9 AI coding agents co
       {% for tool in site.data.tools %} {% unless tool[0] == '_template' %}
       <div class="col-md-6 col-lg-4">
         <a
-          href="{{ '/tools/' | append: tool[0] | relative_url }}"
+          href="{{ '/tools/' | append: tool[0] | replace: '_', '-' | relative_url }}"
           class="card h-100 text-decoration-none tool-card card-tool tool-{{ tool[0] }}"
         >
           <div class="card-body">

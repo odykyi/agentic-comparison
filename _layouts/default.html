@@ -25,11 +25,11 @@
   <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
   
   <!-- Custom scripts -->
-  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-  
+  <script src="{{ site.baseurl }}/assets/js/main.js"></script>
+
   {% if page.custom_js %}
     {% for js_file in page.custom_js %}
-      <script src="{{ js_file | relative_url }}"></script>
+      <script src="{{ site.baseurl }}{{ js_file }}"></script>
     {% endfor %}
   {% endif %}
 </body>

@@ -1,0 +1,15 @@
+# Development config for local testing
+# Usage: jekyll serve --config _config.yml,_config_development.yml
+
+# Empty baseurl for local development
+baseurl: ""
+url: "http://localhost:4000"
+
+# Enable livereload for development
+livereload: true
+
+# Show future posts in development
+future: true
+
+# Show unpublished posts in development
+show_unpublished: true
