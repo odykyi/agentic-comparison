@@ -1,0 +1,702 @@
+---
+layout: comparison
+title: Full Comparison
+description: Detailed feature and command comparison across all AI coding tools
+---
+
+<div class="row">
+  <div class="col-12">
+    <div class="alert alert-info mb-4">
+      <i class="bi bi-info-circle-fill me-2"></i>
+      <strong>Comprehensive Comparison:</strong> This table maps equivalent
+      features and commands across all tools, similar to
+      <a href="https://comparecloud.in/" target="_blank">comparecloud.in</a>
+      style.
+    </div>
+
+    <!-- Filters -->
+    <div class="card mb-4 comparison-controls">
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label class="form-label">Filter by Category</label>
+            <select class="form-select" id="category-filter">
+              <option value="all">All Categories</option>
+              <option value="core">Core Features</option>
+              <option value="mcp">MCP & Integration</option>
+              <option value="commands">Commands & CLI</option>
+              <option value="skills">Skills/Agents</option>
+              <option value="editor">Editor Integration</option>
+              <option value="pricing">Pricing & Limits</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Show Only</label>
+            <select class="form-select" id="show-filter">
+              <option value="all">All Features</option>
+              <option value="supported">Supported Features</option>
+              <option value="unsupported">Unsupported Features</option>
+              <option value="unique">Tool-Unique Features</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Search</label>
+            <input
+              type="text"
+              class="form-control"
+              id="feature-search"
+              placeholder="Search features, commands..."
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Giant Comparison Table -->
+    <div class="table-responsive">
+      <table
+        class="table table-bordered table-hover comparison-matrix"
+        id="full-comparison-table"
+      >
+        <thead class="table-dark sticky-top">
+          <tr>
+            <th class="category-col">Category</th>
+            <th class="feature-col">Feature / Command</th>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <th
+              class="tool-header text-center"
+              data-tool="{{ tool[0] }}"
+              style="min-width: 180px"
+            >
+              <a
+                href="{{ '/tools/' | append: tool[0] | relative_url }}"
+                class="text-white text-decoration-none"
+              >
+                {{ tool[1].name }}
+              </a>
+            </th>
+            {% endunless %} {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          <!-- CORE FEATURES SECTION -->
+          <tr class="section-header">
+            <td
+              colspan="{{ site.data.tools.size | plus: 2 }}"
+              class="bg-primary text-white fw-bold"
+            >
+              <i class="bi bi-cpu me-2"></i>Core Features
+            </td>
+          </tr>
+
+          <!-- MCP Support -->
+          <tr data-category="core">
+            <td class="category-cell">Core</td>
+            <td class="feature-cell">
+              <strong>MCP Support</strong>
+              <small class="text-muted d-block"
+                >Model Context Protocol integration</small
+              >
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[1].features.mcp_support %}
+              <span class="badge bg-success">✓ Native</span>
+              {% elsif tool[0] == 'continue' %}
+              <span class="badge bg-warning text-dark">Partial</span>
+              {% else %}
+              <span class="badge bg-secondary">✗ No</span>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- Offline Mode -->
+          <tr data-category="core">
+            <td class="category-cell">Core</td>
+            <td class="feature-cell">
+              <strong>Offline Mode</strong>
+              <small class="text-muted d-block"
+                >Local LLM / No internet required</small
+              >
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[1].features.offline_mode %}
+              <span class="badge bg-success">✓ Yes</span>
+              {% if tool[0] == 'aider' %}
+              <small class="text-muted d-block">Any provider</small>
+              {% elsif tool[0] == 'continue' %}
+              <small class="text-muted d-block">Ollama, LM Studio</small>
+              {% endif %} {% else %}
+              <span class="badge bg-secondary">✗ Cloud only</span>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- Context Window -->
+          <tr data-category="core">
+            <td class="category-cell">Core</td>
+            <td class="feature-cell">
+              <strong>Context Window</strong>
+              <small class="text-muted d-block">Max tokens supported</small>
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[1].features.context_window %}
+              <span class="fw-bold"
+                >{{ tool[1].features.context_window | divided_by: 1000 }}k</span
+              >
+              <small class="text-muted d-block">tokens</small>
+              {% else %}
+              <span class="text-muted">Variable</span>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- Multi-file Edit -->
+          <tr data-category="core">
+            <td class="category-cell">Core</td>
+            <td class="feature-cell">
+              <strong>Multi-file Editing</strong>
+              <small class="text-muted d-block"
+                >Edit multiple files in one request</small
+              >
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[0] == 'aider' or tool[0] == 'claude_code' %}
+              <span class="badge bg-success">✓ Advanced</span>
+              {% elsif tool[0] == 'opencode' or tool[0] == 'codex' %}
+              <span class="badge bg-success">✓ Yes</span>
+              {% else %}
+              <span class="badge bg-warning text-dark">Limited</span>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- Terminal Access -->
+          <tr data-category="core">
+            <td class="category-cell">Core</td>
+            <td class="feature-cell">
+              <strong>Terminal/Shell Access</strong>
+              <small class="text-muted d-block"
+                >Execute commands in workspace</small
+              >
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[0] == 'opencode' or tool[0] == 'claude_code' or tool[0]
+              == 'codex' %}
+              <span class="badge bg-success">✓ Built-in</span>
+              {% elsif tool[0] == 'aider' %}
+              <span class="badge bg-success">✓ Via /run</span>
+              {% else %}
+              <span class="badge bg-secondary">✗ No</span>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- MCP & INTEGRATION SECTION -->
+          <tr class="section-header">
+            <td
+              colspan="{{ site.data.tools.size | plus: 2 }}"
+              class="bg-success text-white fw-bold"
+            >
+              <i class="bi bi-plug me-2"></i>MCP & Integration
+            </td>
+          </tr>
+
+          <!-- MCP Server Types -->
+          <tr data-category="mcp">
+            <td class="category-cell">MCP</td>
+            <td class="feature-cell">
+              <strong>MCP Server Support</strong>
+              <small class="text-muted d-block">Types of MCP servers</small>
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[1].features.mcp_support %} {% if tool[0] == 'opencode'
+              %}
+              <small
+                >Filesystem, Git, GitHub, Docker, PostgreSQL, Brave, Fetch,
+                Puppeteer</small
+              >
+              {% elsif tool[0] == 'claude_code' %}
+              <small>All MCP servers</small>
+              {% else %}
+              <small>Extensible</small>
+              {% endif %} {% elsif tool[0] == 'continue' %}
+              <small>Context providers</small>
+              {% else %}
+              <span class="badge bg-secondary">N/A</span>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- API Access -->
+          <tr data-category="mcp">
+            <td class="category-cell">MCP</td>
+            <td class="feature-cell">
+              <strong>REST API Access</strong>
+              <small class="text-muted d-block">Programmatic tool access</small>
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[1].architecture.api_access %}
+              <span class="badge bg-success">✓ Yes</span>
+              {% else %}
+              <span class="badge bg-secondary">✗ No</span>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- COMMANDS SECTION -->
+          <tr class="section-header">
+            <td
+              colspan="{{ site.data.tools.size | plus: 2 }}"
+              class="bg-info text-white fw-bold"
+            >
+              <i class="bi bi-terminal me-2"></i>Commands & CLI
+            </td>
+          </tr>
+
+          <!-- Ask/Chat Command -->
+          <tr data-category="commands">
+            <td class="category-cell">Commands</td>
+            <td class="feature-cell">
+              <strong>Ask/Chat</strong>
+              <small class="text-muted d-block">General coding question</small>
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[0] == 'opencode' %}
+              <code>/ask</code> or type {% elsif tool[0] == 'codex' %}
+              <code>codex</code>
+              {% elsif tool[0] == 'claude_code' %} Type naturally {% elsif
+              tool[0] == 'aider' %} Type in chat {% elsif tool[0] == 'continue'
+              %}
+              <code>Ctrl+J</code> chat {% elsif tool[0] == 'copilot_cli' %}
+              <code>gh copilot suggest</code>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- Code Command -->
+          <tr data-category="commands">
+            <td class="category-cell">Commands</td>
+            <td class="feature-cell">
+              <strong>Generate/Edit Code</strong>
+              <small class="text-muted d-block">Create or modify code</small>
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[0] == 'opencode' %}
+              <code>/code</code> or type {% elsif tool[0] == 'codex' %}
+              <code>codex -q "..."</code>
+              {% elsif tool[0] == 'claude_code' %} Type naturally {% elsif
+              tool[0] == 'aider' %}
+              <code>/code</code>
+              {% elsif tool[0] == 'continue' %} Highlight + <code>Ctrl+I</code>
+              {% elsif tool[0] == 'copilot_cli' %}
+              <code>gh copilot explain</code>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- Test Command -->
+          <tr data-category="commands">
+            <td class="category-cell">Commands</td>
+            <td class="feature-cell">
+              <strong>Run Tests</strong>
+              <small class="text-muted d-block">Execute test suites</small>
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[1].capabilities and tool[1].capabilities.test_execution
+              %}
+              <span class="badge bg-success">✓ Built-in</span>
+              {% elsif tool[0] == 'opencode' %}
+              <code>/test</code>
+              {% elsif tool[0] == 'aider' %}
+              <code>/test</code>
+              {% else %}
+              <span class="text-muted">Via terminal</span>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- Debug Command -->
+          <tr data-category="commands">
+            <td class="category-cell">Commands</td>
+            <td class="feature-cell">
+              <strong>Debug/Fix Errors</strong>
+              <small class="text-muted d-block">Auto-debug failing code</small>
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[0] == 'opencode' %}
+              <code>/debug</code> or error click {% elsif tool[0] ==
+              'claude_code' %} Paste error {% elsif tool[0] == 'aider' %}
+              <code>/debug</code>
+              {% else %}
+              <span class="text-muted">Manual</span>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- Git Commit -->
+          <tr data-category="commands">
+            <td class="category-cell">Commands</td>
+            <td class="feature-cell">
+              <strong>Git Commit</strong>
+              <small class="text-muted d-block"
+                >Auto-generate commit message</small
+              >
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[0] == 'opencode' %}
+              <code>/commit</code>
+              {% elsif tool[0] == 'aider' %}
+              <code>/commit</code>
+              {% elsif tool[0] == 'claude_code' %}
+              <span class="text-muted">Manual</span>
+              {% else %}
+              <span class="text-muted">N/A</span>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- SKILLS/AGENTS SECTION -->
+          <tr class="section-header">
+            <td
+              colspan="{{ site.data.tools.size | plus: 2 }}"
+              class="bg-warning text-dark fw-bold"
+            >
+              <i class="bi bi-robot me-2"></i>Skills / Agents System
+            </td>
+          </tr>
+
+          <!-- Skill Directory -->
+          <tr data-category="skills">
+            <td class="category-cell">Skills</td>
+            <td class="feature-cell">
+              <strong>Skill Storage Location</strong>
+              <small class="text-muted d-block"
+                >Where skills/commands are defined</small
+              >
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[1].skill_system %}
+              <code>{{ tool[1].skill_system.directory }}</code>
+              <small class="text-muted d-block"
+                >{{ tool[1].skill_system.format }}</small
+              >
+              {% elsif tool[1].command_system %}
+              <code>{{ tool[1].command_system.directory }}</code>
+              <small class="text-muted d-block"
+                >{{ tool[1].command_system.format }}</small
+              >
+              {% else %}
+              <span class="text-muted">Built-in only</span>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- Custom Skills -->
+          <tr data-category="skills">
+            <td class="category-cell">Skills</td>
+            <td class="feature-cell">
+              <strong>Custom Skills/Commands</strong>
+              <small class="text-muted d-block">User-defined automation</small>
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[1].skill_system or tool[1].command_system %}
+              <span class="badge bg-success">✓ Yes</span>
+              {% if tool[1].skill_system and tool[1].skill_system.examples %}
+              <small class="text-muted d-block"
+                >{{ tool[1].skill_system.examples | size }} built-in</small
+              >
+              {% endif %} {% else %}
+              <span class="badge bg-secondary">✗ No</span>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- EDITOR INTEGRATION SECTION -->
+          <tr class="section-header">
+            <td
+              colspan="{{ site.data.tools.size | plus: 2 }}"
+              class="bg-secondary text-white fw-bold"
+            >
+              <i class="bi bi-window me-2"></i>Editor Integration
+            </td>
+          </tr>
+
+          <!-- VS Code -->
+          <tr data-category="editor">
+            <td class="category-cell">Editor</td>
+            <td class="feature-cell">
+              <strong>VS Code</strong>
+              <small class="text-muted d-block">Extension available</small>
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[1].features.ide_integration contains 'VS Code' %}
+              <span class="badge bg-success">✓ Extension</span>
+              {% else %}
+              <span class="badge bg-secondary">✗ No</span>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- JetBrains -->
+          <tr data-category="editor">
+            <td class="category-cell">Editor</td>
+            <td class="feature-cell">
+              <strong>JetBrains IDEs</strong>
+              <small class="text-muted d-block">Plugin available</small>
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[1].features.ide_integration contains 'JetBrains' %}
+              <span class="badge bg-success">✓ Plugin</span>
+              {% else %}
+              <span class="badge bg-secondary">✗ No</span>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- Neovim -->
+          <tr data-category="editor">
+            <td class="category-cell">Editor</td>
+            <td class="feature-cell">
+              <strong>Neovim</strong>
+              <small class="text-muted d-block">Plugin available</small>
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[1].features.ide_integration contains 'Neovim' %}
+              <span class="badge bg-success">✓ Plugin</span>
+              {% else %}
+              <span class="badge bg-secondary">✗ No</span>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- PRICING SECTION -->
+          <tr class="section-header">
+            <td
+              colspan="{{ site.data.tools.size | plus: 2 }}"
+              class="bg-danger text-white fw-bold"
+            >
+              <i class="bi bi-credit-card me-2"></i>Pricing & Limits
+            </td>
+          </tr>
+
+          <!-- Free Tier -->
+          <tr data-category="pricing">
+            <td class="category-cell">Pricing</td>
+            <td class="feature-cell">
+              <strong>Free Tier</strong>
+              <small class="text-muted d-block">Available at no cost</small>
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[1].pricing.free_tier.available %}
+              <span class="badge bg-success">✓ Yes</span>
+              <small class="text-muted d-block"
+                >{{ tool[1].pricing.free_tier.limits }}</small
+              >
+              {% else %}
+              <span class="badge bg-secondary">✗ No</span>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- Starting Price -->
+          <tr data-category="pricing">
+            <td class="category-cell">Pricing</td>
+            <td class="feature-cell">
+              <strong>Starting Price</strong>
+              <small class="text-muted d-block">Cheapest paid tier</small>
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[1].pricing.paid_tiers %} {% assign cheapest =
+              tool[1].pricing.paid_tiers | first %}
+              <span class="fw-bold">{{ cheapest.price }}</span>
+              <small class="text-muted d-block">{{ cheapest.name }}</small>
+              {% else %}
+              <span class="text-muted">N/A</span>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+
+          <!-- Open Source -->
+          <tr data-category="pricing">
+            <td class="category-cell">Pricing</td>
+            <td class="feature-cell">
+              <strong>Open Source</strong>
+              <small class="text-muted d-block">Source code available</small>
+            </td>
+            {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
+            <td class="text-center align-middle">
+              {% if tool[1].license contains 'MIT' or tool[1].license contains
+              'Apache' %}
+              <span class="badge bg-success">✓ {{ tool[1].license }}</span>
+              {% elsif tool[0] == 'aider' %}
+              <span class="badge bg-success">✓ Apache 2.0</span>
+              {% elsif tool[0] == 'continue' %}
+              <span class="badge bg-success">✓ Apache 2.0</span>
+              {% else %}
+              <span class="badge bg-secondary">✗ Proprietary</span>
+              {% endif %}
+            </td>
+            {% endunless %}{% endfor %}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-4 text-center">
+      <a href="{{ '/pricing/' | relative_url }}" class="btn btn-primary me-2">
+        <i class="bi bi-calculator me-2"></i>Pricing Calculator
+      </a>
+      <a
+        href="https://github.com/YOUR_USERNAME/agentic-comparison/issues/new"
+        class="btn btn-outline-secondary"
+        target="_blank"
+      >
+        <i class="bi bi-pencil me-2"></i>Suggest Correction
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .comparison-matrix {
+    font-size: 0.85rem;
+  }
+  .comparison-matrix th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .section-header td {
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+  }
+  .category-cell {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    background-color: #f8f9fa;
+    vertical-align: middle;
+    width: 80px;
+  }
+  .feature-cell {
+    min-width: 200px;
+  }
+  .feature-cell strong {
+    display: block;
+    font-size: 0.9rem;
+  }
+  .tool-header {
+    min-width: 160px;
+  }
+  .comparison-matrix code {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.3rem;
+  }
+  @media (max-width: 1200px) {
+    .comparison-matrix {
+      font-size: 0.8rem;
+    }
+    .tool-header {
+      min-width: 120px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Category filter
+    document
+      .getElementById("category-filter")
+      .addEventListener("change", function () {
+        filterTable();
+      });
+
+    // Show filter
+    document
+      .getElementById("show-filter")
+      .addEventListener("change", function () {
+        filterTable();
+      });
+
+    // Search filter
+    document
+      .getElementById("feature-search")
+      .addEventListener("input", function () {
+        filterTable();
+      });
+
+    function filterTable() {
+      const category = document.getElementById("category-filter").value;
+      const show = document.getElementById("show-filter").value;
+      const search = document
+        .getElementById("feature-search")
+        .value.toLowerCase();
+
+      document.querySelectorAll("tbody tr[data-category]").forEach((row) => {
+        let showRow = true;
+
+        // Category filter
+        if (category !== "all" && row.dataset.category !== category) {
+          showRow = false;
+        }
+
+        // Search filter
+        if (search && !row.textContent.toLowerCase().includes(search)) {
+          showRow = false;
+        }
+
+        // Show filter (simplified - would need more logic for real implementation)
+        if (show === "supported" && row.querySelector(".badge.bg-secondary")) {
+          // Check if majority are unsupported
+          const unsupported = row.querySelectorAll(
+            ".badge.bg-secondary",
+          ).length;
+          const total = row.querySelectorAll("td").length - 2;
+          if (unsupported > total / 2) showRow = false;
+        }
+
+        row.style.display = showRow ? "" : "none";
+      });
+    }
+  });
+</script>

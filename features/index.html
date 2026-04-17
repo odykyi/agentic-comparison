@@ -53,7 +53,14 @@ custom_js:
               class="text-center"
               data-value="{{ tool[1].features.mcp_support }}"
             >
-              {% include status_icon.html status=tool[1].features.mcp_support %}
+              {% if tool[1].features.mcp_support %}
+              <i
+                class="bi bi-check-circle-fill text-success fs-5"
+                title="Yes"
+              ></i>
+              {% else %}
+              <i class="bi bi-x-circle-fill text-danger fs-5" title="No"></i>
+              {% endif %}
             </td>
             {% endunless %} {% endfor %}
           </tr>
@@ -65,8 +72,14 @@ custom_js:
               class="text-center"
               data-value="{{ tool[1].features.offline_mode }}"
             >
-              {% include status_icon.html status=tool[1].features.offline_mode
-              %}
+              {% if tool[1].features.offline_mode %}
+              <i
+                class="bi bi-check-circle-fill text-success fs-5"
+                title="Yes"
+              ></i>
+              {% else %}
+              <i class="bi bi-x-circle-fill text-secondary fs-5" title="No"></i>
+              {% endif %}
             </td>
             {% endunless %} {% endfor %}
           </tr>
@@ -133,13 +146,18 @@ custom_js:
             {% for tool in site.data.tools %} {% unless tool[0] == '_template'
             %}
             <td class="text-center">
-              {% if tool[1].skill_system or tool[1].command_system %} {% include
-              status_icon.html status=true %}
+              {% if tool[1].skill_system or tool[1].command_system %}
+              <i
+                class="bi bi-check-circle-fill text-success fs-5"
+                title="Yes"
+              ></i>
               <small class="text-muted d-block">
                 {{ tool[1].skill_system.directory | default:
                 tool[1].command_system.directory }}
               </small>
-              {% else %} {% include status_icon.html status=false %} {% endif %}
+              {% else %}
+              <i class="bi bi-x-circle-fill text-danger fs-5" title="No"></i>
+              {% endif %}
             </td>
             {% endunless %} {% endfor %}
           </tr>
@@ -158,7 +176,14 @@ custom_js:
             {% for tool in site.data.tools %} {% unless tool[0] == '_template'
             %}
             <td class="text-center">
-              {% include status_icon.html status=tool[1].install.npm %}
+              {% if tool[1].install.npm %}
+              <i
+                class="bi bi-check-circle-fill text-success fs-5"
+                title="Yes"
+              ></i>
+              {% else %}
+              <i class="bi bi-x-circle-fill text-secondary fs-5" title="No"></i>
+              {% endif %}
             </td>
             {% endunless %} {% endfor %}
           </tr>
@@ -167,7 +192,14 @@ custom_js:
             {% for tool in site.data.tools %} {% unless tool[0] == '_template'
             %}
             <td class="text-center">
-              {% include status_icon.html status=tool[1].install.homebrew %}
+              {% if tool[1].install.homebrew %}
+              <i
+                class="bi bi-check-circle-fill text-success fs-5"
+                title="Yes"
+              ></i>
+              {% else %}
+              <i class="bi bi-x-circle-fill text-secondary fs-5" title="No"></i>
+              {% endif %}
             </td>
             {% endunless %} {% endfor %}
           </tr>
@@ -176,7 +208,14 @@ custom_js:
             {% for tool in site.data.tools %} {% unless tool[0] == '_template'
             %}
             <td class="text-center">
-              {% include status_icon.html status=tool[1].install.curl %}
+              {% if tool[1].install.curl %}
+              <i
+                class="bi bi-check-circle-fill text-success fs-5"
+                title="Yes"
+              ></i>
+              {% else %}
+              <i class="bi bi-x-circle-fill text-secondary fs-5" title="No"></i>
+              {% endif %}
             </td>
             {% endunless %} {% endfor %}
           </tr>

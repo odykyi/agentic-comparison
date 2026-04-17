@@ -44,7 +44,7 @@ The AI agent tooling landscape is exploding with multiple CLI-based coding agent
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/agentic-comparison.git
+git clone https://github.com/odykyi/agentic-comparison.git
 cd agentic-comparison
 
 # Install Ruby dependencies (Ruby 3.0+)
@@ -190,8 +190,8 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ## 📬 Contact
 
-- 🐛 [Report issues](https://github.com/YOUR_USERNAME/agentic-comparison/issues)
-- 💡 [Suggest features](https://github.com/YOUR_USERNAME/agentic-comparison/discussions)
+- 🐛 [Report issues](https://github.com/odykyi/agentic-comparison/issues)
+- 💡 [Suggest features](https://github.com/odykyi/agentic-comparison/discussions)
 - 🗣️ [Join our Discord](https://discord.gg/YOUR_INVITE) (coming soon)
 
 ---

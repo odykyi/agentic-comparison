@@ -1,0 +1,14 @@
+services:
+  jekyll:
+    image: jekyll/jekyll:4.2.2
+    command: jekyll serve --watch --force_polling --livereload --host 0.0.0.0
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/srv/jekyll:cached
+    environment:
+      - JEKYLL_ENV=development
+      - LANG=C.UTF-8
+      - LC_ALL=C.UTF-8
+    # Run as root to avoid permission issues with cached gems
+    user: root
