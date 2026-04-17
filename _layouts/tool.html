@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
+{% assign tool_slug_dash = page.tool_slug | replace: '_', '-' %}
+{% assign tool_color_main = site.data.tool_colors[page.tool_slug] | default: page.tool_color | default: '#3b82f6' %}
+
 {%- include head.html -%}
+
+<style>
+  .tool-{{ tool_slug_dash }} .tool-hero {
+    background: linear-gradient(135deg, {{ tool_color_main }}dd 0%, {{ tool_color_main }} 100%);
+  }
+</style>
 
 {% if page.tool_slug %}
   {%- include seo-tool.html tool_slug=page.tool_slug -%}
 {% endif %}
 
-<body class="tool-page">
+<body class="tool-page tool-{{ tool_slug_dash }}">
   {%- include navigation.html -%}
 
   <main id="main-content" class="page-content" aria-label="Main content">
     <!-- Tool Hero Section -->
-    <section class="tool-hero py-5" style="background: linear-gradient(135deg, var(--tool-color-dark) 0%, var(--tool-color) 100%);">
+    <section class="tool-hero py-5">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-2 text-center mb-3 mb-md-0">
@@ -22,7 +31,7 @@
           </div>
           <div class="col-md-10">
             <h1 class="display-4 text-white mb-2">{{ page.tool_name }}</h1>
-            <p class="lead text-white-50 mb-3">{{ page.tool_description }}</p>
+            <p class="lead mb-3" style="color: rgba(255, 255, 255, 0.95);">{{ page.tool_description }}</p>
             <div class="d-flex flex-wrap gap-2">
               {% if page.tool_repo %}
                 <a href="https://github.com/{{ page.tool_repo }}" class="btn btn-light" target="_blank" rel="noopener">
@@ -49,26 +58,26 @@
         <div class="row text-center">
           <div class="col-6 col-md-3">
             <div class="stat-item">
-              <small class="text-muted d-block">Version</small>
-              <strong>{{ page.tool_version | default: 'N/A' }}</strong>
+              <small class="d-block" style="color: #495057; font-weight: 500;">Version</small>
+              <strong class="text-dark">{{ page.tool_version | default: 'N/A' }}</strong>
             </div>
           </div>
           <div class="col-6 col-md-3">
             <div class="stat-item">
-              <small class="text-muted d-block">License</small>
-              <strong>{{ page.tool_license | default: 'N/A' }}</strong>
+              <small class="d-block" style="color: #495057; font-weight: 500;">License</small>
+              <strong class="text-dark">{{ page.tool_license | default: 'N/A' }}</strong>
             </div>
           </div>
           <div class="col-6 col-md-3">
             <div class="stat-item">
-              <small class="text-muted d-block">Language</small>
-              <strong>{{ page.tool_language | default: 'N/A' }}</strong>
+              <small class="d-block" style="color: #495057; font-weight: 500;">Language</small>
+              <strong class="text-dark">{{ page.tool_language | default: 'N/A' }}</strong>
             </div>
           </div>
           <div class="col-6 col-md-3">
             <div class="stat-item">
-              <small class="text-muted d-block">Last Updated</small>
-              <strong>{{ page.tool_last_updated | default: 'N/A' }}</strong>
+              <small class="d-block" style="color: #495057; font-weight: 500;">Last Updated</small>
+              <strong class="text-dark">{{ page.tool_last_updated | default: 'N/A' }}</strong>
             </div>
           </div>
         </div>

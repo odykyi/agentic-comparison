@@ -27,9 +27,6 @@ collections:
   tools:
     output: true
     permalink: /tools/:name/
-  commands:
-    output: true
-    permalink: /commands/:name/
 
 # Default front matter
 defaults:
