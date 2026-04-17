@@ -211,8 +211,8 @@ description: Detailed feature and command comparison across all AI coding tools
             </td>
             {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
             <td class="text-center align-middle">
-              {% if tool[1].features.mcp_support %} {% if tool[0] == 'opencode'
-              %}
+              {% if tool[1].features.mcp_support %}
+              {% if tool[0] == 'opencode' %}
               <small
                 >Filesystem, Git, GitHub, Docker, PostgreSQL, Brave, Fetch,
                 Puppeteer</small
@@ -221,6 +221,7 @@ description: Detailed feature and command comparison across all AI coding tools
               <small>All MCP servers</small>
               {% else %}
               <small>Extensible</small>
+              {% endif %}
               {% else %}
               <span class="badge bg-secondary">N/A</span>
               {% endif %}
@@ -559,7 +560,7 @@ description: Detailed feature and command comparison across all AI coding tools
         <i class="bi bi-calculator me-2"></i>Pricing Calculator
       </a>
       <a
-        href="https://github.com/YOUR_USERNAME/agentic-comparison/issues/new"
+        href="https://github.com/odykyi/agentic-comparison/issues/new"
         class="btn btn-outline-secondary"
         target="_blank"
       >

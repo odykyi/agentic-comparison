@@ -1,299 +1,237 @@
 ---
 layout: default
 title: Home
-description: Compare AI agentic coding tools side-by-side
+description: Compare AI agentic coding tools side-by-side. 9 AI coding agents compared - OpenCode, Codex, Claude Code, Cursor, and more.
 ---
 
 <!-- Hero Section -->
 <section class="hero">
-  <div class="container position-relative">
-    <div class="row align-items-center py-5">
-      <div class="col-lg-8 mx-auto text-center">
-        <div class="mb-4">
-          <span
-            class="badge bg-white text-primary px-3 py-2 mb-3 d-inline-flex align-items-center gap-2"
-          >
-            <i class="bi bi-stars"></i>
-            <span>AI Skills Marketplace</span>
-          </span>
-        </div>
-        <h1 class="display-3 fw-bold mb-4 text-white">
-          Find the Right AI Coding Agent
-        </h1>
-        <p class="lead mb-4 fs-4 text-white">
-          Side-by-side comparison of
-          <strong>9 AI coding agents</strong> including OpenCode, Codex CLI,
-          Claude Code, Cursor, Windsurf, and more. Features, commands, pricing —
-          all in one place.
-        </p>
-        <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
-          <a
-            href="{{ '/compare/' | relative_url }}"
-            class="btn btn-light btn-lg px-4 shadow-lg"
-          >
-            <i class="bi bi-table me-2"></i>Full Comparison
-          </a>
-          <a
-            href="{{ '/features/' | relative_url }}"
-            class="btn btn-outline-light btn-lg px-4 glass"
-          >
-            <i class="bi bi-grid-3x3-gap me-2"></i>Features
-          </a>
-        </div>
+  <div class="container">
+    <span class="hero-label">AI TOOL COMPARISON</span>
+    <h1>Find the Right <span class="highlight">AI Coding Agent</span></h1>
+    <p class="lead">
+      Side-by-side comparison of <strong>9 AI coding agents</strong> including
+      OpenCode, Codex CLI, Claude Code, Cursor, Windsurf, and more.
+    </p>
+    <div class="hero-actions">
+      <a href="{{ '/compare/' | relative_url }}" class="btn btn-primary btn-lg">
+        Full Comparison
+      </a>
+      <a
+        href="{{ '/features/' | relative_url }}"
+        class="btn btn-outline-dark btn-lg"
+      >
+        Features
+      </a>
+    </div>
 
-        <!-- Tool Badges -->
-        <div class="d-flex flex-wrap justify-content-center gap-2">
-          {% for tool in site.data.tools %} {% unless tool[0] == '_template' %}
-          <a
-            href="{{ '/tools/' | append: tool[0] | relative_url }}"
-            class="badge text-decoration-none shadow-sm"
-            style="background-color: {{ site.tool_colors[tool[0]] | default: '#334155' }}; padding: 0.5rem 1rem; font-size: 0.875rem;"
-          >
-            {% if tool[0] == 'opencode' %}<i class="bi bi-terminal me-1"></i>{%
-            endif %} {% if tool[0] == 'codex' %}<i class="bi bi-braces me-1"></i
-            >{% endif %} {% if tool[0] == 'claude_code' %}<i
-              class="bi bi-chat-square-text me-1"
-            ></i
-            >{% endif %} {% if tool[0] == 'cursor' %}<i
-              class="bi bi-cursor me-1"
-            ></i
-            >{% endif %} {% if tool[0] == 'windsurf' %}<i
-              class="bi bi-wind me-1"
-            ></i
-            >{% endif %} {% if tool[0] == 'copilot_cli' %}<i
-              class="bi bi-github me-1"
-            ></i
-            >{% endif %} {% if tool[0] == 'junie' %}<i
-              class="bi bi-stars me-1"
-            ></i
-            >{% endif %} {% if tool[0] == 'antigravity' %}<i
-              class="bi bi-arrow-up-right-circle me-1"
-            ></i
-            >{% endif %} {{ tool[1].name }}
-          </a>
-          {% endunless %} {% endfor %}
-        </div>
+    <!-- Tool Badges -->
+    <div class="mt-5">
+      <span class="label d-block mb-3">Supported Tools:</span>
+      <div class="d-flex flex-wrap gap-2">
+        {% for tool in site.data.tools %} {% unless tool[0] == '_template' %} {%
+        assign tool_color = site.data.tool_colors[tool[0]] | default: '#666666'
+        %}
+        <a
+          href="{{ '/tools/' | append: tool[0] | relative_url }}"
+          class="badge"
+          style="border-color: {{ tool_color }}; color: {{ tool_color }}"
+        >
+          {{ tool[1].name }}
+        </a>
+        {% endunless %} {% endfor %}
       </div>
     </div>
   </div>
 </section>
 
 <!-- Quick Comparison Matrix Preview -->
-<section class="py-5 bg-light">
+<section class="section" style="background: var(--color-gray-100)">
   <div class="container">
-    <div class="row mb-5">
-      <div class="col-lg-8 mx-auto text-center">
-        <h2 class="display-6 fw-bold mb-3">Quick Feature Comparison</h2>
-        <p class="text-muted fs-5">See how the top AI coding agents stack up</p>
-      </div>
+    <div class="section-header text-center">
+      <span class="section-label">QUICK VIEW</span>
+      <h2>Feature Comparison</h2>
+      <p>See how the top AI coding agents stack up</p>
     </div>
 
-    <div class="card border-0 shadow-soft">
-      <div class="card-body p-0">
-        <div class="table-responsive">
-          <table class="table table-hover mb-0">
-            <thead>
-              <tr>
-                <th class="bg-light">
-                  <i class="bi bi-list-check me-2 text-primary"></i>Feature
-                </th>
-                {% for tool in site.data.tools %} {% unless tool[0] ==
-                '_template' %}
-                <th class="text-center bg-light" style="min-width: 100px">
-                  <a
-                    href="{{ '/tools/' | append: tool[0] | relative_url }}"
-                    class="text-decoration-none text-dark fw-bold"
-                  >
-                    {{ tool[1].name }}
-                  </a>
-                </th>
-                {% endunless %} {% endfor %}
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="fw-bold">
-                  <i class="bi bi-plug me-2 text-success"></i>MCP Support
-                </td>
-                {% for tool in site.data.tools %} {% unless tool[0] ==
-                '_template' %}
-                <td class="text-center">
-                  {% if tool[1].features.mcp_support %}
-                  <span class="status-icon status-yes">
-                    <i class="bi bi-check-lg"></i>
-                  </span>
-                  {% else %}
-                  <span class="status-icon status-no">
-                    <i class="bi bi-x-lg"></i>
-                  </span>
-                  {% endif %}
-                </td>
-                {% endunless %} {% endfor %}
-              </tr>
-              <tr>
-                <td class="fw-bold">
-                  <i class="bi bi-wifi-off me-2 text-warning"></i>Offline Mode
-                </td>
-                {% for tool in site.data.tools %} {% unless tool[0] ==
-                '_template' %}
-                <td class="text-center">
-                  {% if tool[1].features.offline_mode %}
-                  <span class="status-icon status-yes">
-                    <i class="bi bi-check-lg"></i>
-                  </span>
-                  {% else %}
-                  <span class="status-icon status-no">
-                    <i class="bi bi-x-lg"></i>
-                  </span>
-                  {% endif %}
-                </td>
-                {% endunless %} {% endfor %}
-              </tr>
-              <tr>
-                <td class="fw-bold">
-                  <i class="bi bi-laptop me-2 text-info"></i>IDE Integration
-                </td>
-                {% for tool in site.data.tools %} {% unless tool[0] ==
-                '_template' %}
-                <td class="text-center">
-                  {% if tool[1].features.ide_integration and
-                  tool[1].features.ide_integration.size > 0 %}
-                  <span class="badge bg-primary rounded-pill"
-                    >{{ tool[1].features.ide_integration.size }} editors</span
-                  >
-                  {% else %}
-                  <span class="badge bg-secondary rounded-pill">CLI only</span>
-                  {% endif %}
-                </td>
-                {% endunless %} {% endfor %}
-              </tr>
-              <tr>
-                <td class="fw-bold">
-                  <i class="bi bi-window-stack me-2 text-purple"></i>Context
-                  Window
-                </td>
-                {% for tool in site.data.tools %} {% unless tool[0] ==
-                '_template' %}
-                <td class="text-center">
-                  {% if tool[1].features.context_window %} {{
-                  tool[1].features.context_window | divided_by: 1000 }}k tokens
-                  {% else %}
-                  <span class="text-muted">-</span>
-                  {% endif %}
-                </td>
-                {% endunless %} {% endfor %}
-              </tr>
-              <tr>
-                <td class="fw-bold">
-                  <i class="bi bi-key me-2 text-secondary"></i>License
-                </td>
-                {% for tool in site.data.tools %} {% unless tool[0] ==
-                '_template' %}
-                <td class="text-center">
-                  <span class="badge bg-secondary rounded-pill"
-                    >{{ tool[1].license }}</span
-                  >
-                </td>
-                {% endunless %} {% endfor %}
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+    <div class="feature-matrix" style="overflow-x: auto">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <th class="text-center">{{ tool[1].name }}</th>
+            {% endunless %} {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="fw-bold">MCP Support</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].features.mcp_support %}
+              <span class="status-icon status-yes">✓</span>
+              {% else %}
+              <span class="status-icon status-no">—</span>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td class="fw-bold">Offline Mode</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].features.offline_mode %}
+              <span class="status-icon status-yes">✓</span>
+              {% else %}
+              <span class="status-icon status-no">—</span>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td class="fw-bold">IDE Integration</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].features.ide_integration and
+              tool[1].features.ide_integration.size > 0 %}
+              <span class="badge"
+                >{{ tool[1].features.ide_integration.size }} editors</span
+              >
+              {% else %}
+              <span
+                class="badge"
+                style="
+                  border-color: var(--color-gray-400);
+                  color: var(--color-gray-400);
+                "
+                >CLI only</span
+              >
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td class="fw-bold">Context Window</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].features.context_window %} {{
+              tool[1].features.context_window | divided_by: 1000 }}k tokens {%
+              else %}
+              <span style="color: var(--color-gray-400)">—</span>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td class="fw-bold">License</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              <span class="badge" style="font-size: 0.625rem"
+                >{{ tool[1].license }}</span
+              >
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="text-center mt-5">
       <a
         href="{{ '/features/' | relative_url }}"
-        class="btn btn-primary btn-lg rounded-pill px-5 shadow-sm"
+        class="btn btn-primary btn-lg"
       >
-        View Full Comparison <i class="bi bi-arrow-right ms-2"></i>
+        View Full Comparison →
       </a>
     </div>
   </div>
 </section>
 
 <!-- Feature Highlights -->
-<section class="py-5">
+<section class="section">
   <div class="container">
-    <div class="row mb-5">
-      <div class="col-lg-8 mx-auto text-center">
-        <h2 class="display-6 fw-bold mb-3">What You Get</h2>
-        <p class="text-muted fs-5">Concrete answers, not marketing fluff</p>
-      </div>
+    <div class="section-header text-center">
+      <span class="section-label">WHAT YOU GET</span>
+      <h2>Concrete Answers</h2>
+      <p>Not marketing fluff — actual tool capabilities mapped out</p>
     </div>
+
     <div class="row g-4">
       <div class="col-md-4">
-        <div class="card h-100 border-0 shadow-soft gradient-border">
-          <div class="card-body p-4 text-center">
+        <div class="card h-100">
+          <div class="card-body text-center" style="padding: var(--space-8)">
             <div class="mb-4">
-              <div
-                class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10 p-4"
-              >
-                <i class="bi bi-terminal-fill fs-1 text-primary"></i>
-              </div>
+              <i
+                class="bi bi-terminal-fill"
+                style="font-size: 3rem; color: var(--color-purple)"
+              ></i>
             </div>
-            <h3 class="h5 fw-bold mb-3">Command Equivalents</h3>
-            <p class="text-muted mb-4">
+            <h3 style="font-size: 1.25rem">Command Equivalents</h3>
+            <p style="color: var(--color-gray-600)">
               <code>/ask</code> in OpenCode = <code>codex</code> in Codex =
               typing naturally in Claude Code. Same task, different syntax —
               mapped out.
             </p>
             <a
               href="{{ '/commands/' | relative_url }}"
-              class="btn btn-outline-primary btn-sm rounded-pill px-4"
+              class="btn btn-outline-dark btn-sm"
             >
-              <i class="bi bi-arrow-right me-2"></i>See Commands
+              See Commands →
             </a>
           </div>
         </div>
       </div>
 
       <div class="col-md-4">
-        <div class="card h-100 border-0 shadow-soft gradient-border">
-          <div class="card-body p-4 text-center">
+        <div class="card h-100">
+          <div class="card-body text-center" style="padding: var(--space-8)">
             <div class="mb-4">
-              <div
-                class="d-inline-flex align-items-center justify-content-center rounded-circle bg-secondary bg-opacity-10 p-4"
-              >
-                <i class="bi bi-translate fs-1 text-secondary"></i>
-              </div>
+              <i
+                class="bi bi-translate"
+                style="font-size: 3rem; color: var(--color-purple)"
+              ></i>
             </div>
-            <h3 class="h5 fw-bold mb-3">Apples-to-Apples</h3>
-            <p class="text-muted mb-4">
+            <h3 style="font-size: 1.25rem">Apples-to-Apples</h3>
+            <p style="color: var(--color-gray-600)">
               "Skills" vs "Commands" vs "Agents" — we map the jargon so you can
               compare actual capabilities, not marketing terms.
             </p>
             <a
               href="{{ '/terminology/' | relative_url }}"
-              class="btn btn-outline-secondary btn-sm rounded-pill px-4"
+              class="btn btn-outline-dark btn-sm"
             >
-              <i class="bi bi-arrow-right me-2"></i>View Terminology
+              View Terminology →
             </a>
           </div>
         </div>
       </div>
 
       <div class="col-md-4">
-        <div class="card h-100 border-0 shadow-soft gradient-border">
-          <div class="card-body p-4 text-center">
+        <div class="card h-100">
+          <div class="card-body text-center" style="padding: var(--space-8)">
             <div class="mb-4">
-              <div
-                class="d-inline-flex align-items-center justify-content-center rounded-circle bg-success bg-opacity-10 p-4"
-              >
-                <i class="bi bi-currency-dollar fs-1 text-success"></i>
-              </div>
+              <i
+                class="bi bi-currency-dollar"
+                style="font-size: 3rem; color: var(--color-purple)"
+              ></i>
             </div>
-            <h3 class="h5 fw-bold mb-3">Real Pricing</h3>
-            <p class="text-muted mb-4">
+            <h3 style="font-size: 1.25rem">Real Pricing</h3>
+            <p style="color: var(--color-gray-600)">
               Free tiers, API costs, subscription limits — with a calculator
               that shows your actual monthly cost based on usage.
             </p>
             <a
               href="{{ '/pricing/' | relative_url }}"
-              class="btn btn-outline-success btn-sm rounded-pill px-4"
+              class="btn btn-outline-dark btn-sm"
             >
-              <i class="bi bi-arrow-right me-2"></i>Calculate Costs
+              Calculate Costs →
             </a>
           </div>
         </div>
@@ -303,89 +241,86 @@ description: Compare AI agentic coding tools side-by-side
 </section>
 
 <!-- Recent Updates -->
-<section class="py-5 bg-light">
+<section class="section" style="background: var(--color-gray-100)">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-10">
-        <div class="text-center mb-5">
-          <h2 class="display-6 fw-bold mb-3">9 AI Coding Agents Compared</h2>
-          <p class="text-muted fs-5">
-            Click any tool to view detailed information
-          </p>
-        </div>
-        <div class="row g-4">
-          {% for tool in site.data.tools %} {% unless tool[0] == '_template' %}
-          <div class="col-md-6 col-lg-4">
-            <a
-              href="{{ '/tools/' | append: tool[0] | relative_url }}"
-              class="card h-100 text-decoration-none border-0 shadow-soft tool-card card-tool tool-{{ tool[0] }}"
+    <div class="section-header text-center">
+      <span class="section-label">TOOLS</span>
+      <h2>9 AI Coding Agents Compared</h2>
+      <p>Click any tool to view detailed information</p>
+    </div>
+
+    <div class="row g-4">
+      {% for tool in site.data.tools %} {% unless tool[0] == '_template' %}
+      <div class="col-md-6 col-lg-4">
+        <a
+          href="{{ '/tools/' | append: tool[0] | relative_url }}"
+          class="card h-100 text-decoration-none tool-card card-tool tool-{{ tool[0] }}"
+        >
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <h5 class="mb-0" style="font-size: 1.125rem">
+                {{ tool[1].name }}
+              </h5>
+              <span class="badge" style="font-size: 0.625rem"
+                >v{{ tool[1].version.current }}</span
+              >
+            </div>
+            <p
+              style="
+                color: var(--color-gray-600);
+                font-size: 0.9375rem;
+                margin-bottom: var(--space-4);
+              "
             >
-              <div class="card-body p-4">
-                <div
-                  class="d-flex justify-content-between align-items-start mb-3"
-                >
-                  <h6 class="card-title fw-bold mb-0 text-dark">
-                    {{ tool[1].name }}
-                  </h6>
-                  <span class="badge bg-light text-dark border">
-                    v{{ tool[1].version.current }}
-                  </span>
-                </div>
-                <p class="card-text text-muted small mb-3">
-                  {{ tool[1].description | truncate: 100 }}
-                </p>
-                <div class="d-flex flex-wrap gap-1">
-                  {% if tool[1].features.mcp_support %}
-                  <span
-                    class="badge bg-success bg-opacity-10 text-success border-0"
-                  >
-                    <i class="bi bi-check-circle me-1"></i>MCP
-                  </span>
-                  {% endif %}
-                  <span
-                    class="badge bg-primary bg-opacity-10 text-primary border-0"
-                  >
-                    <i class="bi bi-terminal me-1"></i>{{ tool[1].command_prefix
-                    }}
-                  </span>
-                </div>
-              </div>
-            </a>
+              {{ tool[1].description }}
+            </p>
+            <div class="d-flex flex-wrap gap-1">
+              {% if tool[1].features.mcp_support %}
+              <span class="badge bg-purple">MCP</span>
+              {% endif %}
+              <span class="badge">{{ tool[1].command_prefix }}</span>
+            </div>
           </div>
-          {% endunless %} {% endfor %}
-        </div>
+        </a>
       </div>
+      {% endunless %} {% endfor %}
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="py-5">
+<section
+  class="section"
+  style="background: var(--color-black); color: var(--color-white)"
+>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div
-          class="card border-0 shadow-lg bg-gradient-primary text-white p-5 text-center"
+      <div class="col-lg-8 text-center">
+        <h2 style="color: var(--color-white)">Data Wrong or Missing?</h2>
+        <p
+          style="
+            color: var(--color-gray-400);
+            font-size: 1.125rem;
+            margin-bottom: var(--space-6);
+          "
         >
-          <div class="card-body">
-            <h2 class="display-6 fw-bold mb-3">
-              <i class="bi bi-pencil-square me-3"></i>Data Wrong or Missing?
-            </h2>
-            <p class="lead mb-4">
-              These tools change fast. If you spot an error or a tool added a
-              feature we haven't captured, open a PR. We merge factual
-              corrections within 24 hours.
-            </p>
-            <a
-              href="https://github.com/odykyi/agentic-comparison"
-              class="btn btn-light btn-lg px-5 rounded-pill shadow-sm"
-              target="_blank"
-              rel="noopener"
-            >
-              <i class="bi bi-github me-2"></i>Edit on GitHub
-            </a>
-          </div>
-        </div>
+          These tools change fast. If you spot an error or a tool added a
+          feature we haven't captured, open a PR. We merge factual corrections
+          within 24 hours.
+        </p>
+        <a
+          href="https://github.com/odykyi/agentic-comparison"
+          class="btn btn-lg"
+          style="
+            background: var(--color-white);
+            color: var(--color-black);
+            border-color: var(--color-white);
+          "
+          target="_blank"
+          rel="noopener"
+        >
+          Edit on GitHub
+        </a>
       </div>
     </div>
   </div>

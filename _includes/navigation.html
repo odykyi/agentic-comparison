@@ -1,15 +1,14 @@
-<nav
-  class="navbar navbar-expand-lg navbar-dark"
-  style="background-color: var(--color-primary)"
->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav class="navbar navbar-expand-lg" aria-label="Main navigation">
   <div class="container">
     <a
       class="navbar-brand d-flex align-items-center text-nowrap"
       href="{{ '/' | relative_url }}"
     >
       <i class="bi bi-grid-3x3-gap-fill me-2"></i>
-      <span class="fw-bold">Agentic</span>
-      <span class="fw-light">Comparison</span>
+      <span>AGENTIC</span>
+      <span class="ms-1" style="color: var(--color-purple)">COMPARISON</span>
     </a>
 
     <button
@@ -19,7 +18,7 @@
       data-bs-target="#navbarNav"
       aria-controls="navbarNav"
       aria-expanded="false"
-      aria-label="Toggle navigation"
+      aria-label="Toggle navigation menu"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -44,7 +43,7 @@
           <a
             class="nav-link{% if page.url contains '/compare/' %} active{% endif %}"
             href="{{ '/compare/' | relative_url }}"
-            >Full Comparison</a
+            >Compare</a
           >
         </li>
         <li class="nav-item">
@@ -58,7 +57,7 @@
           <a
             class="nav-link{% if page.url contains '/terminology/' %} active{% endif %}"
             href="{{ '/terminology/' | relative_url }}"
-            >Terminology</a
+            >Terms</a
           >
         </li>
         <li class="nav-item">
@@ -114,6 +113,13 @@
                 >Claude Code</a
               >
             </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="{{ '/tools/cursor/' | relative_url }}"
+                >Cursor</a
+              >
+            </li>
             <li><hr class="dropdown-divider" /></li>
             <li>
               <a class="dropdown-item" href="{{ '/tools/' | relative_url }}"
@@ -126,14 +132,14 @@
 
       <form class="d-flex me-3" role="search" id="site-search">
         <div class="input-group">
-          <span class="input-group-text bg-light border-end-0">
-            <i class="bi bi-search text-muted"></i>
+          <span class="input-group-text">
+            <i class="bi bi-search"></i>
           </span>
           <input
-            class="form-control bg-light border-start-0 ps-0"
+            class="form-control"
             type="search"
-            placeholder="Press Enter to search..."
-            aria-label="Search"
+            placeholder="Search..."
+            aria-label="Search site"
             id="search-input"
           />
         </div>
@@ -142,20 +148,13 @@
       <div class="d-flex align-items-center gap-2">
         <a
           href="https://github.com/odykyi/agentic-comparison"
-          class="btn btn-outline-light btn-sm"
+          class="btn btn-sm btn-outline-dark"
           target="_blank"
           rel="noopener"
+          aria-label="View on GitHub"
         >
           <i class="bi bi-github"></i>
-          <span class="d-none d-lg-inline ms-1">GitHub</span>
         </a>
-        <button
-          class="btn btn-outline-light btn-sm"
-          id="theme-toggle"
-          aria-label="Toggle dark mode"
-        >
-          <i class="bi bi-moon-fill"></i>
-        </button>
       </div>
     </div>
   </div>

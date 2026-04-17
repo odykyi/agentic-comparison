@@ -1,10 +1,10 @@
-<footer class="site-footer py-5">
+<footer class="site-footer">
   <div class="container">
     <div class="row">
       <div class="col-lg-4 mb-4 mb-lg-0">
-        <h5 class="mb-3">
-          <i class="bi bi-grid-3x3-gap-fill me-2"></i>
-          AgenticComparison
+        <h5>
+          <i class="bi bi-grid-3x3-gap-fill me-2" aria-hidden="true"></i>
+          AGENTIC<span style="color: var(--color-purple)">COMPARISON</span>
         </h5>
         <p class="footer-text">
           A comprehensive comparison resource for AI agentic coding tools.
@@ -16,14 +16,15 @@
             href="https://github.com/odykyi/agentic-comparison"
             target="_blank"
             rel="noopener"
+            aria-label="GitHub repository"
           >
-            <i class="bi bi-github fs-5"></i>
+            <i class="bi bi-github fs-5" aria-hidden="true"></i>
           </a>
         </div>
       </div>
 
       <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
-        <h6 class="text-uppercase mb-3">Compare</h6>
+        <h6>Compare</h6>
         <ul class="list-unstyled footer-links">
           <li><a href="{{ '/features/' | relative_url }}">Features</a></li>
           <li><a href="{{ '/commands/' | relative_url }}">Commands</a></li>
@@ -35,7 +36,7 @@
       </div>
 
       <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
-        <h6 class="text-uppercase mb-3">Tools</h6>
+        <h6>Tools</h6>
         <ul class="list-unstyled footer-links">
           <li>
             <a href="{{ '/tools/opencode/' | relative_url }}">OpenCode</a>
@@ -49,16 +50,16 @@
       </div>
 
       <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
-        <h6 class="text-uppercase mb-3">Resources</h6>
+        <h6>Resources</h6>
         <ul class="list-unstyled footer-links">
+          <li><a href="{{ '/skills/' | relative_url }}">Skills</a></li>
           <li><a href="{{ '/mcp/' | relative_url }}">MCP Registry</a></li>
-          <li><a href="{{ '/ui/' | relative_url }}">UI Showcase</a></li>
           <li><a href="{{ '/about/' | relative_url }}">About</a></li>
         </ul>
       </div>
 
       <div class="col-lg-2 col-md-4">
-        <h6 class="text-uppercase mb-3">Contribute</h6>
+        <h6>Contribute</h6>
         <ul class="list-unstyled footer-links">
           <li>
             <a href="{{ '/CONTRIBUTING.md' | relative_url }}">Guidelines</a>
@@ -67,6 +68,7 @@
             <a
               href="https://github.com/odykyi/agentic-comparison/issues"
               target="_blank"
+              rel="noopener"
               >Report Issue</a
             >
           </li>
@@ -74,6 +76,7 @@
             <a
               href="https://github.com/odykyi/agentic-comparison/blob/main/LICENSE"
               target="_blank"
+              rel="noopener"
               >License</a
             >
           </li>
@@ -81,23 +84,29 @@
       </div>
     </div>
 
-    <hr class="my-4 border-secondary" />
+    <hr />
 
     <div class="row align-items-center">
       <div class="col-md-6 mb-3 mb-md-0">
-        <p class="mb-0 footer-text small">
+        <p class="mb-0 footer-text">
           © {{ 'now' | date: "%Y" }} Agentic Comparison Contributors. Licensed
           under
-          <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a>.
+          <a
+            href="https://opensource.org/licenses/MIT"
+            target="_blank"
+            rel="noopener"
+            >MIT</a
+          >.
         </p>
       </div>
       <div class="col-md-6 text-md-end">
-        <p class="mb-0 footer-text small">
-          Last built: {{ 'now' | date: "%Y-%m-%d %H:%M" }} {% if
+        <p class="mb-0 footer-text">
+          Last built: {{ 'now' | date: "%Y-%m-%d" }} {% if
           site.github.build_revision %} •
           <a
             href="https://github.com/odykyi/agentic-comparison/commit/{{ site.github.build_revision }}"
             target="_blank"
+            rel="noopener"
             >{{ site.github.build_revision | slice: 0, 7 }}</a
           >
           {% endif %}
@@ -107,7 +116,7 @@
 
     <div class="row mt-3">
       <div class="col-12">
-        <p class="mb-0 footer-text small text-center">
+        <p class="mb-0 footer-text text-center">
           Tool logos and trademarks belong to their respective owners. This is
           an independent comparison project not affiliated with any tool vendor.
         </p>
