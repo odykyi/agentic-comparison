@@ -1,0 +1,11 @@
+# Production config for GitHub Pages
+# Usage: jekyll build --config _config.yml,_config_production.yml
+
+baseurl: "/agentic-comparison"
+url: "https://odykyi.github.io"
+
+# Disable livereload in production
+livereload: false
+
+# Analytics (enable when ready)
+# google_analytics: G-XXXXXXXXXX
