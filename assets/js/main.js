@@ -71,10 +71,6 @@ function initSearch() {
         window.location.href = "/agentic-comparison/tools/codex/";
       } else if (query.includes("claude")) {
         window.location.href = "/agentic-comparison/tools/claude_code/";
-      } else if (query.includes("aider")) {
-        window.location.href = "/agentic-comparison/tools/aider/";
-      } else if (query.includes("continue")) {
-        window.location.href = "/agentic-comparison/tools/continue/";
       } else if (query.includes("copilot")) {
         window.location.href = "/agentic-comparison/tools/copilot_cli/";
       } else {

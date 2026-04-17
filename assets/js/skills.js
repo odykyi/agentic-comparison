@@ -100,19 +100,16 @@ function getCommandForTool(skillSlug, tool) {
       codex: "codex skills install code-review",
       claude_code: "claude skills install code-review",
       opencode: "opencode skills install code-review",
-      aider: "aider --skill code-review",
     },
     "commit-gen": {
       codex: "codex skills install commit-gen",
       claude_code: "claude skills install commit-gen",
       opencode: "opencode skills install commit-gen",
-      aider: "aider --skill commit-gen",
     },
     "test-gen": {
       codex: "codex skills install test-gen",
       claude_code: "claude skills install test-gen",
       opencode: "opencode skills install test-gen",
-      aider: "aider --skill test-gen",
     },
   };
 

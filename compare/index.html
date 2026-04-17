@@ -121,9 +121,7 @@ description: Detailed feature and command comparison across all AI coding tools
             <td class="text-center align-middle">
               {% if tool[1].features.offline_mode %}
               <span class="badge bg-success">✓ Yes</span>
-              {% if tool[0] == 'aider' %}
-              <small class="text-muted d-block">Any provider</small>
-              {% endif %} {% else %}
+              {% else %}
               <span class="badge bg-secondary">✗ Cloud only</span>
               {% endif %}
             </td>
@@ -162,7 +160,7 @@ description: Detailed feature and command comparison across all AI coding tools
             </td>
             {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
             <td class="text-center align-middle">
-              {% if tool[0] == 'aider' or tool[0] == 'claude_code' %}
+              {% if tool[0] == 'claude_code' %}
               <span class="badge bg-success">✓ Advanced</span>
               {% elsif tool[0] == 'opencode' or tool[0] == 'codex' %}
               <span class="badge bg-success">✓ Yes</span>
@@ -187,8 +185,6 @@ description: Detailed feature and command comparison across all AI coding tools
               {% if tool[0] == 'opencode' or tool[0] == 'claude_code' or tool[0]
               == 'codex' %}
               <span class="badge bg-success">✓ Built-in</span>
-              {% elsif tool[0] == 'aider' %}
-              <span class="badge bg-success">✓ Via /run</span>
               {% else %}
               <span class="badge bg-secondary">✗ No</span>
               {% endif %}
@@ -273,7 +269,7 @@ description: Detailed feature and command comparison across all AI coding tools
               <code>/ask</code> or type {% elsif tool[0] == 'codex' %}
               <code>codex</code>
               {% elsif tool[0] == 'claude_code' %} Type naturally {% elsif
-              tool[0] == 'aider' %} Type in chat {% elsif tool[0] == 'copilot_cli' %}
+              tool[0] == 'copilot_cli' %}
               <code>gh copilot suggest</code>
               {% endif %}
             </td>
@@ -293,9 +289,7 @@ description: Detailed feature and command comparison across all AI coding tools
               <code>/code</code> or type {% elsif tool[0] == 'codex' %}
               <code>codex -q "..."</code>
               {% elsif tool[0] == 'claude_code' %} Type naturally {% elsif
-              tool[0] == 'aider' %}
-              <code>/code</code>
-              {% elsif tool[0] == 'copilot_cli' %}
+              tool[0] == 'copilot_cli' %}
               <code>gh copilot explain</code>
               {% endif %}
             </td>
@@ -316,8 +310,6 @@ description: Detailed feature and command comparison across all AI coding tools
               <span class="badge bg-success">✓ Built-in</span>
               {% elsif tool[0] == 'opencode' %}
               <code>/test</code>
-              {% elsif tool[0] == 'aider' %}
-              <code>/test</code>
               {% else %}
               <span class="text-muted">Via terminal</span>
               {% endif %}
@@ -336,9 +328,7 @@ description: Detailed feature and command comparison across all AI coding tools
             <td class="text-center align-middle">
               {% if tool[0] == 'opencode' %}
               <code>/debug</code> or error click {% elsif tool[0] ==
-              'claude_code' %} Paste error {% elsif tool[0] == 'aider' %}
-              <code>/debug</code>
-              {% else %}
+              'claude_code' %} Paste error {% else %}
               <span class="text-muted">Manual</span>
               {% endif %}
             </td>
@@ -357,8 +347,6 @@ description: Detailed feature and command comparison across all AI coding tools
             {% for tool in site.data.tools %}{% unless tool[0] == '_template' %}
             <td class="text-center align-middle">
               {% if tool[0] == 'opencode' %}
-              <code>/commit</code>
-              {% elsif tool[0] == 'aider' %}
               <code>/commit</code>
               {% elsif tool[0] == 'claude_code' %}
               <span class="text-muted">Manual</span>
@@ -556,8 +544,6 @@ description: Detailed feature and command comparison across all AI coding tools
               {% if tool[1].license contains 'MIT' or tool[1].license contains
               'Apache' %}
               <span class="badge bg-success">✓ {{ tool[1].license }}</span>
-              {% elsif tool[0] == 'aider' %}
-              <span class="badge bg-success">✓ Apache 2.0</span>
               {% else %}
               <span class="badge bg-secondary">✗ Proprietary</span>
               {% endif %}
