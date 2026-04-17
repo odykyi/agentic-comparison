@@ -1,0 +1,32 @@
+# PDF Master
+# Work with PDFs - extract, merge, split, fill forms - Official Anthropic skill
+
+name: "PDF Master"
+slug: "pdf-master"
+description: "Comprehensive PDF manipulation skill. Extract text, merge documents, split pages, fill forms, and convert PDFs with ease."
+category: "documentation"
+tags:
+  - pdf
+  - documents
+  - extraction
+  - forms
+  - office
+
+compatible_tools:
+  - claude_code
+  - codex
+
+install_commands:
+  claude_code: "claude skills install pdf"
+  codex: "codex skills install pdf"
+
+usage_example: |
+  @pdf extract text from report.pdf
+  @pdf merge cover.pdf document.pdf
+
+author: "Anthropic"
+source_url: "https://github.com/anthropics/skills/tree/main/skills/pdf"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

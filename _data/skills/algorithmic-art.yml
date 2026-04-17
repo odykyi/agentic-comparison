@@ -1,0 +1,31 @@
+# Algorithmic Art
+# Create algorithmic art with p5.js - Official Anthropic skill
+
+name: "Algorithmic Art"
+slug: "algorithmic-art"
+description: "Create stunning algorithmic art using p5.js. Generates visual art through code with mathematical patterns, fractals, and generative designs."
+category: "creative"
+tags:
+  - art
+  - generative
+  - p5.js
+  - visualization
+  - creative-coding
+
+compatible_tools:
+  - claude_code
+  - codex
+
+install_commands:
+  claude_code: "claude skills install algorithmic-art"
+  codex: "codex skills install algorithmic-art"
+
+usage_example: |
+  @algorithmic-art create a fractal tree animation
+
+author: "Anthropic"
+source_url: "https://github.com/anthropics/skills/tree/main/skills/algorithmic-art"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

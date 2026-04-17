@@ -1,0 +1,32 @@
+# Excel & Spreadsheets
+# Work with Excel files - formulas, charts, data analysis - Official Anthropic skill
+
+name: "Excel & Spreadsheets"
+slug: "excel-spreadsheets"
+description: "Master Excel and spreadsheet manipulation. Create formulas, generate charts, analyze data, and automate spreadsheet workflows."
+category: "documentation"
+tags:
+  - excel
+  - spreadsheets
+  - xlsx
+  - data-analysis
+  - formulas
+  - charts
+
+compatible_tools:
+  - claude_code
+  - codex
+
+install_commands:
+  claude_code: "claude skills install xlsx"
+  codex: "codex skills install xlsx"
+
+usage_example: |
+  @xlsx create a budget spreadsheet with formulas and charts
+
+author: "Anthropic"
+source_url: "https://github.com/anthropics/skills/tree/main/skills/xlsx"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

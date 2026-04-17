@@ -1,0 +1,31 @@
+# PowerPoint Presentations
+# Create and modify presentations - Official Anthropic skill
+
+name: "PowerPoint Presentations"
+slug: "powerpoint-presentations"
+description: "Create professional PowerPoint presentations programmatically. Add slides, charts, images, and animations with code."
+category: "documentation"
+tags:
+  - powerpoint
+  - presentations
+  - pptx
+  - slides
+  - office
+
+compatible_tools:
+  - claude_code
+  - codex
+
+install_commands:
+  claude_code: "claude skills install pptx"
+  codex: "codex skills install pptx"
+
+usage_example: |
+  @pptx create a pitch deck with 5 slides about my startup
+
+author: "Anthropic"
+source_url: "https://github.com/anthropics/skills/tree/main/skills/pptx"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

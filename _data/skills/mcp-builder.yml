@@ -1,0 +1,31 @@
+# MCP Builder
+# Build MCP (Model Context Protocol) servers - Official Anthropic skill
+
+name: "MCP Builder"
+slug: "mcp-builder"
+description: "Build MCP (Model Context Protocol) servers to extend AI capabilities. Create custom tools, integrations, and external service connectors."
+category: "system-extension"
+tags:
+  - mcp
+  - model-context-protocol
+  - servers
+  - integration
+  - tools
+
+compatible_tools:
+  - claude_code
+  - codex
+
+install_commands:
+  claude_code: "claude skills install mcp-builder"
+  codex: "codex skills install mcp-builder"
+
+usage_example: |
+  @mcp-builder create an MCP server for the GitHub API
+
+author: "Anthropic"
+source_url: "https://github.com/anthropics/skills/tree/main/skills/mcp-builder"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

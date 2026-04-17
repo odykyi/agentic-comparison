@@ -1,0 +1,31 @@
+# Skill Creator
+# Create new skills or update existing ones - Official Anthropic skill
+
+name: "Skill Creator"
+slug: "skill-creator"
+description: "Meta-skill for creating new AI skills. Helps you write, validate, and package skills for Claude Code, Codex, and other AI tools."
+category: "system-extension"
+tags:
+  - skills
+  - meta
+  - creation
+  - authoring
+  - development
+
+compatible_tools:
+  - claude_code
+  - codex
+
+install_commands:
+  claude_code: "claude skills install skill-creator"
+  codex: "codex skills install skill-creator"
+
+usage_example: |
+  @skill-creator help me create a skill for AWS deployment
+
+author: "Anthropic"
+source_url: "https://github.com/anthropics/skills/tree/main/skills/skill-creator"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

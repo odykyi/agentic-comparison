@@ -1,0 +1,31 @@
+# Web App Testing
+# Test web apps with Playwright - Official Anthropic skill
+
+name: "Web App Testing"
+slug: "webapp-testing"
+description: "Comprehensive web application testing using Playwright. E2E tests, accessibility checks, visual regression, and cross-browser testing."
+category: "testing"
+tags:
+  - testing
+  - playwright
+  - e2e
+  - accessibility
+  - automation
+
+compatible_tools:
+  - claude_code
+  - codex
+
+install_commands:
+  claude_code: "claude skills install webapp-testing"
+  codex: "codex skills install webapp-testing"
+
+usage_example: |
+  @webapp-testing create E2E tests for the login flow
+
+author: "Anthropic"
+source_url: "https://github.com/anthropics/skills/tree/main/skills/webapp-testing"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true
