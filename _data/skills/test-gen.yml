@@ -32,7 +32,7 @@ usage_example: |
   /test --framework=jest
 
 author: "Community"
-source_url: "https://github.com/community-skills/test-gen"
+source_url: "https://github.com/sickn33/antigravity-awesome-skills/blob/main/skills/test-gen"
 license: "MIT"
 last_verified: "2024-01-15"
 version: "1.0.0"

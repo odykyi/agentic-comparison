@@ -32,7 +32,7 @@ usage_example: |
   /explain-error "TypeError: Cannot read property 'x' of undefined"
 
 author: "Community"
-source_url: "https://github.com/community-skills/error-explain"
+source_url: "https://github.com/sickn33/antigravity-awesome-skills/blob/main/skills/error-explain"
 license: "MIT"
 last_verified: "2024-01-15"
 version: "1.0.0"

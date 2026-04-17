@@ -32,7 +32,7 @@ usage_example: |
   /refactor --goal=extract-functions
 
 author: "Community"
-source_url: "https://github.com/community-skills/refactor"
+source_url: "https://github.com/sickn33/antigravity-awesome-skills/blob/main/skills/refactor"
 license: "MIT"
 last_verified: "2024-01-15"
 version: "1.0.0"
