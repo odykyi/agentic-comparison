@@ -2,15 +2,15 @@
 
 ## Overview Table
 
-| Feature | OpenAI Codex | GitHub Copilot CLI | Cursor | Google Antigravity | Junie | OpenCode | Tabnine | Windsurf |
-|---------|--------------|-------------------|---------|-------------------|-------|----------|---------|----------|
-| **MCP Support** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | — | ✓ |
-| **Offline Mode** | — | — | — | ✓ | — | — | ✓ | — |
-| **IDE Support** | VS Code, CLI | CLI | VS Code, JetBrains | Any | JetBrains | Any | VS Code, JetBrains | VS Code |
-| **Local Model Support** | — | — | ✓ | ✓ | — | — | ✓ | — |
-| **Agent Mode** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | — | ✓ |
-| **Self-Hosted** | — | — | ✓ | ✓ | — | ✓ | ✓ | — |
-| **Pricing** | Subscription | Subscription | Subscription | Free/Paid | Subscription | Free | Free/Paid | Subscription |
+| Feature | OpenAI Codex | GitHub Copilot CLI | Cursor | Google Antigravity | Junie | OpenCode | Windsurf |
+|---------|--------------|-------------------|---------|-------------------|-------|----------|----------|
+| **MCP Support** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **Offline Mode** | — | — | — | ✓ | — | — | — |
+| **IDE Support** | VS Code, CLI | CLI | VS Code, JetBrains | Any | JetBrains | Any | VS Code |
+| **Local Model Support** | — | — | ✓ | ✓ | — | — | — |
+| **Agent Mode** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **Self-Hosted** | — | — | ✓ | ✓ | — | ✓ | — |
+| **Pricing** | Subscription | Subscription | Subscription | Free/Paid | Subscription | Free | Subscription |
 
 ---
 
@@ -97,21 +97,7 @@
 
 ---
 
-### 7. Tabnine
-**Type:** Privacy-focused AI assistant
-**Best For:** Teams with strict security/privacy requirements
-**Key Features:**
-- Runs locally (no code sent to cloud)
-- On-premise deployment option
-- Team knowledge sharing
-- Works offline with local models
-**MCP:** Limited
-**Offline:** Full offline mode available
-**Pricing:** Free tier, Pro $12/mo, Enterprise custom
-
----
-
-### 8. Windsurf (Codeium)
+### 7. Windsurf (Codeium)
 **Type:** AI IDE with Cascade agent
 **Best For:** Developers wanting AI-native experience
 **Key Features:**
@@ -142,11 +128,6 @@
 - You need advanced skill system
 - You want multi-agent orchestration
 
-### Choose **Tabnine** if:
-- Privacy is critical
-- You need on-premise deployment
-- Offline capability required
-
 ### Choose **Windsurf** if:
 - You want free tier with good features
 - You like Cascade agent approach
@@ -162,7 +143,6 @@
 | Cursor | Settings-based | Enable in settings |
 | Antigravity | Native first-class | Skills integrate with MCP |
 | Windsurf | Via extension | Plugin architecture |
-| Tabnine | Limited | Focus on local inference |
 
 ---
 
@@ -172,5 +152,4 @@
 |------|---------------|---------------|
 | Antigravity | Ollama, LM Studio | Any local model |
 | Cursor | Local mode | Various local LLMs |
-| Tabnine | Local inference | Proprietary local models |
 | Others | ❌ None | Cloud-only |

@@ -11,8 +11,8 @@ description: "An intelligent CLI tool that provides a unified interface to AI co
 
 version:
   current: "1.0.0"
-  last_verified: "2024-01-15"
-  verified_by: "@community"
+  last_verified: "2026-04-17"
+  verified_by: "@opencode"
 
 license: "MIT"
 language: "TypeScript"

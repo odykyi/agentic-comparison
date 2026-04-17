@@ -12,8 +12,8 @@ description: "The most intuitive AI coding experience. A next-generation IDE bui
 
 version:
   current: "2.0"
-  last_verified: "2024-04-17"
-  verified_by: "@community"
+  last_verified: "2026-04-17"
+  verified_by: "@opencode"
 
 license: "Proprietary"
 language: "TypeScript/Electron"

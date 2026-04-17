@@ -44,7 +44,6 @@
 --color-junie: #6366f1;
 --color-windsurf: #34e8bb;
 --color-copilot: #06b6d4;
---color-tabnine: #4a90e2;
 ```
 
 ---

@@ -10,7 +10,7 @@ tool_description: "The most intuitive AI coding experience by Cognition AI"
 tool_version: "2.0"
 tool_license: Proprietary
 tool_language: TypeScript/Electron
-tool_last_updated: "2024-04-17"
+tool_last_updated: "2026-04-17"
 ---
 
 ## Overview

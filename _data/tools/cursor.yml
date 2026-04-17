@@ -10,9 +10,9 @@ command_prefix: "cursor"
 description: "The AI Code Editor. Built on VS Code with AI features including autocomplete, chat, and code generation. 32.7k GitHub stars."
 
 version:
-  current: "0.40.0"
-  last_verified: "2024-01-15"
-  verified_by: "@community"
+  current: "3.1"
+  last_verified: "2026-04-17"
+  verified_by: "@opencode"
 
 license: "Proprietary"
 language: "TypeScript"

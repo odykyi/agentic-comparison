@@ -10,9 +10,9 @@ command_prefix: "claude"
 description: "An agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster through natural language commands. Features a commands system in .claude/commands/."
 
 version:
-  current: "0.2.0"
-  last_verified: "2024-01-15"
-  verified_by: "@community"
+  current: "2.1.113"
+  last_verified: "2026-04-17"
+  verified_by: "@opencode"
 
 license: "Proprietary"
 language: "TypeScript"

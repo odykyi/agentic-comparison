@@ -38,8 +38,6 @@
   --tool-copilot: #06b6d4;
   --tool-junie: #000000;
   --tool-antigravity: #4285f4;
-  --tool-tabnine: #6366f1;
-  --tool-continue: #f59e0b;
 
   // Typography - Brutalist Stack
   --font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
@@ -475,12 +473,6 @@ a {
   }
   &.tool-antigravity {
     border-left-color: var(--tool-antigravity);
-  }
-  &.tool-tabnine {
-    border-left-color: var(--tool-tabnine);
-  }
-  &.tool-continue {
-    border-left-color: var(--tool-continue);
   }
 }
 

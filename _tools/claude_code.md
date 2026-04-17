@@ -7,10 +7,10 @@ tool_repo: anthropics/claude-code
 tool_website: https://claude.ai
 tool_command: claude
 tool_description: "AI coding assistant"
-tool_version: "1.0.0"
+tool_version: "2.1.113"
 tool_license: Proprietary
 tool_language: TypeScript
-tool_last_updated: "2024-01-15"
+tool_last_updated: "2026-04-17"
 ---
 
 ## Overview

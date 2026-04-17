@@ -7,10 +7,10 @@ tool_repo: getcursor/cursor
 tool_website: https://www.cursor.com
 tool_command: cursor
 tool_description: "The AI Code Editor - VS Code fork with AI autocomplete, chat, and code generation. 32.7k GitHub stars."
-tool_version: "0.40.0"
+tool_version: "3.1"
 tool_license: Proprietary
 tool_language: TypeScript
-tool_last_updated: "2024-01-15"
+tool_last_updated: "2026-04-17"
 ---
 
 ## Overview

@@ -11,8 +11,8 @@ description: "JetBrains AI coding agent that autonomously writes, tests, and ref
 
 version:
   current: "1.0.0"
-  last_verified: "2024-01-15"
-  verified_by: "@community"
+  last_verified: "2026-04-17"
+  verified_by: "@opencode"
 
 license: "Proprietary"
 language: "Java/Kotlin"

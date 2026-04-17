@@ -10,7 +10,7 @@ tool_description: "JetBrains AI coding agent that autonomously writes, tests, an
 tool_version: "1.0.0"
 tool_license: Proprietary
 tool_language: Java/Kotlin
-tool_last_updated: "2024-01-15"
+tool_last_updated: "2026-04-17"
 ---
 
 ## Overview
