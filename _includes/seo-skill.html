@@ -1,0 +1,41 @@
+{% assign skill = include.skill %} {% assign skill_slug = include.skill_slug %}
+{% assign skill_data = site.data.skills | where_exp: "cat", "cat[1][skill_slug]"
+| first %} {% assign category_name = skill_data[0] %} {% assign skill_info =
+skill_data[1][skill_slug] %} {% comment %} Determine programming language from
+skill data {% endcomment %} {% assign programming_language = nil %} {% if
+skill_info.keywords %} {% for keyword in skill_info.keywords %} {% if keyword
+contains "javascript" or keyword contains "js" %} {% assign programming_language
+= "JavaScript" %} {% elsif keyword contains "python" or keyword contains "py" %}
+{% assign programming_language = "Python" %} {% elsif keyword contains
+"typescript" or keyword contains "ts" %} {% assign programming_language =
+"TypeScript" %} {% elsif keyword contains "ruby" %} {% assign
+programming_language = "Ruby" %} {% elsif keyword contains "go" or keyword
+contains "golang" %} {% assign programming_language = "Go" %} {% elsif keyword
+contains "rust" %} {% assign programming_language = "Rust" %} {% elsif keyword
+contains "shell" or keyword contains "bash" %} {% assign programming_language =
+"Shell" %} {% endif %} {% endfor %} {% endif %} {% assign skill_url = site.url |
+append: '/skills/#' | append: skill_slug %}
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "@id": "{{ skill_url }}",
+    "name": "{{ skill_info.name | escape }}",
+    "description": "{{ skill_info.description | escape }}",
+    "url": "{{ skill_url }}",
+    "codeRepository": "{{ skill_info.source_url }}",
+    "datePublished": "{{ skill_info.created_at | default: site.time | date: '%Y-%m-%d' }}",
+    "dateModified": "{{ skill_info.updated_at | default: site.time | date: '%Y-%m-%d' }}",
+    "version": "{{ skill_info.version }}"{% if programming_language %},
+    "programmingLanguage": "{{ programming_language }}"{% endif %},
+    "license": "{{ skill_info.license | default: 'MIT' }}",
+    "author": {
+      "@id": "{{ site.url | append: '/#organization' }}"
+    },
+    "isPartOf": {
+      "@type": "SoftwareApplication",
+      "name": "Agentic Comparison Skills Marketplace"
+    }
+  }
+</script>

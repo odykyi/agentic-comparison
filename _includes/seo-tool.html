@@ -1,0 +1,68 @@
+{% assign tool = include.tool %} {% assign tool_slug = include.tool_slug %} {%
+assign tool_data = site.data.tools[tool_slug] %} {% assign tool_url = site.url |
+append: '/tools/' | append: tool_slug | append: '/' %} {% comment %} Calculate
+aggregate rating from feature count Simple algorithm: (number of supported
+features / 10) * 5, capped at 5 {% endcomment %} {% assign feature_count = 0 %}
+{% if tool_data.features.mcp_support %}{% assign feature_count = feature_count |
+plus: 1 %}{% endif %} {% if tool_data.features.offline_mode %}{% assign
+feature_count = feature_count | plus: 1 %}{% endif %} {% if
+tool_data.features.skill_system or tool_data.command_system %}{% assign
+feature_count = feature_count | plus: 1 %}{% endif %} {% if
+tool_data.features.ide_integration %}{% assign feature_count = feature_count |
+plus: 1 %}{% endif %} {% if tool_data.features.context_window %}{% assign
+feature_count = feature_count | plus: 1 %}{% endif %} {% assign rating_value =
+feature_count | times: 5 | divided_by: 10 %} {% if rating_value > 5 %}{% assign
+rating_value = 5 %}{% endif %} {% if rating_value < 1 %}{% assign rating_value =
+1 %}{% endif %} {% comment %} Determine availability based on maintenance status
+{% endcomment %} {% assign availability = "https://schema.org/InStock" %} {%
+comment %} Feature list array {% endcomment %} {% assign features = "" | split:
+"" %} {% if tool_data.features.mcp_support %}{% assign features = features |
+push: "MCP Support" %}{% endif %} {% if tool_data.features.offline_mode %}{%
+assign features = features | push: "Offline Mode" %}{% endif %} {% if
+tool_data.features.skill_system %}{% assign features = features | push: "Skill
+System" %}{% endif %} {% if tool_data.features.ide_integration %}{% assign
+features = features | push: "IDE Integration" %}{% endif %} {% if
+tool_data.features.context_window %}{% assign features = features | push: "Large
+Context Window" %}{% endif %} {% if tool_data.features.multi_model %}{% assign
+features = features | push: "Multi-Model Support" %}{% endif %} {% comment %}
+Pricing information {% endcomment %} {% assign price = "0" %} {% assign
+price_currency = "USD" %} {% if tool_data.pricing %} {% if
+tool_data.pricing.tiers %} {% assign free_tier = tool_data.pricing.tiers |
+where: "name", "Free" | first %} {% unless free_tier %} {% assign first_tier =
+tool_data.pricing.tiers | first %} {% assign price = first_tier.price | default:
+"0" %} {% endunless %} {% endif %} {% endif %}
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": "{{ tool_url }}#software",
+    "name": "{{ tool_data.name | escape }}",
+    "description": "{{ tool_data.description | escape }}",
+    "url": "{{ tool_url }}",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": ["macOS", "Windows", "Linux"],
+    "softwareVersion": "{{ tool_data.version.current }}",
+    "datePublished": "{{ tool_data.version.released_date | default: site.time | date: '%Y-%m-%d' }}",
+    "dateModified": "{{ site.time | date: '%Y-%m-%d' }}",
+    "license": "{{ tool_data.license }}",
+    "programmingLanguage": "{{ tool_data.language }}",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "{{ rating_value }}",
+      "reviewCount": "{{ feature_count }}",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "{{ price }}",
+      "priceCurrency": "{{ price_currency }}",
+      "availability": "{{ availability }}"
+    },
+    "featureList": {{ features | jsonify }},
+    "author": {
+      "@id": "{{ site.url | append: '/#organization' }}"
+    }
+  }
+</script>

@@ -8,6 +8,30 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
 
+  <!-- Robots Meta -->
+  {% if page.robots %}
+  <meta name="robots" content="{{ page.robots }}" />
+  {% else %}
+  <meta name="robots" content="index, follow" />
+  {% endif %}
+
+  <!-- Meta Keywords -->
+  {% if page.keywords %}
+  <meta name="keywords" content="{{ page.keywords | join: ', ' }}" />
+  {% elsif page.url contains '/tools/' %} {% assign tool_slug = page.url |
+  split: '/' | last %} {% assign tool_data = site.data.tools[tool_slug] %} {% if
+  tool_data %}
+  <meta
+    name="keywords"
+    content="{{ tool_slug }}, {{ tool_data.name }}, ai coding, cli tool, developer tools, {% if tool_data.features.mcp_support %}mcp, {% endif %}{% if tool_data.features.offline_mode %}offline, {% endif %}code assistant"
+  />
+  {% endif %} {% elsif page.url contains '/skills/' %}
+  <meta
+    name="keywords"
+    content="ai skills, agentic skills, codex skills, claude skills, opencode skills, ai coding tools, developer skills"
+  />
+  {% endif %}
+
   <!-- Bootstrap 5 CSS -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -63,6 +87,7 @@
 
   <!-- Open Graph / Social Media -->
   <meta property="og:site_name" content="{{ site.title | escape }}" />
+  <meta property="og:locale" content="en_US" />
   <meta
     property="og:title"
     content="{{ page.title | default: site.title | escape }}"
@@ -71,15 +96,30 @@
     property="og:description"
     content="{{ page.description | default: site.description | escape }}"
   />
-  <meta
-    property="og:image"
-    content="{{ page.og_image | default: '/assets/images/og-default.png' | absolute_url }}"
-  />
+  {% assign og_image = page.og_image | default: '/assets/images/og-default.png'
+  | absolute_url %}
+  <meta property="og:image" content="{{ og_image }}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:url" content="{{ page.url | absolute_url }}" />
   <meta property="og:type" content="website" />
 
+  <!-- Article timestamps -->
+  {% if page.date %}
+  <meta
+    property="article:published_time"
+    content="{{ page.date | date_to_xmlschema }}"
+  />
+  {% endif %}
+  <meta
+    property="article:modified_time"
+    content="{{ site.time | date_to_xmlschema }}"
+  />
+
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@agentic_compare" />
+  <meta name="twitter:creator" content="@agentic_compare" />
   <meta
     name="twitter:title"
     content="{{ page.title | default: site.title | escape }}"
@@ -88,23 +128,65 @@
     name="twitter:description"
     content="{{ page.description | default: site.description | escape }}"
   />
+  <meta name="twitter:image" content="{{ og_image }}" />
+  <meta name="twitter:image:width" content="800" />
+  <meta name="twitter:image:height" content="418" />
+
+  <!-- Twitter label/data for tools -->
+  {% if page.url contains '/tools/' %} {% assign tool_slug = page.url | split:
+  '/' | last %} {% assign tool_data = site.data.tools[tool_slug] %} {% if
+  tool_data %}
+  <meta name="twitter:label1" content="Price" />
   <meta
-    name="twitter:image"
-    content="{{ page.og_image | default: '/assets/images/og-default.png' | absolute_url }}"
+    name="twitter:data1"
+    content="{% if tool_data.pricing and tool_data.pricing.tiers %}{% assign free_tier = tool_data.pricing.tiers | where: 'name', 'Free' | first %}{% if free_tier %}Free{% else %}{{ tool_data.pricing.tiers | first | map: 'price' }}{% endif %}{% else %}Free{% endif %}"
   />
+  <meta name="twitter:label2" content="License" />
+  <meta name="twitter:data2" content="{{ tool_data.license }}" />
+  {% endif %} {% endif %}
 
   <!-- Schema.org Organization -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": "{{ site.url | absolute_url }}#organization",
       "name": "{{ site.title | escape }}",
       "url": "{{ site.url | absolute_url }}",
       "logo": "{{ '/assets/images/logo.png' | absolute_url }}",
       "description": "{{ site.description | escape }}",
-      "sameAs": ["https://github.com/odykyi/agentic-comparison"]
+      "sameAs": ["https://github.com/odykyi/agentic-comparison"],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Support",
+        "url": "https://github.com/odykyi/agentic-comparison/issues"
+      }
     }
   </script>
+
+  <!-- WebSite with SearchAction (homepage only) -->
+  {% if page.url == '/' %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "{{ site.url | absolute_url }}#website",
+      "name": "{{ site.title | escape }}",
+      "url": "{{ site.url | absolute_url }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "{{ site.url | absolute_url }}search/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      },
+      "publisher": {
+        "@id": "{{ site.url | absolute_url }}#organization"
+      }
+    }
+  </script>
+  {% endif %}
 
   <!-- BreadcrumbList for non-home pages -->
   {% unless page.url == '/' %}
@@ -112,6 +194,7 @@
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      "@id": "{{ page.url | absolute_url }}#breadcrumbs",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -119,7 +202,33 @@
           "name": "Home",
           "item": "{{ site.url | absolute_url }}"
         }
-        {% if page.title %}
+        {% if page.url contains '/tools/' and page.url != '/tools/' %}
+        ,{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "{{ site.url | absolute_url }}tools/"
+        }
+        ,{
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{{ page.title | escape }}",
+          "item": "{{ page.url | absolute_url }}"
+        }
+        {% elsif page.url contains '/skills/' and page.url != '/skills/' %}
+        ,{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Skills",
+          "item": "{{ site.url | absolute_url }}skills/"
+        }
+        ,{
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{{ page.title | escape }}",
+          "item": "{{ page.url | absolute_url }}"
+        }
+        {% elsif page.title %}
         ,{
           "@type": "ListItem",
           "position": 2,

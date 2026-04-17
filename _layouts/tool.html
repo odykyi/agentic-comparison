@@ -3,10 +3,14 @@
 
 {%- include head.html -%}
 
+{% if page.tool_slug %}
+  {%- include seo-tool.html tool_slug=page.tool_slug -%}
+{% endif %}
+
 <body class="tool-page">
   {%- include navigation.html -%}
 
-  <main class="page-content" aria-label="Content">
+  <main id="main-content" class="page-content" aria-label="Main content">
     <!-- Tool Hero Section -->
     <section class="tool-hero py-5" style="background: linear-gradient(135deg, var(--tool-color-dark) 0%, var(--tool-color) 100%);">
       <div class="container">

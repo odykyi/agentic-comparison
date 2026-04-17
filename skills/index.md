@@ -13,6 +13,39 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
 
 {% assign categories = "development,frontend,documentation,business,collaboration,devops,tools" | split: "," %}
 
+<!-- ItemList Schema for Skills Marketplace -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": "{{ site.url | append: '/skills/' }}#itemlist",
+  "name": "AI Agent Skills Marketplace",
+  "description": "A curated collection of 42+ installable skills for AI coding agents including Codex, Claude Code, OpenCode, and more.",
+  "url": "{{ site.url | append: '/skills/' }}",
+  "itemListElement": [
+    {% for skill_entry in all_skills limit:50 %}
+    {% assign skill_slug = skill_entry[0] %}
+    {% assign skill_data = skill_entry[1] %}
+    {% assign skill_url = site.url | append: '/skills/#' | append: skill_slug %}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.index }},
+      "name": "{{ skill_data.name | escape }}",
+      "url": "{{ skill_url }}",
+      "item": {
+        "@type": "SoftwareSourceCode",
+        "name": "{{ skill_data.name | escape }}",
+        "description": "{{ skill_data.description | escape }}",
+        "url": "{{ skill_url }}",
+        "codeRepository": "{{ skill_data.source_url }}"
+      }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ],
+  "numberOfItems": {{ all_skills | size }}
+}
+</script>
+
 <!-- Hero Section -->
 <section class="hero">
   <div class="container">
