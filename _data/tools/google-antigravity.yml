@@ -1,0 +1,61 @@
+# Google Antigravity Tool Definition
+# Reference: https://idx.google.com (Firebase Studio successor)
+
+name: "Google Antigravity"
+slug: "google-antigravity"
+repo: "google/antigravity"
+website: "https://idx.google.com"
+docs: "https://developers.google.com/idx"
+command_prefix: "antigravity"
+description: "Google's full-stack AI workspace. Build backends, frontends, and mobile apps with Gemini AI agents. Formerly Firebase Studio."
+
+version:
+  current: "1.0.0"
+  last_verified: "2024-01-15"
+  verified_by: "@community"
+
+license: "Proprietary"
+language: "TypeScript"
+
+concepts:
+  skill: "skill"
+  command: "command"
+  agent: "agent"
+  prompt: "prompt"
+  context: "workspace"
+
+install:
+  other: "Web-based, open idx.google.com"
+
+features:
+  mcp_support: true
+  offline_mode: false
+  ide_integration:
+    - "web-ide"
+  context_window: 200000
+  supported_models:
+    - "gemini-1.5-pro"
+    - "gemini-1.5-flash"
+
+pricing:
+  free_tier:
+    available: true
+    limits: "3 workspaces during preview"
+  paid_tiers:
+    - name: "Developer Program"
+      price: "Free with Google Developer Program"
+      description: "Up to 30 workspaces"
+
+commands:
+  - name: "create"
+    invoke: "antigravity create"
+    description: "Create new workspace"
+    category: "general"
+    verified: true
+  - name: "open"
+    invoke: "antigravity open"
+    description: "Open existing workspace"
+    category: "general"
+    verified: true
+
+history_file: ".idx/dev.nix"

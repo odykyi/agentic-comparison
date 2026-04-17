@@ -37,6 +37,7 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
             <option value="cursor">Cursor</option>
             <option value="continue">Continue</option>
             <option value="tabnine">Tabnine</option>
+            <option value="google-antigravity">Google Antigravity</option>
             <option value="copilot_cli">Copilot CLI</option>
           </select>
           <select class="form-select" id="category-filter" style="width: auto; min-width: 150px;">
