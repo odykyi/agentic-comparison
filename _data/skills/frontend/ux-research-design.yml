@@ -1,6 +1,39 @@
 # UX Research & Design
 # User research, wireframing, prototyping, usability testing
 
+
+# ============================================
+# VERIFICATION & TRUTH
+# ============================================
+verification:
+  status: "community"
+  last_verified: "2024-01-15"
+  verified_by: "@community"
+  next_review: "2024-04-15"
+
+compatibility:
+  codex:
+    status: "unverified"
+    as_of: null
+  claude_code:
+    status: "unverified"
+    as_of: null
+  cursor:
+    status: "unverified"
+    as_of: null
+  opencode:
+    status: "unverified"
+    as_of: null
+
+sources:
+  documentation: null
+  github: null
+  npm: null
+
+# ============================================
+# BASIC INFO
+# ============================================
+
 name: "UX Research & Design"
 slug: "ux-research-design"
 description: "Complete UX design skill. User research methods, wireframing, prototyping in Figma, usability testing, design systems, accessibility (WCAG), and design-to-code handoff."

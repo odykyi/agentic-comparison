@@ -1,6 +1,39 @@
 # Claude Coworker
 # Multi-agent team collaboration with specialized agent roles
 
+
+# ============================================
+# VERIFICATION & TRUTH
+# ============================================
+verification:
+  status: "community"
+  last_verified: "2024-01-15"
+  verified_by: "@community"
+  next_review: "2024-04-15"
+
+compatibility:
+  codex:
+    status: "unverified"
+    as_of: null
+  claude_code:
+    status: "unverified"
+    as_of: null
+  cursor:
+    status: "unverified"
+    as_of: null
+  opencode:
+    status: "unverified"
+    as_of: null
+
+sources:
+  documentation: null
+  github: null
+  npm: null
+
+# ============================================
+# BASIC INFO
+# ============================================
+
 name: "Claude Coworker"
 slug: "claude-coworker"
 description: "Build your AI team with specialized coworkers. Product Manager Claude, Engineer Claude, Designer Claude - all working together with shared context and handoffs."

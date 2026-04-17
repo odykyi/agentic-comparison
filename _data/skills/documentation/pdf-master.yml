@@ -1,6 +1,39 @@
 # PDF Master
 # Work with PDFs - extract, merge, split, fill forms - Official Anthropic skill
 
+
+# ============================================
+# VERIFICATION & TRUTH
+# ============================================
+verification:
+  status: "community"
+  last_verified: "2024-01-15"
+  verified_by: "@community"
+  next_review: "2024-04-15"
+
+compatibility:
+  codex:
+    status: "unverified"
+    as_of: null
+  claude_code:
+    status: "unverified"
+    as_of: null
+  cursor:
+    status: "unverified"
+    as_of: null
+  opencode:
+    status: "unverified"
+    as_of: null
+
+sources:
+  documentation: null
+  github: null
+  npm: null
+
+# ============================================
+# BASIC INFO
+# ============================================
+
 name: "PDF Master"
 slug: "pdf-master"
 description: "Comprehensive PDF manipulation skill. Extract text, merge documents, split pages, fill forms, and convert PDFs with ease."

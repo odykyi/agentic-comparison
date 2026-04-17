@@ -94,13 +94,62 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
       {% for skill_entry in all_skills %}
         {% assign skill_slug = skill_entry[0] %}
         {% assign skill_data = skill_entry[1] %}
-        {% assign parent_category = site.data.skills | where_exp: "cat", "cat[1][skill_slug]" | first %}
-        {% assign category_name = parent_category[0] %}
+        
+        {% comment %}Find the category by iterating through all categories{% endcomment %}
+        {% assign category_name = '' %}
+        {% for cat in site.data.skills %}
+          {% unless cat[0] == '_template' %}
+            {% for skill_in_cat in cat[1] %}
+              {% if skill_in_cat[0] == skill_slug %}
+                {% assign category_name = cat[0] %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+          {% endunless %}
+          {% if category_name != '' %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
         
         <div class="col-md-6 col-lg-4 skill-card-wrapper" 
              data-category="{{ category_name }}"
              data-tools="{{ skill_data.compatible_tools | join: ' ' }}">
           <div class="card skill-card">
+            {% assign status = skill_data.verification.status | default: 'uncertain' %}
+            {% case status %}
+              {% when 'verified' %}
+                {% assign badge_class = 'badge-verified' %}
+                {% assign badge_icon = '✓' %}
+                {% assign badge_text = 'Verified' %}
+                {% assign badge_color = '#22c55e' %}
+              {% when 'community' %}
+                {% assign badge_class = 'badge-community' %}
+                {% assign badge_icon = '☆' %}
+                {% assign badge_text = 'Community' %}
+                {% assign badge_color = '#3b82f6' %}
+              {% when 'uncertain' %}
+                {% assign badge_class = 'badge-uncertain' %}
+                {% assign badge_icon = '?' %}
+                {% assign badge_text = 'Uncertain' %}
+                {% assign badge_color = '#f59e0b' %}
+              {% when 'stale' %}
+                {% assign badge_class = 'badge-stale' %}
+                {% assign badge_icon = '✗' %}
+                {% assign badge_text = 'Stale' %}
+                {% assign badge_color = '#ef4444' %}
+              {% else %}
+                {% assign badge_class = 'badge-uncertain' %}
+                {% assign badge_icon = '?' %}
+                {% assign badge_text = 'Uncertain' %}
+                {% assign badge_color = '#f59e0b' %}
+            {% endcase %}
+            <span class="skill-verification-badge {{ badge_class }}" 
+                  title="Status: {{ status | capitalize }}
+Last verified: {{ skill_data.verification.last_verified | default: 'Unknown' }}
+Verified by: {{ skill_data.verification.verified_by | default: 'Unknown' }}"
+                  style="background-color: {{ badge_color }};">
+              {{ badge_icon }} {{ badge_text }}
+            </span>
             <div class="card-header">
               <span class="category-badge">{{ category_name | upcase }}</span>
               <h5>{{ skill_data.name }}</h5>

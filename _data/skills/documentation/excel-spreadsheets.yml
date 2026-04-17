@@ -1,6 +1,39 @@
 # Excel & Spreadsheets
 # Work with Excel files - formulas, charts, data analysis - Official Anthropic skill
 
+
+# ============================================
+# VERIFICATION & TRUTH
+# ============================================
+verification:
+  status: "community"
+  last_verified: "2024-01-15"
+  verified_by: "@community"
+  next_review: "2024-04-15"
+
+compatibility:
+  codex:
+    status: "unverified"
+    as_of: null
+  claude_code:
+    status: "unverified"
+    as_of: null
+  cursor:
+    status: "unverified"
+    as_of: null
+  opencode:
+    status: "unverified"
+    as_of: null
+
+sources:
+  documentation: null
+  github: null
+  npm: null
+
+# ============================================
+# BASIC INFO
+# ============================================
+
 name: "Excel & Spreadsheets"
 slug: "excel-spreadsheets"
 description: "Master Excel and spreadsheet manipulation. Create formulas, generate charts, analyze data, and automate spreadsheet workflows."

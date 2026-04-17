@@ -1,6 +1,39 @@
 # DevOps Engineer Toolkit
 # CI/CD, Docker, Kubernetes, Terraform, cloud infrastructure
 
+
+# ============================================
+# VERIFICATION & TRUTH
+# ============================================
+verification:
+  status: "community"
+  last_verified: "2024-01-15"
+  verified_by: "@community"
+  next_review: "2024-04-15"
+
+compatibility:
+  codex:
+    status: "unverified"
+    as_of: null
+  claude_code:
+    status: "unverified"
+    as_of: null
+  cursor:
+    status: "unverified"
+    as_of: null
+  opencode:
+    status: "unverified"
+    as_of: null
+
+sources:
+  documentation: null
+  github: null
+  npm: null
+
+# ============================================
+# BASIC INFO
+# ============================================
+
 name: "DevOps Engineer Toolkit"
 slug: "devops-engineer-toolkit"
 description: "Complete DevOps automation skill. CI/CD pipelines, Docker containerization, Kubernetes orchestration, Terraform IaC, AWS/GCP/Azure cloud management, monitoring, and SRE best practices."
