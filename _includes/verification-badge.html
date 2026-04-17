@@ -1,0 +1,54 @@
+{% comment %}
+  Verification Badge Component
+  
+  Usage:
+  {% include verification-badge.html tool=tool %}
+  
+  Displays trust level badge based on verification.status:
+  - verified: Green badge with ✓
+  - community: Blue badge with ☆
+  - uncertain: Amber badge with ?
+  - stale: Red badge with ✗
+{% endcomment %}
+
+{% assign status = tool.verification.status | default: 'uncertain' %}
+{% assign last_verified = tool.verification.last_verified | default: 'Unknown' %}
+{% assign verified_by = tool.verification.verified_by | default: 'Unknown' %}
+{% assign next_review = tool.verification.next_review | default: 'Unknown' %}
+
+{% case status %}
+  {% when 'verified' %}
+    {% assign badge_class = 'badge-verified' %}
+    {% assign badge_icon = '✓' %}
+    {% assign badge_text = 'Official' %}
+    {% assign badge_color = '#22c55e' %}
+  {% when 'community' %}
+    {% assign badge_class = 'badge-community' %}
+    {% assign badge_icon = '☆' %}
+    {% assign badge_text = 'Community' %}
+    {% assign badge_color = '#3b82f6' %}
+  {% when 'uncertain' %}
+    {% assign badge_class = 'badge-uncertain' %}
+    {% assign badge_icon = '?' %}
+    {% assign badge_text = 'Uncertain' %}
+    {% assign badge_color = '#f59e0b' %}
+  {% when 'stale' %}
+    {% assign badge_class = 'badge-stale' %}
+    {% assign badge_icon = '✗' %}
+    {% assign badge_text = 'Stale' %}
+    {% assign badge_color = '#ef4444' %}
+  {% else %}
+    {% assign badge_class = 'badge-uncertain' %}
+    {% assign badge_icon = '?' %}
+    {% assign badge_text = 'Uncertain' %}
+    {% assign badge_color = '#f59e0b' %}
+{% endcase %}
+
+<span class="verification-badge {{ badge_class }}" 
+      title="Status: {{ status | capitalize }}
+Last verified: {{ last_verified }}
+Verified by: {{ verified_by }}
+Next review: {{ next_review }}"
+      style="background-color: {{ badge_color }};">
+  {{ badge_icon }} {{ badge_text }}
+</span>

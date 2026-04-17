@@ -1,6 +1,47 @@
 # OpenCode Tool Definition
 # Reference: https://github.com/saoirse-opencode/opencode
 
+# ============================================
+# VERIFICATION & TRUTH
+# ============================================
+verification:
+  status: "community"         # verified | community | uncertain | stale
+  last_verified: "2024-01-15"
+  verified_by: "@community"
+  next_review: "2024-04-15"
+
+# Per-field verification
+facts:
+  version:
+    value: "1.0.0"
+    status: "uncertain"
+    source: null
+    as_of: "2024-01-15"
+  
+  mcp_support:
+    value: true
+    status: "uncertain"
+    source: null
+    as_of: "2024-01-15"
+  
+  offline_mode:
+    value: false
+    status: "verified"
+    source: "https://docs.opencode.ai/features"
+    as_of: "2024-01-15"
+
+# Official sources
+sources:
+  official_website: "https://opencode.ai"
+  documentation: "https://docs.opencode.ai"
+  github: "https://github.com/saoirse-opencode/opencode"
+  changelog: "https://github.com/saoirse-opencode/opencode/releases"
+  npm: "https://www.npmjs.com/package/@opencode/cli"
+  discord: null
+
+# ============================================
+# BASIC INFO
+# ============================================
 name: "OpenCode"
 slug: "opencode"
 repo: "saoirse-opencode/opencode"
@@ -8,11 +49,6 @@ website: "https://opencode.ai"
 docs: "https://docs.opencode.ai"
 command_prefix: "opencode"
 description: "An intelligent CLI tool that provides a unified interface to AI coding agents with support for skills, commands, and MCP integration."
-
-version:
-  current: "1.0.0"
-  last_verified: "2026-04-17"
-  verified_by: "@opencode"
 
 license: "MIT"
 language: "TypeScript"
@@ -54,67 +90,67 @@ commands:
     invoke: "opencode help"
     description: "Show help information"
     category: "general"
-    verified: true
+    verified: false
 
   - name: "init"
     invoke: "opencode init"
     description: "Initialize a new project"
     category: "general"
-    verified: true
+    verified: false
 
   - name: "chat"
     invoke: "opencode chat"
     description: "Start an interactive chat session"
     category: "general"
-    verified: true
+    verified: false
 
   - name: "edit"
     invoke: "opencode edit <file>"
     description: "Edit a file with AI assistance"
     category: "file"
-    verified: true
+    verified: false
 
   - name: "explain"
     invoke: "opencode explain <file>"
     description: "Explain code in a file"
     category: "file"
-    verified: true
+    verified: false
 
   - name: "commit"
     invoke: "opencode commit"
     description: "Generate a commit message"
     category: "git"
-    verified: true
+    verified: false
 
   - name: "review"
     invoke: "opencode review"
     description: "Review code changes"
     category: "git"
-    verified: true
+    verified: false
 
   - name: "test"
     invoke: "opencode test"
     description: "Generate and run tests"
     category: "test"
-    verified: true
+    verified: false
 
   - name: "fix"
     invoke: "opencode fix"
     description: "Fix errors in code"
     category: "debug"
-    verified: true
+    verified: false
 
   - name: "search"
     invoke: "opencode search <query>"
     description: "Search across the codebase"
     category: "search"
-    verified: true
+    verified: false
 
   - name: "refactor"
     invoke: "opencode refactor <file>"
     description: "Refactor code in a file"
     category: "edit"
-    verified: true
+    verified: false
 
 mcp_servers:
   - name: "filesystem"

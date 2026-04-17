@@ -1,6 +1,41 @@
 # Tool Definition Template
 # Copy this file to create a new tool: cp _template.yml new_tool.yml
 
+# ============================================
+# VERIFICATION & TRUTH
+# ============================================
+verification:
+  status: "unverified"        # verified | community | uncertain | stale
+  last_verified: null         # "YYYY-MM-DD" or null
+  verified_by: null           # @official_team or @community_user
+  next_review: null             # "YYYY-MM-DD" (quarterly cycle)
+
+# Per-field verification (update as you verify each fact)
+facts:
+  version:
+    value: "0.0.0"
+    status: "unverified"      # verified | uncertain
+    source: null              # URL where you found this
+    as_of: null               # "YYYY-MM-DD"
+  
+  mcp_support:
+    value: false
+    status: "unverified"
+    source: null
+    as_of: null
+
+# Official sources (always provide these for users)
+sources:
+  official_website: "https://tool-website.com"
+  documentation: "https://docs.tool-website.com"
+  github: "https://github.com/owner/repo"
+  changelog: "https://github.com/owner/repo/releases"
+  npm: null                   # https://www.npmjs.com/package/name (if applicable)
+  discord: null               # https://discord.gg/... (if applicable)
+
+# ============================================
+# BASIC INFO
+# ============================================
 name: "Tool Name"
 slug: "tool_slug"
 repo: "owner/repo"
@@ -8,11 +43,6 @@ website: "https://tool-website.com"
 docs: "https://docs.tool-website.com"
 command_prefix: "tool"
 description: "Brief description of the tool"
-
-version:
-  current: "0.0.0"
-  last_verified: "YYYY-MM-DD"
-  verified_by: "@your_github_username"
 
 license: "MIT" # or Apache-2.0, GPL, Proprietary, etc.
 language: "Language" # e.g., TypeScript, Python, Rust
