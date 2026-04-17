@@ -104,7 +104,8 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                 </button>
                 {% assign marketplace_full_url = site.url | append: site.baseurl | append: '/skills/' %}
                 {% if skill_data.compatible_tools contains 'codex' %}
-                {% capture codex_prompt %}Install skill "{{ skill_data.name }}" from Agentic Comparison ({{ marketplace_full_url }}). Run: {{ skill_data.install_commands['codex'] }} | Source: {{ skill_data.source_url }}{% endcapture %}
+                {% assign codex_template = site.data.prompts.codex_install %}
+                {% assign codex_prompt = codex_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['codex'] | replace: '{{ source_url }}', skill_data.source_url %}
                 <a href="codex://new?prompt={{ codex_prompt | url_encode }}" class="btn btn-sm btn-success w-100 d-flex align-items-center justify-content-center gap-1">
                   <i class="bi bi-box-arrow-up-right"></i>Open in Codex
                 </a>
