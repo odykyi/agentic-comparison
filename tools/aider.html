@@ -1,0 +1,58 @@
+---
+layout: tool
+tool_name: "Aider"
+tool_slug: aider
+tool_logo: /assets/images/tools/aider.svg
+tool_repo: Aider-AI/aider
+tool_website: https://aider.chat
+tool_command: aider
+tool_description: "AI pair programming in your terminal. Aider lets you pair program with LLMs to edit code in your local git repository."
+tool_version: "0.65.0"
+tool_license: Apache-2.0
+tool_language: Python
+tool_last_updated: "2024-01-15"
+---
+
+{% assign tool_data = site.data.tools.aider %} ## Overview Aider is a
+terminal-based AI pair programming tool designed specifically for editing code
+in your local git repository. It excels at making changes to multiple files
+simultaneously and maintains context across your entire codebase. ## Key
+Differentiator **Multi-file Editing**: Aider is optimized for making coordinated
+changes across multiple files in a single operation, making it ideal for
+refactoring and large-scale changes. ## Installation ### Requirements - Python
+3.8-3.12 - Git repository - API key for your preferred model ### Install via pip
+```bash pip install aider-chat ``` ### Environment Setup ```bash export
+OPENAI_API_KEY=your-key-here # OR export ANTHROPIC_API_KEY=your-key-here ``` ##
+Quick Start 1. **Navigate to your git repo** ```bash cd my-project ``` 2.
+**Start aider** ```bash aider ``` 3. **Start coding** - Type natural language
+requests - Aider will propose changes to your code - Review diffs and
+accept/reject changes ## Key Features ### Multi-file Context Add multiple files
+to the conversation for coordinated edits: ``` /add src/utils.js src/config.js
+``` ### Git Integration - Automatically commits changes with meaningful messages
+- `/undo` to revert last commit - View diffs before accepting ### Repository Map
+Aider builds a map of your entire repository for better context understanding,
+even across files not currently in the chat. ## Commands Reference ### Session
+Control - `/add
+<file
+  >` - Add file to context - `/drop
+  <file
+    >` - Remove file from context - `/ls` - List files in context - `/undo` -
+    Undo last git commit ### Actions - `/commit` - Commit staged changes -
+    `/test` - Run test command - `/run
+    <cmd
+      >` - Execute shell command ## Architecture ``` my-project/ ├── .git/ ├──
+      .aider.chat.history.md # Chat history ├── src/ └── ... ``` Aider creates a
+      `.aider.chat.history.md` file to track your conversations. ## Models
+      Supported - GPT-4 / GPT-4 Turbo - Claude 3 Opus, Sonnet, Haiku - Local
+      models via various backends ## Pricing **Open Source / BYO Keys** - Free
+      to use - You provide your own API keys - No subscription required ## Why
+      Aider? ### Strengths - ✅ Excellent for multi-file changes - ✅ Deep git
+      integration - ✅ Works with any git repo - ✅ Open source - ✅ No IDE
+      lock-in ### Trade-offs - ⚠️ Terminal-only (no IDE extension) - ⚠️ Requires
+      git repository - ⚠️ No MCP support yet ## Resources - [Official
+      Documentation](https://aider.chat/docs) - [GitHub
+      Repository](https://github.com/Aider-AI/aider) - [Discord
+      Community](https://discord.gg/TvWVAPmHbP)
+    </cmd></file
+  ></file
+>

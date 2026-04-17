@@ -1,0 +1,83 @@
+name: Add New Tool
+description: Request to add a new agentic coding tool to the comparison
+title: "[NEW TOOL] "
+labels: ["new-tool", "triage"]
+body:
+  - type: input
+    id: tool_name
+    attributes:
+      label: Tool Name
+      placeholder: e.g., SuperCoder AI
+    validations:
+      required: true
+
+  - type: input
+    id: repo
+    attributes:
+      label: GitHub Repository
+      description: Full repo path (owner/repo)
+      placeholder: company/supercoder
+    validations:
+      required: true
+
+  - type: input
+    id: website
+    attributes:
+      label: Website
+      placeholder: https://supercoder.ai
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Brief description of what the tool does
+      placeholder: A CLI tool that uses AI to...
+    validations:
+      required: true
+
+  - type: textarea
+    id: key_features
+    attributes:
+      label: Key Features
+      description: List the main features (MCP support, IDE integration, etc.)
+      placeholder: |
+        - MCP support: Yes/No
+        - IDE integration: VS Code, JetBrains
+        - Offline mode: Yes/No
+        - Context window: 100k tokens
+    validations:
+      required: true
+
+  - type: input
+    id: command_prefix
+    attributes:
+      label: Command Prefix
+      description: How do you invoke the tool?
+      placeholder: supercoder
+    validations:
+      required: true
+
+  - type: textarea
+    id: install_methods
+    attributes:
+      label: Installation Methods
+      placeholder: |
+        npm: npm install -g supercoder
+        pip: pip install supercoder
+        homebrew: brew install supercoder
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: readiness
+    attributes:
+      label: Readiness Checklist
+      options:
+        - label: Tool is publicly available (not in closed beta)
+          required: true
+        - label: Tool has documentation
+          required: true
+        - label: I am willing to help maintain the data for this tool
+          required: false

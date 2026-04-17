@@ -1,0 +1,49 @@
+---
+layout: tool
+tool_name: "Continue.dev"
+tool_slug: continue
+tool_logo: /assets/images/tools/continue.svg
+tool_repo: continuedev/continue
+tool_website: https://continue.dev
+tool_command: continue
+tool_description: "An open-source AI code assistant for VS Code, JetBrains, and Neovim. Features multi-provider support allowing you to use any model."
+tool_version: "0.0.56"
+tool_license: Apache-2.0
+tool_language: TypeScript
+tool_last_updated: "2024-01-15"
+---
+
+{% assign tool_data = site.data.tools.continue %} ## Overview Continue.dev is an
+open-source AI code assistant that integrates directly into your IDE. Unlike
+CLI-based tools, Continue operates as an IDE extension, providing context-aware
+assistance while you code. ## Key Differentiator **IDE-Native Experience**:
+Continue is designed specifically as an IDE extension, offering tighter
+integration with your editor's features like IntelliSense, debugging, and
+version control. ## Installation ### VS Code Search "Continue" in the Extensions
+marketplace or [install from the
+web](https://marketplace.visualstudio.com/items?itemName=Continue.continue). ###
+JetBrains IDEs Search "Continue" in the plugin marketplace for IntelliJ,
+PyCharm, WebStorm, etc. ### Neovim Install via your preferred package manager:
+```vim " Using lazy.nvim { 'continuedev/continue' } ``` ## Quick Start 1.
+**Install the extension** for your IDE 2. **Add your API key** in the Continue
+panel 3. **Start coding** - Highlight code and press `Cmd+L` (Mac) or `Ctrl+L`
+(Windows/Linux) ## Key Features ### Multi-Provider Support Continue isn't tied
+to a single AI provider. You can use: - OpenAI (GPT-4, GPT-4 Turbo) - Anthropic
+(Claude 3 Opus, Sonnet, Haiku) - Local models via Ollama (Llama 2, CodeLlama) -
+Custom API endpoints ### Context Providers Smart context gathering from: - Open
+files - Current selection - Git diffs - Terminal output - Documentation ###
+Slash Commands - `/edit` - Edit selected code - `/comment` - Add comments -
+`/share` - Share conversation - `/cmd` - Generate terminal commands - `/commit`
+- Generate commit messages - `/test` - Generate tests ## Configuration Continue
+uses a `config.json` file for configuration: ```json { "models": [ { "title":
+"GPT-4", "provider": "openai", "model": "gpt-4", "api_key": "${OPENAI_API_KEY}"
+} ], "context_providers": [ { "name": "open", "params": {} }, { "name": "diff",
+"params": {} } ] } ``` ## Pricing **Free / Open Source** - No subscription fees
+- Bring your own API keys - Self-hostable **Continue for Teams** (Enterprise) -
+Team collaboration features - Custom pricing ## Keyboard Shortcuts | Action |
+Mac | Windows/Linux | |--------|-----|---------------| | Open panel | `Cmd+L` |
+`Ctrl+L` | | Edit highlighted | `Cmd+Shift+L` | `Ctrl+Shift+L` | | Accept
+suggestion | `Tab` | `Tab` | | Reject suggestion | `Esc` | `Esc` | ## Resources
+- [Official Documentation](https://docs.continue.dev) - [GitHub
+Repository](https://github.com/continuedev/continue) - [Discord
+Community](https://discord.gg/vapESyrFmJ)

@@ -1,0 +1,67 @@
+# GitHub Copilot CLI Tool Definition
+# Reference: https://github.com/github/copilot.vim and gh CLI
+
+name: "GitHub Copilot CLI"
+slug: "copilot_cli"
+repo: "github/copilot.vim"
+website: "https://github.com/features/copilot"
+docs: "https://docs.github.com/en/copilot"
+command_prefix: "gh copilot"
+description: "GitHub's AI coding assistant integrated into the GitHub CLI. Access Copilot features directly from your terminal."
+
+version:
+  current: "1.0.0"
+  last_verified: "2024-01-15"
+  verified_by: "@community"
+
+license: "Proprietary"
+language: "Go"
+
+concepts:
+  skill: "not supported"
+  command: "command"
+  agent: "copilot"
+  prompt: "suggestion"
+  context: "editor context"
+
+install:
+  other: "Install via GitHub CLI (gh) extension"
+
+features:
+  mcp_support: false
+  offline_mode: false
+  ide_integration: ["vscode", "jetbrains", "neovim"]
+  context_window: 0 # Uses IDE context
+  supported_models:
+    - "GPT-4 based models"
+
+pricing:
+  free_tier:
+    available: true
+    limits: "30-day free trial"
+  paid_tiers:
+    - name: "Copilot Individual"
+      price: "$10/month"
+      description: "Personal use"
+    - name: "Copilot Business"
+      price: "$19/user/month"
+      description: "Team features"
+    - name: "Copilot Enterprise"
+      price: "$39/user/month"
+      description: "Enterprise features"
+
+commands:
+  - name: "explain"
+    invoke: "gh copilot explain"
+    description: "Explain code"
+    category: "file"
+    verified: true
+  - name: "suggest"
+    invoke: "gh copilot suggest"
+    description: "Get command suggestions"
+    category: "general"
+    verified: true
+
+# Copilot CLI is an extension to gh CLI
+gh_extension: true
+requires_gh: true

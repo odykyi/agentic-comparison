@@ -1,0 +1,295 @@
+---
+layout: comparison
+title: UI Showcase
+description: Visual comparison of terminal interfaces and IDE integrations
+---
+
+<div class="row mb-4">
+  <div class="col-lg-8">
+    <p class="lead">
+      Compare the visual interface, terminal experience, and IDE integrations
+      across different AI coding agents.
+    </p>
+    <div class="alert alert-info">
+      <i class="bi bi-info-circle me-2"></i>
+      <strong>Note:</strong> Screenshots and visual comparisons coming soon!
+      Help us by contributing screenshots of your favorite tools.
+    </div>
+  </div>
+</div>
+
+<!-- Terminal Interface Comparison -->
+<section class="mb-5">
+  <h2 class="h4 mb-4">Terminal Interfaces</h2>
+
+  <div class="row g-4">
+    {% for tool in site.data.tools %} {% unless tool[0] == '_template' %}
+    <div class="col-md-6 col-lg-4">
+      <div class="card h-100">
+        <div
+          class="card-header d-flex justify-content-between align-items-center"
+          style="background: linear-gradient(135deg, {{ site.tool_colors[tool[0]] | default: '#666' }} 0%, {{ site.tool_colors[tool[0]] | default: '#666' | replace: '#', '#1a' }} 100%);"
+        >
+          <h5 class="mb-0 text-white">{{ tool[1].name }}</h5>
+          <code class="text-white">{{ tool[1].command_prefix }}</code>
+        </div>
+        <div class="card-body">
+          <!-- Placeholder for terminal screenshot -->
+          <div
+            class="bg-dark rounded p-3 mb-3 font-monospace text-white"
+            style="min-height: 150px"
+          >
+            <div class="d-flex align-items-center mb-2">
+              <div class="d-flex gap-1 me-3">
+                <span
+                  class="rounded-circle bg-danger"
+                  style="width: 10px; height: 10px"
+                ></span>
+                <span
+                  class="rounded-circle bg-warning"
+                  style="width: 10px; height: 10px"
+                ></span>
+                <span
+                  class="rounded-circle bg-success"
+                  style="width: 10px; height: 10px"
+                ></span>
+              </div>
+              <small class="text-muted">Terminal</small>
+            </div>
+            <div class="text-muted small">
+              $ {{ tool[1].command_prefix }}<br />
+              <span class="text-success">{{ tool[1].name }}</span>
+              ready...<br />
+              <span class="text-info">Waiting for input...</span>
+            </div>
+          </div>
+
+          <h6 class="h6">Interface Style</h6>
+          <ul class="list-unstyled small text-muted mb-0">
+            <li><i class="bi bi-terminal me-2"></i>Terminal-based CLI</li>
+            <li><i class="bi bi-palette me-2"></i>Dark theme default</li>
+            <li><i class="bi bi-keyboard me-2"></i>Keyboard-driven</li>
+          </ul>
+        </div>
+        <div class="card-footer bg-light">
+          <small class="text-muted">
+            {% if tool[1].features.ide_integration and
+            tool[1].features.ide_integration.size > 0 %} Also available as: {{
+            tool[1].features.ide_integration | join: ', ' }} extension {% else
+            %} CLI only - no IDE extension {% endif %}
+          </small>
+        </div>
+      </div>
+    </div>
+    {% endunless %} {% endfor %}
+  </div>
+</section>
+
+<!-- Command Palette Comparison -->
+<section class="mb-5">
+  <h2 class="h4 mb-4">Command Palettes</h2>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Tool</th>
+              <th>Activation</th>
+              <th>Command Style</th>
+              <th>Auto-complete</th>
+              <th>Help System</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>OpenCode</strong></td>
+              <td><code>opencode</code> then type</td>
+              <td>CLI-style commands</td>
+              <td><i class="bi bi-check-circle-fill text-success"></i></td>
+              <td><code>opencode --help</code></td>
+            </tr>
+            <tr>
+              <td><strong>Codex</strong></td>
+              <td><code>codex</code> then type</td>
+              <td>CLI + Natural language</td>
+              <td><i class="bi bi-check-circle-fill text-success"></i></td>
+              <td><code>codex --help</code></td>
+            </tr>
+            <tr>
+              <td><strong>Claude Code</strong></td>
+              <td><code>claude</code> then type</td>
+              <td>Natural language preferred</td>
+              <td><i class="bi bi-check-circle-fill text-success"></i></td>
+              <td><code>/help</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Syntax Highlighting -->
+<section class="mb-5">
+  <h2 class="h4 mb-4">Code Presentation</h2>
+
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="card h-100">
+        <div class="card-header">
+          <h6 class="mb-0">Syntax Highlighting</h6>
+        </div>
+        <div class="card-body">
+          <p class="small text-muted">
+            How code blocks are rendered in the terminal
+          </p>
+
+          <div class="bg-dark rounded p-3 font-monospace small">
+            <span class="text-success">function</span>
+            <span class="text-primary">calculateSum</span>
+            <span class="text-white">(</span>
+            <span class="text-warning">a</span>,
+            <span class="text-warning">b</span>
+            <span class="text-white">) {</span><br />
+            &nbsp;&nbsp;<span class="text-success">return</span>
+            <span class="text-warning">a</span> +
+            <span class="text-warning">b</span>;<br />
+            <span class="text-white">}</span>
+          </div>
+
+          <div class="mt-3">
+            <span class="badge bg-secondary">Standard terminal colors</span>
+            <span class="badge bg-secondary">Language-aware highlighting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card h-100">
+        <div class="card-header">
+          <h6 class="mb-0">Diff/Patch Display</h6>
+        </div>
+        <div class="card-body">
+          <p class="small text-muted">How code changes are shown</p>
+
+          <div class="bg-dark rounded p-3 font-monospace small">
+            <span class="text-danger">- console.log(data);</span><br />
+            <span class="text-success"
+              >+ console.log(JSON.stringify(data, null, 2));</span
+            >
+          </div>
+
+          <div class="mt-3">
+            <span class="badge bg-secondary">Red/green diff colors</span>
+            <span class="badge bg-secondary">Line numbers</span>
+            <span class="badge bg-secondary">Context lines</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Configuration Structure -->
+<section class="mb-5">
+  <h2 class="h4 mb-4">Configuration Structure</h2>
+
+  <div class="row g-4">
+    {% for tool in site.data.tools %} {% unless tool[0] == '_template' %}
+    <div class="col-md-6">
+      <div class="card h-100">
+        <div
+          class="card-header"
+          style="background-color: {{ site.tool_colors[tool[0]] | default: '#666' }}20;"
+        >
+          <h6 class="mb-0">{{ tool[1].name }}</h6>
+        </div>
+        <div class="card-body">
+          <div class="font-monospace small">
+            <div class="text-muted">project/</div>
+            <div class="ms-3">
+              {% if tool[1].skill_system %}
+              <div class="text-primary">
+                {{ tool[1].skill_system.directory }}/
+              </div>
+              <div class="ms-3 text-muted">config file</div>
+              <div class="ms-3 text-muted">skills/</div>
+              {% elsif tool[1].command_system %}
+              <div class="text-primary">
+                {{ tool[1].command_system.directory }}/
+              </div>
+              <div class="ms-3 text-muted">commands/</div>
+              {% else %}
+              <div class="text-muted">AGENTS.md</div>
+              <div class="text-muted">.gitignore</div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endunless %} {% endfor %}
+  </div>
+</section>
+
+<!-- Accessibility -->
+<section class="mb-5">
+  <h2 class="h4 mb-4">Accessibility Features</h2>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          {% for tool in site.data.tools %} {% unless tool[0] == '_template' %}
+          <th class="text-center">{{ tool[1].name }}</th>
+          {% endunless %} {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Screen reader support</td>
+          {% for tool in site.data.tools %} {% unless tool[0] == '_template' %}
+          <td class="text-center"><span class="text-muted">TBD</span></td>
+          {% endunless %} {% endfor %}
+        </tr>
+        <tr>
+          <td>Keyboard navigation</td>
+          {% for tool in site.data.tools %} {% unless tool[0] == '_template' %}
+          <td class="text-center">
+            <i class="bi bi-check-circle-fill text-success"></i>
+          </td>
+          {% endunless %} {% endfor %}
+        </tr>
+        <tr>
+          <td>High contrast mode</td>
+          {% for tool in site.data.tools %} {% unless tool[0] == '_template' %}
+          <td class="text-center"><span class="text-muted">TBD</span></td>
+          {% endunless %} {% endfor %}
+        </tr>
+        <tr>
+          <td>Font size customization</td>
+          {% for tool in site.data.tools %} {% unless tool[0] == '_template' %}
+          <td class="text-center">
+            <span class="text-muted">Via terminal</span>
+          </td>
+          {% endunless %} {% endfor %}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Contribute CTA -->
+<div class="alert alert-info">
+  <i class="bi bi-camera me-2"></i>
+  <strong>Help us improve this section!</strong>
+  We're looking for screenshots and UI recordings of these tools in action.
+  <a
+    href="https://github.com/YOUR_USERNAME/agentic-comparison/issues/new?template=feature_request.yml"
+    >Submit your contributions</a
+  >.
+</div>

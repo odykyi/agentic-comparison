@@ -1,0 +1,118 @@
+# Canonical Concepts for Agentic Tools
+# These define the neutral vocabulary used for cross-tool terminology mapping
+
+concepts:
+  - id: "reusable_block"
+    name: "Reusable Code Block"
+    description: "A reusable piece of prompt logic or functionality that can be invoked across sessions"
+    details: |
+      This is a core concept in agentic tools - the ability to save and reuse 
+      custom prompts or agent behaviors. Different tools implement this 
+      with different names and file formats.
+    tool_names:
+      codex: "skill"
+      claude_code: "command"
+      opencode: "agent"
+    typical_storage:
+      codex: ".codex/skills/"
+      claude_code: ".claude/commands/"
+      opencode: ".opencode/agents/"
+
+  - id: "interactive_command"
+    name: "Interactive Command"
+    description: "A command that users can invoke during a session to trigger specific behavior"
+    details: |
+      Commands provide a way to interact with the agent during a coding session. 
+      They can be built-in or user-defined.
+    tool_names:
+      codex: "command"
+      claude_code: "slash command"
+      opencode: "slash command"
+
+  - id: "autonomous_agent"
+    name: "Autonomous Agent"
+    description: "An AI agent that can perform tasks autonomously with minimal human intervention"
+    details: |
+      The core AI entity that processes prompts, makes decisions, and executes 
+      actions on behalf of the user.
+    tool_names:
+      codex: "agent"
+      claude_code: "agent"
+      opencode: "agent"
+
+  - id: "user_prompt"
+    name: "User Prompt"
+    description: "Input provided by the user to guide the AI's behavior"
+    tool_names:
+      codex: "prompt"
+      claude_code: "prompt"
+      opencode: "prompt"
+
+  - id: "context_window"
+    name: "Context Window"
+    description: "The conversation history and working memory available to the AI"
+    details: |
+      The maximum amount of text/tokens the AI can remember and reference 
+      during a conversation. Larger windows enable working with bigger codebases.
+    tool_names:
+      codex: "context"
+      claude_code: "context"
+      opencode: "context"
+
+  - id: "project_knowledge"
+    name: "Project Knowledge"
+    description: "Project-specific information stored to improve AI understanding"
+    details: |
+      Configuration files and documentation stored in the project directory 
+      that helps the AI understand the codebase better.
+    tool_names:
+      codex: ".codex/ directory"
+      claude_code: ".claude/ directory"
+      opencode: "AGENTS.md or .opencode/"
+
+  - id: "tool_integration"
+    name: "External Tool Integration"
+    description: "Connection to external tools, services, and data sources"
+    details: |
+      Mechanisms for connecting the AI to external systems like filesystems, 
+      APIs, databases, and development tools.
+    tool_names:
+      codex: "MCP Server"
+      claude_code: "MCP Server"
+      opencode: "MCP Server"
+
+  - id: "code_edit"
+    name: "Code Edit"
+    description: "Modification of source code by the AI agent"
+    tool_names:
+      codex: "edit"
+      claude_code: "edit"
+      opencode: "edit"
+
+  - id: "code_review"
+    name: "Code Review"
+    description: "Analysis of code for bugs, improvements, and best practices"
+    tool_names:
+      codex: "review"
+      claude_code: "review"
+      opencode: "review"
+
+  - id: "session_management"
+    name: "Session Management"
+    description: "Control over conversation state and context"
+    details: |
+      Features for managing long-running conversations including 
+      clearing context, compacting history, and tracking costs.
+    tool_names:
+      codex: "session"
+      claude_code: "conversation"
+      opencode: "session"
+
+# History tracking for terminology changes
+history:
+  - concept: "reusable_block"
+    tool: "codex"
+    version: "0.100.0"
+    change: "introduced"
+    date: "2024-01-01"
+    notes: "Skills system introduced in Codex CLI"

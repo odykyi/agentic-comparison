@@ -13,14 +13,14 @@ The AI agent tooling landscape is exploding with multiple CLI-based coding agent
 
 ## 🛠️ Tools Compared
 
-| Tool | Repository | Command Prefix |
-|------|------------|----------------|
-| **OpenCode** | [saoirse-opencode/opencode](https://github.com/saoirse-opencode/opencode) | `opencode` |
-| **OpenAI Codex** | [openai/codex](https://github.com/openai/codex) | `codex` |
-| **Claude Code** | [anthropics/claude-code](https://github.com/anthropics/claude-code) | `claude` |
-| **Continue.dev** | [continuedev/continue](https://github.com/continuedev/continue) | IDE extension |
-| **Aider** | [Aider-AI/aider](https://github.com/Aider-AI/aider) | `aider` |
-| **GitHub Copilot CLI** | [github/copilot.vim](https://github.com/github/copilot.vim) | `gh copilot` |
+| Tool                   | Repository                                                                | Command Prefix |
+| ---------------------- | ------------------------------------------------------------------------- | -------------- |
+| **OpenCode**           | [saoirse-opencode/opencode](https://github.com/saoirse-opencode/opencode) | `opencode`     |
+| **OpenAI Codex**       | [openai/codex](https://github.com/openai/codex)                           | `codex`        |
+| **Claude Code**        | [anthropics/claude-code](https://github.com/anthropics/claude-code)       | `claude`       |
+| **Continue.dev**       | [continuedev/continue](https://github.com/continuedev/continue)           | IDE extension  |
+| **Aider**              | [Aider-AI/aider](https://github.com/Aider-AI/aider)                       | `aider`        |
+| **GitHub Copilot CLI** | [github/copilot.vim](https://github.com/github/copilot.vim)               | `gh copilot`   |
 
 ## 📊 Comparison Dimensions
 
@@ -35,8 +35,10 @@ The AI agent tooling landscape is exploding with multiple CLI-based coding agent
 
 ### Prerequisites
 
-- Ruby 3.0+ with Bundler
+- Ruby 3.0+ with Bundler (recommended)
 - Node.js 18+ (for build tooling)
+
+> **Note:** If you have Ruby 2.6, you may encounter native extension compilation issues on macOS. See [Ruby 2.6 Workarounds](#ruby-26-workarounds) below.
 
 ### Installation
 
@@ -45,15 +47,77 @@ The AI agent tooling landscape is exploding with multiple CLI-based coding agent
 git clone https://github.com/YOUR_USERNAME/agentic-comparison.git
 cd agentic-comparison
 
-# Install Ruby dependencies
+# Install Ruby dependencies (Ruby 3.0+)
 bundle install
 
-# Install Node dependencies (for asset building)
+# Alternative for Ruby 2.6 users - use Docker:
+# docker run -v $(pwd):/srv/jekyll -p 4000:4000 jekyll/jekyll:3.8
+
+# Alternative for Ruby 2.6 - skip bundle install and use GitHub Pages:
+# The site will work fine when deployed to GitHub Pages even without local bundle
+
+# Install Node dependencies (for build tooling)
 npm install
 
 # Start local server
 bundle exec jekyll serve --livereload
+
+# For Ruby 2.6 without eventmachine (no live reload):
+# bundle exec jekyll serve --no-watch
 ```
+
+Visit `http://localhost:4000` to view the site.
+
+### Ruby 2.6 Workarounds
+
+If you're on Ruby 2.6 and experiencing native extension build failures (particularly with `eventmachine`):
+
+**Option 1: Use Docker (Recommended)**
+
+```bash
+docker run --rm \
+  -v $(pwd):/srv/jekyll \
+  -p 4000:4000 \
+  -e JEKYLL_ENV=development \
+  jekyll/jekyll:3.8 \
+  jekyll serve --watch --force_polling --livereload
+```
+
+**Option 2: Use the Docker Gemfile**
+
+```bash
+mv Gemfile.docker Gemfile
+bundle install
+bundle exec jekyll serve
+```
+
+**Option 3: Skip local setup and rely on GitHub Pages**
+Since this is a Jekyll site for GitHub Pages, you can:
+
+1. Push to GitHub
+2. Enable GitHub Pages in repository settings
+3. GitHub will automatically build and deploy the site
+4. Make edits and view changes after deployment
+
+**Option 4: Upgrade Ruby to 3.0+**
+Using rbenv or rvm:
+
+```bash
+# Using rbenv
+rbenv install 3.1.0
+rbenv local 3.1.0
+bundle install
+```
+
+# Install Node dependencies (for asset building)
+
+npm install
+
+# Start local server
+
+bundle exec jekyll serve --livereload
+
+````
 
 Visit `http://localhost:4000` to view the site.
 
@@ -64,7 +128,7 @@ Visit `http://localhost:4000` to view the site.
 bundle exec jekyll build
 
 # The built site will be in `_site/` directory
-```
+````
 
 ## 📁 Project Structure
 

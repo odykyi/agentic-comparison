@@ -1,0 +1,72 @@
+name: Tool Data Update
+description: Submit updated information about an existing tool
+title: "[UPDATE] "
+labels: ["data-update", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep the comparison up-to-date!
+
+  - type: dropdown
+    id: tool
+    attributes:
+      label: Which tool?
+      options:
+        - OpenCode
+        - Codex
+        - Claude Code
+        - Continue.dev
+        - Aider
+        - GitHub Copilot CLI
+        - Other (specify in description)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: update_type
+    attributes:
+      label: What needs updating?
+      options:
+        - Version number
+        - New command
+        - Changed command syntax
+        - Pricing change
+        - Feature availability
+        - MCP server support
+        - Installation method
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Update details
+      description: What is the current (wrong) information and what should it be changed to?
+      placeholder: |
+        Current: version 0.120.0
+        Should be: version 0.121.0
+
+        Evidence: Link to release notes, documentation, or changelog
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Source URL
+      description: Link to official source (release notes, docs, etc.)
+      placeholder: https://github.com/...
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: verification
+    attributes:
+      label: Verification
+      options:
+        - label: I have verified this change against official documentation
+          required: true
+        - label: I have tested this (if applicable)
+          required: false

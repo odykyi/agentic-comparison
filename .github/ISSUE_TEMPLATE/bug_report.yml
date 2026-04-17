@@ -1,0 +1,36 @@
+name: Bug Report
+description: Report incorrect information on the site
+title: "[BUG] "
+labels: ["bug", "triage"]
+body:
+  - type: textarea
+    id: what_is_wrong
+    attributes:
+      label: What is wrong?
+      description: Describe the incorrect information
+    validations:
+      required: true
+
+  - type: input
+    id: page_url
+    attributes:
+      label: Page URL
+      description: Which page has the error?
+      placeholder: https://agentic-comparison.dev/commands/
+    validations:
+      required: true
+
+  - type: textarea
+    id: what_should_be
+    attributes:
+      label: What should it say instead?
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Source/Documentation
+      description: Link proving the correct information
+    validations:
+      required: true

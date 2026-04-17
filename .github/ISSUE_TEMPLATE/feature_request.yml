@@ -1,0 +1,32 @@
+name: Feature Request
+description: Suggest a new feature for the comparison site
+title: "[FEATURE] "
+labels: ["enhancement", "triage"]
+body:
+  - type: textarea
+    id: feature_description
+    attributes:
+      label: Feature Description
+      description: What would you like to see added?
+    validations:
+      required: true
+
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use Case
+      description: How would this help users of the comparison site?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - UI/UX Improvement
+        - New Comparison Dimension
+        - Data Feature
+        - Search/Navigation
+        - Performance
+        - Other

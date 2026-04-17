@@ -1,0 +1,240 @@
+# MCP Server Registry
+# Catalog of Model Context Protocol servers and their compatibility
+
+servers:
+  - id: "filesystem"
+    name: "Filesystem"
+    description: "Access and manipulate local files and directories"
+    repository: "modelcontextprotocol/servers"
+    official: true
+    categories: ["core", "filesystem"]
+    capabilities: ["resources", "tools"]
+    maintainer: "Anthropic"
+    setup_difficulty: "easy"
+    documentation: "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem"
+    compatibility:
+      claude_code:
+        supported: true
+        version: "0.1.0+"
+        setup_required: false
+        notes: "Built-in support"
+      codex:
+        supported: true
+        version: "0.100.0+"
+        setup_required: false
+        notes: "Built-in support"
+      opencode:
+        supported: true
+        version: "1.0.0+"
+        setup_required: false
+        notes: "Enabled by default"
+
+  - id: "github"
+    name: "GitHub"
+    description: "Repository management, file access, and GitHub API integration"
+    repository: "modelcontextprotocol/servers"
+    official: true
+    categories: ["version-control", "api"]
+    capabilities: ["resources", "tools"]
+    maintainer: "Anthropic"
+    setup_difficulty: "medium"
+    documentation: "https://github.com/modelcontextprotocol/servers/tree/main/src/github"
+    requirements:
+      - "GitHub Personal Access Token"
+    compatibility:
+      claude_code:
+        supported: true
+        version: "0.1.0+"
+        setup_required: true
+        setup_steps:
+          - "Create GitHub Personal Access Token"
+          - "Add token to Claude Code configuration"
+        notes: "Requires token setup"
+      codex:
+        supported: true
+        version: "0.100.0+"
+        setup_required: true
+        notes: "Requires GitHub token"
+      opencode:
+        supported: true
+        version: "1.0.0+"
+        setup_required: true
+        notes: "Configure in settings"
+
+  - id: "fetch"
+    name: "Fetch"
+    description: "Web content fetching and conversion to markdown"
+    repository: "modelcontextprotocol/servers"
+    official: true
+    categories: ["web", "data"]
+    capabilities: ["tools"]
+    maintainer: "Anthropic"
+    setup_difficulty: "easy"
+    documentation: "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch"
+    compatibility:
+      claude_code:
+        supported: true
+        version: "0.1.0+"
+        setup_required: false
+      codex:
+        supported: true
+        version: "0.100.0+"
+        setup_required: false
+      opencode:
+        supported: true
+        version: "1.0.0+"
+        setup_required: false
+
+  - id: "postgres"
+    name: "PostgreSQL"
+    description: "Read-only database access with schema inspection"
+    repository: "modelcontextprotocol/servers"
+    official: true
+    categories: ["database"]
+    capabilities: ["resources"]
+    maintainer: "Anthropic"
+    setup_difficulty: "medium"
+    requirements:
+      - "PostgreSQL connection string"
+    compatibility:
+      claude_code:
+        supported: true
+        version: "0.1.0+"
+        setup_required: true
+      codex:
+        supported: true
+        version: "0.100.0+"
+        setup_required: true
+      opencode:
+        supported: false
+        version: null
+        notes: "Not yet supported"
+
+  - id: "puppeteer"
+    name: "Puppeteer"
+    description: "Browser automation and web scraping"
+    repository: "modelcontextprotocol/servers"
+    official: true
+    categories: ["web", "automation"]
+    capabilities: ["tools"]
+    maintainer: "Anthropic"
+    setup_difficulty: "hard"
+    compatibility:
+      claude_code:
+        supported: true
+        version: "0.1.0+"
+        setup_required: true
+      codex:
+        supported: true
+        version: "0.100.0+"
+        setup_required: true
+      opencode:
+        supported: false
+        version: null
+
+  - id: "figma"
+    name: "Figma"
+    description: "Access Figma designs and components"
+    repository: "community/figma-mcp"
+    official: false
+    categories: ["design", "api"]
+    capabilities: ["resources", "tools"]
+    maintainer: "Community"
+    stars: 120
+    setup_difficulty: "medium"
+    requirements:
+      - "Figma Personal Access Token"
+    compatibility:
+      claude_code:
+        supported: true
+        version: "0.1.0+"
+        setup_required: true
+        notes: "Community server, requires Figma token"
+      codex:
+        supported: false
+        version: null
+      opencode:
+        supported: false
+        version: null
+
+  - id: "brave-search"
+    name: "Brave Search"
+    description: "Web search via Brave Search API"
+    repository: "modelcontextprotocol/servers"
+    official: true
+    categories: ["web", "search"]
+    capabilities: ["tools"]
+    maintainer: "Anthropic"
+    setup_difficulty: "easy"
+    requirements:
+      - "Brave Search API key"
+    compatibility:
+      claude_code:
+        supported: true
+        version: "0.1.0+"
+        setup_required: true
+      codex:
+        supported: true
+        version: "0.100.0+"
+        setup_required: true
+      opencode:
+        supported: true
+        version: "1.0.0+"
+        setup_required: true
+
+  - id: "sqlite"
+    name: "SQLite"
+    description: "SQLite database access and querying"
+    repository: "community/sqlite-mcp"
+    official: false
+    categories: ["database"]
+    capabilities: ["resources", "tools"]
+    maintainer: "Community"
+    stars: 85
+    setup_difficulty: "easy"
+    compatibility:
+      claude_code:
+        supported: true
+        version: "0.1.0+"
+        setup_required: false
+      codex:
+        supported: true
+        version: "0.100.0+"
+        setup_required: false
+      opencode:
+        supported: true
+        version: "1.0.0+"
+        setup_required: false
+
+# Categories for filtering
+categories:
+  - id: "core"
+    name: "Core"
+    description: "Essential servers included by default"
+  - id: "filesystem"
+    name: "Filesystem"
+    description: "File and directory operations"
+  - id: "version-control"
+    name: "Version Control"
+    description: "Git and repository management"
+  - id: "web"
+    name: "Web"
+    description: "Web-related services and APIs"
+  - id: "database"
+    name: "Database"
+    description: "Database connections and queries"
+  - id: "api"
+    name: "API"
+    description: "Third-party API integrations"
+  - id: "data"
+    name: "Data"
+    description: "Data processing and conversion"
+  - id: "design"
+    name: "Design"
+    description: "Design tool integrations"
+  - id: "automation"
+    name: "Automation"
+    description: "Browser and UI automation"
+  - id: "search"
+    name: "Search"
+    description: "Search engines and indexing"
