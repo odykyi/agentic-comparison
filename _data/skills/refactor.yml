@@ -16,13 +16,17 @@ compatible_tools:
   - codex
   - claude_code
   - opencode
-  - aider
+  - cursor
+  - junie
+  - tabnine
 
 install_commands:
   codex: "codex skills install refactor"
   claude_code: "claude skills install refactor"
   opencode: "opencode skills install refactor"
-  aider: "aider --skill refactor"
+  cursor: "cursor skills install refactor"
+  junie: "junie skills install refactor"
+  tabnine: "tabnine skills install refactor"
 
 usage_example: |
   # Refactor current file

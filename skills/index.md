@@ -35,6 +35,7 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
             <option value="claude_code">Claude Code</option>
             <option value="opencode">OpenCode</option>
             <option value="cursor">Cursor</option>
+            <option value="junie">Junie</option>
             <option value="continue">Continue</option>
             <option value="tabnine">Tabnine</option>
             <option value="google-antigravity">Google Antigravity</option>
@@ -139,16 +140,84 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                   </div>
                 </div>
                 <div class="install-section bg-light rounded p-2">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <small class="text-muted">Select tool:</small>
+                    <select class="form-select form-select-sm tool-selector" style="width: auto; max-width: 140px;" data-skill="{{ skill_slug }}">
+                      {% for tool in skill_data.compatible_tools %}
+                        <option value="{{ tool }}">{{ tool | replace: '_', ' ' | capitalize }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
                   <div class="bg-white rounded border p-2 mb-2">
-                    <code class="d-block text-dark" style="font-size: 0.85rem; word-break: break-all;">
-                      {{ skill_data.install_commands['codex'] }}
+                    <code class="d-block text-dark install-command" id="command-{{ skill_slug }}" style="font-size: 0.85rem; word-break: break-all;">
+                      {% assign first_tool = skill_data.compatible_tools | first %}
+                      {{ skill_data.install_commands[first_tool] }}
                     </code>
                   </div>
-                  {% assign marketplace_full_url = site.url | append: site.baseurl | append: '/skills/' %}
-                  {% capture codex_prompt %}🔥 TRENDING TODAY - Install "{{ skill_data.name }}" (hot right now!). Command: {{ skill_data.install_commands['codex'] }} | From: {{ marketplace_full_url }} | Source: {{ skill_data.source_url }}{% endcapture %}
-                  <a href="codex://new?prompt={{ codex_prompt | url_encode }}" class="btn btn-sm btn-success w-100 d-flex align-items-center justify-content-center gap-1">
-                    <i class="bi bi-box-arrow-up-right"></i>Open in Codex
-                  </a>
+                  <button class="btn btn-sm btn-primary w-100 copy-btn mb-2" data-command="{{ skill_data.install_commands[first_tool] }}">
+                    <i class="bi bi-clipboard me-1"></i>Copy Command
+                  </button>
+                  
+                  <!-- Tool-specific Open buttons -->
+                  <div class="d-flex flex-wrap gap-1">
+                    {% assign marketplace_full_url = site.url | append: site.baseurl | append: '/skills/' %}
+                    
+                    {% if skill_data.compatible_tools contains 'codex' %}
+                      {% assign codex_template = site.data.prompts.codex_install %}
+                      {% assign codex_prompt = codex_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['codex'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="codex://new?prompt={{ codex_prompt | url_encode }}" class="btn btn-sm btn-success flex-fill" title="Open in Codex" style="font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Codex
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'claude_code' %}
+                      {% assign claude_template = site.data.prompts.claude_install %}
+                      {% assign claude_prompt = claude_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['claude_code'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="claude://new?prompt={{ claude_prompt | url_encode }}" class="btn btn-sm btn-warning flex-fill" title="Open in Claude Code" style="color: #000; font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Claude
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'opencode' %}
+                      {% assign opencode_template = site.data.prompts.opencode_install %}
+                      {% assign opencode_prompt = opencode_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['opencode'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="opencode://new?prompt={{ opencode_prompt | url_encode }}" class="btn btn-sm btn-info flex-fill" title="Open in OpenCode" style="font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> OpenCode
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'cursor' %}
+                      {% assign cursor_template = site.data.prompts.cursor_install %}
+                      {% assign cursor_prompt = cursor_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['cursor'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="cursor://new?prompt={{ cursor_prompt | url_encode }}" class="btn btn-sm btn-dark flex-fill" title="Open in Cursor" style="font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Cursor
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'tabnine' %}
+                      {% assign tabnine_template = site.data.prompts.tabnine_install %}
+                      {% assign tabnine_prompt = tabnine_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['tabnine'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="tabnine://new?prompt={{ tabnine_prompt | url_encode }}" class="btn btn-sm flex-fill border" title="Open in Tabnine" style="background-color: #4A90E2; color: white; border-color: #4A90E2; font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Tabnine
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'continue' %}
+                      {% assign continue_template = site.data.prompts.continue_install %}
+                      {% assign continue_prompt = continue_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['continue'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="continue://new?prompt={{ continue_prompt | url_encode }}" class="btn btn-sm btn-secondary flex-fill" title="Open in Continue" style="font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Continue
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'junie' %}
+                      {% assign junie_template = site.data.prompts.junie_install %}
+                      {% assign junie_prompt = junie_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['junie'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="junie://new?prompt={{ junie_prompt | url_encode }}" class="btn btn-sm flex-fill border" title="Open in Junie" style="background-color: #00D9A3; color: #000; font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Junie
+                      </a>
+                    {% endif %}
+                  </div>
                 </div>
               </div>
             </div>
@@ -196,16 +265,84 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                   </div>
                 </div>
                 <div class="install-section bg-light rounded p-2">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <small class="text-muted">Select tool:</small>
+                    <select class="form-select form-select-sm tool-selector" style="width: auto; max-width: 140px;" data-skill="{{ skill_slug }}">
+                      {% for tool in skill_data.compatible_tools %}
+                        <option value="{{ tool }}">{{ tool | replace: '_', ' ' | capitalize }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
                   <div class="bg-white rounded border p-2 mb-2">
-                    <code class="d-block text-dark" style="font-size: 0.85rem; word-break: break-all;">
-                      {{ skill_data.install_commands['codex'] }}
+                    <code class="d-block text-dark install-command" id="command-{{ skill_slug }}" style="font-size: 0.85rem; word-break: break-all;">
+                      {% assign first_tool = skill_data.compatible_tools | first %}
+                      {{ skill_data.install_commands[first_tool] }}
                     </code>
                   </div>
-                  {% assign marketplace_full_url = site.url | append: site.baseurl | append: '/skills/' %}
-                  {% capture codex_prompt %}📈 This Week's Pick - "{{ skill_data.name }}" is gaining popularity. Install: {{ skill_data.install_commands['codex'] }} | From: {{ marketplace_full_url }} | Source: {{ skill_data.source_url }}{% endcapture %}
-                  <a href="codex://new?prompt={{ codex_prompt | url_encode }}" class="btn btn-sm btn-success w-100 d-flex align-items-center justify-content-center gap-1">
-                    <i class="bi bi-box-arrow-up-right"></i>Open in Codex
-                  </a>
+                  <button class="btn btn-sm btn-primary w-100 copy-btn mb-2" data-command="{{ skill_data.install_commands[first_tool] }}">
+                    <i class="bi bi-clipboard me-1"></i>Copy Command
+                  </button>
+                  
+                  <!-- Tool-specific Open buttons -->
+                  <div class="d-flex flex-wrap gap-1">
+                    {% assign marketplace_full_url = site.url | append: site.baseurl | append: '/skills/' %}
+                    
+                    {% if skill_data.compatible_tools contains 'codex' %}
+                      {% assign codex_template = site.data.prompts.codex_install %}
+                      {% assign codex_prompt = codex_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['codex'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="codex://new?prompt={{ codex_prompt | url_encode }}" class="btn btn-sm btn-success flex-fill" title="Open in Codex" style="font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Codex
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'claude_code' %}
+                      {% assign claude_template = site.data.prompts.claude_install %}
+                      {% assign claude_prompt = claude_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['claude_code'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="claude://new?prompt={{ claude_prompt | url_encode }}" class="btn btn-sm btn-warning flex-fill" title="Open in Claude Code" style="color: #000; font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Claude
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'opencode' %}
+                      {% assign opencode_template = site.data.prompts.opencode_install %}
+                      {% assign opencode_prompt = opencode_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['opencode'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="opencode://new?prompt={{ opencode_prompt | url_encode }}" class="btn btn-sm btn-info flex-fill" title="Open in OpenCode" style="font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> OpenCode
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'cursor' %}
+                      {% assign cursor_template = site.data.prompts.cursor_install %}
+                      {% assign cursor_prompt = cursor_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['cursor'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="cursor://new?prompt={{ cursor_prompt | url_encode }}" class="btn btn-sm btn-dark flex-fill" title="Open in Cursor" style="font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Cursor
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'tabnine' %}
+                      {% assign tabnine_template = site.data.prompts.tabnine_install %}
+                      {% assign tabnine_prompt = tabnine_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['tabnine'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="tabnine://new?prompt={{ tabnine_prompt | url_encode }}" class="btn btn-sm flex-fill border" title="Open in Tabnine" style="background-color: #4A90E2; color: white; border-color: #4A90E2; font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Tabnine
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'continue' %}
+                      {% assign continue_template = site.data.prompts.continue_install %}
+                      {% assign continue_prompt = continue_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['continue'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="continue://new?prompt={{ continue_prompt | url_encode }}" class="btn btn-sm btn-secondary flex-fill" title="Open in Continue" style="font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Continue
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'junie' %}
+                      {% assign junie_template = site.data.prompts.junie_install %}
+                      {% assign junie_prompt = junie_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['junie'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="junie://new?prompt={{ junie_prompt | url_encode }}" class="btn btn-sm flex-fill border" title="Open in Junie" style="background-color: #00D9A3; color: #000; font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Junie
+                      </a>
+                    {% endif %}
+                  </div>
                 </div>
               </div>
             </div>
@@ -253,16 +390,84 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                   </div>
                 </div>
                 <div class="install-section bg-light rounded p-2">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <small class="text-muted">Select tool:</small>
+                    <select class="form-select form-select-sm tool-selector" style="width: auto; max-width: 140px;" data-skill="{{ skill_slug }}">
+                      {% for tool in skill_data.compatible_tools %}
+                        <option value="{{ tool }}">{{ tool | replace: '_', ' ' | capitalize }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
                   <div class="bg-white rounded border p-2 mb-2">
-                    <code class="d-block text-dark" style="font-size: 0.85rem; word-break: break-all;">
-                      {{ skill_data.install_commands['codex'] }}
+                    <code class="d-block text-dark install-command" id="command-{{ skill_slug }}" style="font-size: 0.85rem; word-break: break-all;">
+                      {% assign first_tool = skill_data.compatible_tools | first %}
+                      {{ skill_data.install_commands[first_tool] }}
                     </code>
                   </div>
-                  {% assign marketplace_full_url = site.url | append: site.baseurl | append: '/skills/' %}
-                  {% capture codex_prompt %}⭐ Monthly Top Skill - "{{ skill_data.name }}" is this month's favorite. Install now: {{ skill_data.install_commands['codex'] }} | From: {{ marketplace_full_url }} | Source: {{ skill_data.source_url }}{% endcapture %}
-                  <a href="codex://new?prompt={{ codex_prompt | url_encode }}" class="btn btn-sm btn-success w-100 d-flex align-items-center justify-content-center gap-1">
-                    <i class="bi bi-box-arrow-up-right"></i>Open in Codex
-                  </a>
+                  <button class="btn btn-sm btn-primary w-100 copy-btn mb-2" data-command="{{ skill_data.install_commands[first_tool] }}">
+                    <i class="bi bi-clipboard me-1"></i>Copy Command
+                  </button>
+                  
+                  <!-- Tool-specific Open buttons -->
+                  <div class="d-flex flex-wrap gap-1">
+                    {% assign marketplace_full_url = site.url | append: site.baseurl | append: '/skills/' %}
+                    
+                    {% if skill_data.compatible_tools contains 'codex' %}
+                      {% assign codex_template = site.data.prompts.codex_install %}
+                      {% assign codex_prompt = codex_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['codex'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="codex://new?prompt={{ codex_prompt | url_encode }}" class="btn btn-sm btn-success flex-fill" title="Open in Codex" style="font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Codex
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'claude_code' %}
+                      {% assign claude_template = site.data.prompts.claude_install %}
+                      {% assign claude_prompt = claude_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['claude_code'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="claude://new?prompt={{ claude_prompt | url_encode }}" class="btn btn-sm btn-warning flex-fill" title="Open in Claude Code" style="color: #000; font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Claude
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'opencode' %}
+                      {% assign opencode_template = site.data.prompts.opencode_install %}
+                      {% assign opencode_prompt = opencode_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['opencode'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="opencode://new?prompt={{ opencode_prompt | url_encode }}" class="btn btn-sm btn-info flex-fill" title="Open in OpenCode" style="font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> OpenCode
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'cursor' %}
+                      {% assign cursor_template = site.data.prompts.cursor_install %}
+                      {% assign cursor_prompt = cursor_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['cursor'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="cursor://new?prompt={{ cursor_prompt | url_encode }}" class="btn btn-sm btn-dark flex-fill" title="Open in Cursor" style="font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Cursor
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'tabnine' %}
+                      {% assign tabnine_template = site.data.prompts.tabnine_install %}
+                      {% assign tabnine_prompt = tabnine_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['tabnine'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="tabnine://new?prompt={{ tabnine_prompt | url_encode }}" class="btn btn-sm flex-fill border" title="Open in Tabnine" style="background-color: #4A90E2; color: white; border-color: #4A90E2; font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Tabnine
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'continue' %}
+                      {% assign continue_template = site.data.prompts.continue_install %}
+                      {% assign continue_prompt = continue_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['continue'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="continue://new?prompt={{ continue_prompt | url_encode }}" class="btn btn-sm btn-secondary flex-fill" title="Open in Continue" style="font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Continue
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'junie' %}
+                      {% assign junie_template = site.data.prompts.junie_install %}
+                      {% assign junie_prompt = junie_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['junie'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="junie://new?prompt={{ junie_prompt | url_encode }}" class="btn btn-sm flex-fill border" title="Open in Junie" style="background-color: #00D9A3; color: #000; font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Junie
+                      </a>
+                    {% endif %}
+                  </div>
                 </div>
               </div>
             </div>
@@ -374,11 +579,11 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                   </a>
                 {% endif %}
                 
-                {% if skill_data.compatible_tools contains 'cursor' %}
-                  {% assign cursor_template = site.data.prompts.cursor_install %}
-                  {% assign cursor_prompt = cursor_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['cursor'] | replace: '{{ source_url }}', skill_data.source_url %}
-                  <a href="cursor://new?prompt={{ cursor_prompt | url_encode }}" class="btn btn-sm btn-light flex-fill border" title="Open in Cursor">
-                    <i class="bi bi-box-arrow-up-right"></i> Cursor
+                {% if skill_data.compatible_tools contains 'junie' %}
+                  {% assign junie_template = site.data.prompts.junie_install %}
+                  {% assign junie_prompt = junie_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['junie'] | replace: '{{ source_url }}', skill_data.source_url %}
+                  <a href="junie://new?prompt={{ junie_prompt | url_encode }}" class="btn btn-sm flex-fill border" title="Open in Junie" style="background-color: #00D9A3; color: #000;">
+                    <i class="bi bi-box-arrow-up-right"></i> Junie
                   </a>
                 {% endif %}
               </div>

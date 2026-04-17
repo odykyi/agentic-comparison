@@ -16,13 +16,17 @@ compatible_tools:
   - codex
   - claude_code
   - opencode
-  - aider
+  - cursor
+  - junie
+  - continue
 
 install_commands:
   codex: "codex skills install test-gen"
   claude_code: "claude skills install test-gen"
   opencode: "opencode skills install test-gen"
-  aider: "aider --skill test-gen"
+  cursor: "cursor skills install test-gen"
+  junie: "junie skills install test-gen"
+  continue: "continue skills install test-gen"
 
 usage_example: |
   # Generate tests for current file

@@ -16,13 +16,15 @@ compatible_tools:
   - codex
   - claude_code
   - opencode
-  - aider
+  - cursor
+  - junie
 
 install_commands:
   codex: "codex skills install security-auditor"
   claude_code: "claude skills install security-auditor"
   opencode: "opencode skills install security-auditor"
-  aider: "aider --skill security-auditor"
+  cursor: "cursor skills install security-auditor"
+  junie: "junie skills install security-auditor"
 
 usage_example: |
   # Audit for security issues

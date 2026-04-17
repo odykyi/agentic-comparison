@@ -16,13 +16,17 @@ compatible_tools:
   - codex
   - claude_code
   - opencode
-  - aider
+  - cursor
+  - junie
+  - tabnine
 
 install_commands:
   codex: "codex skills install type-helper"
   claude_code: "claude skills install type-helper"
   opencode: "opencode skills install type-helper"
-  aider: "aider --skill type-helper"
+  cursor: "cursor skills install type-helper"
+  junie: "junie skills install type-helper"
+  tabnine: "tabnine skills install type-helper"
 
 usage_example: |
   # Add types to current file

@@ -1,29 +1,50 @@
-# Agentic Comparison
+# Agentic Comparison - AI Skills Marketplace & Tool Comparison
 
 https://odykyi.github.io/agentic-comparison/
 
-
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://agentic-comparison.dev)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://odykyi.github.io/agentic-comparison/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A comprehensive comparison resource for AI agentic coding tools.
+A comprehensive **AI skills marketplace** and comparison resource for agentic coding tools. Discover, compare, and find the best AI coding agents with their skills, commands, and capabilities.
+
+**Keywords:** `ai-skills`, `skills-marketplace`, `agent-skills`, `mcp-servers`, `ai-tools`, `coding-agents`
 
 ## 🎯 Mission
 
-The AI agent tooling landscape is exploding with multiple CLI-based coding agents (OpenCode, Codex, Claude Code, Continue, Aider) each using different terminology and architecture patterns. This project helps developers understand which tool fits their needs and how concepts map between them.
+The AI agent tooling landscape is exploding with multiple CLI-based coding agents (OpenCode, Codex, Claude Code, Cursor, Windsurf) each using different terminology and architecture patterns. This project serves as a **skills marketplace** and comparison hub to help developers understand which tool fits their needs and how concepts map between them.
 
-**Example mapping**: "skills" in Codex ↔ "commands" in Claude Code ↔ "agents" in OpenCode
+**Example mapping**: "skills" in Codex ↔ "commands" in Claude Code ↔ "agents" in OpenCode ↔ "extensions" in Windsurf
 
-## 🛠️ Tools Compared
+## 🎨 Skills Marketplace
 
-| Tool                   | Repository                                                                | Command Prefix |
-| ---------------------- | ------------------------------------------------------------------------- | -------------- |
-| **OpenCode**           | [saoirse-opencode/opencode](https://github.com/saoirse-opencode/opencode) | `opencode`     |
-| **OpenAI Codex**       | [openai/codex](https://github.com/openai/codex)                           | `codex`        |
-| **Claude Code**        | [anthropics/claude-code](https://github.com/anthropics/claude-code)       | `claude`       |
-| **Continue.dev**       | [continuedev/continue](https://github.com/continuedev/continue)           | IDE extension  |
-| **Aider**              | [Aider-AI/aider](https://github.com/Aider-AI/aider)                       | `aider`        |
-| **GitHub Copilot CLI** | [github/copilot.vim](https://github.com/github/copilot.vim)               | `gh copilot`   |
+Browse and discover **40+ AI skills** across multiple agentic tools:
+
+| Skill Category      | Description                                     |
+| ------------------- | ----------------------------------------------- |
+| **Code Generation** | Generate components, functions, and boilerplate |
+| **Refactoring**     | Modernize and restructure existing code         |
+| **Testing**         | Generate unit, integration, and E2E tests       |
+| **Documentation**   | Auto-generate README, API docs, and comments    |
+| **Security Audit**  | Scan for vulnerabilities and security issues    |
+| **DevOps**          | CI/CD, Docker, and infrastructure automation    |
+| **Database**        | Schema design, migrations, and optimization     |
+
+[Browse all skills →](https://odykyi.github.io/agentic-comparison/skills/)
+
+## 🛠️ Tools Compared (10 AI Coding Agents)
+
+| Tool                     | Repository                                                                | Command Prefix | Skills/Commands |
+| ------------------------ | ------------------------------------------------------------------------- | -------------- | --------------- |
+| **OpenCode**             | [saoirse-opencode/opencode](https://github.com/saoirse-opencode/opencode) | `opencode`     | Agents          |
+| **OpenAI Codex**         | [openai/codex](https://github.com/openai/codex)                           | `codex`        | Skills          |
+| **Claude Code**          | [anthropics/claude-code](https://github.com/anthropics/claude-code)       | `claude`       | Commands        |
+| **Cursor**               | [getcursor/cursor](https://cursor.sh)                                     | `cursor`       | Extensions      |
+| **Windsurf**             | [windsurf](https://windsurf.com)                                          | `windsurf`     | Cascade         |
+| **GitHub Copilot CLI**   | [github/copilot.vim](https://github.com/github/copilot.vim)               | `gh copilot`   | Chat            |
+| **Amazon CodeWhisperer** | [aws](https://aws.amazon.com/codewhisperer/)                              | IDE extension  | Suggestions     |
+| **Google Antigravity**   | [google](https://google.com)                                              | Various        | Assistants      |
+| **Junie**                | [junie](https://junie.ai)                                                 | `junie`        | Agents          |
+| **Tabnine**              | [tabnine](https://tabnine.com)                                            | IDE extension  | Completions     |
 
 ## 📊 Comparison Dimensions
 

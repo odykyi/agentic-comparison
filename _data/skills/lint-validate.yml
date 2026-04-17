@@ -16,13 +16,17 @@ compatible_tools:
   - codex
   - claude_code
   - opencode
-  - aider
+  - cursor
+  - junie
+  - tabnine
 
 install_commands:
   codex: "codex skills install lint-validate"
   claude_code: "claude skills install lint-validate"
   opencode: "opencode skills install lint-validate"
-  aider: "aider --skill lint-validate"
+  cursor: "cursor skills install lint-validate"
+  junie: "junie skills install lint-validate"
+  tabnine: "tabnine skills install lint-validate"
 
 usage_example: |
   # Run linting and validation

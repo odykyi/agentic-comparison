@@ -22,14 +22,29 @@
     "jekyll",
     "claude-code",
     "codex",
-    "opencode"
+    "opencode",
+    "skills",
+    "skills-marketplace",
+    "ai-skills",
+    "agent-skills",
+    "skill-registry",
+    "mcp",
+    "mcp-servers",
+    "model-context-protocol",
+    "ai-tools",
+    "llm-tools",
+    "developer-tools",
+    "cursor",
+    "windsurf",
+    "aider",
+    "continue-dev"
   ],
   "author": "Agentic Comparison Contributors",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/odykyi/agentic-comparison/issues"
   },
-  "homepage": "https://agentic-comparison.dev",
+  "homepage": "https://odykyi.github.io/agentic-comparison/",
   "devDependencies": {
     "prettier": "^3.1.0"
   }

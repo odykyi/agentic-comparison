@@ -16,13 +16,15 @@ compatible_tools:
   - codex
   - claude_code
   - opencode
-  - aider
+  - cursor
+  - junie
 
 install_commands:
   codex: "codex skills install error-explain"
   claude_code: "claude skills install error-explain"
   opencode: "opencode skills install error-explain"
-  aider: "aider --skill error-explain"
+  cursor: "cursor skills install error-explain"
+  junie: "junie skills install error-explain"
 
 usage_example: |
   # Explain last error

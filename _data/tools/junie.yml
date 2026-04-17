@@ -1,0 +1,65 @@
+# Junie Tool Definition
+# Reference: https://www.jetbrains.com/junie
+
+name: "Junie"
+slug: "junie"
+repo: "jetbrains/junie"
+website: "https://www.jetbrains.com/junie"
+docs: "https://www.jetbrains.com/help/junie"
+command_prefix: "junie"
+description: "JetBrains AI coding agent that autonomously writes, tests, and refactors code. Integrated into all JetBrains IDEs."
+
+version:
+  current: "1.0.0"
+  last_verified: "2024-01-15"
+  verified_by: "@community"
+
+license: "Proprietary"
+language: "Java/Kotlin"
+
+concepts:
+  skill: "skill"
+  command: "command"
+  agent: "agent"
+  prompt: "prompt"
+  context: "context"
+
+install:
+  other: "Built into JetBrains IDEs via plugin"
+
+features:
+  mcp_support: true
+  offline_mode: false
+  ide_integration:
+    - "intellij"
+    - "pycharm"
+    - "webstorm"
+    - "rider"
+    - "goland"
+  context_window: 200000
+  supported_models:
+    - "gpt-4"
+    - "claude-3.5-sonnet"
+
+pricing:
+  free_tier:
+    available: true
+    limits: "Limited requests during preview"
+  paid_tiers:
+    - name: "Pro"
+      price: "Included with JetBrains subscription"
+      description: "Unlimited AI requests"
+
+commands:
+  - name: "chat"
+    invoke: "Ctrl+Shift+J"
+    description: "Open Junie chat"
+    category: "general"
+    verified: true
+  - name: "generate"
+    invoke: "Alt+Enter"
+    description: "Generate code with AI"
+    category: "general"
+    verified: true
+
+history_file: ".junie/history"

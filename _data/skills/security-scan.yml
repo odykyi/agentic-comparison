@@ -16,13 +16,15 @@ compatible_tools:
   - codex
   - claude_code
   - opencode
-  - aider
+  - cursor
+  - junie
 
 install_commands:
   codex: "codex skills install security-scan"
   claude_code: "claude skills install security-scan"
   opencode: "opencode skills install security-scan"
-  aider: "aider --skill security-scan"
+  cursor: "cursor skills install security-scan"
+  junie: "junie skills install security-scan"
 
 usage_example: |
   # Scan current file for vulnerabilities

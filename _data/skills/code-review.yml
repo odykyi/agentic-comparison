@@ -15,13 +15,17 @@ compatible_tools:
   - codex
   - claude_code
   - opencode
-  - aider
+  - cursor
+  - continue
+  - junie
 
 install_commands:
   codex: "codex skills install code-review"
   claude_code: "claude skills install code-review"
   opencode: "opencode skills install code-review"
-  aider: "aider --skill code-review"
+  cursor: "cursor skills install code-review"
+  continue: "continue skills install code-review"
+  junie: "junie skills install code-review"
 
 usage_example: |
   # Start code review on current file

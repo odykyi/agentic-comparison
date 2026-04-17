@@ -1,0 +1,145 @@
+# Windsurf Tool Definition
+# Reference: https://windsurf.com
+# Docs: https://docs.windsurf.com
+
+name: "Windsurf"
+slug: "windsurf"
+repo: "windsurf" # Proprietary - no public repo
+website: "https://windsurf.com"
+docs: "https://docs.windsurf.com"
+command_prefix: "windsurf"
+description: "The most intuitive AI coding experience. A next-generation IDE built to keep you in flow, featuring Cascade - an agentic AI assistant that collaborates with you like never before. By Cognition AI/Codeium."
+
+version:
+  current: "2.0"
+  last_verified: "2024-04-17"
+  verified_by: "@community"
+
+license: "Proprietary"
+language: "TypeScript/Electron"
+
+concepts:
+  skill: "not supported"
+  command: "slash command"
+  agent: "Cascade"
+  prompt: "natural language"
+  context: "workspace"
+
+install:
+  mac: "Download from https://windsurf.com/download"
+  windows: "Download from https://windsurf.com/download"
+  linux: "Download from https://windsurf.com/download (Ubuntu 20.04+)"
+  other: "CLI: `windsurf` command when installed in PATH"
+
+features:
+  mcp_support: true
+  offline_mode: false
+  ide_integration: ["windsurf_editor", "jetbrains_plugin"]
+  context_window: 200000
+  supported_models:
+    - "gpt-4"
+    - "gpt-4o"
+    - "claude-3-opus"
+    - "claude-3-sonnet"
+    - "claude-3-haiku"
+    - "gemini-3.1-pro"
+    - "gemini-1.5-pro"
+    - "codellama"
+
+pricing:
+  free_tier:
+    available: true
+    limits: "Trial credits, then paid plans required"
+  paid_tiers:
+    - name: "Pro"
+      price: "$15/month"
+      description: "500 base + unlimited rollover credits"
+    - name: "Pro Ultimate"
+      price: "$60/month"
+      description: "2000 base + unlimited rollover credits"
+    - name: "Enterprise"
+      price: "Custom"
+      description: "Team features, admin controls, custom pricing"
+
+commands:
+  - name: "cascade-chat"
+    invoke: "Cmd/Ctrl+L"
+    description: "Open Cascade chat panel"
+    category: "cascade"
+    verified: true
+  - name: "cascade-generate"
+    invoke: "New Project button"
+    description: "Generate a new project with Cascade"
+    category: "cascade"
+    verified: true
+  - name: "continue-work"
+    invoke: "Cascade panel > 'Continue my work'"
+    description: "Cascade continues from where you left off"
+    category: "cascade"
+    verified: true
+  - name: "turbo-mode"
+    invoke: "Settings > Turbo Mode"
+    description: "Auto-execute terminal commands without confirmation"
+    category: "advanced"
+    verified: true
+  - name: "mcp-add"
+    invoke: "Settings > MCP > Add Server"
+    description: "Add MCP server for extended capabilities"
+    category: "mcp"
+    verified: true
+  - name: "terminal-ai"
+    invoke: "Cmd/Ctrl+I in terminal"
+    description: "Generate terminal commands with AI"
+    category: "terminal"
+    verified: true
+  - name: "import-vscode"
+    invoke: "Command Palette > Import from VS Code"
+    description: "Import VS Code settings and extensions"
+    category: "migration"
+    verified: true
+  - name: "import-cursor"
+    invoke: "Command Palette > Import from Cursor"
+    description: "Import Cursor settings and extensions"
+    category: "migration"
+    verified: true
+  - name: "deploy-app"
+    invoke: "Cascade > Deploy"
+    description: "Deploy application in one click"
+    category: "deploy"
+    verified: true
+
+mcp_servers:
+  - name: "filesystem"
+    supported: true
+    setup_required: false
+  - name: "github"
+    supported: true
+    setup_required: true
+  - name: "figma"
+    supported: true
+    setup_required: true
+  - name: "slack"
+    supported: true
+    setup_required: true
+  - name: "stripe"
+    supported: true
+    setup_required: true
+  - name: "postgresql"
+    supported: true
+    setup_required: true
+  - name: "playwright"
+    supported: true
+    setup_required: true
+
+features_detailed:
+  - "Cascade - Agentic AI that collaborates with you"
+  - "Memories - Remembers important things about your codebase"
+  - "Rules - Customizable behavior patterns"
+  - "MCP Support - 70+ extensions via Model Context Protocol"
+  - "Auto-fix lint errors"
+  - "Terminal command generation"
+  - "Drag & drop images for design matching"
+  - "Turbo mode - Auto-execute commands"
+  - "Web preview with active server"
+  - "JetBrains plugin available"
+  - "Import from VS Code/Cursor"

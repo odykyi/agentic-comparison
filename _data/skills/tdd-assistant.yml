@@ -16,13 +16,17 @@ compatible_tools:
   - codex
   - claude_code
   - opencode
-  - aider
+  - cursor
+  - junie
+  - continue
 
 install_commands:
   codex: "codex skills install tdd-assistant"
   claude_code: "claude skills install tdd-assistant"
   opencode: "opencode skills install tdd-assistant"
-  aider: "aider --skill tdd-assistant"
+  cursor: "cursor skills install tdd-assistant"
+  junie: "junie skills install tdd-assistant"
+  continue: "continue skills install tdd-assistant"
 
 usage_example: |
   # Start TDD workflow

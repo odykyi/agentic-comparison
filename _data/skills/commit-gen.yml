@@ -15,13 +15,15 @@ compatible_tools:
   - codex
   - claude_code
   - opencode
-  - aider
+  - cursor
+  - continue
 
 install_commands:
   codex: "codex skills install commit-gen"
   claude_code: "claude skills install commit-gen"
   opencode: "opencode skills install commit-gen"
-  aider: "aider --skill commit-gen"
+  cursor: "cursor skills install commit-gen"
+  continue: "continue skills install commit-gen"
 
 usage_example: |
   # Generate commit message for staged changes

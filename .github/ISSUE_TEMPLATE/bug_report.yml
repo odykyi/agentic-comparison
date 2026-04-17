@@ -16,7 +16,7 @@ body:
     attributes:
       label: Page URL
       description: Which page has the error?
-      placeholder: https://agentic-comparison.dev/commands/
+      placeholder: https://odykyi.github.io/agentic-comparison/commands/
     validations:
       required: true
 

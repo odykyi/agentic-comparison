@@ -1,0 +1,45 @@
+# Junie
+# JetBrains AI coding agent - autonomous coding assistant
+
+name: "Junie"
+slug: "junie"
+description: "JetBrains AI coding agent that autonomously writes, tests, and refactors code. Integrated into IntelliJ IDEA, PyCharm, WebStorm, and all JetBrains IDEs."
+category: "ide-agent"
+tags:
+  - junie
+  - jetbrains
+  - agent
+  - autonomous
+  - refactoring
+
+compatible_tools:
+  - claude_code
+  - codex
+  - junie
+
+install_commands:
+  claude_code: "claude skills install junie"
+  codex: "codex skills install junie"
+  junie: "junie install junie"
+
+usage_example: |
+  @junie refactor this class to use dependency injection
+  @junie write tests for this module
+
+use_cases:
+  - developer
+  - refactoring
+  - testing
+
+integrations:
+  - intellij
+  - pycharm
+  - webstorm
+  - jetbrains
+
+author: "JetBrains"
+source_url: "https://www.jetbrains.com/junie"
+license: "Proprietary"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

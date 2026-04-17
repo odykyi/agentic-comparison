@@ -1,0 +1,12 @@
+# Tool brand colors for badges and buttons
+# These colors match the official branding of each AI coding tool
+
+codex: "#198754" # Bootstrap success green
+claude_code: "#cc785c" # Anthropic orange/coral
+opencode: "#0dcaf0" # Cyan/info blue
+cursor: "#6c757d" # Gray (Cursor's dark theme)
+junie: "#7c3aed" # JetBrains purple
+continue: "#0d6efd" # Bootstrap primary blue
+tabnine: "#6610f2" # Deep purple
+google_antigravity: "#4285f4" # Google blue
+copilot_cli: "#212529" # Dark/black

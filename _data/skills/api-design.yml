@@ -17,13 +17,17 @@ compatible_tools:
   - codex
   - claude_code
   - opencode
-  - aider
+  - cursor
+  - junie
+  - tabnine
 
 install_commands:
   codex: "codex skills install api-design"
   claude_code: "claude skills install api-design"
   opencode: "opencode skills install api-design"
-  aider: "aider --skill api-design"
+  cursor: "cursor skills install api-design"
+  junie: "junie skills install api-design"
+  tabnine: "tabnine skills install api-design"
 
 usage_example: |
   # Design a new API endpoint

@@ -2,10 +2,11 @@
 # For technical settings, see https://jekyllrb.com/docs/configuration/
 
 # Site Settings
-title: "Agentic Comparison"
-description: "Compare AI agentic coding tools side-by-side"
+title: "Agentic Comparison - AI Skills Marketplace"
+description: "🎨 Discover and compare 50+ AI skills across 10+ agentic coding tools. Find the best MCP servers, commands, and AI coding agents for your workflow."
 baseurl: "/agentic-comparison" # the subpath of your site, e.g. /blog
 url: "https://odykyi.github.io" # the base hostname & protocol
+keywords: "ai skills, skills marketplace, agent skills, ai agents, coding agents, claude code, codex, opencode, cursor, windsurf, mcp servers, model context protocol, ai tools, developer tools"
 
 twitter_username: your_handle
 github_username: odykyi
@@ -110,6 +111,10 @@ tool_colors:
   opencode: "#3b82f6"
   codex: "#22c55e"
   claude_code: "#f97316"
-  continue: "#8b5cf6"
-  aider: "#ec4899"
+  cursor: "#8b5cf6"
+  windsurf: "#34E8BB"
   copilot: "#06b6d4"
+  codewhisperer: "#FF9900"
+  tabnine: "#4EC9B0"
+  junie: "#6366f1"
+  antigravity: "#4285f4"

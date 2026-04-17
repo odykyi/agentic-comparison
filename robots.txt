@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://agentic-comparison.dev/sitemap.xml
+Sitemap: https://odykyi.github.io/agentic-comparison/sitemap.xml
 
 # Disallow admin/private paths
 Disallow: /admin/

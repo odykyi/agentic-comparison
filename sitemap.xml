@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://agentic-comparison.dev/</loc>
+    <loc>https://odykyi.github.io/agentic-comparison/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://agentic-comparison.dev/features/</loc>
+    <loc>https://odykyi.github.io/agentic-comparison/features/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://agentic-comparison.dev/commands/</loc>
+    <loc>https://odykyi.github.io/agentic-comparison/commands/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://agentic-comparison.dev/terminology/</loc>
+    <loc>https://odykyi.github.io/agentic-comparison/terminology/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://agentic-comparison.dev/mcp/</loc>
+    <loc>https://odykyi.github.io/agentic-comparison/mcp/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://agentic-comparison.dev/pricing/</loc>
+    <loc>https://odykyi.github.io/agentic-comparison/pricing/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://agentic-comparison.dev/tools/</loc>
+    <loc>https://odykyi.github.io/agentic-comparison/tools/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -40,7 +40,7 @@
   {% for tool in site.data.tools %}
     {% unless tool[0] == '_template' %}
     <url>
-      <loc>https://agentic-comparison.dev/tools/{{ tool[0] }}/</loc>
+      <loc>https://odykyi.github.io/agentic-comparison/tools/{{ tool[0] }}/</loc>
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
     </url>
