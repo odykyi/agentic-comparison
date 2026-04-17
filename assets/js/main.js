@@ -44,64 +44,45 @@ function initThemeToggle() {
   });
 }
 
-// Site Search
+// Site Search - Simplified version
 function initSearch() {
   const searchInput = document.getElementById("search-input");
-  const searchResults = document.getElementById("search-results");
-  const searchModal = document.getElementById("search-modal");
 
-  if (!searchInput || !searchResults) return;
+  if (!searchInput) return;
 
-  searchInput.addEventListener(
-    "input",
-    debounce(function (e) {
-      const query = e.target.value.trim().toLowerCase();
+  // Handle Enter key to navigate to search or a specific page
+  searchInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const query = searchInput.value.trim().toLowerCase();
 
-      if (query.length < 2) {
-        searchResults.innerHTML =
-          '<p class="text-muted">Type at least 2 characters to search...</p>';
-        return;
+      // Simple navigation based on search terms
+      if (query.includes("command") || query.includes("cmd")) {
+        window.location.href = "/agentic-comparison/commands/";
+      } else if (query.includes("feature")) {
+        window.location.href = "/agentic-comparison/features/";
+      } else if (query.includes("price") || query.includes("cost")) {
+        window.location.href = "/agentic-comparison/pricing/";
+      } else if (query.includes("mcp")) {
+        window.location.href = "/agentic-comparison/mcp/";
+      } else if (query.includes("opencode")) {
+        window.location.href = "/agentic-comparison/tools/opencode/";
+      } else if (query.includes("codex")) {
+        window.location.href = "/agentic-comparison/tools/codex/";
+      } else if (query.includes("claude")) {
+        window.location.href = "/agentic-comparison/tools/claude_code/";
+      } else if (query.includes("aider")) {
+        window.location.href = "/agentic-comparison/tools/aider/";
+      } else if (query.includes("continue")) {
+        window.location.href = "/agentic-comparison/tools/continue/";
+      } else if (query.includes("copilot")) {
+        window.location.href = "/agentic-comparison/tools/copilot_cli/";
+      } else {
+        // Default to tools page
+        window.location.href = "/agentic-comparison/tools/";
       }
-
-      // Simple client-side search (can be enhanced with Lunr.js)
-      performSearch(query, searchResults);
-    }, 300),
-  );
-
-  // Open modal on focus
-  searchInput.addEventListener("focus", function () {
-    if (window.bootstrap) {
-      const modal = new bootstrap.Modal(searchModal);
-      modal.show();
     }
   });
-}
-
-function performSearch(query, resultsContainer) {
-  // Placeholder search implementation
-  // In production, this would use Lunr.js or similar
-  resultsContainer.innerHTML = `
-    <div class="list-group">
-      <a href="/features/" class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-          <h6 class="mb-1">Feature Comparison</h6>
-          <small class="text-muted">Page</small>
-        </div>
-        <p class="mb-1 text-muted">Compare features across all tools</p>
-      </a>
-      <a href="/commands/" class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-          <h6 class="mb-1">Command Reference</h6>
-          <small class="text-muted">Page</small>
-        </div>
-        <p class="mb-1 text-muted">Command equivalency table</p>
-      </a>
-    </div>
-    <p class="text-muted mt-3 small">
-      <i class="bi bi-info-circle me-1"></i>
-      Full search coming soon with Lunr.js integration
-    </p>
-  `;
 }
 
 // Initialize Bootstrap tooltips
