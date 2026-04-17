@@ -1,0 +1,47 @@
+name: Validate YAML Data
+
+on:
+  pull_request:
+    paths:
+      - '_data/**'
+      - '.github/workflows/validate.yml'
+  push:
+    branches: [main]
+    paths:
+      - '_data/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install jsonschema pyyaml
+
+      - name: Validate tool definitions
+        run: |
+          python scripts/validate.py --schema schemas/tool.json --data '_data/tools/*.yml'
+
+      - name: Validate features
+        run: |
+          python scripts/validate.py --schema schemas/features.json --data '_data/features.yml'
+
+      - name: Validate commands
+        run: |
+          python scripts/validate.py --schema schemas/commands.json --data '_data/commands.yml'
+
+      - name: Validate terminology
+        run: |
+          python scripts/validate.py --schema schemas/terminology.json --data '_data/terminology.yml'
+
+      - name: Validate MCP servers
+        run: |
+          python scripts/validate.py --schema schemas/mcp_servers.json --data '_data/mcp_servers.yml'
