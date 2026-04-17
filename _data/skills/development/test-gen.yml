@@ -18,7 +18,6 @@ compatible_tools:
   - opencode
   - cursor
   - junie
-  - continue
 
 install_commands:
   codex: "codex skills install test-gen"
@@ -26,7 +25,6 @@ install_commands:
   opencode: "opencode skills install test-gen"
   cursor: "cursor skills install test-gen"
   junie: "junie skills install test-gen"
-  continue: "continue skills install test-gen"
 
 usage_example: |
   # Generate tests for current file

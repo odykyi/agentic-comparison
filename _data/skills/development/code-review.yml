@@ -16,7 +16,6 @@ compatible_tools:
   - claude_code
   - opencode
   - cursor
-  - continue
   - junie
 
 install_commands:
@@ -24,7 +23,6 @@ install_commands:
   claude_code: "claude skills install code-review"
   opencode: "opencode skills install code-review"
   cursor: "cursor skills install code-review"
-  continue: "continue skills install code-review"
   junie: "junie skills install code-review"
 
 usage_example: |

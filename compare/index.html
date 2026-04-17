@@ -101,8 +101,6 @@ description: Detailed feature and command comparison across all AI coding tools
             <td class="text-center align-middle">
               {% if tool[1].features.mcp_support %}
               <span class="badge bg-success">✓ Native</span>
-              {% elsif tool[0] == 'continue' %}
-              <span class="badge bg-warning text-dark">Partial</span>
               {% else %}
               <span class="badge bg-secondary">✗ No</span>
               {% endif %}
@@ -125,8 +123,6 @@ description: Detailed feature and command comparison across all AI coding tools
               <span class="badge bg-success">✓ Yes</span>
               {% if tool[0] == 'aider' %}
               <small class="text-muted d-block">Any provider</small>
-              {% elsif tool[0] == 'continue' %}
-              <small class="text-muted d-block">Ollama, LM Studio</small>
               {% endif %} {% else %}
               <span class="badge bg-secondary">✗ Cloud only</span>
               {% endif %}
@@ -229,8 +225,6 @@ description: Detailed feature and command comparison across all AI coding tools
               <small>All MCP servers</small>
               {% else %}
               <small>Extensible</small>
-              {% endif %} {% elsif tool[0] == 'continue' %}
-              <small>Context providers</small>
               {% else %}
               <span class="badge bg-secondary">N/A</span>
               {% endif %}
@@ -279,9 +273,7 @@ description: Detailed feature and command comparison across all AI coding tools
               <code>/ask</code> or type {% elsif tool[0] == 'codex' %}
               <code>codex</code>
               {% elsif tool[0] == 'claude_code' %} Type naturally {% elsif
-              tool[0] == 'aider' %} Type in chat {% elsif tool[0] == 'continue'
-              %}
-              <code>Ctrl+J</code> chat {% elsif tool[0] == 'copilot_cli' %}
+              tool[0] == 'aider' %} Type in chat {% elsif tool[0] == 'copilot_cli' %}
               <code>gh copilot suggest</code>
               {% endif %}
             </td>
@@ -303,7 +295,6 @@ description: Detailed feature and command comparison across all AI coding tools
               {% elsif tool[0] == 'claude_code' %} Type naturally {% elsif
               tool[0] == 'aider' %}
               <code>/code</code>
-              {% elsif tool[0] == 'continue' %} Highlight + <code>Ctrl+I</code>
               {% elsif tool[0] == 'copilot_cli' %}
               <code>gh copilot explain</code>
               {% endif %}
@@ -566,8 +557,6 @@ description: Detailed feature and command comparison across all AI coding tools
               'Apache' %}
               <span class="badge bg-success">✓ {{ tool[1].license }}</span>
               {% elsif tool[0] == 'aider' %}
-              <span class="badge bg-success">✓ Apache 2.0</span>
-              {% elsif tool[0] == 'continue' %}
               <span class="badge bg-success">✓ Apache 2.0</span>
               {% else %}
               <span class="badge bg-secondary">✗ Proprietary</span>

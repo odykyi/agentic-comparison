@@ -121,8 +121,8 @@
           >
             <i class="bi bi-box-arrow-up-right"></i>Cursor
           </a>
-          {% when 'junie' %} {% capture tool_prompt %}Install {{ skill.name }}
-          skill: {{ install_cmd }} | Source: {{ skill.source_url }}{% endcapture
+          {% when 'junie' %} {% capture tool_prompt %}Install {{ skill.name
+          }} skill: {{ install_cmd }} | Source: {{ skill.source_url }}{% endcapture
           %}
           <a
             href="junie://new?prompt={{ tool_prompt | url_encode }}"
@@ -131,17 +131,6 @@
             title="Open in {{ tool_name }}"
           >
             <i class="bi bi-box-arrow-up-right"></i>Junie
-          </a>
-          {% when 'continue' %} {% capture tool_prompt %}Install {{ skill.name
-          }} skill: {{ install_cmd }} | Source: {{ skill.source_url }}{%
-          endcapture %}
-          <a
-            href="continue://new?prompt={{ tool_prompt | url_encode }}"
-            class="btn btn-sm flex-fill d-flex align-items-center justify-content-center gap-1"
-            style="background-color: {{ tool_color }}; color: white; border: none; font-size: 0.75rem;"
-            title="Open in {{ tool_name }}"
-          >
-            <i class="bi bi-box-arrow-up-right"></i>Continue
           </a>
           {% when 'google_antigravity' %} {% capture tool_prompt %}Install {{
           skill.name }} skill: {{ install_cmd }} | Source: {{ skill.source_url

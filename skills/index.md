@@ -47,7 +47,6 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
             <option value="opencode">OpenCode</option>
             <option value="cursor">Cursor</option>
             <option value="junie">Junie</option>
-            <option value="continue">Continue</option>
             <option value="google-antigravity">Google Antigravity</option>
             <option value="copilot_cli">Copilot CLI</option>
           </select>
@@ -204,14 +203,6 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                       </a>
                     {% endif %}
                     
-                    {% if skill_data.compatible_tools contains 'continue' %}
-                      {% assign continue_template = site.data.prompts.continue_install %}
-                      {% assign continue_prompt = continue_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['continue'] | replace: '{{ source_url }}', skill_data.source_url %}
-                      <a href="continue://new?prompt={{ continue_prompt | url_encode }}" class="btn btn-sm btn-secondary flex-fill" title="Open in Continue" style="font-size: 0.75rem;">
-                        <i class="bi bi-box-arrow-up-right"></i> Continue
-                      </a>
-                    {% endif %}
-                    
                     {% if skill_data.compatible_tools contains 'junie' %}
                       {% assign junie_template = site.data.prompts.junie_install %}
                       {% assign junie_prompt = junie_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['junie'] | replace: '{{ source_url }}', skill_data.source_url %}
@@ -318,14 +309,6 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                       {% assign cursor_prompt = cursor_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['cursor'] | replace: '{{ source_url }}', skill_data.source_url %}
                       <a href="cursor://new?prompt={{ cursor_prompt | url_encode }}" class="btn btn-sm btn-dark flex-fill" title="Open in Cursor" style="font-size: 0.75rem;">
                         <i class="bi bi-box-arrow-up-right"></i> Cursor
-                      </a>
-                    {% endif %}
-                    
-                    {% if skill_data.compatible_tools contains 'continue' %}
-                      {% assign continue_template = site.data.prompts.continue_install %}
-                      {% assign continue_prompt = continue_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['continue'] | replace: '{{ source_url }}', skill_data.source_url %}
-                      <a href="continue://new?prompt={{ continue_prompt | url_encode }}" class="btn btn-sm btn-secondary flex-fill" title="Open in Continue" style="font-size: 0.75rem;">
-                        <i class="bi bi-box-arrow-up-right"></i> Continue
                       </a>
                     {% endif %}
                     
@@ -438,14 +421,6 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                       </a>
                     {% endif %}
                     
-                    {% if skill_data.compatible_tools contains 'continue' %}
-                      {% assign continue_template = site.data.prompts.continue_install %}
-                      {% assign continue_prompt = continue_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['continue'] | replace: '{{ source_url }}', skill_data.source_url %}
-                      <a href="continue://new?prompt={{ continue_prompt | url_encode }}" class="btn btn-sm btn-secondary flex-fill" title="Open in Continue" style="font-size: 0.75rem;">
-                        <i class="bi bi-box-arrow-up-right"></i> Continue
-                      </a>
-                    {% endif %}
-                    
                     {% if skill_data.compatible_tools contains 'junie' %}
                       {% assign junie_template = site.data.prompts.junie_install %}
                       {% assign junie_prompt = junie_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['junie'] | replace: '{{ source_url }}', skill_data.source_url %}
@@ -547,14 +522,6 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                       <a href="cursor://new?prompt={{ cursor_prompt | url_encode }}" class="btn btn-sm btn-dark flex-fill" title="Open in Cursor" style="font-size: 0.75rem;">
                         <i class="bi bi-box-arrow-up-right"></i> Cursor
                       </a>
-                    {% endif %}
-                    
-                    {% if skill_data.compatible_tools contains 'continue' %}
-                  {% assign continue_template = site.data.prompts.continue_install %}
-                  {% assign continue_prompt = continue_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['continue'] | replace: '{{ source_url }}', skill_data.source_url %}
-                  <a href="continue://new?prompt={{ continue_prompt | url_encode }}" class="btn btn-sm btn-secondary flex-fill" title="Open in Continue">
-                    <i class="bi bi-box-arrow-up-right"></i> Continue
-                  </a>
                 {% endif %}
                 
                 {% if skill_data.compatible_tools contains 'junie' %}

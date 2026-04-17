@@ -18,9 +18,9 @@ description: Compare AI agentic coding tools side-by-side
           </span>
         </div>
         <h1 class="display-3 fw-bold mb-4 text-white">
-          Find the Right <span class="text-gradient">AI Coding Agent</span>
+          Find the Right AI Coding Agent
         </h1>
-        <p class="lead mb-4 fs-4 opacity-90">
+        <p class="lead mb-4 fs-4 text-white">
           Side-by-side comparison of
           <strong>9 AI coding agents</strong> including OpenCode, Codex CLI,
           Claude Code, Cursor, Windsurf, and more. Features, commands, pricing —
@@ -81,102 +81,132 @@ description: Compare AI agentic coding tools side-by-side
 <!-- Quick Comparison Matrix Preview -->
 <section class="py-5 bg-light">
   <div class="container">
-    <div class="row mb-4">
+    <div class="row mb-5">
       <div class="col-lg-8 mx-auto text-center">
-        <h2 class="h3 mb-3">Quick Feature Comparison</h2>
-        <p class="text-muted">See how the top AI coding agents stack up</p>
+        <h2 class="display-6 fw-bold mb-3">Quick Feature Comparison</h2>
+        <p class="text-muted fs-5">See how the top AI coding agents stack up</p>
       </div>
     </div>
 
-    <div class="table-responsive">
-      <table class="table table-hover bg-white rounded shadow-sm">
-        <thead class="table-light">
-          <tr>
-            <th>Feature</th>
-            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
-            %}
-            <th class="text-center">
-              <a
-                href="{{ '/tools/' | append: tool[0] | relative_url }}"
-                class="text-decoration-none"
-              >
-                {{ tool[1].name }}
-              </a>
-            </th>
-            {% endunless %} {% endfor %}
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>MCP Support</strong></td>
-            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
-            %}
-            <td class="text-center">
-              {% if tool[1].features.mcp_support %}
-              <i class="bi bi-check-circle-fill text-success fs-5"></i>
-              {% else %}
-              <i class="bi bi-x-circle-fill text-danger fs-5"></i>
-              {% endif %}
-            </td>
-            {% endunless %} {% endfor %}
-          </tr>
-          <tr>
-            <td><strong>Offline Mode</strong></td>
-            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
-            %}
-            <td class="text-center">
-              {% if tool[1].features.offline_mode %}
-              <i class="bi bi-check-circle-fill text-success fs-5"></i>
-              {% else %}
-              <i class="bi bi-x-circle-fill text-secondary fs-5"></i>
-              {% endif %}
-            </td>
-            {% endunless %} {% endfor %}
-          </tr>
-          <tr>
-            <td><strong>IDE Integration</strong></td>
-            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
-            %}
-            <td class="text-center">
-              {% if tool[1].features.ide_integration and
-              tool[1].features.ide_integration.size > 0 %}
-              <span class="badge bg-primary"
-                >{{ tool[1].features.ide_integration.size }} editors</span
-              >
-              {% else %}
-              <span class="text-muted">CLI only</span>
-              {% endif %}
-            </td>
-            {% endunless %} {% endfor %}
-          </tr>
-          <tr>
-            <td><strong>Context Window</strong></td>
-            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
-            %}
-            <td class="text-center">
-              {% if tool[1].features.context_window %} {{
-              tool[1].features.context_window | divided_by: 1000 }}k tokens {%
-              else %}
-              <span class="text-muted">-</span>
-              {% endif %}
-            </td>
-            {% endunless %} {% endfor %}
-          </tr>
-          <tr>
-            <td><strong>License</strong></td>
-            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
-            %}
-            <td class="text-center">
-              <span class="badge bg-secondary">{{ tool[1].license }}</span>
-            </td>
-            {% endunless %} {% endfor %}
-          </tr>
-        </tbody>
-      </table>
+    <div class="card border-0 shadow-soft">
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover mb-0">
+            <thead>
+              <tr>
+                <th class="bg-light">
+                  <i class="bi bi-list-check me-2 text-primary"></i>Feature
+                </th>
+                {% for tool in site.data.tools %} {% unless tool[0] ==
+                '_template' %}
+                <th class="text-center bg-light" style="min-width: 100px">
+                  <a
+                    href="{{ '/tools/' | append: tool[0] | relative_url }}"
+                    class="text-decoration-none text-dark fw-bold"
+                  >
+                    {{ tool[1].name }}
+                  </a>
+                </th>
+                {% endunless %} {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="fw-bold">
+                  <i class="bi bi-plug me-2 text-success"></i>MCP Support
+                </td>
+                {% for tool in site.data.tools %} {% unless tool[0] ==
+                '_template' %}
+                <td class="text-center">
+                  {% if tool[1].features.mcp_support %}
+                  <span class="status-icon status-yes">
+                    <i class="bi bi-check-lg"></i>
+                  </span>
+                  {% else %}
+                  <span class="status-icon status-no">
+                    <i class="bi bi-x-lg"></i>
+                  </span>
+                  {% endif %}
+                </td>
+                {% endunless %} {% endfor %}
+              </tr>
+              <tr>
+                <td class="fw-bold">
+                  <i class="bi bi-wifi-off me-2 text-warning"></i>Offline Mode
+                </td>
+                {% for tool in site.data.tools %} {% unless tool[0] ==
+                '_template' %}
+                <td class="text-center">
+                  {% if tool[1].features.offline_mode %}
+                  <span class="status-icon status-yes">
+                    <i class="bi bi-check-lg"></i>
+                  </span>
+                  {% else %}
+                  <span class="status-icon status-no">
+                    <i class="bi bi-x-lg"></i>
+                  </span>
+                  {% endif %}
+                </td>
+                {% endunless %} {% endfor %}
+              </tr>
+              <tr>
+                <td class="fw-bold">
+                  <i class="bi bi-laptop me-2 text-info"></i>IDE Integration
+                </td>
+                {% for tool in site.data.tools %} {% unless tool[0] ==
+                '_template' %}
+                <td class="text-center">
+                  {% if tool[1].features.ide_integration and
+                  tool[1].features.ide_integration.size > 0 %}
+                  <span class="badge bg-primary rounded-pill"
+                    >{{ tool[1].features.ide_integration.size }} editors</span
+                  >
+                  {% else %}
+                  <span class="badge bg-secondary rounded-pill">CLI only</span>
+                  {% endif %}
+                </td>
+                {% endunless %} {% endfor %}
+              </tr>
+              <tr>
+                <td class="fw-bold">
+                  <i class="bi bi-window-stack me-2 text-purple"></i>Context
+                  Window
+                </td>
+                {% for tool in site.data.tools %} {% unless tool[0] ==
+                '_template' %}
+                <td class="text-center">
+                  {% if tool[1].features.context_window %} {{
+                  tool[1].features.context_window | divided_by: 1000 }}k tokens
+                  {% else %}
+                  <span class="text-muted">-</span>
+                  {% endif %}
+                </td>
+                {% endunless %} {% endfor %}
+              </tr>
+              <tr>
+                <td class="fw-bold">
+                  <i class="bi bi-key me-2 text-secondary"></i>License
+                </td>
+                {% for tool in site.data.tools %} {% unless tool[0] ==
+                '_template' %}
+                <td class="text-center">
+                  <span class="badge bg-secondary rounded-pill"
+                    >{{ tool[1].license }}</span
+                  >
+                </td>
+                {% endunless %} {% endfor %}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
-    <div class="text-center mt-4">
-      <a href="{{ '/features/' | relative_url }}" class="btn btn-primary">
+    <div class="text-center mt-5">
+      <a
+        href="{{ '/features/' | relative_url }}"
+        class="btn btn-primary btn-lg rounded-pill px-5 shadow-sm"
+      >
         View Full Comparison <i class="bi bi-arrow-right ms-2"></i>
       </a>
     </div>
@@ -341,7 +371,7 @@ description: Compare AI agentic coding tools side-by-side
             <h2 class="display-6 fw-bold mb-3">
               <i class="bi bi-pencil-square me-3"></i>Data Wrong or Missing?
             </h2>
-            <p class="lead mb-4 opacity-90">
+            <p class="lead mb-4">
               These tools change fast. If you spot an error or a tool added a
               feature we haven't captured, open a PR. We merge factual
               corrections within 24 hours.

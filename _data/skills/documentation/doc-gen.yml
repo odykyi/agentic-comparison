@@ -17,14 +17,12 @@ compatible_tools:
   - claude_code
   - opencode
   - cursor
-  - continue
 
 install_commands:
   codex: "codex skills install doc-gen"
   claude_code: "claude skills install doc-gen"
   opencode: "opencode skills install doc-gen"
   cursor: "cursor skills install doc-gen"
-  continue: "continue skills install doc-gen"
 
 usage_example: |
   # Generate docs for current project

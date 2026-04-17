@@ -17,13 +17,11 @@ compatible_tools:
   - codex
   - claude_code
   - opencode
-  - continue
 
 install_commands:
   codex: "codex skills install frontend-design"
   claude_code: "claude skills install frontend-design"
   opencode: "opencode skills install frontend-design"
-  continue: "continue install frontend-design"
 
 usage_example: |
   # Design a component

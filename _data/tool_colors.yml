@@ -6,6 +6,5 @@ claude_code: "#cc785c" # Anthropic orange/coral
 opencode: "#0dcaf0" # Cyan/info blue
 cursor: "#6c757d" # Gray (Cursor's dark theme)
 junie: "#7c3aed" # JetBrains purple
-continue: "#0d6efd" # Bootstrap primary blue
 google_antigravity: "#4285f4" # Google blue
 copilot_cli: "#212529" # Dark/black
