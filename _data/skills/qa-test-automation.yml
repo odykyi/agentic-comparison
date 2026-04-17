@@ -1,0 +1,52 @@
+# QA & Test Automation
+# Comprehensive testing with Playwright, Cypress, Jest, Selenium
+
+name: "QA & Test Automation"
+slug: "qa-test-automation"
+description: "Professional QA testing skill. E2E automation with Playwright and Cypress, unit testing with Jest, API testing, visual regression, performance testing, and test strategy design."
+category: "testing"
+tags:
+  - qa
+  - testing
+  - automation
+  - playwright
+  - cypress
+  - jest
+  - e2e
+
+compatible_tools:
+  - claude_code
+  - codex
+  - opencode
+  - cursor
+
+install_commands:
+  claude_code: "claude skills install qa-test-automation"
+  codex: "codex skills install qa-test-automation"
+  opencode: "opencode skills install qa-test-automation"
+  cursor: "cursor install qa-test-automation"
+
+usage_example: |
+  @qa-test-automation create E2E tests for login flow
+  @qa-test-automation setup visual regression testing
+
+use_cases:
+  - qa-engineer
+  - developer
+  - frontend-dev
+  - fullstack-dev
+
+integrations:
+  - playwright
+  - cypress
+  - jest
+  - selenium
+  - testing-library
+  - storybook
+
+author: "QA Community"
+source_url: "https://github.com/qa-pro/skills/tree/main/qa-test-automation"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

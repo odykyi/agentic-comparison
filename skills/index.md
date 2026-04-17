@@ -61,16 +61,36 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
           <!-- Use Case Filter -->
           <select class="form-select" id="use-case-filter" style="width: auto; min-width: 150px;">
             <option value="all">All Roles</option>
-            <option value="recruiter">🎯 Recruiter</option>
-            <option value="hiring-manager">👔 Hiring Manager</option>
-            <option value="sales-rep">💼 Sales Rep</option>
-            <option value="marketer">📢 Marketer</option>
-            <option value="product-manager">📊 Product Manager</option>
-            <option value="founder">🚀 Founder</option>
-            <option value="researcher">🔬 Researcher</option>
-            <option value="customer-success">🤝 Customer Success</option>
-            <option value="ats-admin">⚙️ ATS Admin</option>
-            <option value="team-lead">👥 Team Lead</option>
+            <optgroup label="Engineering">
+              <option value="developer">👨‍💻 Developer</option>
+              <option value="frontend-dev">🎨 Frontend Dev</option>
+              <option value="backend-dev">⚙️ Backend Dev</option>
+              <option value="fullstack-dev">🌐 Fullstack Dev</option>
+              <option value="devops">🚀 DevOps</option>
+              <option value="qa-engineer">🧪 QA Engineer</option>
+              <option value="security-engineer">🔒 Security Engineer</option>
+              <option value="data-engineer">📊 Data Engineer</option>
+            </optgroup>
+            <optgroup label="Product & Design">
+              <option value="product-manager">📋 Product Manager</option>
+              <option value="designer">🎨 Designer</option>
+              <option value="ux-researcher">🔍 UX Researcher</option>
+              <option value="founder">🚀 Founder</option>
+            </optgroup>
+            <optgroup label="Business">
+              <option value="recruiter">🎯 Recruiter</option>
+              <option value="hiring-manager">👔 Hiring Manager</option>
+              <option value="sales-rep">💼 Sales Rep</option>
+              <option value="marketer">📢 Marketer</option>
+              <option value="customer-success">🤝 Customer Success</option>
+              <option value="team-lead">👥 Team Lead</option>
+            </optgroup>
+            <optgroup label="Research & Ops">
+              <option value="researcher">🔬 Researcher</option>
+              <option value="data-analyst">📈 Data Analyst</option>
+              <option value="ats-admin">⚙️ ATS Admin</option>
+              <option value="technical-writer">📝 Technical Writer</option>
+            </optgroup>
           </select>
         </div>
       </div>

@@ -1,0 +1,51 @@
+# UX Research & Design
+# User research, wireframing, prototyping, usability testing
+
+name: "UX Research & Design"
+slug: "ux-research-design"
+description: "Complete UX design skill. User research methods, wireframing, prototyping in Figma, usability testing, design systems, accessibility (WCAG), and design-to-code handoff."
+category: "design"
+tags:
+  - ux
+  - design
+  - research
+  - figma
+  - prototyping
+  - accessibility
+
+compatible_tools:
+  - claude_code
+  - codex
+  - opencode
+  - cursor
+
+install_commands:
+  claude_code: "claude skills install ux-research-design"
+  codex: "codex skills install ux-research-design"
+  opencode: "opencode skills install ux-research-design"
+  cursor: "cursor install ux-research-design"
+
+usage_example: |
+  @ux-research-design create user research plan
+  @ux-research-design design accessible navigation
+
+use_cases:
+  - designer
+  - ux-researcher
+  - product-manager
+  - frontend-dev
+
+integrations:
+  - figma
+  - sketch
+  - miro
+  - usability-hub
+  - hotjar
+  - lookback
+
+author: "Design Community"
+source_url: "https://github.com/design-pro/skills/tree/main/ux-research-design"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

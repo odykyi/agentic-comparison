@@ -1,0 +1,51 @@
+# Frontend Developer Pro
+# Complete frontend development toolkit with React, Vue, Angular
+
+name: "Frontend Developer Pro"
+slug: "frontend-developer-pro"
+description: "Professional frontend development skill. React, Vue, Angular expertise with component architecture, state management, performance optimization, and modern CSS (Tailwind, Styled Components)."
+category: "frontend"
+tags:
+  - frontend
+  - react
+  - vue
+  - angular
+  - javascript
+  - typescript
+  - css
+
+compatible_tools:
+  - claude_code
+  - codex
+  - cursor
+  - opencode
+
+install_commands:
+  claude_code: "claude skills install frontend-developer-pro"
+  codex: "codex skills install frontend-developer-pro"
+  cursor: "cursor install frontend-developer-pro"
+  opencode: "opencode skills install frontend-developer-pro"
+
+usage_example: |
+  @frontend-developer-pro create a React component with hooks
+  @frontend-developer-pro optimize this component for performance
+
+use_cases:
+  - developer
+  - frontend-dev
+  - fullstack-dev
+
+integrations:
+  - react
+  - vue
+  - angular
+  - tailwind
+  - webpack
+  - vite
+
+author: "Frontend Community"
+source_url: "https://github.com/frontend-pro/skills/tree/main/frontend-developer-pro"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

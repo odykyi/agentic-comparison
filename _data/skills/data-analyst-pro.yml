@@ -1,0 +1,51 @@
+# Data Analyst Pro
+# SQL, Python data analysis, visualization, pandas, analytics
+
+name: "Data Analyst Pro"
+slug: "data-analyst-pro"
+description: "Professional data analysis skill. SQL queries, Python data processing with pandas, data visualization with matplotlib/seaborn, statistical analysis, and dashboard creation."
+category: "data"
+tags:
+  - data-analysis
+  - sql
+  - python
+  - pandas
+  - visualization
+  - analytics
+
+compatible_tools:
+  - claude_code
+  - codex
+  - opencode
+
+install_commands:
+  claude_code: "claude skills install data-analyst-pro"
+  codex: "codex skills install data-analyst-pro"
+  opencode: "opencode skills install data-analyst-pro"
+
+usage_example: |
+  @data-analyst-pro analyze this CSV with pandas
+  @data-analyst-pro create SQL query for user retention
+
+use_cases:
+  - data-analyst
+  - data-engineer
+  - product-manager
+  - marketer
+
+integrations:
+  - pandas
+  - sql
+  - postgres
+  - bigquery
+  - tableau
+  - jupyter
+  - matplotlib
+  - seaborn
+
+author: "Data Community"
+source_url: "https://github.com/data-pro/skills/tree/main/data-analyst-pro"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

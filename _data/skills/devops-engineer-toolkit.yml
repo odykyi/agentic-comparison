@@ -1,0 +1,52 @@
+# DevOps Engineer Toolkit
+# CI/CD, Docker, Kubernetes, Terraform, cloud infrastructure
+
+name: "DevOps Engineer Toolkit"
+slug: "devops-engineer-toolkit"
+description: "Complete DevOps automation skill. CI/CD pipelines, Docker containerization, Kubernetes orchestration, Terraform IaC, AWS/GCP/Azure cloud management, monitoring, and SRE best practices."
+category: "devops"
+tags:
+  - devops
+  - cicd
+  - docker
+  - kubernetes
+  - terraform
+  - cloud
+  - aws
+
+compatible_tools:
+  - claude_code
+  - codex
+  - opencode
+
+install_commands:
+  claude_code: "claude skills install devops-engineer-toolkit"
+  codex: "codex skills install devops-engineer-toolkit"
+  opencode: "opencode skills install devops-engineer-toolkit"
+
+usage_example: |
+  @devops-engineer-toolkit create Dockerfile for this app
+  @devops-engineer-toolkit setup GitHub Actions CI/CD
+
+use_cases:
+  - devops
+  - developer
+  - backend-dev
+  - team-lead
+
+integrations:
+  - docker
+  - kubernetes
+  - terraform
+  - aws
+  - gcp
+  - azure
+  - github-actions
+  - gitlab-ci
+
+author: "DevOps Community"
+source_url: "https://github.com/devops-pro/skills/tree/main/devops-engineer-toolkit"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true
