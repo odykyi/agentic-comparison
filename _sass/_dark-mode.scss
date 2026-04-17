@@ -177,6 +177,21 @@
     &.bg-dark {
       background-color: #020617 !important;
     }
+
+    // Improve text contrast in footer - use lighter text
+    .text-muted {
+      color: #cbd5e1 !important; // lighter gray for better readability
+    }
+
+    // Links should be even lighter
+    a {
+      color: #e2e8f0 !important;
+
+      &:hover {
+        color: #f8fafc !important;
+        text-decoration: underline;
+      }
+    }
   }
 
   // Comparison controls
