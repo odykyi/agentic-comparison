@@ -11,11 +11,14 @@ claude_install: 'Install skill "{{ skill_name }}" from Agentic Comparison ({{ ma
 # OpenCode prompt template
 opencode_install: 'Install skill "{{ skill_name }}" from Agentic Comparison ({{ marketplace_url }}). Run: {{ install_command }} | Source: {{ source_url }}'
 
-# Aider prompt template
-aider_install: 'Install skill "{{ skill_name }}" from Agentic Comparison ({{ marketplace_url }}). Run: {{ install_command }} | Source: {{ source_url }}'
+# Cursor prompt template
+cursor_install: 'Install skill "{{ skill_name }}" from Agentic Comparison ({{ marketplace_url }}). Run: {{ install_command }} | Source: {{ source_url }}'
+
+# Tabnine prompt template
+tabnine_install: 'Install skill "{{ skill_name }}" from Agentic Comparison ({{ marketplace_url }}). Run: {{ install_command }} | Source: {{ source_url }}'
+
+# Amazon CodeWhisperer prompt template
+amazon_codewhisperer_install: 'Install skill "{{ skill_name }}" from Agentic Comparison ({{ marketplace_url }}). Run: {{ install_command }} | Source: {{ source_url }}'
 
 # Continue.dev prompt template
 continue_install: 'Install skill "{{ skill_name }}" from Agentic Comparison ({{ marketplace_url }}). Run: {{ install_command }} | Source: {{ source_url }}'
-
-# Cursor prompt template
-cursor_install: 'Install skill "{{ skill_name }}" from Agentic Comparison ({{ marketplace_url }}). Run: {{ install_command }} | Source: {{ source_url }}'

@@ -1,0 +1,47 @@
+# Cursor
+# The AI Code Editor - AI-powered IDE with autocomplete, chat, and code generation
+
+name: "Cursor"
+slug: "cursor"
+description: "The AI Code Editor. Cursor is a fork of VS Code with built-in AI features including autocomplete, chat, and code generation. Write, edit, and understand code faster with AI."
+category: "ide"
+tags:
+  - cursor
+  - ide
+  - editor
+  - vscode
+  - ai-completion
+  - chat
+
+compatible_tools:
+  - cursor
+  - codex
+  - claude_code
+
+install_commands:
+  cursor: "cursor install cursor"
+  codex: "codex skills install cursor"
+  claude_code: "claude skills install cursor"
+
+usage_example: |
+  @cursor explain this function
+  @cursor refactor this code to use async/await
+
+use_cases:
+  - developer
+  - frontend-dev
+  - backend-dev
+  - fullstack-dev
+
+integrations:
+  - vscode
+  - github-copilot
+  - chatgpt
+  - claude
+
+author: "Cursor Inc"
+source_url: "https://github.com/getcursor/cursor"
+license: "Proprietary"
+last_verified: "2024-01-15"
+version: "0.40.0"
+featured: true

@@ -1,0 +1,44 @@
+# Tabnine
+# AI code completion for every IDE - works with any language
+
+name: "Tabnine"
+slug: "tabnine"
+description: "AI code completion that works in every IDE. Tabnine predicts and suggests code completions in real-time, helping you code faster with fewer errors. Enterprise-grade security."
+category: "completion"
+tags:
+  - tabnine
+  - completion
+  - autocomplete
+  - ide
+  - enterprise
+
+compatible_tools:
+  - cursor
+  - continue
+
+install_commands:
+  cursor: "cursor install tabnine"
+  continue: "continue install tabnine"
+
+usage_example: |
+  Tabnine works automatically as you type - no commands needed!
+
+use_cases:
+  - developer
+  - enterprise
+  - team
+
+integrations:
+  - vscode
+  - intellij
+  - sublime
+  - atom
+  - vim
+  - emacs
+
+author: "Tabnine"
+source_url: "https://www.tabnine.com"
+license: "Proprietary"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

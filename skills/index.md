@@ -34,8 +34,9 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
             <option value="codex">Codex</option>
             <option value="claude_code">Claude Code</option>
             <option value="opencode">OpenCode</option>
-            <option value="aider">Aider</option>
+            <option value="cursor">Cursor</option>
             <option value="continue">Continue</option>
+            <option value="tabnine">Tabnine</option>
             <option value="copilot_cli">Copilot CLI</option>
           </select>
           <select class="form-select" id="category-filter" style="width: auto; min-width: 150px;">
@@ -348,11 +349,19 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                   </a>
                 {% endif %}
                 
-                {% if skill_data.compatible_tools contains 'aider' %}
-                  {% assign aider_template = site.data.prompts.aider_install %}
-                  {% assign aider_prompt = aider_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['aider'] | replace: '{{ source_url }}', skill_data.source_url %}
-                  <a href="aider://new?prompt={{ aider_prompt | url_encode }}" class="btn btn-sm btn-dark flex-fill" title="Open in Aider">
-                    <i class="bi bi-box-arrow-up-right"></i> Aider
+                {% if skill_data.compatible_tools contains 'cursor' %}
+                  {% assign cursor_template = site.data.prompts.cursor_install %}
+                  {% assign cursor_prompt = cursor_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['cursor'] | replace: '{{ source_url }}', skill_data.source_url %}
+                  <a href="cursor://new?prompt={{ cursor_prompt | url_encode }}" class="btn btn-sm btn-dark flex-fill" title="Open in Cursor">
+                    <i class="bi bi-box-arrow-up-right"></i> Cursor
+                  </a>
+                {% endif %}
+                
+                {% if skill_data.compatible_tools contains 'tabnine' %}
+                  {% assign tabnine_template = site.data.prompts.tabnine_install %}
+                  {% assign tabnine_prompt = tabnine_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['tabnine'] | replace: '{{ source_url }}', skill_data.source_url %}
+                  <a href="tabnine://new?prompt={{ tabnine_prompt | url_encode }}" class="btn btn-sm btn-light flex-fill border" title="Open in Tabnine" style="background-color: #4A90E2; color: white; border-color: #4A90E2;">
+                    <i class="bi bi-box-arrow-up-right"></i> Tabnine
                   </a>
                 {% endif %}
                 

@@ -1,0 +1,83 @@
+# Cursor Tool Definition
+# Reference: https://www.cursor.com
+
+name: "Cursor"
+slug: "cursor"
+repo: "getcursor/cursor"
+website: "https://www.cursor.com"
+docs: "https://cursor.com/docs"
+command_prefix: "cursor"
+description: "The AI Code Editor. Built on VS Code with AI features including autocomplete, chat, and code generation. 32.7k GitHub stars."
+
+version:
+  current: "0.40.0"
+  last_verified: "2024-01-15"
+  verified_by: "@community"
+
+license: "Proprietary"
+language: "TypeScript"
+
+concepts:
+  skill: "skill"
+  command: "command"
+  agent: "agent"
+  prompt: "prompt"
+  context: "context"
+
+install:
+  download: "Download from cursor.com"
+  other: "Available for macOS, Windows, Linux"
+
+features:
+  mcp_support: true
+  offline_mode: false
+  ide_integration:
+    - "vscode"
+  context_window: 200000
+  supported_models:
+    - "gpt-4"
+    - "gpt-4-turbo"
+    - "claude-3.5-sonnet"
+    - "claude-3-opus"
+    - "cursor-small"
+
+pricing:
+  free_tier:
+    available: true
+    limits: "2,000 completions/month, 50 slow premium requests"
+  paid_tiers:
+    - name: "Pro"
+      price: "$20/month"
+      description: "Unlimited completions, 500 fast premium requests/month"
+    - name: "Business"
+      price: "$40/user/month"
+      description: "Unlimited everything, admin dashboard, priority support"
+
+commands:
+  - name: "chat"
+    invoke: "Cmd+L (macOS) or Ctrl+L (Windows)"
+    description: "Open AI chat panel"
+    category: "general"
+    verified: true
+  - name: "edit"
+    invoke: "Cmd+K (macOS) or Ctrl+K (Windows)"
+    description: "AI inline edit"
+    category: "general"
+    verified: true
+  - name: "generate"
+    invoke: "Tab"
+    description: "Accept AI suggestion"
+    category: "general"
+    verified: true
+  - name: "cmd-k"
+    invoke: "Cmd+K"
+    description: "Generate or edit code"
+    category: "general"
+    verified: true
+  - name: "cmd-l"
+    invoke: "Cmd+L"
+    description: "Chat with AI about code"
+    category: "general"
+    verified: true
+
+history_file: ".cursorrules"

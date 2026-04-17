@@ -10,7 +10,7 @@ description: Detailed profiles of each AI agentic coding tool
       <div class="col-lg-8 mx-auto text-center">
         <h1 class="display-5">All Tools</h1>
         <p class="lead text-muted">
-          Six AI coding agents compared. Click any card for full specs, install
+          Eight AI coding agents compared. Click any card for full specs, install
           instructions, and feature breakdown.
         </p>
       </div>
@@ -73,6 +73,7 @@ description: Detailed profiles of each AI agentic coding tool
       </div>
     </div>
     {% endunless %} {% endfor %}
+
   </div>
 </div>
 
