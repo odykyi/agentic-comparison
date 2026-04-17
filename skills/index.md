@@ -4,10 +4,21 @@ title: Skills Marketplace
 description: Discover and install AI agent skills for Codex, Claude Code, OpenCode, and more
 ---
 
-{% assign featured_skills = site.data.skills %}
-{% assign daily_trending = site.data.skills | where_exp: "skill", "skill[1].trending == 'daily'" %}
-{% assign weekly_trending = site.data.skills | where_exp: "skill", "skill[1].trending == 'weekly'" %}
-{% assign monthly_trending = site.data.skills | where_exp: "skill", "skill[1].trending == 'monthly'" %}
+<!-- Collect all skills from subdirectories into a flat array -->
+
+{% assign all_skills = '' | split: '' %}
+{% for category in site.data.skills %}
+{% for skill_entry in category[1] %}
+{% assign skill_slug = skill_entry[0] %}
+{% assign skill_data = skill_entry[1] %}
+{% assign all_skills = all_skills | push: skill_entry %}
+{% endfor %}
+{% endfor %}
+
+{% assign featured_skills = all_skills %}
+{% assign daily_trending = all_skills | where_exp: "skill", "skill[1].trending == 'daily'" %}
+{% assign weekly_trending = all_skills | where_exp: "skill", "skill[1].trending == 'weekly'" %}
+{% assign monthly_trending = all_skills | where_exp: "skill", "skill[1].trending == 'monthly'" %}
 
 <!-- Hero Section -->
 <div class="py-5 bg-light">
@@ -37,7 +48,6 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
             <option value="cursor">Cursor</option>
             <option value="junie">Junie</option>
             <option value="continue">Continue</option>
-            <option value="tabnine">Tabnine</option>
             <option value="google-antigravity">Google Antigravity</option>
             <option value="copilot_cli">Copilot CLI</option>
           </select>
@@ -194,14 +204,6 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                       </a>
                     {% endif %}
                     
-                    {% if skill_data.compatible_tools contains 'tabnine' %}
-                      {% assign tabnine_template = site.data.prompts.tabnine_install %}
-                      {% assign tabnine_prompt = tabnine_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['tabnine'] | replace: '{{ source_url }}', skill_data.source_url %}
-                      <a href="tabnine://new?prompt={{ tabnine_prompt | url_encode }}" class="btn btn-sm flex-fill border" title="Open in Tabnine" style="background-color: #4A90E2; color: white; border-color: #4A90E2; font-size: 0.75rem;">
-                        <i class="bi bi-box-arrow-up-right"></i> Tabnine
-                      </a>
-                    {% endif %}
-                    
                     {% if skill_data.compatible_tools contains 'continue' %}
                       {% assign continue_template = site.data.prompts.continue_install %}
                       {% assign continue_prompt = continue_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['continue'] | replace: '{{ source_url }}', skill_data.source_url %}
@@ -316,14 +318,6 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                       {% assign cursor_prompt = cursor_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['cursor'] | replace: '{{ source_url }}', skill_data.source_url %}
                       <a href="cursor://new?prompt={{ cursor_prompt | url_encode }}" class="btn btn-sm btn-dark flex-fill" title="Open in Cursor" style="font-size: 0.75rem;">
                         <i class="bi bi-box-arrow-up-right"></i> Cursor
-                      </a>
-                    {% endif %}
-                    
-                    {% if skill_data.compatible_tools contains 'tabnine' %}
-                      {% assign tabnine_template = site.data.prompts.tabnine_install %}
-                      {% assign tabnine_prompt = tabnine_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['tabnine'] | replace: '{{ source_url }}', skill_data.source_url %}
-                      <a href="tabnine://new?prompt={{ tabnine_prompt | url_encode }}" class="btn btn-sm flex-fill border" title="Open in Tabnine" style="background-color: #4A90E2; color: white; border-color: #4A90E2; font-size: 0.75rem;">
-                        <i class="bi bi-box-arrow-up-right"></i> Tabnine
                       </a>
                     {% endif %}
                     
@@ -444,14 +438,6 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                       </a>
                     {% endif %}
                     
-                    {% if skill_data.compatible_tools contains 'tabnine' %}
-                      {% assign tabnine_template = site.data.prompts.tabnine_install %}
-                      {% assign tabnine_prompt = tabnine_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['tabnine'] | replace: '{{ source_url }}', skill_data.source_url %}
-                      <a href="tabnine://new?prompt={{ tabnine_prompt | url_encode }}" class="btn btn-sm flex-fill border" title="Open in Tabnine" style="background-color: #4A90E2; color: white; border-color: #4A90E2; font-size: 0.75rem;">
-                        <i class="bi bi-box-arrow-up-right"></i> Tabnine
-                      </a>
-                    {% endif %}
-                    
                     {% if skill_data.compatible_tools contains 'continue' %}
                       {% assign continue_template = site.data.prompts.continue_install %}
                       {% assign continue_prompt = continue_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['continue'] | replace: '{{ source_url }}', skill_data.source_url %}
@@ -555,23 +541,15 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                   </a>
                 {% endif %}
                 
-                {% if skill_data.compatible_tools contains 'cursor' %}
-                  {% assign cursor_template = site.data.prompts.cursor_install %}
-                  {% assign cursor_prompt = cursor_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['cursor'] | replace: '{{ source_url }}', skill_data.source_url %}
-                  <a href="cursor://new?prompt={{ cursor_prompt | url_encode }}" class="btn btn-sm btn-dark flex-fill" title="Open in Cursor">
-                    <i class="bi bi-box-arrow-up-right"></i> Cursor
-                  </a>
-                {% endif %}
-                
-                {% if skill_data.compatible_tools contains 'tabnine' %}
-                  {% assign tabnine_template = site.data.prompts.tabnine_install %}
-                  {% assign tabnine_prompt = tabnine_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['tabnine'] | replace: '{{ source_url }}', skill_data.source_url %}
-                  <a href="tabnine://new?prompt={{ tabnine_prompt | url_encode }}" class="btn btn-sm btn-light flex-fill border" title="Open in Tabnine" style="background-color: #4A90E2; color: white; border-color: #4A90E2;">
-                    <i class="bi bi-box-arrow-up-right"></i> Tabnine
-                  </a>
-                {% endif %}
-                
-                {% if skill_data.compatible_tools contains 'continue' %}
+                    {% if skill_data.compatible_tools contains 'cursor' %}
+                      {% assign cursor_template = site.data.prompts.cursor_install %}
+                      {% assign cursor_prompt = cursor_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['cursor'] | replace: '{{ source_url }}', skill_data.source_url %}
+                      <a href="cursor://new?prompt={{ cursor_prompt | url_encode }}" class="btn btn-sm btn-dark flex-fill" title="Open in Cursor" style="font-size: 0.75rem;">
+                        <i class="bi bi-box-arrow-up-right"></i> Cursor
+                      </a>
+                    {% endif %}
+                    
+                    {% if skill_data.compatible_tools contains 'continue' %}
                   {% assign continue_template = site.data.prompts.continue_install %}
                   {% assign continue_prompt = continue_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['continue'] | replace: '{{ source_url }}', skill_data.source_url %}
                   <a href="continue://new?prompt={{ continue_prompt | url_encode }}" class="btn btn-sm btn-secondary flex-fill" title="Open in Continue">

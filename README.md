@@ -50,20 +50,18 @@ This marketplace unifies them all so you can find what you need, regardless of t
 
 [Browse all skills →](https://odykyi.github.io/agentic-comparison/skills/)
 
-## 🛠️ Tools Compared (10 AI Coding Agents)
+## 🛠️ Tools Compared (9 AI Coding Agents)
 
-| Tool                     | Repository                                                                | Command Prefix | Skills/Commands |
-| ------------------------ | ------------------------------------------------------------------------- | -------------- | --------------- |
-| **OpenCode**             | [saoirse-opencode/opencode](https://github.com/saoirse-opencode/opencode) | `opencode`     | Agents          |
-| **OpenAI Codex**         | [openai/codex](https://github.com/openai/codex)                           | `codex`        | Skills          |
-| **Claude Code**          | [anthropics/claude-code](https://github.com/anthropics/claude-code)       | `claude`       | Commands        |
-| **Cursor**               | [getcursor/cursor](https://cursor.sh)                                     | `cursor`       | Extensions      |
-| **Windsurf**             | [windsurf](https://windsurf.com)                                          | `windsurf`     | Cascade         |
-| **GitHub Copilot CLI**   | [github/copilot.vim](https://github.com/github/copilot.vim)               | `gh copilot`   | Chat            |
-| **Amazon CodeWhisperer** | [aws](https://aws.amazon.com/codewhisperer/)                              | IDE extension  | Suggestions     |
-| **Google Antigravity**   | [google](https://google.com)                                              | Various        | Assistants      |
-| **Junie**                | [junie](https://junie.ai)                                                 | `junie`        | Agents          |
-| **Tabnine**              | [tabnine](https://tabnine.com)                                            | IDE extension  | Completions     |
+| Tool                   | Repository                                                                | Command Prefix | MCP | Skills/Commands |
+| ---------------------- | ------------------------------------------------------------------------- | -------------- | --- | --------------- |
+| **OpenCode**           | [saoirse-opencode/opencode](https://github.com/saoirse-opencode/opencode) | `opencode`     | ✅  | Agents          |
+| **OpenAI Codex**       | [openai/codex](https://github.com/openai/codex)                           | `codex`        | ✅  | Skills          |
+| **Claude Code**        | [anthropics/claude-code](https://github.com/anthropics/claude-code)       | `claude`       | ✅  | Commands        |
+| **Cursor**             | [getcursor/cursor](https://cursor.sh)                                     | `cursor`       | ✅  | Extensions      |
+| **Windsurf**           | [windsurf](https://windsurf.com)                                          | `windsurf`     | ✅  | Cascade         |
+| **GitHub Copilot CLI** | [github/copilot.vim](https://github.com/github/copilot.vim)               | `gh copilot`   | ✅  | Chat            |
+| **Google Antigravity** | [google](https://google.com)                                              | Various        | ✅  | Assistants      |
+| **Junie**              | [junie](https://junie.ai)                                                 | `junie`        | ✅  | Agents          |
 
 ## 📊 Comparison Dimensions
 

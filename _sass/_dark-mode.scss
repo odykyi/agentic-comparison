@@ -21,8 +21,16 @@
   }
 
   .card-header {
-    background-color: #252f47;
+    background: linear-gradient(135deg, #252f47 0%, #1e293b 100%);
     border-color: #334155;
+  }
+
+  // Modern card shadows in dark mode
+  .card.shadow-soft,
+  .shadow-soft {
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.3),
+      0 2px 4px -1px rgba(0, 0, 0, 0.2);
   }
 
   // Tables
@@ -30,13 +38,17 @@
     color: #e2e8f0;
 
     th {
-      background-color: #252f47;
+      background: linear-gradient(135deg, #252f47 0%, #1e293b 100%);
       border-bottom-color: #334155;
       color: #f8fafc;
     }
 
     td {
       border-color: #334155;
+    }
+
+    tr:hover {
+      background-color: rgba(99, 102, 241, 0.05);
     }
   }
 
@@ -53,6 +65,14 @@
     &.active {
       background-color: var(--color-primary);
       border-color: var(--color-primary);
+    }
+  }
+
+  // Translation examples in dark mode
+  .translation-example {
+    .card-header {
+      background: linear-gradient(135deg, #451a03 0%, #78350f 100%);
+      color: #fcd34d;
     }
   }
 
@@ -84,6 +104,7 @@
   .dropdown-menu {
     background-color: #1e293b;
     border-color: #334155;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
   }
 
   .dropdown-item {
@@ -118,14 +139,14 @@
 
   // Alerts
   .alert-info {
-    background-color: rgba(59, 130, 246, 0.2);
-    border-color: rgba(59, 130, 246, 0.3);
+    background-color: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.25);
     color: #93c5fd;
   }
 
   .alert-warning {
-    background-color: rgba(245, 158, 11, 0.2);
-    border-color: rgba(245, 158, 11, 0.3);
+    background-color: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.25);
     color: #fcd34d;
   }
 
@@ -133,6 +154,7 @@
   code {
     background-color: #252f47;
     color: #e2e8f0;
+    border-color: #334155;
   }
 
   // Tool badges in dark mode
@@ -144,6 +166,11 @@
   // Hero section adjustments
   .hero {
     background: linear-gradient(135deg, #3730a3 0%, #0f766e 100%);
+  }
+
+  // Terminology hero
+  .terminology-hero {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
   }
 
   // Background utilities
@@ -174,6 +201,8 @@
 
   // Footer
   .site-footer {
+    background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+
     &.bg-dark {
       background-color: #020617 !important;
     }
@@ -232,6 +261,29 @@
   .tool-card {
     &:hover {
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  // Install section in skills
+  .install-section {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-color: #334155;
+
+    code {
+      background-color: #252f47;
+      color: #e2e8f0;
+    }
+  }
+
+  // Command syntax
+  .command-syntax {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  }
+
+  // Gradient border effect
+  .gradient-border {
+    &::before {
+      opacity: 0.5;
     }
   }
 }

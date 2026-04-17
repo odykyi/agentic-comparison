@@ -19,7 +19,6 @@ compatible_tools:
   - opencode
   - cursor
   - junie
-  - tabnine
 
 install_commands:
   codex: "codex skills install api-design"
@@ -27,7 +26,6 @@ install_commands:
   opencode: "opencode skills install api-design"
   cursor: "cursor skills install api-design"
   junie: "junie skills install api-design"
-  tabnine: "tabnine skills install api-design"
 
 usage_example: |
   # Design a new API endpoint

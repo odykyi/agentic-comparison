@@ -6,277 +6,482 @@ custom_js:
   - /assets/js/terminology.js
 ---
 
-<div class="row mb-4">
-  <div class="col-lg-8">
-    <p class="lead">
-      "Skills" in Codex = "Commands" in Claude Code = "Agents" in OpenCode. We
-      cut through the jargon and map equivalent concepts so you can compare
-      actual capabilities.
-    </p>
-  </div>
-</div>
-
-<!-- Perspective Toggle -->
-<div class="row mb-4">
-  <div class="col-12">
-    <div class="card">
-      <div class="card-body">
-        <label class="form-label fw-bold">View from perspective of:</label>
-        <div class="btn-group" role="group" id="perspective-toggle">
-          <button
-            type="button"
-            class="btn btn-outline-primary active"
-            data-perspective="canonical"
-          >
-            Canonical Terms
-          </button>
-          {% for tool in site.data.tools %} {% unless tool[0] == '_template' %}
-          <button
-            type="button"
-            class="btn btn-outline-primary"
-            data-perspective="{{ tool[0] }}"
-          >
-            {{ tool[1].name }}
-          </button>
-          {% endunless %} {% endfor %}
-        </div>
+<!-- Stylish Hero Section -->
+<div class="terminology-hero mb-5">
+  <div class="container position-relative">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <h1 class="display-4 fw-bold mb-4">
+          <i class="bi bi-translate me-3"></i>Terminology Mapper
+        </h1>
+        <p class="lead fs-5 opacity-90 mb-0">
+          "Skills" in Codex = "Commands" in Claude Code = "Agents" in OpenCode.
+          We cut through the jargon and map equivalent concepts so you can
+          compare actual capabilities.
+        </p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Terminology Table -->
-<div class="row">
-  <div class="col-12">
-    <div class="table-responsive">
-      <table class="table table-hover" id="terminology-table">
-        <thead class="table-light">
-          <tr>
-            <th style="min-width: 200px">Canonical Concept</th>
-            <th>Definition</th>
+<div class="container">
+  <!-- Perspective Toggle -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <div class="card border-0 shadow-soft">
+        <div class="card-body p-4">
+          <label class="form-label fw-bold mb-3 d-flex align-items-center">
+            <i class="bi bi-eye me-2 text-primary"></i>
+            View from perspective of:
+          </label>
+          <div class="d-flex flex-wrap gap-2" id="perspective-toggle">
+            <button
+              type="button"
+              class="btn btn-outline-primary active"
+              data-perspective="canonical"
+            >
+              <i class="bi bi-grid-3x3-gap me-2"></i>Canonical Terms
+            </button>
             {% for tool in site.data.tools %} {% unless tool[0] == '_template'
             %}
-            <th class="text-center" data-tool="{{ tool[0] }}">
-              {{ tool[1].name }} Term
-            </th>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              data-perspective="{{ tool[0] }}"
+            >
+              {% if tool[1].slug == 'opencode' %}<i
+                class="bi bi-terminal me-1"
+              ></i
+              >{% endif %} {% if tool[1].slug == 'codex' %}<i
+                class="bi bi-braces me-1"
+              ></i
+              >{% endif %} {% if tool[1].slug == 'claude_code' %}<i
+                class="bi bi-chat-square-text me-1"
+              ></i
+              >{% endif %} {% if tool[1].slug == 'cursor' %}<i
+                class="bi bi-cursor me-1"
+              ></i
+              >{% endif %} {% if tool[1].slug == 'windsurf' %}<i
+                class="bi bi-wind me-1"
+              ></i
+              >{% endif %} {% if tool[1].slug == 'copilot_cli' %}<i
+                class="bi bi-github me-1"
+              ></i
+              >{% endif %} {% if tool[1].slug == 'junie' %}<i
+                class="bi bi-stars me-1"
+              ></i
+              >{% endif %} {% if tool[1].slug == 'antigravity' %}<i
+                class="bi bi-arrow-up-right-circle me-1"
+              ></i
+              >{% endif %} {{ tool[1].name }}
+            </button>
             {% endunless %} {% endfor %}
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="fw-bold">Reusable Code Block</td>
-            <td>
-              A reusable piece of prompt logic or functionality that can be
-              invoked
-            </td>
-            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
-            %}
-            <td class="text-center">
-              {% if tool[1].concepts.skill %}
-              <code>{{ tool[1].concepts.skill }}</code>
-              {% else %}
-              <span class="text-muted">-</span>
-              {% endif %}
-            </td>
-            {% endunless %} {% endfor %}
-          </tr>
-          <tr>
-            <td class="fw-bold">Interactive Command</td>
-            <td>A command that users can invoke during a session</td>
-            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
-            %}
-            <td class="text-center">
-              {% if tool[1].concepts.command %}
-              <code>{{ tool[1].concepts.command }}</code>
-              {% else %}
-              <span class="text-muted">-</span>
-              {% endif %}
-            </td>
-            {% endunless %} {% endfor %}
-          </tr>
-          <tr>
-            <td class="fw-bold">Autonomous Agent</td>
-            <td>An AI agent that can perform tasks autonomously</td>
-            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
-            %}
-            <td class="text-center">
-              {% if tool[1].concepts.agent %}
-              <code>{{ tool[1].concepts.agent }}</code>
-              {% else %}
-              <span class="text-muted">-</span>
-              {% endif %}
-            </td>
-            {% endunless %} {% endfor %}
-          </tr>
-          <tr>
-            <td class="fw-bold">User Prompt</td>
-            <td>Input provided by the user to the AI</td>
-            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
-            %}
-            <td class="text-center">
-              {% if tool[1].concepts.prompt %}
-              <code>{{ tool[1].concepts.prompt }}</code>
-              {% else %}
-              <span class="text-muted">prompt</span>
-              {% endif %}
-            </td>
-            {% endunless %} {% endfor %}
-          </tr>
-          <tr>
-            <td class="fw-bold">Context/History</td>
-            <td>The conversation history and working memory</td>
-            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
-            %}
-            <td class="text-center">
-              {% if tool[1].concepts.context %}
-              <code>{{ tool[1].concepts.context }}</code>
-              {% else %}
-              <span class="text-muted">context</span>
-              {% endif %}
-            </td>
-            {% endunless %} {% endfor %}
-          </tr>
-          <tr>
-            <td class="fw-bold">Skill Storage</td>
-            <td>Where reusable code blocks are stored in a project</td>
-            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
-            %}
-            <td class="text-center">
-              {% if tool[1].skill_system %}
-              <code>{{ tool[1].skill_system.directory }}</code>
-              {% elsif tool[1].command_system %}
-              <code>{{ tool[1].command_system.directory }}</code>
-              {% else %}
-              <span class="text-muted">-</span>
-              {% endif %}
-            </td>
-            {% endunless %} {% endfor %}
-          </tr>
-          <tr>
-            <td class="fw-bold">External Integration</td>
-            <td>Connection to external tools and services</td>
-            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
-            %}
-            <td class="text-center">
-              {% if tool[1].features.mcp_support %}
-              <span class="badge bg-success">MCP Server</span>
-              {% else %}
-              <span class="text-muted">Plugin/Extension</span>
-              {% endif %}
-            </td>
-            {% endunless %} {% endfor %}
-          </tr>
-          <tr>
-            <td class="fw-bold">Command Prefix</td>
-            <td>How to invoke the tool from terminal</td>
-            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
-            %}
-            <td class="text-center">
-              <code>{{ tool[1].command_prefix }}</code>
-            </td>
-            {% endunless %} {% endfor %}
-          </tr>
-        </tbody>
-      </table>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Examples Section -->
-<div class="row mt-5">
-  <div class="col-12">
-    <h3 class="h4 mb-4">Translation Examples</h3>
-
-    <div class="row g-4">
-      <div class="col-md-6">
-        <div class="card h-100">
-          <div class="card-header bg-light">
-            <strong>"I want to create a reusable code snippet"</strong>
+  <!-- Terminology Table -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <div class="card border-0 shadow-soft">
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0" id="terminology-table">
+              <thead>
+                <tr>
+                  <th style="min-width: 200px" class="bg-light">
+                    <i class="bi bi-book me-2"></i>Canonical Concept
+                  </th>
+                  <th class="bg-light">
+                    <i class="bi bi-info-circle me-2"></i>Definition
+                  </th>
+                  {% for tool in site.data.tools %} {% unless tool[0] ==
+                  '_template' %}
+                  <th class="text-center bg-light" data-tool="{{ tool[0] }}">
+                    <span class="badge bg-primary">{{ tool[1].name }}</span>
+                  </th>
+                  {% endunless %} {% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-bold">
+                    <i class="bi bi-puzzle me-2 text-primary"></i>Reusable Code
+                    Block
+                  </td>
+                  <td class="text-muted">
+                    A reusable piece of prompt logic or functionality that can
+                    be invoked
+                  </td>
+                  {% for tool in site.data.tools %} {% unless tool[0] ==
+                  '_template' %}
+                  <td class="text-center">
+                    {% if tool[1].concepts.skill %}
+                    <code class="bg-light border"
+                      >{{ tool[1].concepts.skill }}</code
+                    >
+                    {% else %}
+                    <span class="text-muted">—</span>
+                    {% endif %}
+                  </td>
+                  {% endunless %} {% endfor %}
+                </tr>
+                <tr>
+                  <td class="fw-bold">
+                    <i class="bi bi-command me-2 text-success"></i>Interactive
+                    Command
+                  </td>
+                  <td class="text-muted">
+                    A command that users can invoke during a session
+                  </td>
+                  {% for tool in site.data.tools %} {% unless tool[0] ==
+                  '_template' %}
+                  <td class="text-center">
+                    {% if tool[1].concepts.command %}
+                    <code class="bg-light border"
+                      >{{ tool[1].concepts.command }}</code
+                    >
+                    {% else %}
+                    <span class="text-muted">—</span>
+                    {% endif %}
+                  </td>
+                  {% endunless %} {% endfor %}
+                </tr>
+                <tr>
+                  <td class="fw-bold">
+                    <i class="bi bi-robot me-2 text-info"></i>Autonomous Agent
+                  </td>
+                  <td class="text-muted">
+                    An AI agent that can perform tasks autonomously
+                  </td>
+                  {% for tool in site.data.tools %} {% unless tool[0] ==
+                  '_template' %}
+                  <td class="text-center">
+                    {% if tool[1].concepts.agent %}
+                    <code class="bg-light border"
+                      >{{ tool[1].concepts.agent }}</code
+                    >
+                    {% else %}
+                    <span class="text-muted">—</span>
+                    {% endif %}
+                  </td>
+                  {% endunless %} {% endfor %}
+                </tr>
+                <tr>
+                  <td class="fw-bold">
+                    <i class="bi bi-chat-dots me-2 text-warning"></i>User Prompt
+                  </td>
+                  <td class="text-muted">
+                    Input provided by the user to the AI
+                  </td>
+                  {% for tool in site.data.tools %} {% unless tool[0] ==
+                  '_template' %}
+                  <td class="text-center">
+                    {% if tool[1].concepts.prompt %}
+                    <code class="bg-light border"
+                      >{{ tool[1].concepts.prompt }}</code
+                    >
+                    {% else %}
+                    <span class="text-muted">prompt</span>
+                    {% endif %}
+                  </td>
+                  {% endunless %} {% endfor %}
+                </tr>
+                <tr>
+                  <td class="fw-bold">
+                    <i class="bi bi-clock-history me-2 text-secondary"></i
+                    >Context/History
+                  </td>
+                  <td class="text-muted">
+                    The conversation history and working memory
+                  </td>
+                  {% for tool in site.data.tools %} {% unless tool[0] ==
+                  '_template' %}
+                  <td class="text-center">
+                    {% if tool[1].concepts.context %}
+                    <code class="bg-light border"
+                      >{{ tool[1].concepts.context }}</code
+                    >
+                    {% else %}
+                    <span class="text-muted">context</span>
+                    {% endif %}
+                  </td>
+                  {% endunless %} {% endfor %}
+                </tr>
+                <tr>
+                  <td class="fw-bold">
+                    <i class="bi bi-folder-fill me-2 text-danger"></i>Skill
+                    Storage
+                  </td>
+                  <td class="text-muted">
+                    Where reusable code blocks are stored in a project
+                  </td>
+                  {% for tool in site.data.tools %} {% unless tool[0] ==
+                  '_template' %}
+                  <td class="text-center">
+                    {% if tool[1].skill_system %}
+                    <code class="bg-light border"
+                      >{{ tool[1].skill_system.directory }}</code
+                    >
+                    {% elsif tool[1].command_system %}
+                    <code class="bg-light border"
+                      >{{ tool[1].command_system.directory }}</code
+                    >
+                    {% else %}
+                    <span class="text-muted">—</span>
+                    {% endif %}
+                  </td>
+                  {% endunless %} {% endfor %}
+                </tr>
+                <tr>
+                  <td class="fw-bold">
+                    <i class="bi bi-plug me-2 text-purple"></i>External
+                    Integration
+                  </td>
+                  <td class="text-muted">
+                    Connection to external tools and services
+                  </td>
+                  {% for tool in site.data.tools %} {% unless tool[0] ==
+                  '_template' %}
+                  <td class="text-center">
+                    {% if tool[1].features.mcp_support %}
+                    <span class="badge bg-success">
+                      <i class="bi bi-check-circle me-1"></i>MCP
+                    </span>
+                    {% else %}
+                    <span class="badge bg-secondary">
+                      <i class="bi bi-x-circle me-1"></i>Plugin
+                    </span>
+                    {% endif %}
+                  </td>
+                  {% endunless %} {% endfor %}
+                </tr>
+                <tr>
+                  <td class="fw-bold">
+                    <i class="bi bi-terminal-fill me-2 text-dark"></i>Command
+                    Prefix
+                  </td>
+                  <td class="text-muted">
+                    How to invoke the tool from terminal
+                  </td>
+                  {% for tool in site.data.tools %} {% unless tool[0] ==
+                  '_template' %}
+                  <td class="text-center">
+                    <code class="bg-dark text-light"
+                      >{{ tool[1].command_prefix }}</code
+                    >
+                  </td>
+                  {% endunless %} {% endfor %}
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="card-body">
-            <ul class="list-group list-group-flush">
-              {% for tool in site.data.tools %} {% unless tool[0] == '_template'
-              %}
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center"
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Translation Examples -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <h3 class="h4 mb-4 d-flex align-items-center">
+        <i class="bi bi-lightbulb me-2 text-warning"></i>
+        Translation Examples
+      </h3>
+    </div>
+
+    <div class="col-md-6 mb-4">
+      <div class="card h-100 translation-example border-0 shadow-soft">
+        <div class="card-header">
+          <i class="bi bi-quote me-2"></i>
+          <strong>"I want to create a reusable code snippet"</strong>
+        </div>
+        <div class="card-body p-0">
+          <ul class="list-group list-group-flush">
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center py-3"
+            >
+              <span class="fw-500">
+                {% if tool[1].slug == 'opencode' %}<i
+                  class="bi bi-terminal me-2 text-primary"
+                ></i
+                >{% endif %} {% if tool[1].slug == 'codex' %}<i
+                  class="bi bi-braces me-2 text-success"
+                ></i
+                >{% endif %} {% if tool[1].slug == 'claude_code' %}<i
+                  class="bi bi-chat-square-text me-2 text-info"
+                ></i
+                >{% endif %} {% if tool[1].slug == 'cursor' %}<i
+                  class="bi bi-cursor me-2 text-purple"
+                ></i
+                >{% endif %} {% if tool[1].slug == 'windsurf' %}<i
+                  class="bi bi-wind me-2 text-teal"
+                ></i
+                >{% endif %} {% if tool[1].slug == 'copilot_cli' %}<i
+                  class="bi bi-github me-2 text-dark"
+                ></i
+                >{% endif %} {% if tool[1].slug == 'junie' %}<i
+                  class="bi bi-stars me-2 text-warning"
+                ></i
+                >{% endif %} {% if tool[1].slug == 'antigravity' %}<i
+                  class="bi bi-arrow-up-right-circle me-2 text-info"
+                ></i
+                >{% endif %} {{ tool[1].name }}
+              </span>
+              <span class="badge bg-primary rounded-pill">
+                {% if tool[1].skill_system %} Create {{ tool[1].concepts.skill
+                }} {% elsif tool[1].command_system %} Create {{
+                tool[1].concepts.command }} {% else %} Not supported {% endif %}
+              </span>
+            </li>
+            {% endunless %} {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+      <div class="card h-100 translation-example border-0 shadow-soft">
+        <div class="card-header">
+          <i class="bi bi-plug me-2"></i>
+          <strong>"I want to integrate with external tools"</strong>
+        </div>
+        <div class="card-body p-0">
+          <ul class="list-group list-group-flush">
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center py-3"
+            >
+              <span class="fw-500">
+                {% if tool[1].slug == 'opencode' %}<i
+                  class="bi bi-terminal me-2 text-primary"
+                ></i
+                >{% endif %} {% if tool[1].slug == 'codex' %}<i
+                  class="bi bi-braces me-2 text-success"
+                ></i
+                >{% endif %} {% if tool[1].slug == 'claude_code' %}<i
+                  class="bi bi-chat-square-text me-2 text-info"
+                ></i
+                >{% endif %} {% if tool[1].slug == 'cursor' %}<i
+                  class="bi bi-cursor me-2 text-purple"
+                ></i
+                >{% endif %} {% if tool[1].slug == 'windsurf' %}<i
+                  class="bi bi-wind me-2 text-teal"
+                ></i
+                >{% endif %} {% if tool[1].slug == 'copilot_cli' %}<i
+                  class="bi bi-github me-2 text-dark"
+                ></i
+                >{% endif %} {% if tool[1].slug == 'junie' %}<i
+                  class="bi bi-stars me-2 text-warning"
+                ></i
+                >{% endif %} {% if tool[1].slug == 'antigravity' %}<i
+                  class="bi bi-arrow-up-right-circle me-2 text-info"
+                ></i
+                >{% endif %} {{ tool[1].name }}
+              </span>
+              <span
+                class="badge {% if tool[1].features.mcp_support %}bg-success{% else %}bg-secondary{% endif %} rounded-pill"
               >
-                {{ tool[1].name }}
-                <span class="badge bg-primary">
-                  {% if tool[1].skill_system %} Create a {{
-                  tool[1].concepts.skill }} {% elsif tool[1].command_system %}
-                  Create a {{ tool[1].concepts.command }} {% else %} Not
-                  supported {% endif %}
-                </span>
-              </li>
-              {% endunless %} {% endfor %}
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="card h-100">
-          <div class="card-header bg-light">
-            <strong>"I want to integrate with external tools"</strong>
-          </div>
-          <div class="card-body">
-            <ul class="list-group list-group-flush">
-              {% for tool in site.data.tools %} {% unless tool[0] == '_template'
-              %}
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center"
-              >
-                {{ tool[1].name }}
-                <span class="badge bg-primary">
-                  {% if tool[1].features.mcp_support %} Set up MCP Server {%
-                  else %} Use Plugin/Extension {% endif %}
-                </span>
-              </li>
-              {% endunless %} {% endfor %}
-            </ul>
-          </div>
+                {% if tool[1].features.mcp_support %}
+                <i class="bi bi-check-circle me-1"></i>MCP Server {% else %}
+                <i class="bi bi-x-circle me-1"></i>Plugin {% endif %}
+              </span>
+            </li>
+            {% endunless %} {% endfor %}
+          </ul>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Architecture Comparison -->
-<div class="row mt-5">
-  <div class="col-12">
-    <h3 class="h4 mb-4">Architecture Overview</h3>
+  <!-- Architecture Comparison -->
+  <div class="row">
+    <div class="col-12">
+      <h3 class="h4 mb-4 d-flex align-items-center">
+        <i class="bi bi-diagram-3 me-2 text-info"></i>
+        Architecture Overview
+      </h3>
+    </div>
 
-    <div class="card">
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-borderless">
-            <thead>
-              <tr>
-                <th>Tool</th>
-                <th>Core Concept</th>
-                <th>Storage Format</th>
-                <th>Key Differentiator</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for tool in site.data.tools %} {% unless tool[0] == '_template'
-              %}
-              <tr>
-                <td class="fw-bold">{{ tool[1].name }}</td>
-                <td>
-                  {% if tool[1].concepts.skill %} {{ tool[1].concepts.skill |
-                  capitalize }} {% else %} Commands {% endif %}
-                </td>
-                <td>
-                  {% if tool[1].skill_system %} {{ tool[1].skill_system.format
-                  }} {% elsif tool[1].command_system %} {{
-                  tool[1].command_system.format }} {% else %} Native {% endif %}
-                </td>
-                <td>{{ tool[1].description | truncate: 60 }}</td>
-              </tr>
-              {% endunless %} {% endfor %}
-            </tbody>
-          </table>
+    <div class="col-12">
+      <div class="card border-0 shadow-soft">
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead class="bg-light">
+                <tr>
+                  <th><i class="bi bi-tools me-2"></i>Tool</th>
+                  <th><i class="bi bi-bullseye me-2"></i>Core Concept</th>
+                  <th><i class="bi bi-file-code me-2"></i>Storage Format</th>
+                  <th><i class="bi bi-star me-2"></i>Key Differentiator</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for tool in site.data.tools %} {% unless tool[0] ==
+                '_template' %}
+                <tr>
+                  <td class="fw-bold">
+                    {% if tool[1].slug == 'opencode' %}<i
+                      class="bi bi-terminal me-2 text-primary"
+                    ></i
+                    >{% endif %} {% if tool[1].slug == 'codex' %}<i
+                      class="bi bi-braces me-2 text-success"
+                    ></i
+                    >{% endif %} {% if tool[1].slug == 'claude_code' %}<i
+                      class="bi bi-chat-square-text me-2 text-info"
+                    ></i
+                    >{% endif %} {% if tool[1].slug == 'cursor' %}<i
+                      class="bi bi-cursor me-2 text-purple"
+                    ></i
+                    >{% endif %} {% if tool[1].slug == 'windsurf' %}<i
+                      class="bi bi-wind me-2 text-teal"
+                    ></i
+                    >{% endif %} {% if tool[1].slug == 'copilot_cli' %}<i
+                      class="bi bi-github me-2 text-dark"
+                    ></i
+                    >{% endif %} {% if tool[1].slug == 'junie' %}<i
+                      class="bi bi-stars me-2 text-warning"
+                    ></i
+                    >{% endif %} {% if tool[1].slug == 'antigravity' %}<i
+                      class="bi bi-arrow-up-right-circle me-2 text-info"
+                    ></i
+                    >{% endif %} {{ tool[1].name }}
+                  </td>
+                  <td>
+                    {% if tool[1].concepts.skill %}
+                    <span class="badge bg-info"
+                      >{{ tool[1].concepts.skill | capitalize }}</span
+                    >
+                    {% else %}
+                    <span class="badge bg-secondary">Commands</span>
+                    {% endif %}
+                  </td>
+                  <td>
+                    {% if tool[1].skill_system %}
+                    <code class="bg-light border"
+                      >{{ tool[1].skill_system.format }}</code
+                    >
+                    {% elsif tool[1].command_system %}
+                    <code class="bg-light border"
+                      >{{ tool[1].command_system.format }}</code
+                    >
+                    {% else %}
+                    <span class="text-muted">Native</span>
+                    {% endif %}
+                  </td>
+                  <td class="text-muted">
+                    {{ tool[1].description | truncate: 70 }}
+                  </td>
+                </tr>
+                {% endunless %} {% endfor %}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

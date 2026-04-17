@@ -28,7 +28,7 @@ install:
   other: "Install via GitHub CLI (gh) extension"
 
 features:
-  mcp_support: false
+  mcp_support: true
   offline_mode: false
   ide_integration: ["vscode", "jetbrains", "neovim"]
   context_window: 0 # Uses IDE context

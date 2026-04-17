@@ -6,27 +6,36 @@ description: Compare AI agentic coding tools side-by-side
 
 <!-- Hero Section -->
 <section class="hero">
-  <div class="container">
+  <div class="container position-relative">
     <div class="row align-items-center py-5">
       <div class="col-lg-8 mx-auto text-center">
+        <div class="mb-4">
+          <span
+            class="badge bg-white text-primary px-3 py-2 mb-3 d-inline-flex align-items-center gap-2"
+          >
+            <i class="bi bi-stars"></i>
+            <span>AI Skills Marketplace</span>
+          </span>
+        </div>
         <h1 class="display-3 fw-bold mb-4 text-white">
-          Find the Right AI Coding Agent
+          Find the Right <span class="text-gradient">AI Coding Agent</span>
         </h1>
-        <p class="lead mb-4 fs-4">
-          Side-by-side comparison of OpenCode, Codex CLI, Claude Code,
-          Continue.dev, Aider, and GitHub Copilot CLI. Features, commands,
-          pricing — all in one place.
+        <p class="lead mb-4 fs-4 opacity-90">
+          Side-by-side comparison of
+          <strong>9 AI coding agents</strong> including OpenCode, Codex CLI,
+          Claude Code, Cursor, Windsurf, and more. Features, commands, pricing —
+          all in one place.
         </p>
         <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
           <a
             href="{{ '/compare/' | relative_url }}"
-            class="btn btn-light btn-lg px-4"
+            class="btn btn-light btn-lg px-4 shadow-lg"
           >
             <i class="bi bi-table me-2"></i>Full Comparison
           </a>
           <a
             href="{{ '/features/' | relative_url }}"
-            class="btn btn-outline-light btn-lg px-4"
+            class="btn btn-outline-light btn-lg px-4 glass"
           >
             <i class="bi bi-grid-3x3-gap me-2"></i>Features
           </a>
@@ -37,10 +46,30 @@ description: Compare AI agentic coding tools side-by-side
           {% for tool in site.data.tools %} {% unless tool[0] == '_template' %}
           <a
             href="{{ '/tools/' | append: tool[0] | relative_url }}"
-            class="badge text-decoration-none"
-            style="background-color: {{ site.tool_colors[tool[0]] | default: '#334155' }}; padding: 0.5rem 1rem;"
+            class="badge text-decoration-none shadow-sm"
+            style="background-color: {{ site.tool_colors[tool[0]] | default: '#334155' }}; padding: 0.5rem 1rem; font-size: 0.875rem;"
           >
-            {{ tool[1].name }}
+            {% if tool[0] == 'opencode' %}<i class="bi bi-terminal me-1"></i>{%
+            endif %} {% if tool[0] == 'codex' %}<i class="bi bi-braces me-1"></i
+            >{% endif %} {% if tool[0] == 'claude_code' %}<i
+              class="bi bi-chat-square-text me-1"
+            ></i
+            >{% endif %} {% if tool[0] == 'cursor' %}<i
+              class="bi bi-cursor me-1"
+            ></i
+            >{% endif %} {% if tool[0] == 'windsurf' %}<i
+              class="bi bi-wind me-1"
+            ></i
+            >{% endif %} {% if tool[0] == 'copilot_cli' %}<i
+              class="bi bi-github me-1"
+            ></i
+            >{% endif %} {% if tool[0] == 'junie' %}<i
+              class="bi bi-stars me-1"
+            ></i
+            >{% endif %} {% if tool[0] == 'antigravity' %}<i
+              class="bi bi-arrow-up-right-circle me-1"
+            ></i
+            >{% endif %} {{ tool[1].name }}
           </a>
           {% endunless %} {% endfor %}
         </div>
@@ -157,72 +186,84 @@ description: Compare AI agentic coding tools side-by-side
 <!-- Feature Highlights -->
 <section class="py-5">
   <div class="container">
-    <div class="row mb-4">
+    <div class="row mb-5">
       <div class="col-lg-8 mx-auto text-center">
-        <h2 class="h3 mb-3">What You Get</h2>
-        <p class="text-muted">Concrete answers, not marketing fluff</p>
+        <h2 class="display-6 fw-bold mb-3">What You Get</h2>
+        <p class="text-muted fs-5">Concrete answers, not marketing fluff</p>
       </div>
     </div>
     <div class="row g-4">
       <div class="col-md-4">
-        <div class="card h-100 border-0 shadow-sm">
-          <div class="card-body p-4">
-            <div class="mb-3">
-              <i class="bi bi-terminal-fill fs-1 text-primary"></i>
+        <div class="card h-100 border-0 shadow-soft gradient-border">
+          <div class="card-body p-4 text-center">
+            <div class="mb-4">
+              <div
+                class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10 p-4"
+              >
+                <i class="bi bi-terminal-fill fs-1 text-primary"></i>
+              </div>
             </div>
-            <h3 class="h5">Command Equivalents</h3>
-            <p class="text-muted mb-3">
+            <h3 class="h5 fw-bold mb-3">Command Equivalents</h3>
+            <p class="text-muted mb-4">
               <code>/ask</code> in OpenCode = <code>codex</code> in Codex =
               typing naturally in Claude Code. Same task, different syntax —
               mapped out.
             </p>
             <a
               href="{{ '/commands/' | relative_url }}"
-              class="btn btn-outline-primary btn-sm"
+              class="btn btn-outline-primary btn-sm rounded-pill px-4"
             >
-              See Commands
+              <i class="bi bi-arrow-right me-2"></i>See Commands
             </a>
           </div>
         </div>
       </div>
 
       <div class="col-md-4">
-        <div class="card h-100 border-0 shadow-sm">
-          <div class="card-body p-4">
-            <div class="mb-3">
-              <i class="bi bi-translate fs-1 text-secondary"></i>
+        <div class="card h-100 border-0 shadow-soft gradient-border">
+          <div class="card-body p-4 text-center">
+            <div class="mb-4">
+              <div
+                class="d-inline-flex align-items-center justify-content-center rounded-circle bg-secondary bg-opacity-10 p-4"
+              >
+                <i class="bi bi-translate fs-1 text-secondary"></i>
+              </div>
             </div>
-            <h3 class="h5">Apples-to-Apples Comparison</h3>
-            <p class="text-muted mb-3">
+            <h3 class="h5 fw-bold mb-3">Apples-to-Apples</h3>
+            <p class="text-muted mb-4">
               "Skills" vs "Commands" vs "Agents" — we map the jargon so you can
               compare actual capabilities, not marketing terms.
             </p>
             <a
               href="{{ '/terminology/' | relative_url }}"
-              class="btn btn-outline-secondary btn-sm"
+              class="btn btn-outline-secondary btn-sm rounded-pill px-4"
             >
-              View Terminology
+              <i class="bi bi-arrow-right me-2"></i>View Terminology
             </a>
           </div>
         </div>
       </div>
 
       <div class="col-md-4">
-        <div class="card h-100 border-0 shadow-sm">
-          <div class="card-body p-4">
-            <div class="mb-3">
-              <i class="bi bi-currency-dollar fs-1 text-success"></i>
+        <div class="card h-100 border-0 shadow-soft gradient-border">
+          <div class="card-body p-4 text-center">
+            <div class="mb-4">
+              <div
+                class="d-inline-flex align-items-center justify-content-center rounded-circle bg-success bg-opacity-10 p-4"
+              >
+                <i class="bi bi-currency-dollar fs-1 text-success"></i>
+              </div>
             </div>
-            <h3 class="h5">Real Pricing</h3>
-            <p class="text-muted mb-3">
+            <h3 class="h5 fw-bold mb-3">Real Pricing</h3>
+            <p class="text-muted mb-4">
               Free tiers, API costs, subscription limits — with a calculator
               that shows your actual monthly cost based on usage.
             </p>
             <a
               href="{{ '/pricing/' | relative_url }}"
-              class="btn btn-outline-success btn-sm"
+              class="btn btn-outline-success btn-sm rounded-pill px-4"
             >
-              Calculate Costs
+              <i class="bi bi-arrow-right me-2"></i>Calculate Costs
             </a>
           </div>
         </div>
@@ -234,25 +275,53 @@ description: Compare AI agentic coding tools side-by-side
 <!-- Recent Updates -->
 <section class="py-5 bg-light">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-        <h2 class="h4 mb-4">Recently Updated</h2>
-        <div class="list-group shadow-sm">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="text-center mb-5">
+          <h2 class="display-6 fw-bold mb-3">9 AI Coding Agents Compared</h2>
+          <p class="text-muted fs-5">
+            Click any tool to view detailed information
+          </p>
+        </div>
+        <div class="row g-4">
           {% for tool in site.data.tools %} {% unless tool[0] == '_template' %}
-          <a
-            href="{{ '/tools/' | append: tool[0] | relative_url }}"
-            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-          >
-            <div>
-              <h6 class="mb-1">{{ tool[1].name }}</h6>
-              <small class="text-muted"
-                >{{ tool[1].description | truncate: 80 }}</small
-              >
-            </div>
-            <span class="badge bg-light text-dark">
-              v{{ tool[1].version.current }}
-            </span>
-          </a>
+          <div class="col-md-6 col-lg-4">
+            <a
+              href="{{ '/tools/' | append: tool[0] | relative_url }}"
+              class="card h-100 text-decoration-none border-0 shadow-soft tool-card card-tool tool-{{ tool[0] }}"
+            >
+              <div class="card-body p-4">
+                <div
+                  class="d-flex justify-content-between align-items-start mb-3"
+                >
+                  <h6 class="card-title fw-bold mb-0 text-dark">
+                    {{ tool[1].name }}
+                  </h6>
+                  <span class="badge bg-light text-dark border">
+                    v{{ tool[1].version.current }}
+                  </span>
+                </div>
+                <p class="card-text text-muted small mb-3">
+                  {{ tool[1].description | truncate: 100 }}
+                </p>
+                <div class="d-flex flex-wrap gap-1">
+                  {% if tool[1].features.mcp_support %}
+                  <span
+                    class="badge bg-success bg-opacity-10 text-success border-0"
+                  >
+                    <i class="bi bi-check-circle me-1"></i>MCP
+                  </span>
+                  {% endif %}
+                  <span
+                    class="badge bg-primary bg-opacity-10 text-primary border-0"
+                  >
+                    <i class="bi bi-terminal me-1"></i>{{ tool[1].command_prefix
+                    }}
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
           {% endunless %} {% endfor %}
         </div>
       </div>
@@ -263,22 +332,30 @@ description: Compare AI agentic coding tools side-by-side
 <!-- CTA -->
 <section class="py-5">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-8 mx-auto text-center">
-        <h2 class="h3 mb-3">Data Wrong or Missing?</h2>
-        <p class="text-muted mb-4">
-          These tools change fast. If you spot an error or a tool added a
-          feature we haven't captured, open a PR. We merge factual corrections
-          within 24 hours.
-        </p>
-        <a
-          href="https://github.com/odykyi/agentic-comparison"
-          class="btn btn-dark btn-lg"
-          target="_blank"
-          rel="noopener"
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div
+          class="card border-0 shadow-lg bg-gradient-primary text-white p-5 text-center"
         >
-          <i class="bi bi-github me-2"></i>Edit on GitHub
-        </a>
+          <div class="card-body">
+            <h2 class="display-6 fw-bold mb-3">
+              <i class="bi bi-pencil-square me-3"></i>Data Wrong or Missing?
+            </h2>
+            <p class="lead mb-4 opacity-90">
+              These tools change fast. If you spot an error or a tool added a
+              feature we haven't captured, open a PR. We merge factual
+              corrections within 24 hours.
+            </p>
+            <a
+              href="https://github.com/odykyi/agentic-comparison"
+              class="btn btn-light btn-lg px-5 rounded-pill shadow-sm"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="bi bi-github me-2"></i>Edit on GitHub
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

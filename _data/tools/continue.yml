@@ -1,0 +1,81 @@
+# Continue Tool Definition
+# Reference: https://continue.dev
+
+name: "Continue"
+slug: "continue"
+repo: "continuedev/continue"
+website: "https://continue.dev"
+docs: "https://docs.continue.dev"
+command_prefix: "continue"
+description: "Open-source AI code assistant for VS Code and JetBrains. Features inline code editing, autocomplete, and chat. Bring your own API keys for OpenAI, Anthropic, or local models."
+
+version:
+  current: "0.0.1"
+  last_verified: "2024-01-15"
+  verified_by: "@community"
+
+license: "Apache-2.0"
+language: "TypeScript/Python"
+
+concepts:
+  skill: "action"
+  command: "command"
+  agent: "assistant"
+  prompt: "prompt"
+  context: "context"
+
+install:
+  vscode: "Install from VS Code marketplace"
+  jetbrains: "Install from JetBrains marketplace"
+  other: "Open source - self-hostable"
+
+features:
+  mcp_support: true
+  offline_mode: true
+  ide_integration:
+    - "vscode"
+    - "intellij"
+    - "pycharm"
+    - "webstorm"
+  context_window: 0
+  supported_models:
+    - "gpt-4"
+    - "gpt-3.5-turbo"
+    - "claude-3.5-sonnet"
+    - "claude-3-haiku"
+    - "llama"
+    - "codellama"
+    - "local"
+
+pricing:
+  free_tier:
+    available: true
+    limits: "Bring your own API keys, unlimited usage"
+  paid_tiers:
+    - name: "Continue for Teams"
+      price: "Coming soon"
+      description: "Team collaboration features"
+
+commands:
+  - name: "chat"
+    invoke: "Cmd+L (macOS) or Ctrl+L (Windows)"
+    description: "Open Continue chat panel"
+    category: "general"
+    verified: true
+  - name: "edit"
+    invoke: "Cmd+I (macOS) or Ctrl+I (Windows)"
+    description: "Inline code editing"
+    category: "edit"
+    verified: true
+  - name: "autocomplete"
+    invoke: "Tab"
+    description: "Accept autocomplete suggestion"
+    category: "general"
+    verified: true
+  - name: "quick_fix"
+    invoke: "Cmd+Shift+E"
+    description: "Quick error fix"
+    category: "debug"
+    verified: true
+
+history_file: ".continue/config.json"
