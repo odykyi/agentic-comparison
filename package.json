@@ -1,7 +1,7 @@
 {
   "name": "agentic-comparison",
   "version": "1.0.0",
-  "description": "A comprehensive comparison resource for AI agentic coding tools",
+  "description": "🎨 AI Skills Marketplace - Compare 10+ agentic coding tools, discover 40+ AI skills, find MCP servers. The ultimate skills marketplace for AI coding agents.",
   "scripts": {
     "validate": "python scripts/validate.py",
     "build": "bundle exec jekyll build",

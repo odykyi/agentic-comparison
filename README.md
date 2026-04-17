@@ -1,13 +1,19 @@
-# Agentic Comparison - AI Skills Marketplace & Tool Comparison
+# AI Skills Marketplace - Agentic Comparison for AI Coding Tools
 
-https://odykyi.github.io/agentic-comparison/
+**The ultimate skills marketplace for AI coding agents.** Browse, compare, and discover 40+ AI skills across 10+ agentic coding tools.
+
+🔗 **Live Site:** https://odykyi.github.io/agentic-comparison/
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://odykyi.github.io/agentic-comparison/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Skills: 40+](https://img.shields.io/badge/Skills-40+-blue)](https://odykyi.github.io/agentic-comparison/skills/)
+[![Tools: 10](https://img.shields.io/badge/Tools-10+-orange)](https://odykyi.github.io/agentic-comparison/tools/)
 
-A comprehensive **AI skills marketplace** and comparison resource for agentic coding tools. Discover, compare, and find the best AI coding agents with their skills, commands, and capabilities.
+## 🎨 What is this Skills Marketplace?
 
-**Keywords:** `ai-skills`, `skills-marketplace`, `agent-skills`, `mcp-servers`, `ai-tools`, `coding-agents`
+This is a **comprehensive AI skills marketplace** that helps developers discover and compare AI coding agents. Think of it as a marketplace where you can find the best skills, commands, and capabilities across different AI tools.
+
+**Tags:** `skills-marketplace` `ai-skills` `agent-skills` `mcp-servers` `ai-tools` `coding-agents`
 
 ## 🎯 Mission
 
@@ -15,9 +21,22 @@ The AI agent tooling landscape is exploding with multiple CLI-based coding agent
 
 **Example mapping**: "skills" in Codex ↔ "commands" in Claude Code ↔ "agents" in OpenCode ↔ "extensions" in Windsurf
 
-## 🎨 Skills Marketplace
+## 🎨 AI Skills Marketplace
 
-Browse and discover **40+ AI skills** across multiple agentic tools:
+Welcome to the **AI Skills Marketplace** - a curated collection of 40+ AI skills for coding agents. This marketplace helps developers discover capabilities across different AI tools.
+
+### Why a Skills Marketplace?
+
+Different AI coding agents call their capabilities different things:
+
+- **Codex** calls them "Skills"
+- **Claude Code** calls them "Commands"
+- **OpenCode** calls them "Agents"
+- **Windsurf** calls them "Extensions"
+
+This marketplace unifies them all so you can find what you need, regardless of the tool you use.
+
+### Skill Categories in Our Marketplace
 
 | Skill Category      | Description                                     |
 | ------------------- | ----------------------------------------------- |
@@ -220,4 +239,30 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ---
 
+## 🔍 About This Skills Marketplace
+
+**Agentic Comparison** is an open-source **skills marketplace** for AI coding agents. Our goal is to make it easy for developers to discover and compare AI capabilities across different tools.
+
+### Search Keywords
+
+If you're looking for:
+
+- `skills marketplace` - You're in the right place!
+- `ai skills` - We have 40+ documented
+- `agent skills` - Listed by tool
+- `ai tools marketplace` - Compare 10+ tools
+- `mcp marketplace` - Registry included
+
+### Related Searches
+
+People searching for this skills marketplace also look for:
+
+- AI coding agents comparison
+- Claude Code vs Codex vs Cursor
+- MCP servers list
+- AI developer tools
+- Agentic AI tools
+
 **Made with ❤️ for the AI coding agent community**
+
+**[⬆ Back to Top](#ai-skills-marketplace---agentic-comparison-for-ai-coding-tools)**

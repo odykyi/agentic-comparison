@@ -1,0 +1,28 @@
+name: SEO & Visibility Check
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  seo-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for keywords in README
+        run: |
+          echo "Checking for 'skills marketplace' in README..."
+          grep -c "skills marketplace" README.md || echo "❌ Missing 'skills marketplace'"
+          grep -c "ai-skills" README.md || echo "❌ Missing 'ai-skills'"
+          grep -c "Skills Marketplace" README.md || echo "❌ Missing 'Skills Marketplace'"
+          echo "✅ SEO check complete!"
+
+      - name: Validate sitemap.xml
+        run: |
+          if grep -q "odykyi.github.io" sitemap.xml; then
+            echo "✅ Sitemap URLs are correct"
+          else
+            echo "❌ Sitemap may have incorrect URLs"
+          fi
