@@ -4,7 +4,7 @@
 # Site Settings
 title: "Agentic Comparison"
 description: "Compare AI agentic coding tools side-by-side"
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/agentic-comparison" # the subpath of your site, e.g. /blog
 url: "https://odykyi.github.io" # the base hostname & protocol
 
 twitter_username: your_handle
