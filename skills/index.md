@@ -79,7 +79,7 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                 </div>
               </div>
 
-              <!-- Install Command Section -->
+              <!-- Install Section -->
               <div class="install-section bg-light rounded p-2">
                 <div class="d-flex justify-content-between align-items-center mb-2">
                   <small class="text-muted">Install command:</small>
@@ -89,7 +89,7 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                     {% endfor %}
                   </select>
                 </div>
-                <div class="d-flex align-items-center gap-2">
+                <div class="d-flex align-items-center gap-2 mb-2">
                   <code class="flex-grow-1 text-dark install-command" id="command-{{ skill_slug }}" style="font-size: 0.85rem;">
                     {% assign first_tool = skill_data.compatible_tools | first %}
                     {{ skill_data.install_commands[first_tool] }}
@@ -98,6 +98,13 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                     <i class="bi bi-clipboard"></i>
                   </button>
                 </div>
+                {% if skill_data.compatible_tools contains 'codex' %}
+                <div class="mt-2">
+                  <a href="codex://skills/install?name={{ skill_data.slug | default: skill_slug }}&source=github.com" class="btn btn-sm btn-success w-100">
+                    <i class="bi bi-download me-1"></i>Install in Codex
+                  </a>
+                </div>
+                {% endif %}
               </div>
             </div>
             <div class="card-footer bg-white border-0">
