@@ -5,8 +5,17 @@
 # Variables available: skill_name, skill_slug, marketplace_url, install_command, source_url
 codex_install: 'Install skill "{{ skill_name }}" from Agentic Comparison ({{ marketplace_url }}). Run: {{ install_command }} | Source: {{ source_url }}'
 
-# Claude Code prompt template (for future use)
-claude_install: "Use the {{ skill_name }} skill. Install with: {{ install_command }} | From: {{ marketplace_url }} | Source: {{ source_url }}"
+# Claude Code prompt template
+claude_install: 'Install skill "{{ skill_name }}" from Agentic Comparison ({{ marketplace_url }}). Run: {{ install_command }} | Source: {{ source_url }}'
 
-# OpenCode prompt template (for future use)
-opencode_install: "opencode run @{{ skill_slug }} to use {{ skill_name }} | Install: {{ install_command }} | Details: {{ marketplace_url }}"
+# OpenCode prompt template
+opencode_install: 'Install skill "{{ skill_name }}" from Agentic Comparison ({{ marketplace_url }}). Run: {{ install_command }} | Source: {{ source_url }}'
+
+# Aider prompt template
+aider_install: 'Install skill "{{ skill_name }}" from Agentic Comparison ({{ marketplace_url }}). Run: {{ install_command }} | Source: {{ source_url }}'
+
+# Continue.dev prompt template
+continue_install: 'Install skill "{{ skill_name }}" from Agentic Comparison ({{ marketplace_url }}). Run: {{ install_command }} | Source: {{ source_url }}'
+
+# Cursor prompt template
+cursor_install: 'Install skill "{{ skill_name }}" from Agentic Comparison ({{ marketplace_url }}). Run: {{ install_command }} | Source: {{ source_url }}'

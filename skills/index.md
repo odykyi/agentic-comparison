@@ -319,14 +319,59 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
               <button class="btn btn-sm btn-primary w-100 copy-btn mb-2" data-command="{{ skill_data.install_commands[first_tool] }}">
                 <i class="bi bi-clipboard me-1"></i>Copy Command
               </button>
-              {% assign marketplace_full_url = site.url | append: site.baseurl | append: '/skills/' %}
-              {% if skill_data.compatible_tools contains 'codex' %}
-                {% assign codex_template = site.data.prompts.codex_install %}
-                {% assign codex_prompt = codex_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['codex'] | replace: '{{ source_url }}', skill_data.source_url %}
-                <a href="codex://new?prompt={{ codex_prompt | url_encode }}" class="btn btn-sm btn-success w-100 d-flex align-items-center justify-content-center gap-1">
-                  <i class="bi bi-box-arrow-up-right"></i>Open in Codex
-                </a>
-              {% endif %}
+              
+              <!-- Tool-specific Open buttons -->
+              <div class="d-flex flex-wrap gap-1 mt-2">
+                {% assign marketplace_full_url = site.url | append: site.baseurl | append: '/skills/' %}
+                
+                {% if skill_data.compatible_tools contains 'codex' %}
+                  {% assign codex_template = site.data.prompts.codex_install %}
+                  {% assign codex_prompt = codex_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['codex'] | replace: '{{ source_url }}', skill_data.source_url %}
+                  <a href="codex://new?prompt={{ codex_prompt | url_encode }}" class="btn btn-sm btn-success flex-fill" title="Open in Codex">
+                    <i class="bi bi-box-arrow-up-right"></i> Codex
+                  </a>
+                {% endif %}
+                
+                {% if skill_data.compatible_tools contains 'claude_code' %}
+                  {% assign claude_template = site.data.prompts.claude_install %}
+                  {% assign claude_prompt = claude_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['claude_code'] | replace: '{{ source_url }}', skill_data.source_url %}
+                  <a href="claude://new?prompt={{ claude_prompt | url_encode }}" class="btn btn-sm btn-warning flex-fill" title="Open in Claude Code" style="color: #000;">
+                    <i class="bi bi-box-arrow-up-right"></i> Claude
+                  </a>
+                {% endif %}
+                
+                {% if skill_data.compatible_tools contains 'opencode' %}
+                  {% assign opencode_template = site.data.prompts.opencode_install %}
+                  {% assign opencode_prompt = opencode_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['opencode'] | replace: '{{ source_url }}', skill_data.source_url %}
+                  <a href="opencode://new?prompt={{ opencode_prompt | url_encode }}" class="btn btn-sm btn-info flex-fill" title="Open in OpenCode">
+                    <i class="bi bi-box-arrow-up-right"></i> OpenCode
+                  </a>
+                {% endif %}
+                
+                {% if skill_data.compatible_tools contains 'aider' %}
+                  {% assign aider_template = site.data.prompts.aider_install %}
+                  {% assign aider_prompt = aider_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['aider'] | replace: '{{ source_url }}', skill_data.source_url %}
+                  <a href="aider://new?prompt={{ aider_prompt | url_encode }}" class="btn btn-sm btn-dark flex-fill" title="Open in Aider">
+                    <i class="bi bi-box-arrow-up-right"></i> Aider
+                  </a>
+                {% endif %}
+                
+                {% if skill_data.compatible_tools contains 'continue' %}
+                  {% assign continue_template = site.data.prompts.continue_install %}
+                  {% assign continue_prompt = continue_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['continue'] | replace: '{{ source_url }}', skill_data.source_url %}
+                  <a href="continue://new?prompt={{ continue_prompt | url_encode }}" class="btn btn-sm btn-secondary flex-fill" title="Open in Continue">
+                    <i class="bi bi-box-arrow-up-right"></i> Continue
+                  </a>
+                {% endif %}
+                
+                {% if skill_data.compatible_tools contains 'cursor' %}
+                  {% assign cursor_template = site.data.prompts.cursor_install %}
+                  {% assign cursor_prompt = cursor_template | replace: '{{ skill_name }}', skill_data.name | replace: '{{ skill_slug }}', skill_slug | replace: '{{ marketplace_url }}', marketplace_full_url | replace: '{{ install_command }}', skill_data.install_commands['cursor'] | replace: '{{ source_url }}', skill_data.source_url %}
+                  <a href="cursor://new?prompt={{ cursor_prompt | url_encode }}" class="btn btn-sm btn-light flex-fill border" title="Open in Cursor">
+                    <i class="bi bi-box-arrow-up-right"></i> Cursor
+                  </a>
+                {% endif %}
+              </div>
             </div>
           </div>
           <div class="card-footer bg-white border-0">
