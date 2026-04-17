@@ -6,9 +6,13 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
 
 {% assign all_skills = '' | split: '' %}
 {% for category in site.data.skills %}
+{% assign category_name = category[0] %}
+{% unless category_name == '_template' %}
 {% for skill_entry in category[1] %}
-{% assign all_skills = all_skills | push: skill_entry %}
+{% assign skill_with_category = skill_entry | push: category_name %}
+{% assign all_skills = all_skills | push: skill_with_category %}
 {% endfor %}
+{% endunless %}
 {% endfor %}
 
 {% assign categories = "development,frontend,documentation,business,collaboration,devops,tools" | split: "," %}
@@ -23,9 +27,9 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
   "description": "A curated collection of 42+ installable skills for AI coding agents including Codex, Claude Code, OpenCode, and more.",
   "url": "{{ site.url | append: '/skills/' }}",
   "itemListElement": [
-    {% for skill_entry in all_skills limit:50 %}
-    {% assign skill_slug = skill_entry[0] %}
-    {% assign skill_data = skill_entry[1] %}
+    {% for skill_with_category in all_skills limit:50 %}
+    {% assign skill_slug = skill_with_category[0] %}
+    {% assign skill_data = skill_with_category[1] %}
     {% assign skill_url = site.url | append: '/skills/#' | append: skill_slug %}
     {
       "@type": "ListItem",
@@ -91,25 +95,10 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
 <section class="section">
   <div class="container">
     <div class="row g-4" id="skills-grid">
-      {% for skill_entry in all_skills %}
-        {% assign skill_slug = skill_entry[0] %}
-        {% assign skill_data = skill_entry[1] %}
-        
-        {% comment %}Find the category by iterating through all categories{% endcomment %}
-        {% assign category_name = '' %}
-        {% for cat in site.data.skills %}
-          {% unless cat[0] == '_template' %}
-            {% for skill_in_cat in cat[1] %}
-              {% if skill_in_cat[0] == skill_slug %}
-                {% assign category_name = cat[0] %}
-                {% break %}
-              {% endif %}
-            {% endfor %}
-          {% endunless %}
-          {% if category_name != '' %}
-            {% break %}
-          {% endif %}
-        {% endfor %}
+      {% for skill_with_category in all_skills %}
+        {% assign skill_slug = skill_with_category[0] %}
+        {% assign skill_data = skill_with_category[1] %}
+        {% assign category_name = skill_with_category[2] %}
         
         <div class="col-md-6 col-lg-4 skill-card-wrapper" 
              data-category="{{ category_name }}"
