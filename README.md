@@ -1,5 +1,8 @@
 # Agentic Comparison
 
+https://odykyi.github.io/agentic-comparison/
+
+
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://agentic-comparison.dev)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 

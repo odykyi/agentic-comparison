@@ -10,25 +10,25 @@ description: Compare AI agentic coding tools side-by-side
     <div class="row align-items-center py-5">
       <div class="col-lg-8 mx-auto text-center">
         <h1 class="display-3 fw-bold mb-4 text-white">
-          Compare <span class="text-white">AI Coding Agents</span>
+          Find the Right AI Coding Agent
         </h1>
         <p class="lead mb-4 fs-4">
-          Navigate the landscape of agentic coding tools. Compare features,
-          commands, terminology, and pricing across OpenCode, Codex, Claude
-          Code, and more.
+          Side-by-side comparison of OpenCode, Codex CLI, Claude Code,
+          Continue.dev, Aider, and GitHub Copilot CLI. Features, commands,
+          pricing — all in one place.
         </p>
         <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
           <a
-            href="{{ '/features/' | relative_url }}"
-            class="btn btn-light btn-lg"
+            href="{{ '/compare/' | relative_url }}"
+            class="btn btn-light btn-lg px-4"
           >
-            <i class="bi bi-grid-3x3-gap me-2"></i>Compare Features
+            <i class="bi bi-table me-2"></i>Full Comparison
           </a>
           <a
-            href="{{ '/commands/' | relative_url }}"
-            class="btn btn-outline-light btn-lg"
+            href="{{ '/features/' | relative_url }}"
+            class="btn btn-outline-light btn-lg px-4"
           >
-            <i class="bi bi-terminal me-2"></i>Command Reference
+            <i class="bi bi-grid-3x3-gap me-2"></i>Features
           </a>
         </div>
 
@@ -157,23 +157,30 @@ description: Compare AI agentic coding tools side-by-side
 <!-- Feature Highlights -->
 <section class="py-5">
   <div class="container">
+    <div class="row mb-4">
+      <div class="col-lg-8 mx-auto text-center">
+        <h2 class="h3 mb-3">What You Get</h2>
+        <p class="text-muted">Concrete answers, not marketing fluff</p>
+      </div>
+    </div>
     <div class="row g-4">
       <div class="col-md-4">
         <div class="card h-100 border-0 shadow-sm">
-          <div class="card-body text-center p-4">
+          <div class="card-body p-4">
             <div class="mb-3">
               <i class="bi bi-terminal-fill fs-1 text-primary"></i>
             </div>
-            <h3 class="h5">Command Reference</h3>
+            <h3 class="h5">Command Equivalents</h3>
             <p class="text-muted mb-3">
-              Find equivalent commands across tools. Learn how to do the same
-              task in OpenCode, Codex, or Claude Code.
+              <code>/ask</code> in OpenCode = <code>codex</code> in Codex =
+              typing naturally in Claude Code. Same task, different syntax —
+              mapped out.
             </p>
             <a
               href="{{ '/commands/' | relative_url }}"
               class="btn btn-outline-primary btn-sm"
             >
-              Browse Commands
+              See Commands
             </a>
           </div>
         </div>
@@ -181,20 +188,20 @@ description: Compare AI agentic coding tools side-by-side
 
       <div class="col-md-4">
         <div class="card h-100 border-0 shadow-sm">
-          <div class="card-body text-center p-4">
+          <div class="card-body p-4">
             <div class="mb-3">
               <i class="bi bi-translate fs-1 text-secondary"></i>
             </div>
-            <h3 class="h5">Terminology Mapper</h3>
+            <h3 class="h5">Apples-to-Apples Comparison</h3>
             <p class="text-muted mb-3">
-              "Skills" in Codex, "Commands" in Claude Code, "Agents" in
-              OpenCode. Map equivalent concepts across tools.
+              "Skills" vs "Commands" vs "Agents" — we map the jargon so you can
+              compare actual capabilities, not marketing terms.
             </p>
             <a
               href="{{ '/terminology/' | relative_url }}"
               class="btn btn-outline-secondary btn-sm"
             >
-              View Mappings
+              View Terminology
             </a>
           </div>
         </div>
@@ -202,20 +209,20 @@ description: Compare AI agentic coding tools side-by-side
 
       <div class="col-md-4">
         <div class="card h-100 border-0 shadow-sm">
-          <div class="card-body text-center p-4">
+          <div class="card-body p-4">
             <div class="mb-3">
-              <i class="bi bi-plug-fill fs-1 text-success"></i>
+              <i class="bi bi-currency-dollar fs-1 text-success"></i>
             </div>
-            <h3 class="h5">MCP Registry</h3>
+            <h3 class="h5">Real Pricing</h3>
             <p class="text-muted mb-3">
-              Discover which Model Context Protocol servers work with each tool.
-              Find integrations for filesystem, GitHub, and more.
+              Free tiers, API costs, subscription limits — with a calculator
+              that shows your actual monthly cost based on usage.
             </p>
             <a
-              href="{{ '/mcp/' | relative_url }}"
+              href="{{ '/pricing/' | relative_url }}"
               class="btn btn-outline-success btn-sm"
             >
-              Explore MCP
+              Calculate Costs
             </a>
           </div>
         </div>
@@ -258,18 +265,19 @@ description: Compare AI agentic coding tools side-by-side
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto text-center">
-        <h2 class="h3 mb-3">Contribute to the Comparison</h2>
+        <h2 class="h3 mb-3">Data Wrong or Missing?</h2>
         <p class="text-muted mb-4">
-          This is a community-driven project. Help keep the data accurate and
-          up-to-date by contributing via GitHub pull requests.
+          These tools change fast. If you spot an error or a tool added a
+          feature we haven't captured, open a PR. We merge factual corrections
+          within 24 hours.
         </p>
         <a
           href="https://github.com/odykyi/agentic-comparison"
-          class="btn btn-dark"
+          class="btn btn-dark btn-lg"
           target="_blank"
           rel="noopener"
         >
-          <i class="bi bi-github me-2"></i>View on GitHub
+          <i class="bi bi-github me-2"></i>Edit on GitHub
         </a>
       </div>
     </div>
