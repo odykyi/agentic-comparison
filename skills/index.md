@@ -99,9 +99,14 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                     {{ skill_data.install_commands[first_tool] }}
                   </code>
                 </div>
-                <button class="btn btn-sm btn-primary w-100 copy-btn" data-command="{{ skill_data.install_commands[first_tool] }}">
+                <button class="btn btn-sm btn-primary w-100 copy-btn mb-2" data-command="{{ skill_data.install_commands[first_tool] }}">
                   <i class="bi bi-clipboard me-1"></i>Copy Command
                 </button>
+                {% if skill_data.compatible_tools contains 'codex' %}
+                <a href="codex://skills/install?name={{ skill_slug }}&source=github.com" class="btn btn-sm btn-success w-100 d-flex align-items-center justify-content-center gap-1">
+                  <i class="bi bi-box-arrow-up-right"></i>Open in Codex
+                </a>
+                {% endif %}
               </div>
             </div>
             <div class="card-footer bg-white border-0">
