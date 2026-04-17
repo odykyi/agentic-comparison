@@ -11,8 +11,12 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
       <div class="col-lg-8 mx-auto text-center">
         <h1 class="display-5">Skills Marketplace</h1>
         <p class="lead text-muted">
-          Discover and install AI agent skills for your coding tools. One-click install commands for Codex, Claude Code, OpenCode, and more.
+          Discover and install AI agent skills. Select your tool, copy the command, and paste it in your terminal.
         </p>
+        <div class="alert alert-info">
+          <i class="bi bi-info-circle me-2"></i>
+          <strong>How to install:</strong> Select your AI tool from the dropdown, click "Copy Command", then paste it in your terminal.
+        </div>
       </div>
     </div>
 
@@ -82,29 +86,22 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
               <!-- Install Section -->
               <div class="install-section bg-light rounded p-2">
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                  <small class="text-muted">Install command:</small>
+                  <small class="text-muted">Select tool:</small>
                   <select class="form-select form-select-sm tool-selector" style="width: auto; max-width: 140px;" data-skill="{{ skill_slug }}">
                     {% for tool in skill_data.compatible_tools %}
                       <option value="{{ tool }}">{{ tool | replace: '_', ' ' | capitalize }}</option>
                     {% endfor %}
                   </select>
                 </div>
-                <div class="d-flex align-items-center gap-2 mb-2">
-                  <code class="flex-grow-1 text-dark install-command" id="command-{{ skill_slug }}" style="font-size: 0.85rem;">
+                <div class="bg-white rounded border p-2 mb-2">
+                  <code class="d-block text-dark install-command" id="command-{{ skill_slug }}" style="font-size: 0.85rem; word-break: break-all;">
                     {% assign first_tool = skill_data.compatible_tools | first %}
                     {{ skill_data.install_commands[first_tool] }}
                   </code>
-                  <button class="btn btn-sm btn-outline-primary copy-btn" data-command="{{ skill_data.install_commands[first_tool] }}" title="Copy to clipboard">
-                    <i class="bi bi-clipboard"></i>
-                  </button>
                 </div>
-                {% if skill_data.compatible_tools contains 'codex' %}
-                <div class="mt-2">
-                  <a href="codex://skills/install?name={{ skill_data.slug | default: skill_slug }}&source=github.com" class="btn btn-sm btn-success w-100">
-                    <i class="bi bi-download me-1"></i>Install in Codex
-                  </a>
-                </div>
-                {% endif %}
+                <button class="btn btn-sm btn-primary w-100 copy-btn" data-command="{{ skill_data.install_commands[first_tool] }}">
+                  <i class="bi bi-clipboard me-1"></i>Copy Command
+                </button>
               </div>
             </div>
             <div class="card-footer bg-white border-0">

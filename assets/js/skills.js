@@ -128,17 +128,15 @@ function initCopyButtons() {
 
         // Visual feedback
         const originalHTML = this.innerHTML;
-        this.innerHTML = '<i class="bi bi-check"></i>';
-        this.classList.remove("btn-outline-primary");
+        this.innerHTML = '<i class="bi bi-check me-1"></i>Copied!';
+        this.classList.remove("btn-primary");
         this.classList.add("btn-success");
-        this.title = "Copied!";
 
         // Reset after 2 seconds
         setTimeout(() => {
           this.innerHTML = originalHTML;
           this.classList.remove("btn-success");
-          this.classList.add("btn-outline-primary");
-          this.title = "Copy to clipboard";
+          this.classList.add("btn-primary");
         }, 2000);
       } catch (err) {
         console.error("Failed to copy:", err);
