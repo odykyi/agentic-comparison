@@ -1,0 +1,230 @@
+---
+layout: comparison
+title: Feature Comparison
+description: Compare features across AI agentic coding tools
+custom_js:
+  - /assets/js/features.js
+---
+
+<div class="row">
+  <div class="col-12">
+    <div class="alert alert-info d-flex align-items-center mb-4">
+      <i class="bi bi-info-circle-fill me-2"></i>
+      <div>
+        <strong>How to use:</strong> Click column headers to sort, use the
+        filter dropdowns to narrow results, and hover over icons for more
+        details.
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-hover feature-matrix" id="features-table">
+        <thead class="table-light">
+          <tr>
+            <th class="feature-col">Feature</th>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <th class="text-center tool-column" data-tool="{{ tool[0] }}">
+              <a
+                href="{{ '/tools/' | append: tool[0] | relative_url }}"
+                class="text-decoration-none"
+              >
+                {{ tool[1].name }}
+              </a>
+            </th>
+            {% endunless %} {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Core Features -->
+          <tr class="category-header">
+            <td
+              colspan="{{ site.data.tools.size | plus: 1 }}"
+              class="bg-light fw-bold"
+            >
+              <i class="bi bi-cpu me-2"></i>Core Features
+            </td>
+          </tr>
+          <tr>
+            <td>MCP Support</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td
+              class="text-center"
+              data-value="{{ tool[1].features.mcp_support }}"
+            >
+              {% include status_icon.html status=tool[1].features.mcp_support %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td>Offline Mode</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td
+              class="text-center"
+              data-value="{{ tool[1].features.offline_mode }}"
+            >
+              {% include status_icon.html status=tool[1].features.offline_mode
+              %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td>Context Window</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].features.context_window %} {{
+              tool[1].features.context_window | divided_by: 1000 }}k tokens {%
+              else %} - {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td>IDE Integration</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].features.ide_integration and
+              tool[1].features.ide_integration.size > 0 %} {% for ide in
+              tool[1].features.ide_integration %}
+              <span class="badge bg-light text-dark me-1">{{ ide }}</span>
+              {% endfor %} {% else %}
+              <span class="text-muted">CLI only</span>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+
+          <!-- Architecture -->
+          <tr class="category-header">
+            <td
+              colspan="{{ site.data.tools.size | plus: 1 }}"
+              class="bg-light fw-bold"
+            >
+              <i class="bi bi-diagram-3 me-2"></i>Architecture
+            </td>
+          </tr>
+          <tr>
+            <td>Implementation Language</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              <span class="badge bg-light text-dark"
+                >{{ tool[1].language }}</span
+              >
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td>License</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              <span class="badge bg-light text-dark"
+                >{{ tool[1].license }}</span
+              >
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td>Skill/Command System</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].skill_system or tool[1].command_system %} {% include
+              status_icon.html status=true %}
+              <small class="text-muted d-block">
+                {{ tool[1].skill_system.directory | default:
+                tool[1].command_system.directory }}
+              </small>
+              {% else %} {% include status_icon.html status=false %} {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+
+          <!-- Installation -->
+          <tr class="category-header">
+            <td
+              colspan="{{ site.data.tools.size | plus: 1 }}"
+              class="bg-light fw-bold"
+            >
+              <i class="bi bi-download me-2"></i>Installation Methods
+            </td>
+          </tr>
+          <tr>
+            <td>npm</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% include status_icon.html status=tool[1].install.npm %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td>Homebrew</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% include status_icon.html status=tool[1].install.homebrew %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td>curl Install</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% include status_icon.html status=tool[1].install.curl %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+
+          <!-- Pricing -->
+          <tr class="category-header">
+            <td
+              colspan="{{ site.data.tools.size | plus: 1 }}"
+              class="bg-light fw-bold"
+            >
+              <i class="bi bi-credit-card me-2"></i>Pricing
+            </td>
+          </tr>
+          <tr>
+            <td>Free Tier</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].pricing.free_tier.available %}
+              <span class="badge bg-success">Yes</span>
+              <small class="text-muted d-block"
+                >{{ tool[1].pricing.free_tier.limits }}</small
+              >
+              {% else %}
+              <span class="badge bg-secondary">No</span>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td>Paid Tier(s)</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% for tier in tool[1].pricing.paid_tiers %}
+              <span class="badge bg-primary me-1">{{ tier.name }}</span>
+              {% endfor %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-4 text-center">
+      <a href="{{ '/pricing/' | relative_url }}" class="btn btn-primary">
+        <i class="bi bi-calculator me-2"></i>View Pricing Calculator
+      </a>
+    </div>
+  </div>
+</div>

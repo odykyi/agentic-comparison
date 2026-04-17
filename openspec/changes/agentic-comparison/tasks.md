@@ -21,25 +21,25 @@
 
 ## 3. YAML Data Schema & Validation
 
-- [ ] 3.1 Define JSON Schema for tool definitions (`_data/tools/*.yml`)
-- [ ] 3.2 Define JSON Schema for feature definitions (`_data/features.yml`)
-- [ ] 3.3 Define JSON Schema for command mappings (`_data/commands.yml`)
-- [ ] 3.4 Define JSON Schema for terminology mappings (`_data/terminology.yml`)
-- [ ] 3.5 Define JSON Schema for MCP servers (`_data/mcp_servers.yml`)
-- [ ] 3.6 Create GitHub Actions workflow for YAML schema validation
-- [ ] 3.7 Add validation script using `jsonschema` Python package
-- [ ] 3.8 Create `_config.yml` with Jekyll collections configuration
+- [x] 3.1 Define JSON Schema for tool definitions (`_data/tools/*.yml`)
+- [x] 3.2 Define JSON Schema for feature definitions (`_data/features.yml`)
+- [x] 3.3 Define JSON Schema for command mappings (`_data/commands.yml`)
+- [x] 3.4 Define JSON Schema for terminology mappings (`_data/terminology.yml`)
+- [x] 3.5 Define JSON Schema for MCP servers (`_data/mcp_servers.yml`)
+- [x] 3.6 Create GitHub Actions workflow for YAML schema validation
+- [x] 3.7 Add validation script using `jsonschema` Python package
+- [x] 3.8 Create `_config.yml` with Jekyll collections configuration
 
 ## 4. Tool Data Collection (Phase 1: 3 Primary Tools)
 
-- [ ] 4.1 Create `_data/tools/opencode.yml` with full specifications
-- [ ] 4.2 Create `_data/tools/codex.yml` with full specifications
-- [ ] 4.3 Create `_data/tools/claude_code.yml` with full specifications
+- [x] 4.1 Create `_data/tools/opencode.yml` with full specifications
+- [x] 4.2 Create `_data/tools/codex.yml` with full specifications
+- [x] 4.3 Create `_data/tools/claude_code.yml` with full specifications
 - [ ] 4.4 Gather command references for all 3 tools from official docs
 - [ ] 4.5 Map feature availability for each tool
 - [ ] 4.6 Collect official logos and brand assets (add to `assets/images/tools/`)
-- [ ] 4.7 Add "last verified" version timestamps to each tool YAML
-- [ ] 4.8 Create `_data/tools/_template.yml` for future tool contributions
+- [x] 4.7 Add "last verified" version timestamps to each tool YAML
+- [x] 4.8 Create `_data/tools/_template.yml` for future tool contributions
 
 ## 5. Core Pages - Feature Comparison Matrix
 
