@@ -2,7 +2,7 @@
 layout: tool
 tool_name: "OpenAI Codex"
 tool_slug: codex
-tool_logo: /assets/images/tools/codex.png
+tool_logo: /assets/images/tools/codex.svg
 tool_repo: openai/codex
 tool_website: https://openai.com/codex
 tool_command: codex

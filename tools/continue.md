@@ -2,7 +2,7 @@
 layout: tool
 tool_name: "Continue.dev"
 tool_slug: continue
-tool_logo: /assets/images/tools/continue.png
+tool_logo: /assets/images/tools/continue.svg
 tool_repo: continuedev/continue
 tool_website: https://continue.dev
 tool_command: continue

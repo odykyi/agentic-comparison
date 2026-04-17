@@ -2,7 +2,7 @@
 layout: tool
 tool_name: "OpenCode"
 tool_slug: opencode
-tool_logo: /assets/images/tools/opencode.png
+tool_logo: /assets/images/tools/opencode.svg
 tool_repo: saoirse-opencode/opencode
 tool_website: https://opencode.ai
 tool_command: opencode

@@ -2,7 +2,7 @@
 layout: tool
 tool_name: "Aider"
 tool_slug: aider
-tool_logo: /assets/images/tools/aider.png
+tool_logo: /assets/images/tools/aider.svg
 tool_repo: Aider-AI/aider
 tool_website: https://aider.chat
 tool_command: aider

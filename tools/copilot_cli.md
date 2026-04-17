@@ -2,7 +2,7 @@
 layout: tool
 tool_name: "GitHub Copilot CLI"
 tool_slug: copilot_cli
-tool_logo: /assets/images/tools/copilot_cli.png
+tool_logo: /assets/images/tools/copilot_cli.svg
 tool_repo: github/copilot.vim
 tool_website: https://github.com/features/copilot
 tool_command: gh copilot

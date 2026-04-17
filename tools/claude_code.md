@@ -2,7 +2,7 @@
 layout: tool
 tool_name: "Claude Code"
 tool_slug: claude_code
-tool_logo: /assets/images/tools/claude_code.png
+tool_logo: /assets/images/tools/claude_code.svg
 tool_repo: anthropics/claude-code
 tool_website: https://claude.ai
 tool_command: claude
