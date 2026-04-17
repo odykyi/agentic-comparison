@@ -104,24 +104,35 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
                 </button>
                 {% assign marketplace_full_url = site.url | append: site.baseurl | append: '/skills/' %}
                 {% if skill_data.compatible_tools contains 'codex' %}
-                <a href="codex://new?prompt=Install+the+{{ skill_data.name | url_encode }}+skill+from+{{ marketplace_full_url | url_encode }}+by+running+the+command+{{ skill_data.install_commands['codex'] | url_encode }}+from+source+{{ skill_data.source_url | url_encode }}+and+confirm+when+it's+done" class="btn btn-sm btn-success w-100 d-flex align-items-center justify-content-center gap-1">
-                  <i class="bi bi-box-arrow-up-right"></i>Open in Codex
-                </a>
-                {% endif %}
-              </div>
-            </div>
-            <div class="card-footer bg-white border-0">
-              <div class="d-flex justify-content-between align-items-center">
-                <small class="text-muted">v{{ skill_data.version }}</small>
-                <a href="{{ skill_data.source_url }}" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">
-                  <i class="bi bi-github"></i> Source
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      {% endif %}
-    {% endfor %}
+                {% capture codex_prompt %}🚀 Install {{ skill_data.name }}
+
+Found at Agentic Comparison Marketplace
+📍 {{ marketplace_full_url }}
+
+Command to run:
+$ {{ skill_data.install_commands['codex'] }}
+
+📚 Source: {{ skill_data.source_url }}
+
+Execute this command to add "{{ skill_data.name }}" to your Codex toolkit.{% endcapture %}
+<a href="codex://new?prompt={{ codex_prompt | url_encode }}" class="btn btn-sm btn-success w-100 d-flex align-items-center justify-content-center gap-1">
+<i class="bi bi-box-arrow-up-right"></i>Open in Codex
+</a>
+{% endif %}
+</div>
+</div>
+<div class="card-footer bg-white border-0">
+<div class="d-flex justify-content-between align-items-center">
+<small class="text-muted">v{{ skill_data.version }}</small>
+<a href="{{ skill_data.source_url }}" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">
+<i class="bi bi-github"></i> Source
+</a>
+</div>
+</div>
+</div>
+</div>
+{% endif %}
+{% endfor %}
 
   </div>
 
