@@ -1,0 +1,327 @@
+---
+layout: comparison
+title: MCP Registry
+description: Model Context Protocol server compatibility across AI agentic coding tools
+custom_js:
+  - /assets/js/mcp.js
+---
+
+<div class="row mb-4">
+  <div class="col-lg-8">
+    <div class="alert alert-info">
+      <i class="bi bi-info-circle me-2"></i>
+      <strong>MCP (Model Context Protocol)</strong> is an open standard for
+      connecting AI applications to external systems. This registry tracks which
+      MCP servers work with each agentic tool.
+    </div>
+  </div>
+</div>
+
+<!-- Capability Matrix -->
+<div class="row mb-5">
+  <div class="col-12">
+    <h3 class="h5 mb-3">MCP Capability Support</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead class="table-light">
+          <tr>
+            <th>Capability</th>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <th class="text-center">{{ tool[1].name }}</th>
+            {% endunless %} {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>Resources</strong><br /><small class="text-muted"
+                >Access to files, data sources</small
+              >
+            </td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].features.mcp_support %}
+              <i class="bi bi-check-circle-fill text-success fs-5"></i>
+              {% else %}
+              <i class="bi bi-x-circle-fill text-secondary fs-5"></i>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td>
+              <strong>Prompts</strong><br /><small class="text-muted"
+                >Reusable prompt templates</small
+              >
+            </td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].features.mcp_support %}
+              <i class="bi bi-check-circle-fill text-success fs-5"></i>
+              {% else %}
+              <i class="bi bi-x-circle-fill text-secondary fs-5"></i>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td>
+              <strong>Tools</strong><br /><small class="text-muted"
+                >Executable functions</small
+              >
+            </td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].features.mcp_support %}
+              <i class="bi bi-check-circle-fill text-success fs-5"></i>
+              {% else %}
+              <i class="bi bi-x-circle-fill text-secondary fs-5"></i>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td>
+              <strong>Sampling</strong><br /><small class="text-muted"
+                >LLM completion requests</small
+              >
+            </td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].features.mcp_support %}
+              <i class="bi bi-check-circle-fill text-success fs-5"></i>
+              {% else %}
+              <i class="bi bi-x-circle-fill text-secondary fs-5"></i>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Server Registry -->
+<div class="row">
+  <div class="col-12">
+    <h3 class="h5 mb-3">MCP Server Registry</h3>
+
+    <div class="row g-4" id="mcp-server-grid">
+      <!-- Core/Official Servers -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+          <div
+            class="card-header d-flex justify-content-between align-items-center"
+          >
+            <strong>Filesystem</strong>
+            <span class="badge bg-success">Official</span>
+          </div>
+          <div class="card-body">
+            <p class="small text-muted">Access and manipulate local files</p>
+            <div class="mb-3">
+              {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+              %} {% assign has_fs = false %} {% for server in
+              tool[1].mcp_servers %} {% if server.name == 'filesystem' and
+              server.supported %} {% assign has_fs = true %} {% endif %} {%
+              endfor %}
+              <span
+                class="badge {% if has_fs %}bg-success{% else %}bg-secondary{% endif %} me-1"
+              >
+                {{ tool[1].name }}
+              </span>
+              {% endunless %} {% endfor %}
+            </div>
+          </div>
+          <div class="card-footer bg-light">
+            <code class="small">modelcontextprotocol/servers</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+          <div
+            class="card-header d-flex justify-content-between align-items-center"
+          >
+            <strong>GitHub</strong>
+            <span class="badge bg-success">Official</span>
+          </div>
+          <div class="card-body">
+            <p class="small text-muted">Repository management and API access</p>
+            <div class="mb-3">
+              {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+              %} {% assign has_github = false %} {% for server in
+              tool[1].mcp_servers %} {% if server.name == 'github' and
+              server.supported %} {% assign has_github = true %} {% endif %} {%
+              endfor %}
+              <span
+                class="badge {% if has_github %}bg-success{% else %}bg-secondary{% endif %} me-1"
+              >
+                {{ tool[1].name }}
+              </span>
+              {% endunless %} {% endfor %}
+            </div>
+          </div>
+          <div class="card-footer bg-light">
+            <code class="small">Requires token setup</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+          <div
+            class="card-header d-flex justify-content-between align-items-center"
+          >
+            <strong>Fetch</strong>
+            <span class="badge bg-success">Official</span>
+          </div>
+          <div class="card-body">
+            <p class="small text-muted">Web content fetching and conversion</p>
+            <div class="mb-3">
+              {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+              %} {% assign has_fetch = false %} {% for server in
+              tool[1].mcp_servers %} {% if server.name == 'fetch' and
+              server.supported %} {% assign has_fetch = true %} {% endif %} {%
+              endfor %}
+              <span
+                class="badge {% if has_fetch %}bg-success{% else %}bg-secondary{% endif %} me-1"
+              >
+                {{ tool[1].name }}
+              </span>
+              {% endunless %} {% endfor %}
+            </div>
+          </div>
+          <div class="card-footer bg-light">
+            <code class="small">modelcontextprotocol/servers</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+          <div
+            class="card-header d-flex justify-content-between align-items-center"
+          >
+            <strong>Web Search</strong>
+            <span class="badge bg-warning">Community</span>
+          </div>
+          <div class="card-body">
+            <p class="small text-muted">Search the web via various providers</p>
+            <div class="mb-3">
+              {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+              %} {% assign has_search = false %} {% for server in
+              tool[1].mcp_servers %} {% if server.name == 'web_search' and
+              server.supported %} {% assign has_search = true %} {% endif %} {%
+              endfor %}
+              <span
+                class="badge {% if has_search %}bg-success{% else %}bg-secondary{% endif %} me-1"
+              >
+                {{ tool[1].name }}
+              </span>
+              {% endunless %} {% endfor %}
+            </div>
+          </div>
+          <div class="card-footer bg-light">
+            <code class="small">Multiple providers</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+          <div
+            class="card-header d-flex justify-content-between align-items-center"
+          >
+            <strong>Figma</strong>
+            <span class="badge bg-warning">Community</span>
+          </div>
+          <div class="card-body">
+            <p class="small text-muted">Access Figma designs and components</p>
+            <div class="mb-3">
+              {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+              %} {% assign has_figma = false %} {% for server in
+              tool[1].mcp_servers %} {% if server.name == 'figma' and
+              server.supported %} {% assign has_figma = true %} {% endif %} {%
+              endfor %}
+              <span
+                class="badge {% if has_figma %}bg-success{% else %}bg-secondary{% endif %} me-1"
+              >
+                {{ tool[1].name }}
+              </span>
+              {% endunless %} {% endfor %}
+            </div>
+          </div>
+          <div class="card-footer bg-light">
+            <code class="small">Requires Figma token</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Setup Instructions -->
+<div class="row mt-5">
+  <div class="col-12">
+    <h3 class="h5 mb-3">Quick Setup Guides</h3>
+
+    <div class="accordion" id="setupAccordion">
+      {% for tool in site.data.tools %} {% unless tool[0] == '_template' %}
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#setup-{{ tool[0] }}"
+          >
+            {{ tool[1].name }}
+          </button>
+        </h2>
+        <div
+          id="setup-{{ tool[0] }}"
+          class="accordion-collapse collapse"
+          data-bs-parent="#setupAccordion"
+        >
+          <div class="accordion-body">
+            <p>
+              <strong>MCP Support:</strong> {% if tool[1].features.mcp_support
+              %}Yes{% else %}No / Limited{% endif %}
+            </p>
+
+            {% if tool[1].mcp_servers %}
+            <h6>Supported Servers:</h6>
+            <ul>
+              {% for server in tool[1].mcp_servers %}
+              <li>
+                {{ server.name | capitalize }} {% if server.setup_required %}
+                <span class="badge bg-warning text-dark">Setup required</span>
+                {% else %}
+                <span class="badge bg-success">Built-in</span>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+
+            <p class="text-muted small">
+              See
+              <a href="{{ '/tools/' | append: tool[0] | relative_url }}"
+                >full documentation</a
+              >
+              for detailed setup instructions.
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endunless %} {% endfor %}
+    </div>
+  </div>
+</div>

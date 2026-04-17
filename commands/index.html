@@ -1,0 +1,124 @@
+---
+layout: comparison
+title: Command Reference
+description: Find equivalent commands across AI agentic coding tools
+custom_js:
+  - /assets/js/commands.js
+---
+
+<div class="row mb-4">
+  <div class="col-lg-8">
+    <div class="alert alert-info">
+      <i class="bi bi-lightbulb me-2"></i>
+      <strong>Tip:</strong> Commands are grouped by category. Click on any
+      command to see detailed usage information for each tool.
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="table-responsive">
+      <table class="table table-hover" id="commands-table">
+        <thead class="table-light">
+          <tr>
+            <th style="min-width: 200px">Command / Task</th>
+            <th>Category</th>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <th class="text-center" data-tool="{{ tool[0] }}">
+              {{ tool[1].name }}
+            </th>
+            {% endunless %} {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% assign categories = "general,file,git,search,edit,debug,test" |
+          split: "," %} {% for category in categories %}
+          <tr class="category-header">
+            <td
+              colspan="{{ site.data.tools.size | plus: 2 }}"
+              class="bg-light fw-bold"
+            >
+              {% case category %} {% when "general" %}
+              <i class="bi bi-gear me-2"></i>General {% when "file" %}
+              <i class="bi bi-file-earmark me-2"></i>File Operations {% when
+              "git" %} <i class="bi bi-git me-2"></i>Git Integration {% when
+              "search" %} <i class="bi bi-search me-2"></i>Search {% when "edit"
+              %} <i class="bi bi-pencil me-2"></i>Edit Code {% when "debug" %}
+              <i class="bi bi-bug me-2"></i>Debug {% when "test" %}
+              <i class="bi bi-check-square me-2"></i>Test {% endcase %}
+            </td>
+          </tr>
+
+          {% for tool in site.data.tools %} {% unless tool[0] == '_template' %}
+          {% for cmd in tool[1].commands %} {% if cmd.category == category %}
+          <tr class="command-row" data-category="{{ category }}">
+            <td>
+              <strong>{{ cmd.name }}</strong>
+              <p class="text-muted small mb-0">{{ cmd.description }}</p>
+            </td>
+            <td>
+              <span class="badge bg-light text-dark">{{ category }}</span>
+            </td>
+            {% for other_tool in site.data.tools %} {% unless other_tool[0] ==
+            '_template' %}
+            <td class="text-center">
+              {% if other_tool[0] == tool[0] %}
+              <code class="command-syntax" title="{{ cmd.description }}">
+                {{ cmd.invoke }}
+              </code>
+              {% if cmd.verified %}
+              <i
+                class="bi bi-check-circle text-success small"
+                title="Verified"
+              ></i>
+              {% endif %} {% else %} {% assign found = false %} {% for other_cmd
+              in other_tool[1].commands %} {% if other_cmd.name == cmd.name or
+              other_cmd.category == category %}
+              <code class="command-syntax text-muted small"
+                >{{ other_cmd.invoke }}</code
+              >
+              {% assign found = true %} {% break %} {% endif %} {% endfor %} {%
+              unless found %}
+              <span class="text-muted">-</span>
+              {% endunless %} {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          {% endif %} {% endfor %} {% endunless %} {% endfor %} {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-5">
+  <div class="col-lg-8 mx-auto">
+    <div class="card bg-light">
+      <div class="card-body">
+        <h5 class="card-title">
+          <i class="bi bi-info-circle me-2"></i>Command Usage Notes
+        </h5>
+        <ul class="mb-0">
+          <li>
+            <strong>Natural language:</strong> Claude Code primarily uses
+            natural language commands
+          </li>
+          <li>
+            <strong>Slash commands:</strong> Some tools use
+            <code>/command</code> syntax
+          </li>
+          <li>
+            <strong>CLI flags:</strong> Many commands support additional flags
+            (e.g., <code>--verbose</code>)
+          </li>
+          <li>
+            <strong>Verified:</strong> Commands marked with
+            <i class="bi bi-check-circle text-success"></i> have been tested
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

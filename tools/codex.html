@@ -1,0 +1,51 @@
+---
+layout: tool
+tool_name: "OpenAI Codex"
+tool_slug: codex
+tool_logo: /assets/images/tools/codex.png
+tool_repo: openai/codex
+tool_website: https://openai.com/codex
+tool_command: codex
+tool_description: "A lightweight coding agent from OpenAI that runs locally in your terminal, featuring a skills system stored in .codex/skills/."
+tool_version: "0.121.0"
+tool_license: Apache-2.0
+tool_language: Rust
+tool_last_updated: "2024-01-15"
+---
+
+{% assign tool_data = site.data.tools.codex %} ## Overview Codex is OpenAI's
+official coding agent that brings the power of GPT-4o directly to your terminal.
+Built in Rust for performance, it features a unique skills system and deep
+integration with the OpenAI ecosystem. ## Installation ### Via npm ```bash npm
+install -g @openai/codex ``` ### Via Homebrew ```bash brew install --cask codex
+``` ### Download Binary Download pre-built binaries from [GitHub
+Releases](https://github.com/openai/codex/releases). ## Quick Start 1. **Sign
+in** ```bash codex # Follow prompts to sign in with ChatGPT or API key ``` 2.
+**Start coding** ```bash codex review # Review your changes ``` 3. **Launch
+desktop app** ```bash codex app ``` ## Key Features ### Skills System Codex
+stores reusable prompts in `.codex/skills/` as markdown files with frontmatter:
+```markdown --- name: code-review description: Review code for bugs and
+improvements --- Review this code for: 1. Potential bugs 2. Performance issues
+3. Best practices ``` ### MCP Support Native support for Model Context Protocol
+servers including: - Filesystem - GitHub - Web search ### Context Window
+Industry-leading **200k token** context window for working with large codebases.
+### Multiple Interfaces - CLI for terminal use - Desktop app (`codex app`) - IDE
+extensions (VS Code) ## Architecture ``` Project/ ├── .codex/ │ ├── skills/ │ │
+└── code-review.md │ └── config.toml ├── src/ └── Cargo.toml ``` ## Commands
+Reference ### General Commands - `codex` - Start interactive chat - `codex
+--help` - Show help - `codex init` - Initialize project - `codex app` - Launch
+desktop app ### Code Operations - `codex review` - Review code changes - `codex
+explain` - Explain code - `codex test` - Run tests ### Git Integration - `codex
+commit` - Generate commit message ## Pricing Codex is included with OpenAI
+subscriptions: **Free with ChatGPT** - Plus, Pro, Business, Edu, Enterprise
+plans - Included in subscription **API Key (Pay-as-you-go)** - Usage-based
+pricing via OpenAI API - Requires separate API key setup ## Configuration ###
+Environment Variables ```bash export OPENAI_API_KEY="your-key" # For API mode
+``` ### Config File ```toml # .codex/config.toml model = "gpt-4o" context_window
+= 200000 ``` ## Authentication Codex supports two authentication methods: 1.
+**ChatGPT Sign-in** (Recommended) - Uses your existing ChatGPT subscription -
+Simply run `codex` and follow prompts 2. **API Key** - Set `OPENAI_API_KEY`
+environment variable - Direct billing to your API account ## Resources -
+[Official Documentation](https://help.openai.com/en/articles/11096431-codex-cli)
+- [GitHub Repository](https://github.com/openai/codex) - [OpenAI
+Community](https://community.openai.com)

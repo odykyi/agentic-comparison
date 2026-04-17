@@ -1,0 +1,284 @@
+---
+layout: comparison
+title: Terminology Mapper
+description: Map equivalent concepts across AI agentic coding tools
+custom_js:
+  - /assets/js/terminology.js
+---
+
+<div class="row mb-4">
+  <div class="col-lg-8">
+    <p class="lead">
+      Different tools use different terminology for the same concepts. Use this
+      mapper to understand what "skills" in Codex means in Claude Code or
+      OpenCode.
+    </p>
+  </div>
+</div>
+
+<!-- Perspective Toggle -->
+<div class="row mb-4">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <label class="form-label fw-bold">View from perspective of:</label>
+        <div class="btn-group" role="group" id="perspective-toggle">
+          <button
+            type="button"
+            class="btn btn-outline-primary active"
+            data-perspective="canonical"
+          >
+            Canonical Terms
+          </button>
+          {% for tool in site.data.tools %} {% unless tool[0] == '_template' %}
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            data-perspective="{{ tool[0] }}"
+          >
+            {{ tool[1].name }}
+          </button>
+          {% endunless %} {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Terminology Table -->
+<div class="row">
+  <div class="col-12">
+    <div class="table-responsive">
+      <table class="table table-hover" id="terminology-table">
+        <thead class="table-light">
+          <tr>
+            <th style="min-width: 200px">Canonical Concept</th>
+            <th>Definition</th>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <th class="text-center" data-tool="{{ tool[0] }}">
+              {{ tool[1].name }} Term
+            </th>
+            {% endunless %} {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="fw-bold">Reusable Code Block</td>
+            <td>
+              A reusable piece of prompt logic or functionality that can be
+              invoked
+            </td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].concepts.skill %}
+              <code>{{ tool[1].concepts.skill }}</code>
+              {% else %}
+              <span class="text-muted">-</span>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td class="fw-bold">Interactive Command</td>
+            <td>A command that users can invoke during a session</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].concepts.command %}
+              <code>{{ tool[1].concepts.command }}</code>
+              {% else %}
+              <span class="text-muted">-</span>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td class="fw-bold">Autonomous Agent</td>
+            <td>An AI agent that can perform tasks autonomously</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].concepts.agent %}
+              <code>{{ tool[1].concepts.agent }}</code>
+              {% else %}
+              <span class="text-muted">-</span>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td class="fw-bold">User Prompt</td>
+            <td>Input provided by the user to the AI</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].concepts.prompt %}
+              <code>{{ tool[1].concepts.prompt }}</code>
+              {% else %}
+              <span class="text-muted">prompt</span>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td class="fw-bold">Context/History</td>
+            <td>The conversation history and working memory</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].concepts.context %}
+              <code>{{ tool[1].concepts.context }}</code>
+              {% else %}
+              <span class="text-muted">context</span>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td class="fw-bold">Skill Storage</td>
+            <td>Where reusable code blocks are stored in a project</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].skill_system %}
+              <code>{{ tool[1].skill_system.directory }}</code>
+              {% elsif tool[1].command_system %}
+              <code>{{ tool[1].command_system.directory }}</code>
+              {% else %}
+              <span class="text-muted">-</span>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td class="fw-bold">External Integration</td>
+            <td>Connection to external tools and services</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].features.mcp_support %}
+              <span class="badge bg-success">MCP Server</span>
+              {% else %}
+              <span class="text-muted">Plugin/Extension</span>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td class="fw-bold">Command Prefix</td>
+            <td>How to invoke the tool from terminal</td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              <code>{{ tool[1].command_prefix }}</code>
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Examples Section -->
+<div class="row mt-5">
+  <div class="col-12">
+    <h3 class="h4 mb-4">Translation Examples</h3>
+
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-light">
+            <strong>"I want to create a reusable code snippet"</strong>
+          </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+              %}
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+              >
+                {{ tool[1].name }}
+                <span class="badge bg-primary">
+                  {% if tool[1].skill_system %} Create a {{
+                  tool[1].concepts.skill }} {% elsif tool[1].command_system %}
+                  Create a {{ tool[1].concepts.command }} {% else %} Not
+                  supported {% endif %}
+                </span>
+              </li>
+              {% endunless %} {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-light">
+            <strong>"I want to integrate with external tools"</strong>
+          </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+              %}
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+              >
+                {{ tool[1].name }}
+                <span class="badge bg-primary">
+                  {% if tool[1].features.mcp_support %} Set up MCP Server {%
+                  else %} Use Plugin/Extension {% endif %}
+                </span>
+              </li>
+              {% endunless %} {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Architecture Comparison -->
+<div class="row mt-5">
+  <div class="col-12">
+    <h3 class="h4 mb-4">Architecture Overview</h3>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th>Tool</th>
+                <th>Core Concept</th>
+                <th>Storage Format</th>
+                <th>Key Differentiator</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+              %}
+              <tr>
+                <td class="fw-bold">{{ tool[1].name }}</td>
+                <td>
+                  {% if tool[1].concepts.skill %} {{ tool[1].concepts.skill |
+                  capitalize }} {% else %} Commands {% endif %}
+                </td>
+                <td>
+                  {% if tool[1].skill_system %} {{ tool[1].skill_system.format
+                  }} {% elsif tool[1].command_system %} {{
+                  tool[1].command_system.format }} {% else %} Native {% endif %}
+                </td>
+                <td>{{ tool[1].description | truncate: 60 }}</td>
+              </tr>
+              {% endunless %} {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

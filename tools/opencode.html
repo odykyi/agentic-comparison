@@ -1,0 +1,57 @@
+---
+layout: tool
+tool_name: "OpenCode"
+tool_slug: opencode
+tool_logo: /assets/images/tools/opencode.png
+tool_repo: saoirse-opencode/opencode
+tool_website: https://opencode.ai
+tool_command: opencode
+tool_description: "An intelligent CLI tool that provides a unified interface to AI coding agents with support for skills, commands, and MCP integration."
+tool_version: "1.0.0"
+tool_license: MIT
+tool_language: TypeScript
+tool_last_updated: "2024-01-15"
+---
+
+{% assign tool_data = site.data.tools.opencode %} ## Overview OpenCode is an
+AI-powered CLI tool that brings intelligent coding assistance to your terminal.
+It features a modular architecture with support for agents, slash commands, and
+the Model Context Protocol (MCP). ## Installation ### Via npm ```bash npm
+install -g @opencode/cli ``` ### Via Homebrew ```bash brew install opencode ```
+### Via curl ```bash curl -fsSL https://opencode.ai/install.sh | bash ``` ##
+Quick Start 1. **Initialize a project** ```bash opencode init ``` 2. **Start
+chatting** ```bash opencode chat ``` 3. **Get help** ```bash opencode help ```
+## Key Features ### Agents System OpenCode uses an "agents" architecture where
+you can create reusable AI agents for specific tasks. ### MCP Support Full
+support for Model Context Protocol, enabling integration with: - Filesystem
+access - GitHub repositories - Web search - External tools ### Context Window
+Supports up to **128k tokens** for large codebases and complex conversations. ##
+Architecture ``` Project/ ├── .opencode/ │ └── agents/ │ └── custom-agent.yml
+├── src/ └── opencode.config.js ``` ## Commands Reference ### General Commands -
+`opencode help` - Show help - `opencode init` - Initialize project - `opencode
+chat` - Start chat session ### File Operations - `opencode edit
+<file
+  >` - Edit with AI assistance - `opencode explain
+  <file
+    >` - Explain code - `opencode search
+    <query
+      >` - Search codebase ### Git Integration - `opencode commit` - Generate
+      commit message - `opencode review` - Review changes ### Development -
+      `opencode test` - Run tests - `opencode fix` - Fix errors - `opencode
+      refactor
+      <file
+        >` - Refactor code ## Pricing OpenCode offers both free and paid tiers:
+        **Free Tier** - 100 requests/day with local models - API keys required
+        for cloud models **Pro ($19/month)** - Unlimited requests - Priority
+        support - Advanced agents ## Configuration OpenCode can be configured
+        via: - Environment variables - `opencode.config.js` file - Command-line
+        flags ### Example Config ```javascript // opencode.config.js
+        module.exports = { model: 'gpt-4', contextWindow: 128000, agents:
+        ['./agents'] } ``` ## Resources - [Official
+        Documentation](https://docs.opencode.ai) - [GitHub
+        Repository](https://github.com/saoirse-opencode/opencode) - [Community
+        Discord](https://discord.gg/opencode)
+      </file></query
+    ></file
+  ></file
+>

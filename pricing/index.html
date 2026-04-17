@@ -1,0 +1,223 @@
+---
+layout: comparison
+title: Pricing Comparison
+description: Compare pricing across AI agentic coding tools
+---
+
+<div class="row mb-4">
+  <div class="col-lg-8">
+    <p class="lead">
+      Compare pricing models across agentic coding tools. Find the right plan
+      for your usage patterns.
+    </p>
+    <div class="alert alert-warning">
+      <i class="bi bi-exclamation-triangle me-2"></i>
+      <strong>Note:</strong> Pricing data is for comparison only. Always check
+      official sources for current pricing.
+    </div>
+  </div>
+</div>
+
+<!-- Free Tier Comparison -->
+<div class="row mb-5">
+  <div class="col-12">
+    <h3 class="h4 mb-4">Free Tier Comparison</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead class="table-light">
+          <tr>
+            <th style="min-width: 200px">Feature</th>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <th class="text-center">{{ tool[1].name }}</th>
+            {% endunless %} {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Free Tier Available</strong></td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].pricing.free_tier.available %}
+              <span class="badge bg-success">Yes</span>
+              {% else %}
+              <span class="badge bg-secondary">No</span>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td><strong>Limits</strong></td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].pricing.free_tier.available %}
+              <small>{{ tool[1].pricing.free_tier.limits }}</small>
+              {% else %}
+              <span class="text-muted">-</span>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+          <tr>
+            <td><strong>Credit Card Required</strong></td>
+            {% for tool in site.data.tools %} {% unless tool[0] == '_template'
+            %}
+            <td class="text-center">
+              {% if tool[1].pricing.free_tier.available %}
+              <span class="text-muted">Usually no</span>
+              {% else %}
+              <span class="text-muted">N/A</span>
+              {% endif %}
+            </td>
+            {% endunless %} {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Paid Tiers -->
+<div class="row mb-5">
+  <div class="col-12">
+    <h3 class="h4 mb-4">Paid Tiers</h3>
+
+    <div class="row g-4">
+      {% for tool in site.data.tools %} {% unless tool[0] == '_template' %}
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+          <div
+            class="card-header text-white"
+            style="background: linear-gradient(135deg, {{ site.tool_colors[tool[0]] | default: '#666' }} 0%, {{ site.tool_colors[tool[0]] | default: '#666' | replace: '#', '#1a' }} 100%);"
+          >
+            <h5 class="mb-0">{{ tool[1].name }}</h5>
+          </div>
+          <div class="card-body">
+            {% if tool[1].pricing.paid_tiers %} {% for tier in
+            tool[1].pricing.paid_tiers %}
+            <div class="mb-3 pb-3 border-bottom">
+              <div
+                class="d-flex justify-content-between align-items-center mb-2"
+              >
+                <h6 class="mb-0">{{ tier.name }}</h6>
+                <span class="badge bg-primary">{{ tier.price }}</span>
+              </div>
+              <p class="small text-muted mb-0">{{ tier.description }}</p>
+            </div>
+            {% endfor %} {% else %}
+            <p class="text-muted">No paid tiers available</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endunless %} {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- Billing Models -->
+<div class="row mb-5">
+  <div class="col-lg-8">
+    <h3 class="h4 mb-4">Billing Models Explained</h3>
+
+    <div class="accordion" id="billingAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#billing-subscription"
+          >
+            Subscription-Based
+          </button>
+        </h2>
+        <div
+          id="billing-subscription"
+          class="accordion-collapse collapse show"
+          data-bs-parent="#billingAccordion"
+        >
+          <div class="accordion-body">
+            <p>
+              Fixed monthly or annual fee for unlimited or high-volume usage.
+            </p>
+            <strong>Used by:</strong> Claude Code Pro, OpenCode Pro
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#billing-usage"
+          >
+            Usage-Based (API)
+          </button>
+        </h2>
+        <div
+          id="billing-usage"
+          class="accordion-collapse collapse"
+          data-bs-parent="#billingAccordion"
+        >
+          <div class="accordion-body">
+            <p>Pay per token/request. Costs scale with actual usage.</p>
+            <strong>Used by:</strong> Codex (API key mode), OpenCode (API calls)
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#billing-bundled"
+          >
+            Bundled (Included)
+          </button>
+        </h2>
+        <div
+          id="billing-bundled"
+          class="accordion-collapse collapse"
+          data-bs-parent="#billingAccordion"
+        >
+          <div class="accordion-body">
+            <p>Included with existing subscription (e.g., ChatGPT Plus).</p>
+            <strong>Used by:</strong> Codex (with ChatGPT subscription)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cost Calculator Placeholder -->
+<div class="row">
+  <div class="col-lg-8">
+    <h3 class="h4 mb-4">Cost Estimator</h3>
+    <div class="card">
+      <div class="card-body">
+        <p class="text-muted">
+          <i class="bi bi-tools me-2"></i>
+          Interactive cost calculator coming soon! This will estimate monthly
+          costs based on your expected usage patterns.
+        </p>
+        <div class="alert alert-info">
+          <strong>Coming in v1.1:</strong>
+          <ul class="mb-0 mt-2">
+            <li>Usage-based cost calculator</li>
+            <li>Team/enterprise pricing estimator</li>
+            <li>Currency conversion</li>
+            <li>Comparison charts</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
