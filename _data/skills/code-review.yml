@@ -1,0 +1,38 @@
+# Code Review Skill
+# AI-powered code review skill for multiple agentic coding tools
+
+name: "Code Review"
+slug: "code-review"
+description: "Automated code review skill that checks for bugs, performance issues, and best practices. Supports multiple programming languages."
+category: "code-review"
+tags:
+  - review
+  - quality
+  - linting
+  - best-practices
+
+compatible_tools:
+  - codex
+  - claude_code
+  - opencode
+  - aider
+
+install_commands:
+  codex: "codex skills install code-review"
+  claude_code: "claude skills install code-review"
+  opencode: "opencode skills install code-review"
+  aider: "aider --skill code-review"
+
+usage_example: |
+  # Start code review on current file
+  /review
+
+  # Review specific file
+  /review src/components/Button.tsx
+
+author: "Community"
+source_url: "https://github.com/community-skills/code-review"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

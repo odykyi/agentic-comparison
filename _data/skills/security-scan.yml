@@ -1,0 +1,39 @@
+# Security Scanner
+# AI-powered security vulnerability scanner
+
+name: "Security Scanner"
+slug: "security-scan"
+description: "Scans code for security vulnerabilities, OWASP top 10 issues, and common anti-patterns. Provides fixes and recommendations."
+category: "security"
+tags:
+  - security
+  - vulnerability
+  - owasp
+  - scanning
+  - audit
+
+compatible_tools:
+  - codex
+  - claude_code
+  - opencode
+  - aider
+
+install_commands:
+  codex: "codex skills install security-scan"
+  claude_code: "claude skills install security-scan"
+  opencode: "opencode skills install security-scan"
+  aider: "aider --skill security-scan"
+
+usage_example: |
+  # Scan current file for vulnerabilities
+  /scan
+
+  # Full project security audit
+  /scan --full
+
+author: "Community"
+source_url: "https://github.com/community-skills/security-scan"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

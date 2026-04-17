@@ -1,0 +1,39 @@
+# Documentation Generator
+# AI-powered documentation generation skill
+
+name: "Documentation Generator"
+slug: "doc-gen"
+description: "Generates comprehensive documentation from code comments, type definitions, and function signatures. Supports JSDoc, TypeDoc, and custom formats."
+category: "documentation"
+tags:
+  - documentation
+  - docs
+  - jsdoc
+  - typedoc
+  - readme
+
+compatible_tools:
+  - codex
+  - claude_code
+  - opencode
+  - aider
+
+install_commands:
+  codex: "codex skills install doc-gen"
+  claude_code: "claude skills install doc-gen"
+  opencode: "opencode skills install doc-gen"
+  aider: "aider --skill doc-gen"
+
+usage_example: |
+  # Generate docs for current project
+  /docs
+
+  # Generate README for specific module
+  /docs --target=src/utils
+
+author: "Community"
+source_url: "https://github.com/community-skills/doc-gen"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

@@ -1,0 +1,39 @@
+# Test Generator
+# AI-powered test generation skill
+
+name: "Test Generator"
+slug: "test-gen"
+description: "Generates comprehensive unit tests for your code. Supports Jest, Pytest, Mocha, and other popular testing frameworks."
+category: "testing"
+tags:
+  - testing
+  - unit-tests
+  - jest
+  - pytest
+  - tdd
+
+compatible_tools:
+  - codex
+  - claude_code
+  - opencode
+  - aider
+
+install_commands:
+  codex: "codex skills install test-gen"
+  claude_code: "claude skills install test-gen"
+  opencode: "opencode skills install test-gen"
+  aider: "aider --skill test-gen"
+
+usage_example: |
+  # Generate tests for current file
+  /test
+
+  # Generate tests with specific framework
+  /test --framework=jest
+
+author: "Community"
+source_url: "https://github.com/community-skills/test-gen"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

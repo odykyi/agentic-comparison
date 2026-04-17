@@ -1,0 +1,39 @@
+# Error Explainer
+# AI-powered error message explainer and fixer
+
+name: "Error Explainer"
+slug: "error-explain"
+description: "Explains complex error messages in plain English and suggests fixes. Works with stack traces, compiler errors, and runtime exceptions."
+category: "debugging"
+tags:
+  - debugging
+  - errors
+  - stack-traces
+  - explanation
+  - fixing
+
+compatible_tools:
+  - codex
+  - claude_code
+  - opencode
+  - aider
+
+install_commands:
+  codex: "codex skills install error-explain"
+  claude_code: "claude skills install error-explain"
+  opencode: "opencode skills install error-explain"
+  aider: "aider --skill error-explain"
+
+usage_example: |
+  # Explain last error
+  /explain-error
+
+  # Explain specific error message
+  /explain-error "TypeError: Cannot read property 'x' of undefined"
+
+author: "Community"
+source_url: "https://github.com/community-skills/error-explain"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

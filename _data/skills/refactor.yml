@@ -1,0 +1,39 @@
+# Refactoring Assistant
+# AI-powered code refactoring skill
+
+name: "Refactoring Assistant"
+slug: "refactor"
+description: "Intelligent code refactoring with pattern recognition. Extracts functions, renames variables, simplifies conditionals, and improves readability."
+category: "code-quality"
+tags:
+  - refactoring
+  - cleanup
+  - patterns
+  - quality
+  - modernization
+
+compatible_tools:
+  - codex
+  - claude_code
+  - opencode
+  - aider
+
+install_commands:
+  codex: "codex skills install refactor"
+  claude_code: "claude skills install refactor"
+  opencode: "opencode skills install refactor"
+  aider: "aider --skill refactor"
+
+usage_example: |
+  # Refactor current file
+  /refactor
+
+  # Refactor with specific goal
+  /refactor --goal=extract-functions
+
+author: "Community"
+source_url: "https://github.com/community-skills/refactor"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

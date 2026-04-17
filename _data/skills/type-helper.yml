@@ -1,0 +1,39 @@
+# Type Annotation Helper
+# AI-powered TypeScript/JavaScript type annotation generator
+
+name: "Type Annotation Helper"
+slug: "type-helper"
+description: "Automatically adds TypeScript types and JSDoc annotations to JavaScript code. Improves type safety and IDE support."
+category: "code-quality"
+tags:
+  - typescript
+  - types
+  - jsdoc
+  - javascript
+  - typing
+
+compatible_tools:
+  - codex
+  - claude_code
+  - opencode
+  - aider
+
+install_commands:
+  codex: "codex skills install type-helper"
+  claude_code: "claude skills install type-helper"
+  opencode: "opencode skills install type-helper"
+  aider: "aider --skill type-helper"
+
+usage_example: |
+  # Add types to current file
+  /types
+
+  # Convert to TypeScript
+  /types --convert
+
+author: "Community"
+source_url: "https://github.com/community-skills/type-helper"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

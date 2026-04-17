@@ -1,0 +1,150 @@
+// Skills Marketplace Styles
+
+// Skill Card Styles
+.skill-card {
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+  border: 1px solid #dee2e6;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+
+  .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+
+    h5 {
+      color: #212529;
+    }
+  }
+
+  .card-body {
+    .install-section {
+      background-color: #f8f9fa;
+      border: 1px solid #e9ecef;
+
+      code {
+        background-color: #e9ecef;
+        padding: 0.375rem 0.5rem;
+        border-radius: 0.25rem;
+        font-family: var(--bs-font-monospace);
+        word-break: break-all;
+      }
+    }
+  }
+}
+
+// Tool Selector Styling
+.tool-selector {
+  font-size: 0.875rem;
+
+  &:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.2rem rgba(79, 70, 229, 0.25);
+  }
+}
+
+// Copy Button Styling
+.copy-btn {
+  min-width: 38px;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &.btn-success {
+    background-color: #198754;
+    border-color: #198754;
+  }
+}
+
+// Filter Controls
+#tool-filter,
+#category-filter {
+  cursor: pointer;
+
+  &:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.2rem rgba(79, 70, 229, 0.25);
+  }
+}
+
+// Dark Mode Support
+[data-theme="dark"] {
+  .skill-card {
+    background-color: #1e293b;
+    border-color: #334155;
+
+    .card-header {
+      background-color: #0f172a;
+      border-bottom-color: #334155;
+
+      h5 {
+        color: #f8fafc;
+      }
+    }
+
+    .card-body {
+      color: #cbd5e1;
+
+      .text-muted {
+        color: #94a3b8 !important;
+      }
+
+      .install-section {
+        background-color: #0f172a;
+        border-color: #334155;
+
+        code {
+          background-color: #1e293b;
+          color: #e2e8f0;
+        }
+      }
+    }
+
+    .card-footer {
+      background-color: #1e293b;
+      border-top-color: #334155;
+    }
+  }
+
+  .copy-btn {
+    &.btn-outline-primary {
+      color: #818cf8;
+      border-color: #818cf8;
+
+      &:hover:not(:disabled) {
+        background-color: #818cf8;
+        color: #0f172a;
+      }
+    }
+  }
+
+  #tool-filter,
+  #category-filter {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: #e2e8f0;
+
+    option {
+      background-color: #1e293b;
+      color: #e2e8f0;
+    }
+  }
+}
+
+// No Results Message
+#no-results {
+  padding: 3rem 0;
+}

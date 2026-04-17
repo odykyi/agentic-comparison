@@ -1,0 +1,35 @@
+# Git Commit Message Generator
+# AI-powered commit message generation skill
+
+name: "Commit Message Generator"
+slug: "commit-gen"
+description: "Generates conventional commit messages based on staged changes. Follows Conventional Commits spec with emoji support."
+category: "git-workflow"
+tags:
+  - git
+  - commit
+  - message
+  - conventional-commits
+
+compatible_tools:
+  - codex
+  - claude_code
+  - opencode
+  - aider
+
+install_commands:
+  codex: "codex skills install commit-gen"
+  claude_code: "claude skills install commit-gen"
+  opencode: "opencode skills install commit-gen"
+  aider: "aider --skill commit-gen"
+
+usage_example: |
+  # Generate commit message for staged changes
+  /commit
+
+author: "Community"
+source_url: "https://github.com/community-skills/commit-gen"
+license: "MIT"
+last_verified: "2024-01-15"
+version: "1.0.0"
+featured: true

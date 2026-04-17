@@ -70,6 +70,13 @@
         </li>
         <li class="nav-item">
           <a
+            class="nav-link{% if page.url contains '/skills/' %} active{% endif %}"
+            href="{{ '/skills/' | relative_url }}"
+            >Skills</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
             class="nav-link{% if page.url contains '/pricing/' %} active{% endif %}"
             href="{{ '/pricing/' | relative_url }}"
             >Pricing</a
