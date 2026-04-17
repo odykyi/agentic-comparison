@@ -676,8 +676,8 @@ tool-badge {
 
   &.status-no {
     background: transparent;
-    color: var(--color-gray-500);
-    border-color: var(--color-gray-500);
+    color: var(--color-gray-700);
+    border-color: var(--color-gray-700);
   }
 
   &.status-partial {
@@ -688,8 +688,8 @@ tool-badge {
 
   &.status-unknown {
     background: transparent;
-    color: var(--color-gray-400);
-    border-color: var(--color-gray-400);
+    color: var(--color-gray-600);
+    border-color: var(--color-gray-600);
   }
 }
 

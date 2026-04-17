@@ -8,6 +8,7 @@
     "serve": "bundle exec jekyll serve --livereload",
     "clean": "bundle exec jekyll clean",
     "test": "bundle exec htmlproofer ./_site --disable-external",
+    "test:a11y": "pa11y-ci --config .pa11yci",
     "format": "prettier --write '_data/**/*.yml'",
     "lint": "prettier --check '_data/**/*.yml'"
   },
@@ -45,6 +46,7 @@
   },
   "homepage": "https://odykyi.github.io/agentic-comparison/",
   "devDependencies": {
-    "prettier": "^3.1.0"
+    "prettier": "^3.1.0",
+    "pa11y-ci": "^3.1.0"
   }
 }

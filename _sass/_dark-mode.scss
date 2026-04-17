@@ -286,6 +286,52 @@
       opacity: 0.5;
     }
   }
+
+  // Status icons in dark mode - ensure high contrast
+  .status-icon {
+    &.status-yes {
+      background: var(--color-white);
+      color: var(--color-black);
+      border-color: var(--color-white);
+    }
+
+    &.status-no {
+      background: transparent;
+      color: var(--color-gray-400);
+      border-color: var(--color-gray-400);
+    }
+
+    &.status-partial {
+      background: var(--color-purple-light);
+      color: var(--color-black);
+      border-color: var(--color-purple-light);
+    }
+
+    &.status-unknown {
+      background: transparent;
+      color: var(--color-gray-500);
+      border-color: var(--color-gray-500);
+    }
+  }
+
+  // Feature matrix table improvements for dark mode
+  .feature-matrix {
+    .table {
+      th {
+        background: var(--color-black);
+        color: var(--color-white);
+        border-bottom-color: var(--color-gray-700);
+      }
+
+      td {
+        border-color: var(--color-gray-700);
+      }
+
+      tr:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+    }
+  }
 }
 
 // Smooth theme transition

@@ -41,7 +41,7 @@ integrations:
   - crunchbase
 
 author: "Research Community"
-source_url: "https://github.com/research-ai/skills/tree/main/perplexity-research"
+source_url: "https://github.com/odykyi/agentic-comparison/tree/main/_data/skills/business/perplexity-research.yml"
 license: "MIT"
 last_verified: "2024-01-15"
 version: "1.0.0"

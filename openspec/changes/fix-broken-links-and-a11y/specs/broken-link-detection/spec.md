@@ -15,6 +15,10 @@ The system SHALL ensure all internal navigation links resolve to valid pages wit
 - **WHEN** a user clicks any link in the site footer
 - **THEN** the target page loads without error
 
+#### Scenario: Skill page links are valid
+- **WHEN** a user clicks a skill link on the skills page
+- **THEN** the corresponding skill detail page loads correctly
+
 ### Requirement: Tool page URLs use consistent naming
 The system SHALL use kebab-case URLs for all tool detail pages matching their data keys.
 
@@ -25,3 +29,15 @@ The system SHALL use kebab-case URLs for all tool detail pages matching their da
 #### Scenario: All tool pages follow naming convention
 - **WHEN** the site is built
 - **THEN** all tool pages use kebab-case naming (e.g., `claude-code`, `opencode`, `codex-cli`)
+
+### Requirement: External skill repository links are valid
+The system SHALL ensure all external skill repository links (e.g., GitHub URLs) resolve to valid repositories.
+
+#### Scenario: Skill GitHub links work
+- **WHEN** a user clicks a skill's GitHub repository link
+- **THEN** the repository page loads without a 404 error
+
+#### Scenario: Invalid skill repos are flagged or removed
+- **WHEN** the site is audited for broken links
+- **AND** a skill links to a non-existent repository (e.g., `research-ai/skills`)
+- **THEN** the broken link is identified for fixing or removal

@@ -1,16 +1,21 @@
 ## ADDED Requirements
 
 ### Requirement: Automated link checking in build pipeline
-The system SHALL run automated link validation during the build process.
+The system SHALL run automated link validation during the build process for both internal and external links.
 
-#### Scenario: Broken links fail the build
+#### Scenario: Broken internal links fail the build
 - **WHEN** the site is built in CI
-- **AND** there are broken internal links
+- **AND** there are broken internal links (including skill detail pages)
 - **THEN** the build fails with an error message identifying the broken links
 
-#### Scenario: External link warnings
+#### Scenario: Broken external skill repo links are reported
+- **WHEN** the site is built in CI
+- **AND** external skill repository links return 404 (e.g., `github.com/research-ai/skills/*`)
+- **THEN** the build warns with a list of broken external skill links
+
+#### Scenario: External link timeouts handled gracefully
 - **WHEN** the site is built
-- **AND** external links return 404 or timeout
+- **AND** external links timeout
 - **THEN** the build warns but does not fail
 
 ### Requirement: Automated accessibility testing in CI

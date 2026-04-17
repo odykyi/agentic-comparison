@@ -2,12 +2,14 @@
 
 - [ ] 1.1 Audit all internal links in `_includes/navigation.html` and identify broken paths
 - [ ] 1.2 Audit tool page links in `tools/` directory - check for naming mismatches (e.g., `claude_code` vs `claude-code`)
-- [ ] 1.3 Fix navigation links to point to correct tool page paths
-- [ ] 1.4 Fix comparison table links in `compare/index.html` to use correct URLs
-- [ ] 1.5 Standardize all tool page URLs to kebab-case matching data keys
-- [ ] 1.6 Add Jekyll redirect-from for old tool page URLs if URLs change
-- [ ] 1.7 Verify footer links in `_includes/footer.html` are valid
-- [ ] 1.8 Manually test all navigation, comparison, and footer links
+- [ ] 1.3 Audit skill links in `skills/` directory and `_data/skills/` - identify broken external repo URLs (e.g., `research-ai/skills`)
+- [ ] 1.4 Fix navigation links to point to correct tool page paths
+- [ ] 1.5 Fix comparison table links in `compare/index.html` to use correct URLs
+- [ ] 1.6 Fix or remove broken skill repository links (e.g., update to correct GitHub org/repo or mark as unavailable)
+- [ ] 1.7 Standardize all tool page URLs to kebab-case matching data keys
+- [ ] 1.8 Add Jekyll redirect-from for old tool page URLs if URLs change
+- [ ] 1.9 Verify footer links in `_includes/footer.html` are valid
+- [ ] 1.10 Manually test all navigation, comparison, skill, and footer links
 
 ## 2. Fix Color Contrast Issues
 
@@ -27,9 +29,11 @@
 - [ ] 3.1 Add `html-proofer` gem to `Gemfile`
 - [ ] 3.2 Run `bundle install` to install dependencies
 - [ ] 3.3 Create `Rakefile` with htmlproofer task for link validation
-- [ ] 3.4 Configure htmlproofer to check internal links only (`disable_external: true`)
-- [ ] 3.5 Run htmlproofer locally and verify it catches any remaining broken links
-- [ ] 3.6 Fix any additional broken links discovered by htmlproofer
+- [ ] 3.4 Configure htmlproofer to check internal links and skill repo external links
+- [ ] 3.5 Add timeout configuration for external link checks to prevent CI hangs
+- [ ] 3.6 Run htmlproofer locally and verify it catches any remaining broken links
+- [ ] 3.7 Fix any additional broken internal links discovered by htmlproofer
+- [ ] 3.8 Create report of broken external skill links for manual review
 
 ## 4. Add Automated Accessibility Testing
 
