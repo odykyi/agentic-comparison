@@ -4,9 +4,6 @@ title: Skills Marketplace
 description: Discover and install AI agent skills for Codex, Claude Code, OpenCode, and more
 ---
 
-{% assign skills = site.data.skills %}
-{% assign featured_skills = skills | where_exp: "skill", "skill[1].featured == true" %}
-
 <!-- Hero Section -->
 <div class="py-5 bg-light">
   <div class="container">
@@ -55,63 +52,65 @@ description: Discover and install AI agent skills for Codex, Claude Code, OpenCo
 <!-- Skills Grid -->
 <div class="container py-5">
   <div class="row g-4" id="skills-grid">
-    {% for skill_entry in featured_skills %}
-      {% assign skill_slug = skill_entry[0] %}
-      {% assign skill = skill_entry[1] %}
-      <div class="col-md-6 col-lg-4 skill-card-wrapper" 
-           data-tools="{{ skill.compatible_tools | join: ' ' }}"
-           data-category="{{ skill.category }}">
-        <div class="card h-100 skill-card">
-          <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">{{ skill.name }}</h5>
-            <span class="badge bg-secondary">{{ skill.category | replace: '-', ' ' | capitalize }}</span>
-          </div>
-          <div class="card-body">
-            <p class="text-muted">{{ skill.description | truncate: 150 }}</p>
-
-            <!-- Tool Badges -->
-            <div class="mb-3">
-              <small class="text-muted d-block mb-1">Compatible with:</small>
-              <div class="d-flex flex-wrap gap-1">
-                {% for tool in skill.compatible_tools %}
-                  <span class="badge" style="background-color: {{ site.tool_colors[tool] | default: '#6c757d' }}">
-                    {{ tool | replace: '_', ' ' | capitalize }}
-                  </span>
-                {% endfor %}
-              </div>
+    {% for skill in site.data.skills %}
+      {% if skill[1].featured == true %}
+        {% assign skill_slug = skill[0] %}
+        {% assign skill_data = skill[1] %}
+        <div class="col-md-6 col-lg-4 skill-card-wrapper" 
+             data-tools="{{ skill_data.compatible_tools | join: ' ' }}"
+             data-category="{{ skill_data.category }}">
+          <div class="card h-100 skill-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">{{ skill_data.name }}</h5>
+              <span class="badge bg-secondary">{{ skill_data.category | replace: '-', ' ' | capitalize }}</span>
             </div>
+            <div class="card-body">
+              <p class="text-muted">{{ skill_data.description | truncate: 150 }}</p>
 
-            <!-- Install Command Section -->
-            <div class="install-section bg-light rounded p-2">
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <small class="text-muted">Install command:</small>
-                <select class="form-select form-select-sm tool-selector" style="width: auto; max-width: 140px;" data-skill="{{ skill_slug }}">
-                  {% for tool in skill.compatible_tools %}
-                    <option value="{{ tool }}">{{ tool | replace: '_', ' ' | capitalize }}</option>
+              <!-- Tool Badges -->
+              <div class="mb-3">
+                <small class="text-muted d-block mb-1">Compatible with:</small>
+                <div class="d-flex flex-wrap gap-1">
+                  {% for tool in skill_data.compatible_tools %}
+                    <span class="badge" style="background-color: {{ site.tool_colors[tool] | default: '#6c757d' }}">
+                      {{ tool | replace: '_', ' ' | capitalize }}
+                    </span>
                   {% endfor %}
-                </select>
+                </div>
               </div>
-              <div class="d-flex align-items-center gap-2">
-                <code class="flex-grow-1 text-dark install-command" id="command-{{ skill_slug }}" style="font-size: 0.85rem;">
-                  {% assign first_tool = skill.compatible_tools | first %}
-                  {{ skill.install_commands[first_tool] }}
-                </code>
-                <button class="btn btn-sm btn-outline-primary copy-btn" data-command="{{ skill.install_commands[first_tool] }}" title="Copy to clipboard">
-                  <i class="bi bi-clipboard"></i>
-                </button>
+
+              <!-- Install Command Section -->
+              <div class="install-section bg-light rounded p-2">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <small class="text-muted">Install command:</small>
+                  <select class="form-select form-select-sm tool-selector" style="width: auto; max-width: 140px;" data-skill="{{ skill_slug }}">
+                    {% for tool in skill_data.compatible_tools %}
+                      <option value="{{ tool }}">{{ tool | replace: '_', ' ' | capitalize }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <code class="flex-grow-1 text-dark install-command" id="command-{{ skill_slug }}" style="font-size: 0.85rem;">
+                    {% assign first_tool = skill_data.compatible_tools | first %}
+                    {{ skill_data.install_commands[first_tool] }}
+                  </code>
+                  <button class="btn btn-sm btn-outline-primary copy-btn" data-command="{{ skill_data.install_commands[first_tool] }}" title="Copy to clipboard">
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="card-footer bg-white border-0">
-            <div class="d-flex justify-content-between align-items-center">
-              <small class="text-muted">v{{ skill.version }}</small>
-              <a href="{{ skill.source_url }}" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">
-                <i class="bi bi-github"></i> Source
-              </a>
+            <div class="card-footer bg-white border-0">
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">v{{ skill_data.version }}</small>
+                <a href="{{ skill_data.source_url }}" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">
+                  <i class="bi bi-github"></i> Source
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      {% endif %}
     {% endfor %}
 
   </div>
